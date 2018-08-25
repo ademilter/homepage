@@ -102,7 +102,7 @@ module.exports = {
         rel: 'stylesheet',
         media: 'none',
         href: '/fonts.css',
-        onload: "if (media!='all') media='all'"
+        onload: 'if (media!=\'all\') media=\'all\''
       },
       {
         rel: 'icon',
@@ -146,25 +146,20 @@ module.exports = {
           if (!window.HTMLPictureElement || !("sizes" in document.createElement("img"))) {
             document.createElement("picture");
             loadJS ("/respimage.min.js");
-          }
-          `
+          }`
+      },
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=UA-17768654-1',
+        async: '',
+        body: true
       },
       {
         innerHTML: `
-          (function (m, e, r, h, a, b, aa) {
-            m['GoogleAnalyticsObject'] = a;
-            m[a] = m[a] || function () {
-                (m[a].q = m[a].q || []).push(arguments)
-              }, m[a].l = 1 * new Date();
-            b = e.createElement(r),
-              aa = e.getElementsByTagName(r)[0];
-            b.async = 1;
-            b.src = h;
-            aa.parentNode.insertBefore(b, aa)
-          })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-          ga('create', 'UA-17768654-1', 'auto');
-          ga('send', 'pageview');
-          `,
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'UA-17768654-1');`,
         body: true
       }
     ],
