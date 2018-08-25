@@ -7,7 +7,7 @@
             <div class="col-xs-12 col-md-8 col-md-offset-4">
               <h1>
                 Hi <img draggable="false" class="icon" alt="hi"
-                        src="http://ademilter.com/wp-content/themes/purpple/img/emoji/svg-min/1f590-1f3fc.svg"><br>
+                        src="~/assets/1f590-1f3fc.svg"><br>
                 I’m ADEM,<br>
                 Frontend Developer from Istanbul.
               </h1>

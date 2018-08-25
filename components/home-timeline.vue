@@ -22,9 +22,7 @@
                 class="Event-content col-xs-12 first-xs last-md col-md-offset-1 col-md-8">
                 <h3 class="Event-content-title">
                   <a href="http://ademilter.com/event/feyizli-linkler-14/">
-                    Feyizli Linkler
-                    <img draggable="false" class="icon" alt="✨"
-                         src="http://ademilter.com/wp-content/themes/purpple/img/emoji/svg-min/2728.svg">&nbsp;#14</a>
+                    Feyizli Linkler&nbsp;#14</a>
                 </h3>
                 <div class="Event-content-detail">
                 </div>
