@@ -1,18 +1,185 @@
 module.exports = {
   head: {
-    title: 'ademilter-nuxt',
+    title: 'Adem ilter',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      {
+        'http-equiv': 'x-ua-compatible',
+        content: 'ie=edge'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Frontend Developer from Istanbul'
+      },
+      {
+        name: 'google',
+        value: 'notranslate'
+      },
+      {
+        name: 'theme-color',
+        content: '#2D184B'
+      },
+      {
+        name: 'msapplication-navbutton-color',
+        content: '#2D184B'
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      },
+      {
+        'http-equiv': 'cleartype',
+        content: 'on'
+      },
+      {
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        property: 'og:url',
+        content: 'https://ademilter.com/'
+      },
+      {
+        property: 'og:title',
+        content: 'Adem ilter'
+      },
+      {
+        property: 'og:description',
+        content: 'Hi. I’m ADEM, Frontend Developer from Istanbul.'
+      },
+      {
+        property: 'og:image',
+        content: '/meta-og-image.jpg'
+      },
+      {
+        property: 'twitter:site',
+        content: '@ademilter'
+      },
+      {
+        property: 'twitter:creator',
+        content: '@ademilter'
+      },
+      {
+        property: 'twitter:domain',
+        content: 'https://ademilter.com/'
+      },
+      {
+        property: 'twitter:title',
+        content: 'Adem ilter'
+      },
+      {
+        property: 'twitter:description',
+        content: 'Hi. I’m ADEM, Frontend Developer from Istanbul.'
+      },
+      {
+        property: 'twitter:image:src',
+        content: '/meta-twitter-image.jpg'
+      }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'dns-prefetch',
+        href: '//ademilter.com'
+      },
+      {
+        rel: 'dns-prefetch',
+        href: '//www.google-analytics.com'
+      },
+      {
+        rel: 'profile',
+        href: 'http://gmpg.org/xfn/11'
+      },
+      {
+        rel: 'publisher',
+        href: 'https://plus.google.com/+AdemIlter'
+      },
+      {
+        rel: 'stylesheet',
+        media: 'none',
+        href: '/styles/fonts.css',
+        onload: "if (media!='all') media='all'"
+      },
+      {
+        rel: 'icon',
+        sizes: '16x16',
+        type: 'image/png',
+        href: '/favicon-16.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '32x32',
+        type: 'image/png',
+        href: '/favicon-32.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '48x48',
+        type: 'image/png',
+        href: '/favicon-48.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '62x62',
+        type: 'image/png',
+        href: '/favicon-62.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '192x192',
+        type: 'image/png',
+        href: '/favicon-192.png'
+      }
+    ],
+    script: [
+      {
+        innerHTML: `
+          function loadJS(u) {
+            var r = document.getElementsByTagName("script")[0], s = document.createElement("script");
+            s.src = u;
+            r.parentNode.insertBefore(s, r);
+          }
+          if (!window.HTMLPictureElement || !("sizes" in document.createElement("img"))) {
+            document.createElement("picture");
+            loadJS ("/respimage.min.js");
+          }
+          `
+      },
+      {
+        innerHTML: `
+          (function (m, e, r, h, a, b, aa) {
+            m['GoogleAnalyticsObject'] = a;
+            m[a] = m[a] || function () {
+                (m[a].q = m[a].q || []).push(arguments)
+              }, m[a].l = 1 * new Date();
+            b = e.createElement(r),
+              aa = e.getElementsByTagName(r)[0];
+            b.async = 1;
+            b.src = h;
+            aa.parentNode.insertBefore(b, aa)
+          })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+          ga('create', 'UA-17768654-1', 'auto');
+          ga('send', 'pageview');
+          `,
+        body: true
+      }
+    ],
+    noscript: [
+      {
+        innerHTML: '<link rel="stylesheet" href="/fonts.css">'
+      }
+    ],
+    __dangerouslyDisableSanitizers: ['link', 'script', 'noscript']
   },
   loading: {
     color: '#3B8070'
   },
-  css: ['~/styles/main.scss'],
+  css: ['~/styles/inline.scss'],
   build: {
-    vendor: ['respimage', 'lazysizes']
+    vendor: ['lazysizes']
   }
 }

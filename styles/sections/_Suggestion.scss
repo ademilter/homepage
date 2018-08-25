@@ -1,0 +1,141 @@
+.Suggestion {
+  margin-top: 120px;
+  @include breakpoints("md") {
+    margin-top: 180px;
+  }
+}
+
+.Link {
+  position: relative;
+  padding-top: $offset;
+  padding-bottom: $offset;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    right: 0;
+    transition: $transition;
+  }
+
+  &:hover:before {
+    background-color: rgba(white, .04);
+  }
+
+  &-meta {
+    margin-top: 20px;
+    display: flex;
+    line-height: 1;
+    @include breakpoints("md") {
+      display: block;
+      line-height: inherit;
+      margin-top: 0;
+    }
+
+    &-category {
+      font-size: $font-text-size-small;
+      @include breakpoints("md") {
+        display: block;
+        font-size: 1em;
+      }
+
+      .Event.Project & {
+        color: rgba(#F5A623, .8);
+      }
+      .Event.Personal & {
+        color: rgba(#ABE86D, .8);
+      }
+      .Event.Work & {
+        color: rgba(#74B4FF, .8);
+      }
+      .Event.Blog & {
+        color: rgba(#7B82FF, .8);
+      }
+      .Event.Conference & {
+        color: rgba(#FF6D6D, .8);
+      }
+      .Event.Startup & {
+        color: rgba(#EC7BFF, .8);
+      }
+      .Event.Travel & {
+        color: rgba(#D7D326, .8);
+      }
+    }
+
+    &-date {
+      display: inline-block;
+      font-family: $font-family-serif;
+      font-size: $font-text-size-small;
+      color: $color-text-light;
+      @include breakpoints("md") {
+        margin-top: 6px;
+      }
+
+      &:before {
+        content: "—";
+        margin-left: 5px;
+        margin-right: 5px;
+        @include breakpoints("md") {
+          display: none;
+        }
+      }
+
+    }
+  }
+
+  &-content {
+    @include breakpoints("md") {
+      position: relative;
+    }
+
+    .Event:first-child &:before,
+    .Event &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: $color-hide;
+      transition: $transition;
+      @include breakpoints("md") {
+        left: $offset-grid;
+        right: $offset-grid;
+      }
+    }
+    .Event:first-child &:before {
+      top: 0;
+      @include breakpoints("md") {
+        top: -30px;
+      }
+    }
+    .Event &:after {
+      bottom: 0;
+      @include breakpoints("md") {
+        bottom: -30px;
+      }
+    }
+
+    &-title {
+      a {
+        text-decoration: none;
+
+        .Event:hover & {
+          color: $color-cyan;
+        }
+      }
+    }
+
+    &-detail {
+      margin-top: 4px;
+      font-family: $font-family-serif;
+      font-size: $font-text-size-small;
+      color: $color-text-light;
+      @include breakpoints("md") {
+        margin-top: 6px;
+      }
+    }
+
+  }
+}

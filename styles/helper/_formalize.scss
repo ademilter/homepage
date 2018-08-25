@@ -1,0 +1,57 @@
+/* formalize.css | MIT License | github.com/interacthings/formalize */
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a, button {
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+}
+
+img {
+  vertical-align: middle;
+  user-select: none;
+  max-width: 100%;
+}
+
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, figure, p, pre, fieldset, ul, ol, menu {
+  margin: 0;
+}
+
+button, fieldset, iframe {
+  border: 0;
+}
+
+fieldset, ul, ol, button, menu {
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+ol, ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}

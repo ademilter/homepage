@@ -1,0 +1,61 @@
+.Footer {
+  margin-top: 120px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+  border-top: 1px solid $color-hide;
+  color: $color-text-light;
+  text-align: center;
+  @include breakpoints("sm") {
+    margin-bottom: 60px;
+    padding-top: 60px;
+  }
+  @include breakpoints("md") {
+    margin-top: 180px;
+    text-align: left;
+  }
+
+  /*&-scrobbler {
+    @include breakpoints("md") {
+      order: 3;
+    }
+  }
+
+  &-social {
+    @include breakpoints("md") {
+      order: 2;
+    }
+  }
+
+  &-copyright {
+    @include breakpoints("md") {
+      order: 1;
+    }
+  }*/
+
+}
+
+.Social-link {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 28px;
+  @include breakpoints("md") {
+    margin-bottom: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 30px;
+  }
+
+  a {
+    display: flex;
+    &:hover {
+      color: white;
+    }
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+
+  }
+}

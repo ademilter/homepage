@@ -1,0 +1,67 @@
+html {
+  font-family: $font-family-sans;
+  font-weight: 400;
+  font-size: $font-text-size;
+  line-height: $font-line-height;
+  color: $color-text;
+  background-color: $color-purple;
+  @include breakpoints("md") {
+    font-size: $font-text-size-desktop;
+  }
+}
+
+::selection {
+  color: white;
+  text-shadow: 0 1px 1px rgba(black, .4);
+  background-color: $color-cyan;
+}
+
+a, button {
+  transition: $transition;
+}
+
+.btn {
+  text-decoration: none;
+}
+
+.strike {
+  color: $color-text-light;
+  text-decoration: none;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.Section {
+
+  &-title {
+    margin-bottom: 50px;
+  }
+
+  &-more {
+    display: block;
+    margin-top: $offset-grid;
+    padding: 1em;
+    font-size: $font-text-size-small;
+    color: $color-text-light;
+    background-color: $color-hide;
+    @include breakpoints("md") {
+      margin-top: $offset;
+    }
+
+    &:hover {
+      color: white;
+      background-color: $color-text-light;
+    }
+  }
+}
+
+.img-fadein {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.img-fadein.lazyloaded {
+  opacity: 1;
+}

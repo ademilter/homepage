@@ -1,0 +1,82 @@
+.Journal {
+  margin-top: 120px;
+  @include breakpoints("md") {
+    margin-top: 180px;
+  }
+}
+
+.Bucket {
+  overflow: hidden;
+  position: relative;
+
+  &-row {
+    > div + div {
+      margin-top: $offset-grid;
+      @include breakpoints("md") {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &:before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(20deg, rgba($color-purple, .9) 0%, rgba($color-purple, .2) 80%);
+  }
+
+  &:hover:before {
+    background-image: linear-gradient(20deg, rgba($color-purple, .8) 0%, rgba($color-purple, 0) 100%);
+  }
+
+  &-cover {
+    display: block;
+    width: 100%;
+    transition: transform $transition;
+
+    .Bucket:hover & {
+      transform: scale(1.2);
+      transition-duration: 15s;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &-info {
+    z-index: 2;
+    position: absolute;
+    left: $offset-grid;
+    bottom: 10px;
+    @include breakpoints("md") {
+      left: $offset;
+      bottom: 20px;
+    }
+
+    &-title {
+      margin-bottom: -4px;;
+    }
+    &-date {
+      line-height: 1;
+      color: $color-text-light;
+      font-family: $font-family-serif;
+      font-size: $font-text-size-small;
+    }
+  }
+
+  &-link {
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}

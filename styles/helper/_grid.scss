@@ -1,0 +1,59 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $offset-grid;
+  padding-left: $offset-grid;
+
+  &-xl {
+    max-width: 1600px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: -$offset-grid;
+  margin-left: -$offset-grid;
+}
+
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+[class*="col-"] {
+  flex: 0 0 auto;
+}
+
+.col,
+[class*="col-"] {
+  padding-right: $offset-grid;
+  padding-left: $offset-grid;
+}
+
+@include makeGrid("xs");
+
+@include breakpoints("sm") {
+  .container {
+    max-width: map_get($breakpoints, sm);
+  }
+  @include makeGrid("sm");
+}
+
+@include breakpoints("md") {
+  .container {
+    max-width: map_get($breakpoints, md);
+  }
+  @include makeGrid("md");
+}
+
+@include breakpoints("lg") {
+  .container {
+    max-width: map_get($breakpoints, lg);
+  }
+  @include makeGrid("lg");
+}

@@ -1,0 +1,79 @@
+.Header {
+  z-index: 10;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  @include breakpoints("md") {
+    top: 80px;
+  }
+}
+
+.Logo {
+  svg {
+    .logo-path {
+      fill: $color-cyan;
+    }
+    .logo-path:nth-child(2) {
+      fill: lighten($color-cyan, 7);
+    }
+    .logo-path:nth-child(3) {
+      fill: lighten($color-cyan, 14);
+    }
+    .logo-path:nth-child(4) {
+      fill: lighten($color-cyan, 20);
+    }
+  }
+}
+
+/*
+
+.Logo0 {
+  svg {
+    display: block;
+    transform: scale(0);
+    will-change: transform;
+    .logo-path,
+    .logo-helper {
+      transform-origin: 50%;
+      fill: $color-cyan;
+    }
+    .logo-path:nth-child(1) {
+      transform: scale(.7) translateX(-77px);
+    }
+    .logo-path:nth-child(2) {
+      transform: scale(.7) translateX(-29px);
+      fill: lighten($color-cyan, 7);
+    }
+    .logo-path:nth-child(3) {
+      transform: scale(.7) translateX(29px);
+      fill: lighten($color-cyan, 14);
+    }
+    .logo-path:nth-child(4) {
+      transform: scale(.7) translateX(77px);
+      fill: lighten($color-cyan, 20);
+    }
+  }
+}
+
+body.OynatUgurcum {
+  .Logo {
+    svg {
+      transition: transform 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+      transform: scale(1);
+
+      .logo-path,
+      .logo-helper {
+        transition: transform 1500ms 160ms cubic-bezier(0.19, 1, 0.22, 1);
+      }
+      .logo-path {
+        transform: translateX(0) scale(1);
+      }
+      .logo-helper {
+        transform: scale(0);
+        transition-duration: 500ms;
+        transition-timing-function: ease;
+      }
+    }
+  }
+}*/

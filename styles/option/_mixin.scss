@@ -1,0 +1,67 @@
+@mixin makeGrid($size: "xs") {
+
+  @for $i from 1 through 12 {
+    .col-#{$size}-#{$i} {
+      flex-basis: percentage($i/12);
+      max-width: percentage($i/12);
+    }
+  }
+
+  @for $i from 0 through 11 {
+    .col-#{$size}-offset-#{$i} {
+      margin-left: percentage($i/12);
+    }
+  }
+
+  //.start-#{$size} {
+  //  justify-content: flex-start;
+  //  text-align: start;
+  //}
+  //
+  //.center-#{$size} {
+  //  justify-content: center;
+  //  text-align: center;
+  //}
+  //
+  //.end-#{$size} {
+  //  justify-content: flex-end;
+  //  text-align: end;
+  //}
+  //
+  .top-#{$size} {
+    align-items: flex-start;
+  }
+
+  .middle-#{$size} {
+    align-items: center;
+  }
+
+  .bottom-#{$size} {
+    align-items: flex-end;
+  }
+
+  .first-#{$size} {
+    order: -1;
+  }
+
+  .last-#{$size} {
+    order: 1;
+  }
+
+}
+
+@mixin breakpoints($size: "sm") {
+  @if ($size == "sm") {
+    @media only screen and (min-width: map_get($breakpoints, $size)) {
+      @content
+    }
+  } @else if ($size == "md") {
+    @media only screen and (min-width: map_get($breakpoints, $size)) {
+      @content
+    }
+  } @else if ($size == "lg") {
+    @media only screen and (min-width: map_get($breakpoints, $size)) {
+      @content
+    }
+  }
+}

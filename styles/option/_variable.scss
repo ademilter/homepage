@@ -1,0 +1,32 @@
+// GLOBAL
+$transition: .13s;
+$finger-size: 50px;
+$offset: 30px;
+$offset-grid: $offset / 2;
+
+// COLOR
+$color-purple: #2D184B;
+$color-cyan: #55FFD9;
+$color-hide: rgba(white, .06);
+$color-text: white;
+$color-text-light: rgba(white, .4);
+
+// TYPOGRAPHY
+$font-text-size: 20px;
+$font-text-size-desktop: 22px;
+$font-text-size-small: .86em;
+$font-line-height: 1.5;
+
+// FONT
+$font-sans-name: "Circular";
+$font-serif-name: "TiemposText";
+$font-family-sans: $font-sans-name, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$font-family-serif: $font-serif-name, Georgia, Serif;
+$font-src: "fonts/";
+
+// BREAKPOINTS
+$breakpoints: (
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);

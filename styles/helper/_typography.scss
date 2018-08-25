@@ -1,0 +1,28 @@
+h1 {
+  line-height: 1.2;
+}
+
+h2 {
+  line-height: 1;
+}
+
+h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+//
+
+h1, h2 {
+  font-size: 2em;
+  @include breakpoints("sm") {
+    font-size: 2.4em;
+  }
+}
+
+h3 {
+  font-size: 1em;
+}
+
+h4, h5, h6 {
+  font-size: $font-text-size-small;
+}
