@@ -91,6 +91,10 @@ module.exports = {
         href: '//www.google-analytics.com'
       },
       {
+        rel: 'dns-prefetch',
+        href: '//www.googletagmanager.com'
+      },
+      {
         rel: 'profile',
         href: 'http://gmpg.org/xfn/11'
       },
@@ -160,6 +164,16 @@ module.exports = {
           gtag('js', new Date());
         
           gtag('config', 'UA-17768654-1');`,
+        body: true
+      },
+      {
+        innerHTML: `
+          window.lazySizesConfig = window.lazySizesConfig || {};
+          window.lazySizesConfig.customMedia = {
+              '--xl': '(min-width: 1200px)',
+              '--md': '(min-width: 992px)',
+              '--sm': '(min-width: 768px)'
+          };`,
         body: true
       }
     ],
