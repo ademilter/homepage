@@ -8,10 +8,10 @@
 </template>
 
 <script>
-  import About from './section-about'
-  import Cover from './section-cover'
-  import Timeline from './section-timeline'
-  import Journal from './section-journal'
+  import About from '~/components/home-about'
+  import Cover from '~/components/home-cover'
+  import Timeline from '~/components/home-timeline'
+  import Journal from '~/components/home-journal'
 
   export default {
     components: {
