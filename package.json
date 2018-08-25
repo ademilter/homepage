@@ -9,7 +9,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "fonts": "sass styles/fonts.scss static/fonts.css --no-source-map"
+    "fonts": "sass styles/fonts.scss static/fonts.css --no-source-map",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "lazysizes": "^4.1.1",
@@ -22,6 +23,7 @@
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
     "node-sass": "^4.9.3",
+    "push-dir": "^0.4.1",
     "sass-loader": "^7.1.0"
   }
 }
