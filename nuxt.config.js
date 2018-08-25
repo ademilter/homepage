@@ -101,7 +101,7 @@ module.exports = {
       {
         rel: 'stylesheet',
         media: 'none',
-        href: '/styles/fonts.css',
+        href: '/fonts.css',
         onload: "if (media!='all') media='all'"
       },
       {

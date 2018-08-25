@@ -76,6 +76,5 @@
             alt="Adem ilter with daughter"
             data-expand="-30">
     </picture>
-    {{ a0 }}
   </div>
 </template>
