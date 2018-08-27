@@ -1,3 +1,5 @@
+const resolve = require('path').resolve
+
 module.exports = {
   head: {
     title: 'Adem ilter',
@@ -153,6 +155,26 @@ module.exports = {
           }`
       },
       {
+        src: '/firebase-app.js',
+        body: true
+      },
+      {
+        src: '/firebase-database.js',
+        body: true
+      },
+      {
+        innerHTML: `
+          var config = {
+            apiKey: 'AIzaSyDrmhJFEUBiy0jkjhK0o7-iiuCJP214Xco',
+            authDomain: 'ademilter-timeline.firebaseapp.com',
+            databaseURL: 'https://ademilter-timeline.firebaseio.com',
+            storageBucket: 'ademilter-timeline.appspot.com',
+          }
+          firebase.initializeApp(config);
+          var database = firebase.database();`,
+        body: true
+      },
+      {
         src: 'https://www.googletagmanager.com/gtag/js?id=UA-17768654-1',
         async: '',
         body: true
@@ -189,6 +211,14 @@ module.exports = {
   },
   css: ['~/styles/inline.scss'],
   build: {
-    vendor: ['lazysizes']
-  }
+    vendor: [
+      'lazysizes'
+    ]
+  },
+  modules: [
+    ['nuxt-sass-resources-loader', [
+      resolve(__dirname, 'styles/option/_variable.scss'),
+      resolve(__dirname, 'styles/option/_mixin.scss')
+    ]]
+  ]
 }

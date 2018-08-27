@@ -1,13 +1,6 @@
 html {
-  font-family: $font-family-sans;
-  font-weight: 400;
-  font-size: $font-text-size;
-  line-height: $font-line-height;
   color: $color-text;
   background-color: $color-purple;
-  @include breakpoints("md") {
-    font-size: $font-text-size-desktop;
-  }
 }
 
 ::selection {
@@ -32,20 +25,11 @@ a, button {
   transition: $transition;
 }
 
-.btn {
-  text-decoration: none;
-}
-
-.strike {
-  color: $color-text-light;
-  text-decoration: none;
-}
-
 svg {
   fill: currentColor;
 }
 
-.Section {
+.section {
 
   &-title {
     margin-bottom: 50px;
@@ -69,11 +53,3 @@ svg {
   }
 }
 
-.img-fadein {
-  opacity: 0;
-  transition: opacity 500ms;
-}
-
-.img-fadein.lazyloaded {
-  opacity: 1;
-}

@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  line-height: $font-line-height;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+iframe {
+  display: block;
+}
+
+img {
+  vertical-align: middle;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+textarea {
+  resize: vertical;
+}
+

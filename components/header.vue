@@ -1,7 +1,7 @@
 <template>
-  <header class="Header" role="banner">
+  <header class="header" role="banner">
     <div class="container">
-      <a class="Logo" href="/">
+      <a class="logo" href="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="142"
@@ -21,3 +21,38 @@
     </div>
   </header>
 </template>
+
+<style lang="scss">
+  .header {
+    z-index: 10;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    @include breakpoints("md") {
+      top: 80px;
+    }
+
+    .logo {
+      svg {
+
+        .logo-path {
+          fill: $color-cyan;
+        }
+
+        .logo-path:nth-child(2) {
+          fill: lighten($color-cyan, 7);
+        }
+
+        .logo-path:nth-child(3) {
+          fill: lighten($color-cyan, 14);
+        }
+
+        .logo-path:nth-child(4) {
+          fill: lighten($color-cyan, 20);
+        }
+
+      }
+    }
+  }
+</style>

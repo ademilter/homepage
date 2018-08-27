@@ -1,3 +1,13 @@
+html {
+  font-family: $font-family-sans;
+  font-weight: 400;
+  font-size: $font-text-size;
+  line-height: $font-line-height;
+  @include breakpoints("md") {
+    font-size: $font-text-size-desktop;
+  }
+}
+
 h1 {
   line-height: 1.2;
 }

@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "lazysizes": "^4.1.1",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "nuxt-sass-resources-loader": "^2.0.4"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
