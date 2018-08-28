@@ -155,26 +155,6 @@ module.exports = {
           }`
       },
       {
-        src: '/firebase-app.js',
-        body: true
-      },
-      {
-        src: '/firebase-database.js',
-        body: true
-      },
-      {
-        innerHTML: `
-          var config = {
-            apiKey: 'AIzaSyDrmhJFEUBiy0jkjhK0o7-iiuCJP214Xco',
-            authDomain: 'ademilter-timeline.firebaseapp.com',
-            databaseURL: 'https://ademilter-timeline.firebaseio.com',
-            storageBucket: 'ademilter-timeline.appspot.com',
-          }
-          firebase.initializeApp(config);
-          var database = firebase.database();`,
-        body: true
-      },
-      {
         src: 'https://www.googletagmanager.com/gtag/js?id=UA-17768654-1',
         async: '',
         body: true

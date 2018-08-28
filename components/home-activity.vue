@@ -64,11 +64,17 @@
                     :alt="event.value.title">
                 </template>
 
-                <!--h3 class="Event-content-title">
-                  <a
-                    :href="event.value.url">
-                    {{ event.value.title }}</a>
-                </h3-->
+                <template v-else-if="event.value.site === 'twitter'">
+                  <blockquote
+                    class="twitter-tweet"
+                    data-lang="en">
+                    <a
+                      :href="event.value.url"></a>
+                  </blockquote>
+                  <script>
+                    twttr.widgets.load()
+                  </script>
+                </template>
 
               </div>
             </div>
@@ -92,10 +98,14 @@
       const timeline = database.ref('db').limitToLast(10)
       timeline.once('value', snapshot => {
         snapshot.forEach(event => {
-          this.timeline.push({
+          const obj = {
             raw: event,
             value: event.val()
-          })
+          }
+          if (obj.value.site === 'twitter' && obj.value.hasOwnProperty('reply_screen_name')) {
+            return
+          }
+          this.timeline.push(obj)
         })
       })
     }
