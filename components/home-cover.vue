@@ -26,10 +26,8 @@
 <style lang="scss">
   .cover {
     position: relative;
-
     @include breakpoints("sm") {
-      &:before,
-      &:after {
+      &:before {
         content: "";
         z-index: 2;
         position: absolute;
@@ -37,16 +35,9 @@
         width: 100%;
         height: 30%;
       }
-
       &:before {
         top: 0;
         background-image: linear-gradient(0deg, rgba($color-purple, 0) 0%, rgba($color-purple, 1) 100%);
-      }
-
-      &:after {
-        display: none;
-        bottom: 0;
-        background-image: linear-gradient(180deg, rgba($color-purple, 0) 0%, rgba($color-purple, 1) 100%);
       }
     }
 
