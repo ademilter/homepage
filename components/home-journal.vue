@@ -20,8 +20,8 @@
               alt="Londra"
             ></Picture>
             <div class="info">
-              <h3 class="Bucket-info-title">Londra</h3>
-              <time class="Bucket-info-date">January 18, 2017</time>
+              <h3 class="title">Londra</h3>
+              <time class="date">January 18, 2017</time>
             </div>
             <a class="link"
                href="https://vsco.co/adem/journal/ingiltere-gezisi"
@@ -39,8 +39,8 @@
               alt="Eski Mardin"
             ></Picture>
             <div class="info">
-              <h3 class="Bucket-info-title">Eski Mardin</h3>
-              <time class="Bucket-info-date">August 27, 2016</time>
+              <h3 class="title">Eski Mardin</h3>
+              <time class="date">August 27, 2016</time>
             </div>
             <a class="link" href="https://vsco.co/adem/journal/mardin"
                target="_blank"></a>
@@ -57,8 +57,8 @@
               alt="Bursa"
             ></Picture>
             <div class="info">
-              <h3 class="Bucket-info-title">Bursa</h3>
-              <time class="Bucket-info-date">August 20, 2016</time>
+              <h3 class="title">Bursa</h3>
+              <time class="date">August 20, 2016</time>
             </div>
             <a class="link"
                href="https://vsco.co/adem/journal/20-agustos-2016-bursa"
