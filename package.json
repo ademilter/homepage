@@ -1,30 +1,22 @@
 {
-  "name": "ademilter-nuxt",
-  "version": "1.0.0",
-  "description": "Nuxt.js project",
-  "author": "Adem ilter <ademilter@gmail.com>",
-  "private": true,
+  "name": "ademilter-website",
+  "version": "0.0.20",
+  "license": "ISC",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "fonts": "sass styles/fonts.scss static/fonts.css --no-source-map",
-    "deploy": "yarn run generate && push-dir --dir=dist --branch=gh-pages --cleanup"
+    "dev": "next",
+    "build": "cross-env NEXT_EXPORT=true next build",
+    "export": "yarn build && cross-env NEXT_EXPORT=true next export",
+    "start": "serve out"
   },
   "dependencies": {
-    "lazysizes": "^4.1.1",
-    "nuxt": "^1.0.0",
-    "nuxt-sass-resources-loader": "^2.0.4"
+    "next": "latest",
+    "next-offline": "^5.0.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
-    "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0",
-    "node-sass": "^4.9.3",
-    "push-dir": "^0.4.1",
-    "sass-loader": "^7.1.0"
+    "cross-env": "^7.0.0",
+    "prettier": "^1.19.1",
+    "serve": "^11.3.0"
   }
 }
