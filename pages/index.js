@@ -13,71 +13,49 @@ export default function Index() {
   return (
     <>
       <div className="hero">
-        <div className="limit">
-          <Typist startDelay={2000} cursor={{ element: '▍' }}>
-            <span className="t-regular">
-              <span>Hey,</span>
-              <Typist.Backspace count={4} delay={500} />
-              <span>{welcome}</span>
-            </span>
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <span>
-              I build pixel-perfect pages, smooth animations and performant web
-              applications.
-            </span>
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <span>✌️ 💯 🧿</span>
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <span className="t-regular">
-              <a href="https://twitter.com/ademilter">Twitter</a>
-              <br />
-              <Typist.Delay ms={500} />
-              <a href="https://www.youtube.com/user/ademilter/">Youtube</a>
-              <br />
-              <Typist.Delay ms={500} />
-              <a href="https://github.com/ademilter">Github</a>
-              <br />
-              <Typist.Delay ms={500} />
-              <a href="https://www.instagram.com/ademilter/">Instagram️</a>
-            </span>
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <br />
-            <Typist.Delay ms={500} />
-            <br />
-          </Typist>
-        </div>
+        <Typist startDelay={2000} cursor={{ element: '▍' }}>
+          Hey,
+          <Typist.Backspace count={4} delay={500} />
+          {welcome}
+          <br />
+          <Typist.Delay ms={500} />
+          <Typist.Delay ms={500} />
+          <b>
+            I build pixel-perfect <span className="nowrap">pages 👌</span>{' '}
+            smooth <span className="nowrap">animations 🦄</span> and performant
+            web <span className="nowrap">applications 💯</span>{' '}
+          </b>
+          <br />
+          <Typist.Delay ms={500} />
+          I’m{' '}
+          <a href="https://twitter.com/ademilter" target="_blank">
+            tweeting
+          </a>{' '}
+          , taking{' '}
+          <a href="https://www.instagram.com/ademilter/" target="_blank">
+            photos
+          </a>{' '}
+          , recording{' '}
+          <a href="https://www.youtube.com/user/ademilter/" target="_blank">
+            videos
+          </a>{' '}
+          and pushing{' '}
+          <a href="https://github.com/ademilter" target="_blank">
+            codes
+          </a>{' '}
+          for you.
+        </Typist>
       </div>
 
       <style jsx>{`
-        .limit {
-          max-width: 1200px;
-        }
         .hero {
-          font-weight: bold;
-          padding: 3rem 2rem;
+          max-width: 1400px;
+          padding: 2rem;
           font-size: 9vw;
-        }
-        .welcome {
-          font-weight: normal;
         }
         @media (min-width: 600px) {
           .hero {
+            padding: 3rem;
             font-size: 5vw;
           }
         }

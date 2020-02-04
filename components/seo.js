@@ -35,14 +35,14 @@ export default function Seo() {
         rel="preload"
         href="/fonts/soehne-breit-test-extraleicht-kursiv.woff"
         as="font"
-        type="font/woff2"
+        type="font/woff"
         crossOrigin="anonymous"
       />
       <link
         rel="preload"
-        href="/fonts/soehne-breit-test-halbfett-kursiv.woff"
+        href="/fonts/soehne-breit-test-fett-kursiv.woff"
         as="font"
-        type="font/woff2"
+        type="font/woff"
         crossOrigin="anonymous"
       />
 

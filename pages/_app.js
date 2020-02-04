@@ -17,7 +17,7 @@ function App({ Component, pageProps }) {
             'Helvetica', 'Arial', sans-serif;
           --bg: #f8e3c8;
           --color: #23231f;
-          --color-light: rgba(0, 0, 0, 0.5);
+          --color-light: rgba(0, 0, 0, 0.2);
           --fs-base: 18px;
         }
         @media (prefers-color-scheme: dark) {
@@ -43,8 +43,7 @@ function App({ Component, pageProps }) {
         }
         @font-face {
           font-family: 'Soehne Breit';
-          src: url('/fonts/soehne-breit-test-halbfett-kursiv.woff')
-            format('woff');
+          src: url('/fonts/soehne-breit-test-fett-kursiv.woff') format('woff');
           font-weight: bold;
           font-style: normal;
           font-display: swap;
@@ -70,7 +69,7 @@ function App({ Component, pageProps }) {
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           font-family: var(--ff);
-          line-height: 1.1;
+          line-height: 1.2;
           background-color: var(--bg);
           color: var(--color);
         }
@@ -81,8 +80,8 @@ function App({ Component, pageProps }) {
         a:hover {
           text-decoration-color: inherit;
         }
-        .t-regular {
-          font-weight: normal;
+        .nowrap {
+          white-space: nowrap;
         }
       `}</style>
     </>
