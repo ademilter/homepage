@@ -1,20 +1,23 @@
 # Homepage
 
-This is the source code of my personal homepage, made with [Nuxt](https://github.com/nuxt)
+This is the source code of my personal homepage, made with [NextJS](https://nextjs.org/)
 
-#### Build Setup
+#### Development
 
-``` bash
+```bash
 # install dependencies
 $ yarn
 
 # serve with hot reload at localhost:3000
-$ yarn run dev
+$ yarn dev
+```
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+#### Export static files
 
-# generate static project
-$ yarn run generate
+```bash
+# install dependencies
+$ yarn
+
+# export files /out folder
+$ yarn export
 ```
