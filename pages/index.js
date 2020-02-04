@@ -26,34 +26,31 @@ export default function Index() {
             web <span className="nowrap">applications 💯</span>{' '}
           </b>
           <br />
-          <Typist.Delay ms={500} />
-          I’m{' '}
+          <Typist.Delay ms={500} />I{' '}
           <a href="https://twitter.com/ademilter" target="_blank">
-            tweeting
+            tweet
           </a>{' '}
-          , taking{' '}
+          , take{' '}
           <a href="https://www.instagram.com/ademilter/" target="_blank">
             photos
           </a>{' '}
-          , recording{' '}
+          , record{' '}
           <a href="https://www.youtube.com/user/ademilter/" target="_blank">
             videos
           </a>{' '}
-          and pushing{' '}
+          and push{' '}
           <a href="https://github.com/ademilter" target="_blank">
-            codes
-          </a>{' '}
-          for you.
+            code.
+          </a>
         </Typist>
       </div>
 
       <style jsx>{`
         .hero {
-          max-width: 1400px;
           padding: 2rem;
-          font-size: 9vw;
+          font-size: 8vw;
         }
-        @media (min-width: 600px) {
+        @media (min-width: 700px) {
           .hero {
             padding: 3rem;
             font-size: 5vw;
