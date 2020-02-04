@@ -15,19 +15,21 @@ function App({ Component, pageProps }) {
         :root {
           --ff: 'Soehne Breit', -apple-system, system-ui, BlinkMacSystemFont,
             'Helvetica', 'Arial', sans-serif;
-          --bg: #e0caa5;
+          --bg: #f8e3c8;
           --color: #23231f;
-          --fs-base:18px;
+          --color-light: rgba(0, 0, 0, 0.5);
+          --fs-base: 18px;
         }
         @media (prefers-color-scheme: dark) {
           :root {
             --bg: #000;
             --color: #fff;
+            --color-light: rgba(255, 255, 255, 0.2);
           }
         }
         @media (min-width: 600px) {
           :root {
-            --fs-base:22px;
+            --fs-base: 22px;
           }
         }
 
@@ -67,11 +69,20 @@ function App({ Component, pageProps }) {
           overflow-x: hidden;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
-          //hyphens: auto;
           font-family: var(--ff);
           line-height: 1.1;
           background-color: var(--bg);
           color: var(--color);
+        }
+        a {
+          color: inherit;
+          text-decoration-color: var(--color-light);
+        }
+        a:hover {
+          text-decoration-color: inherit;
+        }
+        .t-regular {
+          font-weight: normal;
         }
       `}</style>
     </>
