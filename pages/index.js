@@ -29,18 +29,22 @@ export default function Index() {
           <Typist.Delay ms={500} />I{' '}
           <a href="https://twitter.com/ademilter" target="_blank">
             tweet
-          </a>{' '}
+          </a>
           , take{' '}
           <a href="https://www.instagram.com/ademilter/" target="_blank">
             photos
-          </a>{' '}
+          </a>
           , record{' '}
           <a href="https://www.youtube.com/user/ademilter/" target="_blank">
             videos
-          </a>{' '}
-          and push{' '}
+          </a>
+          , push{' '}
           <a href="https://github.com/ademilter" target="_blank">
-            code.
+            code
+          </a>{' '}
+          and share{' '}
+          <a href="https://t.me/feyzli" target="_blank">
+            feyz
           </a>
         </Typist>
       </div>
