@@ -12,31 +12,25 @@ function App({ Component, pageProps }) {
       <Seo />
       <Component {...pageProps} />
       <style global jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
+        :root {
+          --ff: 'Soehne Breit', -apple-system, system-ui, BlinkMacSystemFont,
+            'Helvetica', 'Arial', sans-serif;
+          --bg: #e0caa5;
+          --color: #23231f;
+          --fs-base:18px;
         }
-        *,
-        *::before,
-        *::after {
-          box-sizing: inherit;
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --bg: #000;
+            --color: #fff;
+          }
         }
-        html {
-          box-sizing: border-box;
-          text-rendering: optimizeLegibility;
-          scroll-behavior: smooth;
-          font-size: 22px;
+        @media (min-width: 600px) {
+          :root {
+            --fs-base:22px;
+          }
         }
-        body {
-          overflow-x: hidden;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          font-family: 'Soehne Breit', sans-serif;
-          font-size: 1rem;
-          line-height: 1.4;
-          background-color: #000;
-          color: #fff;
-        }
+
         @font-face {
           font-family: 'Soehne Breit';
           src: url('/fonts/soehne-breit-test-extraleicht-kursiv.woff')
@@ -52,6 +46,32 @@ function App({ Component, pageProps }) {
           font-weight: bold;
           font-style: normal;
           font-display: swap;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+        }
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit;
+        }
+        html {
+          box-sizing: border-box;
+          text-rendering: optimizeLegibility;
+          scroll-behavior: smooth;
+          font-size: var(--fs-base);
+        }
+        body {
+          overflow-x: hidden;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          //hyphens: auto;
+          font-family: var(--ff);
+          line-height: 1.1;
+          background-color: var(--bg);
+          color: var(--color);
         }
       `}</style>
     </>
