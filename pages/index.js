@@ -16,15 +16,16 @@ export default function Index() {
         <Typist startDelay={2000} cursor={{ element: '▍' }}>
           Hey,
           <Typist.Backspace count={4} delay={500} />
-          {welcome}
+          {welcome},
           <br />
-          <Typist.Delay ms={500} />
           <Typist.Delay ms={500} />
           <b>
             I build pixel-perfect <span className="nowrap">pages 👌</span>{' '}
             smooth <span className="nowrap">animations 🦄</span> and performant
             web <span className="nowrap">applications 💯</span>{' '}
           </b>
+          <br />
+          <Typist.Delay ms={500} />
           <br />
           <Typist.Delay ms={500} />I{' '}
           <a href="https://twitter.com/ademilter" target="_blank">
@@ -45,7 +46,7 @@ export default function Index() {
           and share{' '}
           <a href="https://t.me/feyzli" target="_blank">
             feyz
-          </a>
+          </a>{' '}
         </Typist>
       </div>
 
