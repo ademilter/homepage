@@ -32,7 +32,13 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaultQuality: 100
+      }
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
     // To learn more, visit: https://gatsby.dev/offline

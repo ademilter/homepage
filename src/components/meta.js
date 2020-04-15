@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Meta() {
+function Meta({ title, description }) {
   return (
     <div>
-      <p>Amcam, Toprak ve Fırat</p>
-      <small className="c-default-light">Keban, Elazığ</small>
+      {title && <p>{title}</p>}
+      {description && <p className="c-default-light fs-small">{description}</p>}
     </div>
   )
 }
