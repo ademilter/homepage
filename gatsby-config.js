@@ -5,16 +5,6 @@ module.exports = {
     author: '@ademilter'
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/images`
-      }
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -26,8 +16,19 @@ module.exports = {
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png'
       }
-    }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`
+      }
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-postcss',
     // To learn more, visit: https://gatsby.dev/offline
-    // "gatsby-plugin-offline",
+    'gatsby-plugin-offline'
   ]
 }

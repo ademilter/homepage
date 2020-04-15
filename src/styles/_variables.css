@@ -1,0 +1,18 @@
+:root {
+  --ff-body: sans-serif;
+  --lh-body: 1.2;
+  --fs-title: 17px;
+  --fs-body: 15px;
+  --fs-small: 13px;
+  --c-theme: hsl(183, 65%, 50%);
+  --c-default: rgb(29, 37, 45);
+  --c-default-light: rgb(29, 37, 45);
+}
+
+@media (--t) {
+  :root {
+    --fs-title: 17px;
+    --fs-body: 15px;
+    --fs-small: 13px;
+  }
+}

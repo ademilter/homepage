@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--ff-body);
+  line-height: var(--lh-body);
+  font-weight: normal;
+  font-size: var(--fs-body);
+  background-color: var(--c-theme);
+  color: var(--c-default);
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.container {
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-32);
+  padding-right: var(--space-32);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: 230ms;
+}
+
+::selection {
+  background-color: var(--c-turk);
+  color: white;
+}
+
+svg {
+  /* stroke-width: 0; */
+  /* stroke: currentColor; */
+  /* fill: currentColor; */
+  vertical-align: middle;
+}
+
+button {
+  user-select: none;
+  transition: 230ms;
+  cursor: pointer;
+  position: relative;
+  border: 0;
+  background-color: transparent;
+  outline-offset: 2px;
+  color: white;
+  font: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
