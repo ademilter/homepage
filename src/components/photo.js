@@ -13,7 +13,7 @@ function Photo({ img, title, description, aspectRatio = '16-9' }) {
           <Img className="aspect-ratio-item" fluid={img} backgroundColor />
         </div>
       )}
-      <figcaption>
+      <figcaption className={styles.caption}>
         <Meta title={title} description={description} />
       </figcaption>
     </figure>

@@ -1,7 +1,5 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-// import { Link } from 'gatsby'
 
 import {
   Layout,
@@ -22,7 +20,10 @@ function IndexPage() {
     photo4,
     photo5,
     photo6,
-    journal1
+    journal1,
+    journal2,
+    journal3,
+    journal4
   } = useStaticQuery(graphql`
     {
       hero: file(name: { eq: "vsco_062215" }) {
@@ -74,8 +75,28 @@ function IndexPage() {
           }
         }
       }
-
-      journal1: file(name: { eq: "vsco5c9a2136b0ed8" }) {
+      journal1: file(name: { eq: "vsco5cab706b288bd" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      journal2: file(name: { eq: "vsco59be57b1423b3" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      journal3: file(name: { eq: "vsco5c23cc2e48d32" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      journal4: file(name: { eq: "vsco5c9a2136b0ed8" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -90,7 +111,7 @@ function IndexPage() {
       <SEO title="Home" />
 
       {/* HERO */}
-      <div id="section-hero">
+      <section id="section-hero">
         <div className="container">
           <Grid>
             <ColContent>
@@ -98,8 +119,8 @@ function IndexPage() {
                 <r-cell span="6">
                   <Photo
                     img={hero.childImageSharp.fluid}
-                    title="deneme"
-                    description="deneme"
+                    title="Amcam, Toprak ve Fırat"
+                    description="Keban, Elazığ"
                   />
                 </r-cell>
               </r-grid>
@@ -107,34 +128,35 @@ function IndexPage() {
             <ColExtra>dasdas</ColExtra>
           </Grid>
         </div>
-      </div>
+      </section>
 
       {/* LAST PHOTOS */}
-      <div id="section-last-photo">
+      <section id="section-last-photo">
         <div className="container">
           <Grid>
             <ColSidebar>
-              <h4>Hello</h4>
+              <h2>Son Fotoğraflar</h2>
             </ColSidebar>
             <ColContent>
-              <r-grid columns="8">
+              <r-grid columns="2" columns-l="8">
                 {/* row */}
-                <r-cell span="4">
+                <r-cell span="2" span-l="4">
                   <Photo
                     img={photo1.childImageSharp.fluid}
-                    title="deneme"
-                    description="deneme"
+                    title="15 Temmuz Şehitler Cami"
+                    description="Üsküdar, İstanbul"
                   />
                 </r-cell>
-                <r-cell span="4">
+                <r-cell span="2" span-l="4">
                   <Photo
                     img={photo2.childImageSharp.fluid}
-                    title="deneme"
-                    description="deneme"
+                    title="Eminönü meydan"
+                    description="Süleymaniye, istanbul"
                   />
                 </r-cell>
+
                 {/* row */}
-                <r-cell span="2">
+                <r-cell span="1" span-l="2">
                   <Photo
                     aspectRatio="1-1"
                     img={photo3.childImageSharp.fluid}
@@ -142,7 +164,7 @@ function IndexPage() {
                     description="deneme"
                   />
                 </r-cell>
-                <r-cell span="2">
+                <r-cell span="1" span-l="2">
                   <Photo
                     aspectRatio="1-1"
                     img={photo4.childImageSharp.fluid}
@@ -150,7 +172,7 @@ function IndexPage() {
                     description="deneme"
                   />
                 </r-cell>
-                <r-cell span="2">
+                <r-cell span="1" span-l="2">
                   <Photo
                     aspectRatio="1-1"
                     img={photo5.childImageSharp.fluid}
@@ -158,7 +180,7 @@ function IndexPage() {
                     description="deneme"
                   />
                 </r-cell>
-                <r-cell span="2">
+                <r-cell span="1" span-l="2">
                   <Photo
                     aspectRatio="1-1"
                     img={photo6.childImageSharp.fluid}
@@ -166,12 +188,58 @@ function IndexPage() {
                     description="deneme"
                   />
                 </r-cell>
-                )}
               </r-grid>
             </ColContent>
           </Grid>
         </div>
-      </div>
+      </section>
+
+      {/* JOURNAL */}
+      <section id="section-last-photo">
+        <div className="container">
+          <Grid>
+            <ColSidebar>
+              <h2>Dergiler</h2>
+            </ColSidebar>
+            <ColContent>
+              <r-grid columns="2" columns-l="8">
+                <r-cell span="1" span-l="2">
+                  <Photo
+                    aspectRatio="1-1"
+                    img={journal1.childImageSharp.fluid}
+                    title="deneme"
+                    description="deneme"
+                  />
+                </r-cell>
+                <r-cell span="1" span-l="2">
+                  <Photo
+                    aspectRatio="1-1"
+                    img={journal2.childImageSharp.fluid}
+                    title="deneme"
+                    description="deneme"
+                  />
+                </r-cell>
+                <r-cell span="1" span-l="2">
+                  <Photo
+                    aspectRatio="1-1"
+                    img={journal3.childImageSharp.fluid}
+                    title="deneme"
+                    description="deneme"
+                  />
+                </r-cell>
+                <r-cell span="1" span-l="2">
+                  <Photo
+                    aspectRatio="1-1"
+                    img={journal4.childImageSharp.fluid}
+                    title="deneme"
+                    description="deneme"
+                  />
+                </r-cell>
+              </r-grid>
+            </ColContent>
+          </Grid>
+        </div>
+      </section>
     </Layout>
   )
 }

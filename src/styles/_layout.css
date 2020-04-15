@@ -25,6 +25,7 @@ body {
   font-size: var(--fs-body);
   background-color: var(--c-theme);
   color: var(--c-default);
+  padding-top: 50px;
 }
 
 b,
@@ -53,6 +54,10 @@ a {
   transition: 230ms;
 }
 
+section + section {
+  margin-top: 140px;
+}
+
 svg {
   /* stroke-width: 0; */
   /* stroke: currentColor; */
@@ -62,16 +67,10 @@ svg {
 
 button {
   user-select: none;
-  transition: 230ms;
   cursor: pointer;
-  position: relative;
-  border: 0;
   background-color: transparent;
-  outline-offset: 2px;
-  color: white;
+  color: var(--c-default);
   font: inherit;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }

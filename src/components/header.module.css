@@ -1,3 +1,10 @@
 .header {
-  height: 0;
+  @media (--d) {
+    height: 0;
+  }
+}
+
+.button {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-title);
 }

@@ -171,8 +171,7 @@ r-grid > r-cell[span='row'] {
   grid-column: 1 / -1;
 }
 
-/* for window width <= 600 */
-@media only screen and (max-width: 600px) {
+@media (--t) {
   r-grid[columns-s='1'] {
     --grid-tc: repeat(1, 1fr);
   }
@@ -330,8 +329,7 @@ r-grid > r-cell[span='row'] {
   }
 }
 
-/* for window width >= 1600 */
-@media only screen and (min-width: 1599px) {
+@media (--d) {
   r-grid[columns-l='1'] {
     --grid-tc: repeat(1, 1fr);
   }

@@ -9,7 +9,7 @@ function Header() {
       <div className="container">
         <r-grid columns="12">
           <r-cell span="2">
-            <button type="button" className="fw-bold ff-display">
+            <button type="button" className={styles.button}>
               Fotoğraflar
             </button>
           </r-cell>
