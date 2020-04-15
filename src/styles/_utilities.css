@@ -1,0 +1,23 @@
+.container {
+  /* max-width: 1260px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.ff-display {
+  font-family: var(--ff-display);
+}
+
+.c-default {
+  color: var(--c-default);
+}
+
+.c-default-light {
+  color: var(--c-default-light);
+}

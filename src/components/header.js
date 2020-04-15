@@ -1,17 +1,19 @@
-import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 import styles from './header.module.css'
 
-function Header({ siteTitle }) {
+function Header() {
   return (
     <header className={styles.header}>
-      <div className="grid">
-        <div className="col-sidebar">
-          <Link to="/">{siteTitle}</Link>
-        </div>
-        <div className="col-extra">c</div>
+      <div className="container">
+        <r-grid columns="12">
+          <r-cell span="2">
+            <button type="button" className="fw-bold ff-display">
+              Fotoğraflar
+            </button>
+          </r-cell>
+        </r-grid>
       </div>
     </header>
   )

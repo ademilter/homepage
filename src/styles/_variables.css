@@ -1,9 +1,14 @@
 :root {
-  --ff-body: sans-serif;
-  --lh-body: 1.2;
-  --fs-title: 17px;
-  --fs-body: 15px;
-  --fs-small: 13px;
+  --ff-text: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --ff-display: -apple-system-headline, system-ui, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --lh-body: 1.4;
+  --fw-bold: 600;
+  --fs-base: 18px;
+  --fs-body: 1rem;
+  --fs-title: 1rem;
+  --fs-small: 0.9rem;
   --c-theme: #fff;
   --c-default: #101010;
   --c-default-light: #666;
@@ -12,9 +17,7 @@
 
 @media (--t) {
   :root {
-    --fs-title: 17px;
-    --fs-body: 15px;
-    --fs-small: 13px;
+    --fs-base: 19px;
   }
 }
 
