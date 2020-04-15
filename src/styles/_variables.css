@@ -4,9 +4,9 @@
   --fs-title: 17px;
   --fs-body: 15px;
   --fs-small: 13px;
-  --c-theme: hsl(183, 65%, 50%);
-  --c-default: rgb(29, 37, 45);
-  --c-default-light: rgb(29, 37, 45);
+  --c-theme: #fff;
+  --c-default: #101010;
+  --c-default-light: #666;
 }
 
 @media (--t) {
@@ -14,5 +14,13 @@
     --fs-title: 17px;
     --fs-body: 15px;
     --fs-small: 13px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-theme: #101010;
+    --c-default: #fff;
+    --c-default-light: #999;
   }
 }
