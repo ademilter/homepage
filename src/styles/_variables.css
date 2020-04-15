@@ -7,6 +7,7 @@
   --c-theme: #fff;
   --c-default: #101010;
   --c-default-light: #666;
+  --gap: 30px;
 }
 
 @media (--t) {

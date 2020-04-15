@@ -1,0 +1,20 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-areas: 'sidebar content extra';
+  grid-gap: var(--gap);
+  margin-left: var(--gap);
+  margin-right: var(--gap);
+}
+
+.col-sidebar {
+  grid-area: sidebar;
+}
+
+.col-content {
+  grid-area: content;
+}
+
+.col-extra {
+  grid-area: extra;
+}

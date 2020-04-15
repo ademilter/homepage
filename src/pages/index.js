@@ -8,7 +8,9 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
-    
+    <div className="grid">
+      <div className="col-content">content</div>
+    </div>
   </Layout>
 )
 
