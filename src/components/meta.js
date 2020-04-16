@@ -1,10 +1,11 @@
 import React from 'react'
 
-function Meta({ title, description }) {
+function Meta({ title, desc1, desc2 }) {
   return (
     <div>
       {title && <p>{title}</p>}
-      {description && <p className="c-default-light fs-small">{description}</p>}
+      {desc1 && <p className="c-default-light fs-small">{desc1}</p>}
+      {desc2 && <p className="c-default-light fs-small">{desc2}</p>}
     </div>
   )
 }

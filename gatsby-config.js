@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'data',
-        path: `${__dirname}/src/data`
+        name: 'photos',
+        path: `${__dirname}/src/data/photos`
       }
     },
     {
@@ -31,17 +31,16 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
-    'gatsby-transformer-sharp',
-
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
         defaultQuality: 100
       }
     },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
-    // To learn more, visit: https://gatsby.dev/offline
     'gatsby-plugin-offline'
   ]
 }
