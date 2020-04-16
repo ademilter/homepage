@@ -2,13 +2,13 @@ import React from 'react'
 
 import styles from './link.module.css'
 
-function Link({ children }) {
+function Link({ url = '/', children }) {
   return (
     <a
-      href=""
       className={styles.link}
       rel="noopener noreferrer"
       target="_blank"
+      href={url}
     >
       {children}
     </a>

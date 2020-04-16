@@ -1,3 +1,5 @@
-.asd {
-  margin-top: 16px;
+.link {
+  &:hover {
+    color: var(--c-highlight);
+  }
 }

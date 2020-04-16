@@ -1,0 +1,9 @@
+.title {
+  font-size: var(--fs-body);
+  font-weight: normal;
+}
+
+.desc {
+  color: var(--c-default-light);
+  font-size: var(--fs-small);
+}

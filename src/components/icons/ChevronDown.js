@@ -3,8 +3,8 @@ import * as React from 'react'
 function SvgChevronDown(props) {
   return (
     <svg
-      width="1em"
-      height="1em"
+      width={24}
+      height={24}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

@@ -3,21 +3,27 @@
     sans-serif;
   --ff-display: -apple-system-headline, system-ui, BlinkMacSystemFont,
     'Segoe UI', Roboto, sans-serif;
-  --lh-body: 1.4;
+  --lh-body: 1.5;
   --fw-bold: 600;
-  --fs-base: 18px;
+
+  --fs-base: 17px;
   --fs-body: 1rem;
   --fs-title: 1.1rem;
   --fs-small: 0.9rem;
+
   --c-theme: #fff;
+  --c-highlight: #ffef5f;
   --c-default: #101010;
-  --c-default-light: #666;
+  --c-default-light: rgba(255, 255, 255, 0.5);
+  --c-default-hide: rgba(255, 255, 255, 0.12);
+
   --gap: 30px;
+  --finger: 46px;
 }
 
 @media (--t) {
   :root {
-    --fs-base: 19px;
+    --fs-base: 18px;
   }
 }
 

@@ -172,139 +172,139 @@ r-grid > r-cell[span='row'] {
 }
 
 @media (--t) {
-  r-grid[columns-s='1'] {
+  r-grid[columns-t='1'] {
     --grid-tc: repeat(1, 1fr);
   }
-  r-grid[columns-s='2'] {
+  r-grid[columns-t='2'] {
     --grid-tc: repeat(2, 1fr);
   }
-  r-grid[columns-s='3'] {
+  r-grid[columns-t='3'] {
     --grid-tc: repeat(3, 1fr);
   }
-  r-grid[columns-s='4'] {
+  r-grid[columns-t='4'] {
     --grid-tc: repeat(4, 1fr);
   }
-  r-grid[columns-s='5'] {
+  r-grid[columns-t='5'] {
     --grid-tc: repeat(5, 1fr);
   }
-  r-grid[columns-s='6'] {
+  r-grid[columns-t='6'] {
     --grid-tc: repeat(6, 1fr);
   }
-  r-grid[columns-s='7'] {
+  r-grid[columns-t='7'] {
     --grid-tc: repeat(7, 1fr);
   }
-  r-grid[columns-s='8'] {
+  r-grid[columns-t='8'] {
     --grid-tc: repeat(8, 1fr);
   }
-  r-grid[columns-s='9'] {
+  r-grid[columns-t='9'] {
     --grid-tc: repeat(9, 1fr);
   }
-  r-grid[columns-s='10'] {
+  r-grid[columns-t='10'] {
     --grid-tc: repeat(10, 1fr);
   }
-  r-grid[columns-s='11'] {
+  r-grid[columns-t='11'] {
     --grid-tc: repeat(11, 1fr);
   }
-  r-grid[columns-s='12'] {
+  r-grid[columns-t='12'] {
     --grid-tc: repeat(12, 1fr);
   }
 
-  /* span-s=start... */
-  r-grid > r-cell[span-s^='1'] {
+  /* span-t=start... */
+  r-grid > r-cell[span-t^='1'] {
     --grid-cs: 1;
   }
-  r-grid > r-cell[span-s^='2'] {
+  r-grid > r-cell[span-t^='2'] {
     --grid-cs: 2;
   }
-  r-grid > r-cell[span-s^='3'] {
+  r-grid > r-cell[span-t^='3'] {
     --grid-cs: 3;
   }
-  r-grid > r-cell[span-s^='4'] {
+  r-grid > r-cell[span-t^='4'] {
     --grid-cs: 4;
   }
-  r-grid > r-cell[span-s^='5'] {
+  r-grid > r-cell[span-t^='5'] {
     --grid-cs: 5;
   }
-  r-grid > r-cell[span-s^='6'] {
+  r-grid > r-cell[span-t^='6'] {
     --grid-cs: 6;
   }
-  r-grid > r-cell[span-s^='7'] {
+  r-grid > r-cell[span-t^='7'] {
     --grid-cs: 7;
   }
-  r-grid > r-cell[span-s^='8'] {
+  r-grid > r-cell[span-t^='8'] {
     --grid-cs: 8;
   }
-  r-grid > r-cell[span-s^='9'] {
+  r-grid > r-cell[span-t^='9'] {
     --grid-cs: 9;
   }
-  r-grid > r-cell[span-s^='10'] {
+  r-grid > r-cell[span-t^='10'] {
     --grid-cs: 10;
   }
-  r-grid > r-cell[span-s^='11'] {
+  r-grid > r-cell[span-t^='11'] {
     --grid-cs: 11;
   }
-  r-grid > r-cell[span-s^='12'] {
+  r-grid > r-cell[span-t^='12'] {
     --grid-cs: 12;
   }
 
-  /* span-s=...+width, span-s=...-end */
-  r-grid > r-cell[span-s$='+1'],
-  r-grid > r-cell[span-s='1'] {
+  /* span-t=...+width, span-t=...-end */
+  r-grid > r-cell[span-t$='+1'],
+  r-grid > r-cell[span-t='1'] {
     --grid-ce: 1;
   }
-  r-grid > r-cell[span-s$='+2'],
-  r-grid > r-cell[span-s$='-1'],
-  r-grid > r-cell[span-s='2'] {
+  r-grid > r-cell[span-t$='+2'],
+  r-grid > r-cell[span-t$='-1'],
+  r-grid > r-cell[span-t='2'] {
     --grid-ce: 2;
   }
-  r-grid > r-cell[span-s$='+3'],
-  r-grid > r-cell[span-s$='-2'],
-  r-grid > r-cell[span-s='3'] {
+  r-grid > r-cell[span-t$='+3'],
+  r-grid > r-cell[span-t$='-2'],
+  r-grid > r-cell[span-t='3'] {
     --grid-ce: 3;
   }
-  r-grid > r-cell[span-s$='+4'],
-  r-grid > r-cell[span-s$='-3'],
-  r-grid > r-cell[span-s='4'] {
+  r-grid > r-cell[span-t$='+4'],
+  r-grid > r-cell[span-t$='-3'],
+  r-grid > r-cell[span-t='4'] {
     --grid-ce: 4;
   }
-  r-grid > r-cell[span-s$='+5'],
-  r-grid > r-cell[span-s$='-4'],
-  r-grid > r-cell[span-s='5'] {
+  r-grid > r-cell[span-t$='+5'],
+  r-grid > r-cell[span-t$='-4'],
+  r-grid > r-cell[span-t='5'] {
     --grid-ce: 5;
   }
-  r-grid > r-cell[span-s$='+6'],
-  r-grid > r-cell[span-s$='-5'],
-  r-grid > r-cell[span-s='6'] {
+  r-grid > r-cell[span-t$='+6'],
+  r-grid > r-cell[span-t$='-5'],
+  r-grid > r-cell[span-t='6'] {
     --grid-ce: 6;
   }
-  r-grid > r-cell[span-s$='+7'],
-  r-grid > r-cell[span-s$='-6'],
-  r-grid > r-cell[span-s='7'] {
+  r-grid > r-cell[span-t$='+7'],
+  r-grid > r-cell[span-t$='-6'],
+  r-grid > r-cell[span-t='7'] {
     --grid-ce: 7;
   }
-  r-grid > r-cell[span-s$='+8'],
-  r-grid > r-cell[span-s$='-7'],
-  r-grid > r-cell[span-s='8'] {
+  r-grid > r-cell[span-t$='+8'],
+  r-grid > r-cell[span-t$='-7'],
+  r-grid > r-cell[span-t='8'] {
     --grid-ce: 8;
   }
-  r-grid > r-cell[span-s$='+9'],
-  r-grid > r-cell[span-s$='-8'],
-  r-grid > r-cell[span-s='9'] {
+  r-grid > r-cell[span-t$='+9'],
+  r-grid > r-cell[span-t$='-8'],
+  r-grid > r-cell[span-t='9'] {
     --grid-ce: 9;
   }
-  r-grid > r-cell[span-s$='+10'],
-  r-grid > r-cell[span-s$='-9'],
-  r-grid > r-cell[span-s='10'] {
+  r-grid > r-cell[span-t$='+10'],
+  r-grid > r-cell[span-t$='-9'],
+  r-grid > r-cell[span-t='10'] {
     --grid-ce: 10;
   }
-  r-grid > r-cell[span-s$='+11'],
-  r-grid > r-cell[span-s$='-10'],
-  r-grid > r-cell[span-s='11'] {
+  r-grid > r-cell[span-t$='+11'],
+  r-grid > r-cell[span-t$='-10'],
+  r-grid > r-cell[span-t='11'] {
     --grid-ce: 11;
   }
-  r-grid > r-cell[span-s$='+12'],
-  r-grid > r-cell[span-s$='-11'],
-  r-grid > r-cell[span-s='12'] {
+  r-grid > r-cell[span-t$='+12'],
+  r-grid > r-cell[span-t$='-11'],
+  r-grid > r-cell[span-t='12'] {
     --grid-ce: 12;
   }
   r-grid > r-cell[span-s$='-12'] {
@@ -315,174 +315,174 @@ r-grid > r-cell[span='row'] {
   r-grid > r-cell[span-s] {
     grid-column-end: span var(--grid-ce);
   }
-  r-grid > r-cell[span-s*='+'],
-  r-grid > r-cell[span-s*='-'],
-  r-grid > r-cell[span-s*='..'] {
+  r-grid > r-cell[span-t*='+'],
+  r-grid > r-cell[span-t*='-'],
+  r-grid > r-cell[span-t*='..'] {
     grid-column-start: var(--grid-cs);
   }
-  r-grid > r-cell[span-s*='-'],
-  r-grid > r-cell[span-s*='..'] {
+  r-grid > r-cell[span-t*='-'],
+  r-grid > r-cell[span-t*='..'] {
     grid-column-end: var(--grid-ce);
   }
-  r-grid > r-cell[span-s='row'] {
+  r-grid > r-cell[span-t='row'] {
     grid-column: 1 / -1;
   }
 }
 
 @media (--d) {
-  r-grid[columns-l='1'] {
+  r-grid[columns-d='1'] {
     --grid-tc: repeat(1, 1fr);
   }
-  r-grid[columns-l='2'] {
+  r-grid[columns-d='2'] {
     --grid-tc: repeat(2, 1fr);
   }
-  r-grid[columns-l='3'] {
+  r-grid[columns-d='3'] {
     --grid-tc: repeat(3, 1fr);
   }
-  r-grid[columns-l='4'] {
+  r-grid[columns-d='4'] {
     --grid-tc: repeat(4, 1fr);
   }
-  r-grid[columns-l='5'] {
+  r-grid[columns-d='5'] {
     --grid-tc: repeat(5, 1fr);
   }
-  r-grid[columns-l='6'] {
+  r-grid[columns-d='6'] {
     --grid-tc: repeat(6, 1fr);
   }
-  r-grid[columns-l='7'] {
+  r-grid[columns-d='7'] {
     --grid-tc: repeat(7, 1fr);
   }
-  r-grid[columns-l='8'] {
+  r-grid[columns-d='8'] {
     --grid-tc: repeat(8, 1fr);
   }
-  r-grid[columns-l='9'] {
+  r-grid[columns-d='9'] {
     --grid-tc: repeat(9, 1fr);
   }
-  r-grid[columns-l='10'] {
+  r-grid[columns-d='10'] {
     --grid-tc: repeat(10, 1fr);
   }
-  r-grid[columns-l='11'] {
+  r-grid[columns-d='11'] {
     --grid-tc: repeat(11, 1fr);
   }
-  r-grid[columns-l='12'] {
+  r-grid[columns-d='12'] {
     --grid-tc: repeat(12, 1fr);
   }
 
-  /* span-l=start... */
-  r-grid > r-cell[span-l^='1'] {
+  /* span-d=start... */
+  r-grid > r-cell[span-d^='1'] {
     --grid-cs: 1;
   }
-  r-grid > r-cell[span-l^='2'] {
+  r-grid > r-cell[span-d^='2'] {
     --grid-cs: 2;
   }
-  r-grid > r-cell[span-l^='3'] {
+  r-grid > r-cell[span-d^='3'] {
     --grid-cs: 3;
   }
-  r-grid > r-cell[span-l^='4'] {
+  r-grid > r-cell[span-d^='4'] {
     --grid-cs: 4;
   }
-  r-grid > r-cell[span-l^='5'] {
+  r-grid > r-cell[span-d^='5'] {
     --grid-cs: 5;
   }
-  r-grid > r-cell[span-l^='6'] {
+  r-grid > r-cell[span-d^='6'] {
     --grid-cs: 6;
   }
-  r-grid > r-cell[span-l^='7'] {
+  r-grid > r-cell[span-d^='7'] {
     --grid-cs: 7;
   }
-  r-grid > r-cell[span-l^='8'] {
+  r-grid > r-cell[span-d^='8'] {
     --grid-cs: 8;
   }
-  r-grid > r-cell[span-l^='9'] {
+  r-grid > r-cell[span-d^='9'] {
     --grid-cs: 9;
   }
-  r-grid > r-cell[span-l^='10'] {
+  r-grid > r-cell[span-d^='10'] {
     --grid-cs: 10;
   }
-  r-grid > r-cell[span-l^='11'] {
+  r-grid > r-cell[span-d^='11'] {
     --grid-cs: 11;
   }
-  r-grid > r-cell[span-l^='12'] {
+  r-grid > r-cell[span-d^='12'] {
     --grid-cs: 12;
   }
 
-  /* span-l=...+width, span-l=...-end */
-  r-grid > r-cell[span-l$='+1'],
-  r-grid > r-cell[span-l='1'] {
+  /* span-d=...+width, span-d=...-end */
+  r-grid > r-cell[span-d$='+1'],
+  r-grid > r-cell[span-d='1'] {
     --grid-ce: 1;
   }
-  r-grid > r-cell[span-l$='+2'],
-  r-grid > r-cell[span-l$='-1'],
-  r-grid > r-cell[span-l='2'] {
+  r-grid > r-cell[span-d$='+2'],
+  r-grid > r-cell[span-d$='-1'],
+  r-grid > r-cell[span-d='2'] {
     --grid-ce: 2;
   }
-  r-grid > r-cell[span-l$='+3'],
-  r-grid > r-cell[span-l$='-2'],
-  r-grid > r-cell[span-l='3'] {
+  r-grid > r-cell[span-d$='+3'],
+  r-grid > r-cell[span-d$='-2'],
+  r-grid > r-cell[span-d='3'] {
     --grid-ce: 3;
   }
-  r-grid > r-cell[span-l$='+4'],
-  r-grid > r-cell[span-l$='-3'],
-  r-grid > r-cell[span-l='4'] {
+  r-grid > r-cell[span-d$='+4'],
+  r-grid > r-cell[span-d$='-3'],
+  r-grid > r-cell[span-d='4'] {
     --grid-ce: 4;
   }
-  r-grid > r-cell[span-l$='+5'],
-  r-grid > r-cell[span-l$='-4'],
-  r-grid > r-cell[span-l='5'] {
+  r-grid > r-cell[span-d$='+5'],
+  r-grid > r-cell[span-d$='-4'],
+  r-grid > r-cell[span-d='5'] {
     --grid-ce: 5;
   }
-  r-grid > r-cell[span-l$='+6'],
-  r-grid > r-cell[span-l$='-5'],
-  r-grid > r-cell[span-l='6'] {
+  r-grid > r-cell[span-d$='+6'],
+  r-grid > r-cell[span-d$='-5'],
+  r-grid > r-cell[span-d='6'] {
     --grid-ce: 6;
   }
-  r-grid > r-cell[span-l$='+7'],
-  r-grid > r-cell[span-l$='-6'],
-  r-grid > r-cell[span-l='7'] {
+  r-grid > r-cell[span-d$='+7'],
+  r-grid > r-cell[span-d$='-6'],
+  r-grid > r-cell[span-d='7'] {
     --grid-ce: 7;
   }
-  r-grid > r-cell[span-l$='+8'],
-  r-grid > r-cell[span-l$='-7'],
-  r-grid > r-cell[span-l='8'] {
+  r-grid > r-cell[span-d$='+8'],
+  r-grid > r-cell[span-d$='-7'],
+  r-grid > r-cell[span-d='8'] {
     --grid-ce: 8;
   }
-  r-grid > r-cell[span-l$='+9'],
-  r-grid > r-cell[span-l$='-8'],
-  r-grid > r-cell[span-l='9'] {
+  r-grid > r-cell[span-d$='+9'],
+  r-grid > r-cell[span-d$='-8'],
+  r-grid > r-cell[span-d='9'] {
     --grid-ce: 9;
   }
-  r-grid > r-cell[span-l$='+10'],
-  r-grid > r-cell[span-l$='-9'],
-  r-grid > r-cell[span-l='10'] {
+  r-grid > r-cell[span-d$='+10'],
+  r-grid > r-cell[span-d$='-9'],
+  r-grid > r-cell[span-d='10'] {
     --grid-ce: 10;
   }
-  r-grid > r-cell[span-l$='+11'],
-  r-grid > r-cell[span-l$='-10'],
-  r-grid > r-cell[span-l='11'] {
+  r-grid > r-cell[span-d$='+11'],
+  r-grid > r-cell[span-d$='-10'],
+  r-grid > r-cell[span-d='11'] {
     --grid-ce: 11;
   }
-  r-grid > r-cell[span-l$='+12'],
-  r-grid > r-cell[span-l$='-11'],
-  r-grid > r-cell[span-l='12'] {
+  r-grid > r-cell[span-d$='+12'],
+  r-grid > r-cell[span-d$='-11'],
+  r-grid > r-cell[span-d='12'] {
     --grid-ce: 12;
   }
-  r-grid > r-cell[span-l$='-12'] {
+  r-grid > r-cell[span-d$='-12'] {
     --grid-ce: 13;
   }
 
   /* connect vars */
-  r-grid > r-cell[span-l] {
+  r-grid > r-cell[span-d] {
     grid-column-end: span var(--grid-ce);
   }
-  r-grid > r-cell[span-l*='+'],
-  r-grid > r-cell[span-l*='-'],
-  r-grid > r-cell[span-l*='..'] {
+  r-grid > r-cell[span-d*='+'],
+  r-grid > r-cell[span-d*='-'],
+  r-grid > r-cell[span-d*='..'] {
     grid-column-start: var(--grid-cs);
   }
-  r-grid > r-cell[span-l*='-'],
-  r-grid > r-cell[span-l*='..'] {
+  r-grid > r-cell[span-d*='-'],
+  r-grid > r-cell[span-d*='..'] {
     grid-column-end: var(--grid-ce);
   }
-  r-grid > r-cell[span-l='row'] {
+  r-grid > r-cell[span-d='row'] {
     grid-column: 1 / -1;
   }
 }

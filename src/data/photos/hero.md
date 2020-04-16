@@ -1,6 +1,6 @@
 ---
-title: My First Post
-desc: My First Post
-extra: My First Post
+title: Amcam, Toprak ve Fırat
+desc: Keban, Elazığ
+extra: VSCO'da haftanın en iyi fotoğtafı seçildi
 src: ./hero.jpg
 ---

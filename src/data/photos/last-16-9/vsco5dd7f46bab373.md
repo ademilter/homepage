@@ -1,6 +1,5 @@
 ---
-title: My First Post
-desc: My First Post
-extra: My First Post
+title: 15 Temmuz Şehitler Cami
+desc: Üsküdar, İstanbul
 src: ./vsco5dd7f46bab373.jpg
 ---

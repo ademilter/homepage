@@ -8,7 +8,11 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Photo
+  Photo,
+  Meta,
+  Link,
+  Title,
+  ExternalLink
 } from '../components'
 
 function IndexPage() {
@@ -27,7 +31,7 @@ function IndexPage() {
           extra
           src {
             childImageSharp {
-              fluid(maxWidth: 800) {
+              fluid {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -46,7 +50,7 @@ function IndexPage() {
               extra
               src {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -67,7 +71,7 @@ function IndexPage() {
               extra
               src {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -88,7 +92,7 @@ function IndexPage() {
               extra
               src {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -100,8 +104,6 @@ function IndexPage() {
     }
   `)
 
-  console.log(lastPhotos1)
-
   return (
     <Layout>
       <SEO title="Home" />
@@ -111,17 +113,25 @@ function IndexPage() {
         <div className="container">
           <Grid>
             <ColContent>
-              <r-grid>
-                <r-cell span="6">
-                  <Photo
-                    img={heroPhoto.frontmatter.src.childImageSharp.fluid}
+              <Link>
+                <Photo img={heroPhoto.frontmatter.src.childImageSharp.fluid}>
+                  <Meta
                     title={heroPhoto.frontmatter.title}
                     desc1={heroPhoto.frontmatter.desc}
+                    desc2={heroPhoto.frontmatter.extra}
                   />
-                </r-cell>
-              </r-grid>
+                </Photo>
+              </Link>
             </ColContent>
-            <ColExtra>dasdas</ColExtra>
+
+            <ColExtra>
+              <ExternalLink
+                urls={[
+                  { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
+                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
+                ]}
+              />
+            </ColExtra>
           </Grid>
         </div>
       </section>
@@ -131,30 +141,39 @@ function IndexPage() {
         <div className="container">
           <Grid>
             <ColSidebar>
-              <h2>Son Fotoğraflar</h2>
+              <Title>Son Fotoğraflar</Title>
             </ColSidebar>
+
             <ColContent>
-              <r-grid columns="2" columns-l="8">
+              <r-grid columns="2" columns-t="4" columns-d="8">
                 {lastPhotos1.edges.map(({ node }) => {
                   return (
-                    <r-cell key={node.id} span="2" span-l="4">
-                      <Photo
-                        img={node.frontmatter.src.childImageSharp.fluid}
-                        title={node.frontmatter.title}
-                        desc1={node.frontmatter.desc}
-                      />
+                    <r-cell key={node.id} span="2" span-t="2" span-d="4">
+                      <Link>
+                        <Photo img={node.frontmatter.src.childImageSharp.fluid}>
+                          <Meta
+                            title={node.frontmatter.title}
+                            desc1={node.frontmatter.desc}
+                          />
+                        </Photo>
+                      </Link>
                     </r-cell>
                   )
                 })}
                 {lastPhotos2.edges.map(({ node }) => {
                   return (
-                    <r-cell key={node.id} span="1" span-l="2">
-                      <Photo
-                        aspectRatio="1-1"
-                        img={node.frontmatter.src.childImageSharp.fluid}
-                        title={node.frontmatter.title}
-                        desc1={node.frontmatter.desc}
-                      />
+                    <r-cell key={node.id} span="1" span-t="1" span-d="2">
+                      <Link>
+                        <Photo
+                          aspectRatio="1-1"
+                          img={node.frontmatter.src.childImageSharp.fluid}
+                        >
+                          <Meta
+                            title={node.frontmatter.title}
+                            desc1={node.frontmatter.desc}
+                          />
+                        </Photo>
+                      </Link>
                     </r-cell>
                   )
                 })}
@@ -171,17 +190,23 @@ function IndexPage() {
             <ColSidebar>
               <h2>Dergiler</h2>
             </ColSidebar>
+
             <ColContent>
-              <r-grid columns="2" columns-l="8">
+              <r-grid columns="2" columns-t="4" columns-d="8">
                 {journalPhotos.edges.map(({ node }) => {
                   return (
-                    <r-cell key={node.id} span="1" span-l="2">
-                      <Photo
-                        aspectRatio="1-1"
-                        img={node.frontmatter.src.childImageSharp.fluid}
-                        title={node.frontmatter.title}
-                        desc1={node.frontmatter.desc}
-                      />
+                    <r-cell key={node.id} span="1" span-t="1" span-d="2">
+                      <Link>
+                        <Photo
+                          aspectRatio="1-1"
+                          img={node.frontmatter.src.childImageSharp.fluid}
+                        >
+                          <Meta
+                            title={node.frontmatter.title}
+                            desc1={node.frontmatter.desc}
+                          />
+                        </Photo>
+                      </Link>
                     </r-cell>
                   )
                 })}

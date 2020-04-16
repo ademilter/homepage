@@ -10,7 +10,7 @@
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "svgr": "svgr ./icons -d ./src/components/icons --icon --svg-props 'className='"
+    "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
   },
   "dependencies": {
     "gatsby": "^2.20.12",

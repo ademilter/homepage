@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="grid">
-        <div>footer</div>
+        <div></div>
       </div>
     </footer>
   )

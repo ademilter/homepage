@@ -1,11 +1,15 @@
 import React from 'react'
 
-function Meta({ title, desc1, desc2 }) {
+import styles from './meta.module.css'
+
+function Meta({ title, desc1, desc2, ...props }) {
   return (
-    <div>
-      {title && <p>{title}</p>}
-      {desc1 && <p className="c-default-light fs-small">{desc1}</p>}
-      {desc2 && <p className="c-default-light fs-small">{desc2}</p>}
+    <div {...props}>
+      {title && (
+        <h5 className={['meta-title', styles.title].join(' ')}>{title}</h5>
+      )}
+      {desc1 && <p className={styles.desc}>{desc1}</p>}
+      {desc2 && <p className={styles.desc}>{desc2}</p>}
     </div>
   )
 }
