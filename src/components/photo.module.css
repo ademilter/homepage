@@ -1,10 +1,4 @@
 .photo {
-  &:hover {
-    :global .meta-title {
-      color: inherit;
-      text-decoration: underline;
-    }
-  }
 }
 
 .caption {
