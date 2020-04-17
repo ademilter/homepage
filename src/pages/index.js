@@ -12,10 +12,11 @@ import {
   Meta,
   Link,
   Title,
-  ExternalLink
+  ExternalLink,
+  Header
 } from '../components'
 
-function IndexPage() {
+function IndexPage({ location }) {
   const {
     heroPhoto,
     lastPhotos1,
@@ -112,6 +113,9 @@ function IndexPage() {
       <section id="section-hero">
         <div className="container">
           <Grid>
+            <ColSidebar>
+              <Header pathname={location.pathname} />
+            </ColSidebar>
             <ColContent>
               <Link>
                 <Photo img={heroPhoto.frontmatter.src.childImageSharp.fluid}>

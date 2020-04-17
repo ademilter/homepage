@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Grid, { ColSidebar } from './grid'
+import { X, Menu } from './icons'
 
 import styles from './header.module.css'
 
@@ -11,56 +11,58 @@ const MENU = [
   { name: 'Fotoğraflar', url: '/photos' },
   { name: 'Eğitim Videoları', url: '/videos' },
   { name: 'Blog Yazıları', url: '/blog' },
-  { name: 'Sıkça Sorulan Sorular', url: '/faq' },
+  { name: 'S.S.S', url: '/faq' },
   { name: 'Alıntılar', url: '/excerpts' },
   { name: 'Çalışma Masam', url: '/my-desk' }
 ]
 
-function Header() {
+function Header({ pathname }) {
   const [showNav, setShowMenu] = React.useState(false)
+  const activePage = MENU.find(_ => _.url === pathname)
 
   return (
     <header className={styles.header}>
-      <div className="container">
-        <Grid>
-          <ColSidebar>
-            <button
-              type="button"
-              className={styles.button}
-              onClick={() => setShowMenu(!showNav)}
-            >
-              Fotoğraflar
-            </button>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={() => setShowMenu(!showNav)}
+      >
+        {showNav ? (
+          <X className={styles.iconMenu} />
+        ) : (
+          <>
+            {activePage && activePage.name}
+            <Menu className={styles.iconMenu} />
+          </>
+        )}
+      </button>
 
-            {showNav && (
-              <nav>
-                {MENU.map(page => {
-                  return (
-                    <Link
-                      key={page.url}
-                      to={page.url}
-                      activeClassName="active"
-                      className={styles.link}
-                    >
-                      {page.name}
-                    </Link>
-                  )
-                })}
-              </nav>
-            )}
-          </ColSidebar>
-        </Grid>
-      </div>
+      {showNav && (
+        <nav>
+          {MENU.map(page => {
+            return (
+              <Link
+                key={page.url}
+                to={page.url}
+                activeClassName="active"
+                className={styles.link}
+              >
+                {page.name}
+              </Link>
+            )
+          })}
+        </nav>
+      )}
     </header>
   )
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string
+  // siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {
-  siteTitle: ``
+  // siteTitle: ''
 }
 
 export default Header

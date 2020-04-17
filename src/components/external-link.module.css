@@ -1,4 +1,6 @@
 .external {
+  position: sticky;
+  top: 50px;
 }
 
 .link {
@@ -11,7 +13,6 @@
 
   &:hover {
     color: var(--c-highlight);
-    text-decoration: underline;
   }
 }
 

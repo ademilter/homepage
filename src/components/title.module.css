@@ -1,4 +1,6 @@
 .title {
+  position: sticky;
+  top: 50px;
   font-size: var(--fs-title);
 
   @media (--t) {
