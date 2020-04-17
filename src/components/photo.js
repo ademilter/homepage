@@ -8,7 +8,10 @@ function Photo({ img, aspectRatio = '16-9', children }) {
     <figure className={styles.photo}>
       {img && (
         <div className={`aspect-ratio size-${aspectRatio}`}>
-          <Img className="aspect-ratio-item" fluid={img} />
+          <Img
+            className={['aspect-ratio-item', styles.photoHover].join(' ')}
+            fluid={img}
+          />
         </div>
       )}
       {children && (

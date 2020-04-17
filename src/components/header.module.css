@@ -7,15 +7,15 @@
   width: 100%;
   font-weight: var(--fw-bold);
   font-size: var(--fs-title);
-  display: flex;
-  align-items: center;
-  height: var(--finger);
-  border-top: 1px solid var(--c-default-hide);
 }
 
-.iconMenu {
+.icon-arrow {
+  margin-top: 3px;
+  margin-left: 4px;
+}
+
+.icon-close {
   margin-left: auto;
-  color: var(--c-default-light);
 }
 
 .link {
@@ -23,7 +23,6 @@
   align-items: center;
   height: var(--finger);
   color: var(--c-default);
-  border-top: 1px solid var(--c-default-hide);
 
   &:hover {
     color: var(--c-highlight);

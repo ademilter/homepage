@@ -7,7 +7,6 @@
   display: flex;
   align-items: center;
   height: var(--finger);
-  font-size: var(--fs-small);
   color: var(--c-default-light);
   border-top: 1px solid var(--c-default-hide);
 

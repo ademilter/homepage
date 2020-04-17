@@ -2,8 +2,4 @@
   position: sticky;
   top: 50px;
   font-size: var(--fs-title);
-  display: flex;
-  align-items: center;
-  height: var(--finger);
-  border-top: 1px solid var(--c-default-hide);
 }

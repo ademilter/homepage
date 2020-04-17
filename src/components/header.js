@@ -1,8 +1,7 @@
-// import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'gatsby'
 
-import { X, Menu } from './icons'
+import { X, ChevronDown } from './icons'
 
 import styles from './header.module.css'
 
@@ -28,11 +27,11 @@ function Header({ pathname }) {
         onClick={() => setShowMenu(!showNav)}
       >
         {showNav ? (
-          <X className={styles.iconMenu} />
+          <X className={styles.iconClose} />
         ) : (
           <>
             {activePage && activePage.name}
-            <Menu className={styles.iconMenu} />
+            <ChevronDown className={styles.iconArrow} />
           </>
         )}
       </button>
@@ -55,14 +54,6 @@ function Header({ pathname }) {
       )}
     </header>
   )
-}
-
-Header.propTypes = {
-  // siteTitle: PropTypes.string
-}
-
-Header.defaultProps = {
-  // siteTitle: ''
 }
 
 export default Header
