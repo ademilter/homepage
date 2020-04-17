@@ -17,31 +17,12 @@ import {
 } from '../components'
 
 function IndexPage({ location }) {
-  const {
-    heroPhoto,
-    lastPhotos1,
-    lastPhotos2,
-    journalPhotos1,
-    journalPhotos2
-  } = useStaticQuery(graphql`
+  const { heroPhoto, lastPhotos, journalPhotos } = useStaticQuery(graphql`
     {
-      heroPhoto: markdownRemark(fileAbsolutePath: { regex: "/photos/hero/" }) {
-        id
-        frontmatter {
-          title
-          desc
-          extra
-          src {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-      lastPhotos1: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/photos/last-16-9/" } }
+      heroPhoto: allMarkdownRemark(
+        filter: { frontmatter: { category: { eq: "hero" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+        limit: 1
       ) {
         edges {
           node {
@@ -61,8 +42,10 @@ function IndexPage({ location }) {
           }
         }
       }
-      lastPhotos2: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/photos/last-1-1/" } }
+      lastPhotos: allMarkdownRemark(
+        filter: { frontmatter: { category: { eq: "last" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+        limit: 5
       ) {
         edges {
           node {
@@ -82,8 +65,10 @@ function IndexPage({ location }) {
           }
         }
       }
-      journalPhotos1: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/photos/journal-16-9/" } }
+      journalPhotos: allMarkdownRemark(
+        filter: { frontmatter: { category: { eq: "journal" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+        limit: 5
       ) {
         edges {
           node {
@@ -92,27 +77,7 @@ function IndexPage({ location }) {
               title
               desc
               extra
-              src {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      journalPhotos2: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/photos/journal-1-1/" } }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              extra
+              url
               src {
                 childImageSharp {
                   fluid {
@@ -139,12 +104,17 @@ function IndexPage({ location }) {
               <Header pathname={location.pathname} />
             </ColSidebar>
             <ColContent>
-              <Link>
-                <Photo img={heroPhoto.frontmatter.src.childImageSharp.fluid}>
+              <Link url={heroPhoto.edges[0].node.frontmatter.url}>
+                <Photo
+                  img={
+                    heroPhoto.edges[0].node.frontmatter.src.childImageSharp
+                      .fluid
+                  }
+                >
                   <Meta
-                    title={heroPhoto.frontmatter.title}
-                    desc1={heroPhoto.frontmatter.desc}
-                    desc2={heroPhoto.frontmatter.extra}
+                    title={heroPhoto.edges[0].node.frontmatter.title}
+                    desc1={heroPhoto.edges[0].node.frontmatter.desc}
+                    desc2={heroPhoto.edges[0].node.frontmatter.extra}
                   />
                 </Photo>
               </Link>
@@ -171,29 +141,12 @@ function IndexPage({ location }) {
             </ColSidebar>
 
             <ColContent>
-              <r-grid columns="2" columns-t="4" columns-d="8">
-                {lastPhotos1.edges.map(({ node }) => {
+              <r-grid columns="2">
+                {lastPhotos.edges.map(({ node }, i) => {
                   return (
-                    <r-cell key={node.id} span="2" span-t="2" span-d="4">
-                      <Link>
+                    <r-cell key={node.id} span={i === 0 ? 2 : 1}>
+                      <Link url={node.frontmatter.url}>
                         <Photo img={node.frontmatter.src.childImageSharp.fluid}>
-                          <Meta
-                            title={node.frontmatter.title}
-                            desc1={node.frontmatter.desc}
-                          />
-                        </Photo>
-                      </Link>
-                    </r-cell>
-                  )
-                })}
-                {lastPhotos2.edges.map(({ node }) => {
-                  return (
-                    <r-cell key={node.id} span="1" span-t="1" span-d="2">
-                      <Link>
-                        <Photo
-                          aspectRatio="1-1"
-                          img={node.frontmatter.src.childImageSharp.fluid}
-                        >
                           <Meta
                             title={node.frontmatter.title}
                             desc1={node.frontmatter.desc}
@@ -218,29 +171,12 @@ function IndexPage({ location }) {
             </ColSidebar>
 
             <ColContent>
-              <r-grid columns="2" columns-t="4" columns-d="8">
-                {journalPhotos1.edges.map(({ node }) => {
+              <r-grid columns="2">
+                {journalPhotos.edges.map(({ node }, i) => {
                   return (
-                    <r-cell key={node.id} span="2" span-t="2" span-d="4">
-                      <Link>
+                    <r-cell key={node.id} span={i === 0 ? 2 : 1}>
+                      <Link url={node.frontmatter.url}>
                         <Photo img={node.frontmatter.src.childImageSharp.fluid}>
-                          <Meta
-                            title={node.frontmatter.title}
-                            desc1={node.frontmatter.desc}
-                          />
-                        </Photo>
-                      </Link>
-                    </r-cell>
-                  )
-                })}
-                {journalPhotos2.edges.map(({ node }) => {
-                  return (
-                    <r-cell key={node.id} span="1" span-t="1" span-d="2">
-                      <Link>
-                        <Photo
-                          aspectRatio="1-1"
-                          img={node.frontmatter.src.childImageSharp.fluid}
-                        >
                           <Meta
                             title={node.frontmatter.title}
                             desc1={node.frontmatter.desc}

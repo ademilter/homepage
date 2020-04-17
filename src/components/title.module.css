@@ -2,9 +2,6 @@
   position: sticky;
   top: 50px;
   font-size: var(--fs-title);
-
-  @media (--t) {
-    margin-top: -0.1rem;
-    line-height: 1;
-  }
+  padding-top: 8px;
+  border-top: 1px solid var(--c-default-hide);
 }
