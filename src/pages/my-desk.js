@@ -12,7 +12,8 @@ import {
   Meta,
   Link,
   Title,
-  ExternalLink, Header
+  ExternalLink,
+  Header
 } from '../components'
 
 function IndexPage({ location }) {

@@ -12,7 +12,8 @@ import {
   Meta,
   Link,
   Title,
-  ExternalLink, Header
+  ExternalLink,
+  Header
 } from '../components'
 
 function IndexPage({ location }) {
@@ -20,7 +21,8 @@ function IndexPage({ location }) {
     heroPhoto,
     lastPhotos1,
     lastPhotos2,
-    journalPhotos
+    journalPhotos1,
+    journalPhotos2
   } = useStaticQuery(graphql`
     {
       heroPhoto: markdownRemark(fileAbsolutePath: { regex: "/photos/hero/" }) {
@@ -80,8 +82,29 @@ function IndexPage({ location }) {
           }
         }
       }
-      journalPhotos: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/photos/journal/" } }
+      journalPhotos1: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/photos/journal-16-9/" } }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              desc
+              extra
+              src {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      journalPhotos2: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/photos/journal-1-1/" } }
       ) {
         edges {
           node {
@@ -191,12 +214,26 @@ function IndexPage({ location }) {
         <div className="container">
           <Grid>
             <ColSidebar>
-              <h2>Dergiler</h2>
+              <Title>Dergiler</Title>
             </ColSidebar>
 
             <ColContent>
               <r-grid columns="2" columns-t="4" columns-d="8">
-                {journalPhotos.edges.map(({ node }) => {
+                {journalPhotos1.edges.map(({ node }) => {
+                  return (
+                    <r-cell key={node.id} span="2" span-t="2" span-d="4">
+                      <Link>
+                        <Photo img={node.frontmatter.src.childImageSharp.fluid}>
+                          <Meta
+                            title={node.frontmatter.title}
+                            desc1={node.frontmatter.desc}
+                          />
+                        </Photo>
+                      </Link>
+                    </r-cell>
+                  )
+                })}
+                {journalPhotos2.edges.map(({ node }) => {
                   return (
                     <r-cell key={node.id} span="1" span-t="1" span-d="2">
                       <Link>
