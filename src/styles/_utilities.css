@@ -1,5 +1,5 @@
 .container {
-  /* max-width: 1260px; */
+  max-width: 1815px; /* content: 1200px */
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--gap);
@@ -18,8 +18,6 @@
   font-size: var(--fs-small);
 }
 
-h1,
-h2,
 .fs-title {
   font-size: var(--fs-title);
 }

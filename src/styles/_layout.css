@@ -51,18 +51,10 @@ img {
 a {
   color: inherit;
   text-decoration: none;
-  transition: 230ms;
 }
 
 section + section {
   margin-top: 140px;
-}
-
-svg {
-  /* stroke-width: 0; */
-  /* stroke: currentColor; */
-  /* fill: currentColor; */
-  vertical-align: middle;
 }
 
 button {

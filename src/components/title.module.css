@@ -1,4 +1,6 @@
 .title {
+  font-size: var(--fs-title);
+
   @media (--t) {
     margin-top: -0.1rem;
     line-height: 1;
