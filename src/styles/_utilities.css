@@ -59,23 +59,23 @@
 
 @each $i in 0, 4, 8, 16, 32, 64, 128 {
   .m-$(i) {
-    margin: $(i) !important;
+    margin: calc($(i) * 1px) !important;
   }
   .mt-$(i),
   .my-$(i) {
-    margin-top: $(i) !important;
+    margin-top: calc($(i) * 1px) !important;
   }
   .mr-$(i),
   .mx-$(i) {
-    margin-right: $(i) !important;
+    margin-right: calc($(i) * 1px) !important;
   }
   .mb-$(i),
   .my-$(i) {
-    margin-bottom: $(i) !important;
+    margin-bottom: calc($(i) * 1px) !important;
   }
   .ml-$(i),
   .mx-$(i) {
-    margin-left: $(i) !important;
+    margin-left: calc($(i) * 1px) !important;
   }
   .m-auto {
     margin: auto !important;
@@ -98,22 +98,22 @@
   }
 
   .p-$(i) {
-    padding: $(i) !important;
+    padding: calc($(i) * 1px) !important;
   }
   .pt-$(i),
   .py-$(i) {
-    padding-top: $(i) !important;
+    padding-top: calc($(i) * 1px) !important;
   }
   .pr-$(i),
   .px-$(i) {
-    padding-right: $(i) !important;
+    padding-right: calc($(i) * 1px) !important;
   }
   .pb-$(i),
   .py-$(i) {
-    padding-bottom: $(i) !important;
+    padding-bottom: calc($(i) * 1px) !important;
   }
   .pl-$(i),
   .px-$(i) {
-    padding-left: $(i) !important;
+    padding-left: calc($(i) * 1px) !important;
   }
 }
