@@ -18,6 +18,46 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        token: '707413f6f1e928b81625932361aac04b7955f113',
+        graphQLQuery: `
+          {
+            repository(owner: "ademilter", name: "ama") {
+              issues(first: 99, filterBy: {labels: ["website-connect"]}) {
+                edges {
+                  node {
+                    id
+                    title
+                    bodyHTML
+                    comments(first: 99) {
+                      edges {
+                        node {
+                          id
+                          author {
+                            login
+                          }
+                          bodyHTML
+                        }
+                      }
+                    }
+                    labels(first: 99) {
+                      edges {
+                        node {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `
+      }
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'photos',

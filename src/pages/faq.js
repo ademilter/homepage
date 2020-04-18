@@ -11,8 +11,50 @@ import {
   ExternalLink,
   Header
 } from '../components'
+import { graphql, useStaticQuery } from 'gatsby'
 
 function IndexPage({ location }) {
+  const { allGithubData } = useStaticQuery(graphql`
+    query {
+      allGithubData {
+        nodes {
+          data {
+            repository {
+              issues {
+                edges {
+                  node {
+                    id
+                    title
+                    bodyHTML
+                    comments {
+                      edges {
+                        node {
+                          id
+                          bodyHTML
+                          author {
+                            login
+                          }
+                        }
+                      }
+                    }
+                    labels {
+                      edges {
+                        node {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -46,7 +88,30 @@ function IndexPage({ location }) {
               <Title>Son Fotoğraflar</Title>
             </ColSidebar>
 
-            <ColContent>deneme</ColContent>
+            <ColContent>
+              <ul>
+                {allGithubData.nodes[0].data.repository.issues.edges.map(
+                  issue => {
+                    return (
+                      <li key={issue.node.id} className="mb-32">
+                        <h2>{issue.node.title}</h2>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: issue.node.bodyHTML
+                          }}
+                        />
+
+                        <ul>
+                          {issue.node.comments.edges.map(comment => {
+                            return <div>{comment.node.id}</div>
+                          })}
+                        </ul>
+                      </li>
+                    )
+                  }
+                )}
+              </ul>
+            </ColContent>
           </Grid>
         </div>
       </section>
