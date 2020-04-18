@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: 'Adem ilter',
@@ -20,7 +22,7 @@ module.exports = {
     {
       resolve: `gatsby-source-github-api`,
       options: {
-        token: '707413f6f1e928b81625932361aac04b7955f113',
+        token: process.env.GITHUB_TOKEN,
         graphQLQuery: `
           {
             repository(owner: "ademilter", name: "ama") {
@@ -34,10 +36,10 @@ module.exports = {
                       edges {
                         node {
                           id
+                          bodyHTML
                           author {
                             login
                           }
-                          bodyHTML
                         }
                       }
                     }

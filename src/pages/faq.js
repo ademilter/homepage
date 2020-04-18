@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -11,50 +12,9 @@ import {
   ExternalLink,
   Header
 } from '../components'
-import { graphql, useStaticQuery } from 'gatsby'
 
-function IndexPage({ location }) {
-  const { allGithubData } = useStaticQuery(graphql`
-    query {
-      allGithubData {
-        nodes {
-          data {
-            repository {
-              issues {
-                edges {
-                  node {
-                    id
-                    title
-                    bodyHTML
-                    comments {
-                      edges {
-                        node {
-                          id
-                          bodyHTML
-                          author {
-                            login
-                          }
-                        }
-                      }
-                    }
-                    labels {
-                      edges {
-                        node {
-                          id
-                          name
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+function IndexPage({ location, data: { allGithubData } }) {
+  console.log(allGithubData)
   return (
     <Layout>
       <SEO title="Home" />
@@ -103,7 +63,9 @@ function IndexPage({ location }) {
 
                         <ul>
                           {issue.node.comments.edges.map(comment => {
-                            return <div>{comment.node.id}</div>
+                            return (
+                              <div key={comment.node.id}>{comment.node.id}</div>
+                            )
                           })}
                         </ul>
                       </li>
@@ -118,5 +80,46 @@ function IndexPage({ location }) {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    allGithubData {
+      nodes {
+        data {
+          repository {
+            issues {
+              edges {
+                node {
+                  id
+                  title
+                  bodyHTML
+                  comments {
+                    edges {
+                      node {
+                        id
+                        bodyHTML
+                        author {
+                          login
+                        }
+                      }
+                    }
+                  }
+                  labels {
+                    edges {
+                      node {
+                        id
+                        name
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
