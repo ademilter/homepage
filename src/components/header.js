@@ -15,9 +15,14 @@ const MENU = [
   { name: 'Çalışma Masam', url: '/my-desk' }
 ]
 
+function trailingSlashes(pathname) {
+  const hasSlashes = pathname.split('/').length > 2
+  return hasSlashes ? pathname.slice(0, -1) : pathname
+}
+
 function Header({ pathname }) {
   const [showNav, setShowMenu] = React.useState(false)
-  const activePage = MENU.find(_ => _.url === pathname)
+  const activePage = MENU.find(_ => _.url === trailingSlashes(pathname))
 
   return (
     <header className={styles.header}>
