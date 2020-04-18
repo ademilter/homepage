@@ -1,10 +1,10 @@
 ---
-title: My First Post
-desc: My First Post
-totalVideo: 12
-totalDuration: 120
+title: React Native ile Mobil Uygulama
+desc:
+totalVideo: 16
+totalDuration: 434
 photo: ./react-native-turkce-sozluk-uygulamasi.jpg
-url: https://vsco.co/adem/media/5c3a1c9bc9ae0d6b0080e6cb
-date: 12-1-2020
+url: https://www.youtube.com/playlist?list=PLadt0EaV4m3CWiofBOml0r95OmhiM6I6v
+date: 2020-03-15
 category: development
 ---

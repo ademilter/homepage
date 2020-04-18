@@ -26,7 +26,10 @@ function VideoGrid({ data }) {
               <Photo img={node.frontmatter.photo.childImageSharp.fluid}>
                 <Meta
                   title={node.frontmatter.title}
-                  desc1={`${node.frontmatter.totalVideo} video • ${node.frontmatter.totalDuration} dakika`}
+                  desc1={[
+                    `${node.frontmatter.totalVideo} video`,
+                    `${node.frontmatter.totalDuration} dakika`
+                  ].join(' • ')}
                 />
               </Photo>
             </Link>
@@ -41,7 +44,8 @@ function VideosPage({ location }) {
   const {
     heroVideoData,
     developmentVideoData,
-    designVideoData
+    designVideoData,
+    conferenceVideoData
   } = useStaticQuery(graphql`
     {
       heroVideoData: allMarkdownRemark(
@@ -107,6 +111,35 @@ function VideosPage({ location }) {
         filter: {
           fileAbsolutePath: { regex: "/data/videos/" }
           frontmatter: { category: { eq: "design" } }
+        }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              desc
+              totalVideo
+              totalDuration
+              url
+              date
+              category
+              photo {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      conferenceVideoData: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/data/videos/" }
+          frontmatter: { category: { eq: "conference" } }
         }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
@@ -203,6 +236,21 @@ function VideosPage({ location }) {
 
             <ColContent>
               <VideoGrid data={designVideoData} />
+            </ColContent>
+          </Grid>
+        </div>
+      </section>
+
+      {/* CONFERENCE VIDEOS */}
+      <section id="section-design-videos">
+        <div className="container">
+          <Grid>
+            <ColSidebar>
+              <Title>Katıldığım Konferanslar</Title>
+            </ColSidebar>
+
+            <ColContent>
+              <VideoGrid data={conferenceVideoData} />
             </ColContent>
           </Grid>
         </div>

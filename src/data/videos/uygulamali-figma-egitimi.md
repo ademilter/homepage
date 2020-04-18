@@ -1,10 +1,10 @@
 ---
-title: My First Post
-desc: My First Post
-totalVideo: 12
-totalDuration: 120
+title: Uygulamalı Figma Eğitimi
+desc: 
+totalVideo: 5
+totalDuration: 154
 photo: ./uygulamali-figma-egitimi.jpg
-url: https://vsco.co/adem/media/5c3a1c9bc9ae0d6b0080e6cb
-date: 12-1-2020
+url: https://www.youtube.com/playlist?list=PLadt0EaV4m3BvRYFQxa4w9BWKfrzqC_p6
+date: 2020-04-05
 category: design
 ---

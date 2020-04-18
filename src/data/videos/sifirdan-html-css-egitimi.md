@@ -1,10 +1,10 @@
 ---
-title: My First Post
-desc: My First Post
-totalVideo: 12
-totalDuration: 120
+title: Sıfırdan CSS Eğitim
+desc:
+totalVideo: 10
+totalDuration: 999
 photo: ./sifirdan-html-css-egitimi.jpg
-url: https://vsco.co/adem/media/5c3a1c9bc9ae0d6b0080e6cb
-date: 12-1-2020
+url: https://www.youtube.com/playlist?list=PLadt0EaV4m3BX9JaZbKS9B8076bruv93Y
+date: 2020-04-17
 category: development
 ---
