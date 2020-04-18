@@ -14,7 +14,8 @@ import {
 } from '../components'
 
 function IndexPage({ location, data: { allGithubData } }) {
-  console.log(allGithubData)
+  const { repository } = allGithubData.nodes[0].data
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -50,28 +51,26 @@ function IndexPage({ location, data: { allGithubData } }) {
 
             <ColContent>
               <ul>
-                {allGithubData.nodes[0].data.repository.issues.edges.map(
-                  issue => {
-                    return (
-                      <li key={issue.node.id} className="mb-32">
-                        <h2>{issue.node.title}</h2>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: issue.node.bodyHTML
-                          }}
-                        />
+                {repository.issues.edges.map(issue => {
+                  return (
+                    <li key={issue.node.id} className="mb-32">
+                      <h2>{issue.node.title}</h2>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: issue.node.bodyHTML
+                        }}
+                      />
 
-                        <ul>
-                          {issue.node.comments.edges.map(comment => {
-                            return (
-                              <div key={comment.node.id}>{comment.node.id}</div>
-                            )
-                          })}
-                        </ul>
-                      </li>
-                    )
-                  }
-                )}
+                      <ul>
+                        {issue.node.comments.edges.map(comment => {
+                          return (
+                            <div key={comment.node.id}>{comment.node.id}</div>
+                          )
+                        })}
+                      </ul>
+                    </li>
+                  )
+                })}
               </ul>
             </ColContent>
           </Grid>

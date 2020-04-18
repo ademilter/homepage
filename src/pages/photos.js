@@ -41,106 +41,10 @@ function PhotoGrid({ data }) {
   )
 }
 
-function IndexPage({ location }) {
-  const {
-    heroPhotoData,
-    lastPhotoData,
-    journalPhotoData
-  } = useStaticQuery(graphql`
-    {
-      heroPhotoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/photos/" }
-          frontmatter: { category: { eq: "hero" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-        limit: 1
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              location
-              device
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      lastPhotoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/photos/" }
-          frontmatter: { category: { eq: "last" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-        limit: 5
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              location
-              device
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      journalPhotoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/photos/" }
-          frontmatter: { category: { eq: "journal" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-        limit: 5
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              location
-              device
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+function IndexPage({
+  location,
+  data: { heroPhotoData, lastPhotoData, journalPhotoData }
+}) {
   return (
     <Layout>
       <SEO title="Home" />
@@ -217,5 +121,100 @@ function IndexPage({ location }) {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    heroPhotoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/photos/" }
+        frontmatter: { category: { eq: "hero" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            location
+            device
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    lastPhotoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/photos/" }
+        frontmatter: { category: { eq: "last" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            location
+            device
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    journalPhotoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/photos/" }
+        frontmatter: { category: { eq: "journal" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            location
+            device
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

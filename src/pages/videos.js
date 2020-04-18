@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -40,134 +40,15 @@ function VideoGrid({ data }) {
   )
 }
 
-function VideosPage({ location }) {
-  const {
+function VideosPage({
+  location,
+  data: {
     heroVideoData,
     developmentVideoData,
     designVideoData,
     conferenceVideoData
-  } = useStaticQuery(graphql`
-    {
-      heroVideoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/videos/" }
-          frontmatter: { category: { eq: "hero" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-        limit: 1
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              totalVideo
-              totalDuration
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      developmentVideoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/videos/" }
-          frontmatter: { category: { eq: "development" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              totalVideo
-              totalDuration
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      designVideoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/videos/" }
-          frontmatter: { category: { eq: "design" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              totalVideo
-              totalDuration
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      conferenceVideoData: allMarkdownRemark(
-        filter: {
-          fileAbsolutePath: { regex: "/data/videos/" }
-          frontmatter: { category: { eq: "conference" } }
-        }
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              desc
-              totalVideo
-              totalDuration
-              url
-              date
-              category
-              photo {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+  }
+}) {
   return (
     <Layout>
       <SEO title="Home" />
@@ -258,5 +139,127 @@ function VideosPage({ location }) {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    heroVideoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/videos/" }
+        frontmatter: { category: { eq: "hero" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 1
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            totalVideo
+            totalDuration
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    developmentVideoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/videos/" }
+        frontmatter: { category: { eq: "development" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            totalVideo
+            totalDuration
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    designVideoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/videos/" }
+        frontmatter: { category: { eq: "design" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            totalVideo
+            totalDuration
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    conferenceVideoData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/videos/" }
+        frontmatter: { category: { eq: "conference" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            totalVideo
+            totalDuration
+            url
+            date
+            category
+            photo {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default VideosPage
