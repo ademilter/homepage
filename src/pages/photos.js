@@ -16,11 +16,39 @@ import {
   Header
 } from '../components'
 
+function PhotoGrid({ data }) {
+  return (
+    <r-grid columns="2">
+      {data.edges.map(({ node }, i) => {
+        return (
+          <r-cell key={node.id} span={i === 0 ? 2 : 1}>
+            <Link url={node.frontmatter.url}>
+              <Photo img={node.frontmatter.src.childImageSharp.fluid}>
+                <Meta
+                  title={node.frontmatter.title}
+                  desc1={node.frontmatter.desc}
+                />
+              </Photo>
+            </Link>
+          </r-cell>
+        )
+      })}
+    </r-grid>
+  )
+}
+
 function IndexPage({ location }) {
-  const { heroPhoto, lastPhotos, journalPhotos } = useStaticQuery(graphql`
+  const {
+    heroPhotoData,
+    lastPhotoData,
+    journalPhotoData
+  } = useStaticQuery(graphql`
     {
-      heroPhoto: allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "hero" } } }
+      heroPhotoData: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/data/photos/" }
+          frontmatter: { category: { eq: "hero" } }
+        }
         sort: { fields: frontmatter___date, order: DESC }
         limit: 1
       ) {
@@ -42,8 +70,11 @@ function IndexPage({ location }) {
           }
         }
       }
-      lastPhotos: allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "last" } } }
+      lastPhotoData: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/data/photos/" }
+          frontmatter: { category: { eq: "last" } }
+        }
         sort: { fields: frontmatter___date, order: DESC }
         limit: 5
       ) {
@@ -65,8 +96,11 @@ function IndexPage({ location }) {
           }
         }
       }
-      journalPhotos: allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "journal" } } }
+      journalPhotoData: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/data/photos/" }
+          frontmatter: { category: { eq: "journal" } }
+        }
         sort: { fields: frontmatter___date, order: DESC }
         limit: 5
       ) {
@@ -104,20 +138,21 @@ function IndexPage({ location }) {
               <Header pathname={location.pathname} />
             </ColSidebar>
             <ColContent>
-              <Link url={heroPhoto.edges[0].node.frontmatter.url}>
-                <Photo
-                  img={
-                    heroPhoto.edges[0].node.frontmatter.src.childImageSharp
-                      .fluid
-                  }
-                >
-                  <Meta
-                    title={heroPhoto.edges[0].node.frontmatter.title}
-                    desc1={heroPhoto.edges[0].node.frontmatter.desc}
-                    desc2={heroPhoto.edges[0].node.frontmatter.extra}
-                  />
-                </Photo>
-              </Link>
+              {heroPhotoData.edges.length && (
+                <Link url={heroPhotoData.edges[0].node.frontmatter.url}>
+                  <Photo
+                    img={
+                      heroPhotoData.edges[0].node.frontmatter.src
+                        .childImageSharp.fluid
+                    }
+                  >
+                    <Meta
+                      title={heroPhotoData.edges[0].node.frontmatter.title}
+                      desc1={heroPhotoData.edges[0].node.frontmatter.desc}
+                    />
+                  </Photo>
+                </Link>
+              )}
             </ColContent>
 
             <ColExtra>
@@ -141,22 +176,7 @@ function IndexPage({ location }) {
             </ColSidebar>
 
             <ColContent>
-              <r-grid columns="2">
-                {lastPhotos.edges.map(({ node }, i) => {
-                  return (
-                    <r-cell key={node.id} span={i === 0 ? 2 : 1}>
-                      <Link url={node.frontmatter.url}>
-                        <Photo img={node.frontmatter.src.childImageSharp.fluid}>
-                          <Meta
-                            title={node.frontmatter.title}
-                            desc1={node.frontmatter.desc}
-                          />
-                        </Photo>
-                      </Link>
-                    </r-cell>
-                  )
-                })}
-              </r-grid>
+              <PhotoGrid data={lastPhotoData} />
             </ColContent>
           </Grid>
         </div>
@@ -171,22 +191,7 @@ function IndexPage({ location }) {
             </ColSidebar>
 
             <ColContent>
-              <r-grid columns="2">
-                {journalPhotos.edges.map(({ node }, i) => {
-                  return (
-                    <r-cell key={node.id} span={i === 0 ? 2 : 1}>
-                      <Link url={node.frontmatter.url}>
-                        <Photo img={node.frontmatter.src.childImageSharp.fluid}>
-                          <Meta
-                            title={node.frontmatter.title}
-                            desc1={node.frontmatter.desc}
-                          />
-                        </Photo>
-                      </Link>
-                    </r-cell>
-                  )
-                })}
-              </r-grid>
+              <PhotoGrid data={journalPhotoData} />
             </ColContent>
           </Grid>
         </div>

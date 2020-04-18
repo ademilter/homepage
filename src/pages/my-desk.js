@@ -7,9 +7,6 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Photo,
-  Meta,
-  Link,
   Title,
   ExternalLink,
   Header
