@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './meta.module.css'
 
-function Meta({ title, desc1, desc2, ...props }) {
+function Meta({ title, desc1, desc2, desc3, ...props }) {
   return (
     <div {...props}>
       {title && (
@@ -10,6 +10,7 @@ function Meta({ title, desc1, desc2, ...props }) {
       )}
       {desc1 && <p className={styles.desc}>{desc1}</p>}
       {desc2 && <p className={styles.desc}>{desc2}</p>}
+      {desc3 && <p className={styles.desc}>{desc3}</p>}
     </div>
   )
 }

@@ -6,10 +6,10 @@
 }
 
 .photo-hover picture img {
-  transition: transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
-    -webkit-transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+  transition: transform .8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    -webkit-transform .8s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
 }
 
 .photo-hover:hover picture img {
-  transform: scale(1.03) translateZ(0);
+  transform: scale(1.05) translateZ(0);
 }

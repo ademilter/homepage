@@ -36,13 +36,9 @@
 
 .aspect-ratio {
   position: relative;
-
-  &:before {
-    content: '';
-    display: block;
-    width: 100%;
-    padding-top: calc(100% * 9 / 16);
-  }
+  height: 0;
+  overflow: hidden;
+  padding-top: 50%;
 
   &-item {
     position: absolute !important;
@@ -52,8 +48,12 @@
     height: 100%;
   }
 
-  &.size-1-1 {
-    padding-top: 50%;
+  &.size-16-9 {
+    padding-top: calc(100% * 9 / 16);
+  }
+
+  &.size-4-3 {
+    padding-top: calc(100% * 3 / 4);
   }
 }
 

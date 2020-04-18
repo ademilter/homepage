@@ -1,9 +1,10 @@
 ---
-title: My First Post
-desc: My First Post
-extra: My First Post
-src: ./vsco5cab706b288bd.jpg
+title: Anne evi
+desc:
+location: Yenibosna, İstanbul
+device: iPhone XS Max
+photo: ./vsco5cab706b288bd.jpg
 url: https://vsco.co/adem/journal/anne-evi
-date: 12-1-2020
+date: 2019-04-08
 category: journal
 ---

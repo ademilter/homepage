@@ -18,7 +18,7 @@ import {
 
 function VideoGrid({ data }) {
   return (
-    <r-grid columns="1" columns-t="2">
+    <r-grid columns="1" columns-t="2" columns-d="3">
       {data.edges.map(({ node }, i) => {
         return (
           <r-cell key={node.id} span-t="1">
