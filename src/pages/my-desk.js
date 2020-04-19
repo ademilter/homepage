@@ -12,7 +12,7 @@ import {
   Header
 } from '../components'
 
-function IndexPage({ location }) {
+function MyDeskPage({ location }) {
   return (
     <Layout>
       <SEO title="Home" />
@@ -54,4 +54,4 @@ function IndexPage({ location }) {
   )
 }
 
-export default IndexPage
+export default MyDeskPage

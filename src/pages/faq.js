@@ -13,7 +13,7 @@ import {
   Header
 } from '../components'
 
-function IndexPage({ location, data: { allGithubData } }) {
+function FaqPage({ location, data: { allGithubData } }) {
   const { repository } = allGithubData.nodes[0].data
 
   return (
@@ -121,4 +121,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default FaqPage

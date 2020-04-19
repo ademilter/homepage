@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -41,7 +41,7 @@ function PhotoGrid({ data }) {
   )
 }
 
-function IndexPage({
+function PhotosPage({
   location,
   data: { heroPhotoData, lastPhotoData, journalPhotoData }
 }) {
@@ -217,4 +217,4 @@ export const query = graphql`
   }
 `
 
-export default IndexPage
+export default PhotosPage
