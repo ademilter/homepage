@@ -1,4 +1,7 @@
 export { default as ArrowUpRight } from './ArrowUpRight'
 export { default as ChevronDown } from './ChevronDown'
+export { default as ExternalLink } from './ExternalLink'
+export { default as Hash } from './Hash'
 export { default as Menu } from './Menu'
+export { default as Star } from './Star'
 export { default as X } from './X'
