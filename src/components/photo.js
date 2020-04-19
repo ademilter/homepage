@@ -1,18 +1,17 @@
 import React from 'react'
 import Img from 'gatsby-image'
 
+import AspectRatio from './aspect-ratio'
+
 import styles from './photo.module.css'
 
-function Photo({ img, aspectRatio = '16-9', children }) {
+function Photo({ img, aspectRatio, children }) {
   return (
     <figure className={styles.photo}>
       {img && (
-        <div className={`aspect-ratio size-${aspectRatio}`}>
-          <Img
-            className={['aspect-ratio-item', styles.photoHover].join(' ')}
-            fluid={img}
-          />
-        </div>
+        <AspectRatio ratio={aspectRatio}>
+          <Img className={styles.photoHover} fluid={img} />
+        </AspectRatio>
       )}
       {children && (
         <figcaption className={styles.caption}>{children}</figcaption>
