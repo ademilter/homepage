@@ -16,8 +16,9 @@
   --c-default: #101010;
   --c-default-light: rgba(0, 0, 0, 0.5);
   --c-default-hide: rgba(0, 0, 0, 0.12);
+  --c-default-smoke: rgba(0, 0, 0, 0.05);
 
-  --gap: 30px;
+  --gap: 32px;
   --finger: 46px;
 }
 
@@ -35,5 +36,6 @@
     --c-default: #fff;
     --c-default-light: rgba(255, 255, 255, 0.5);
     --c-default-hide: rgba(255, 255, 255, 0.12);
+    --c-default-smoke: rgba(255, 255, 255, 0.05);
   }
 }

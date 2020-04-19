@@ -43,6 +43,10 @@ small {
   font-size: var(--fs-small);
 }
 
+svg {
+  vertical-align: middle;
+}
+
 img {
   max-width: 100%;
   vertical-align: middle;

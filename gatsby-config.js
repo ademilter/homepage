@@ -30,6 +30,8 @@ module.exports = {
                 edges {
                   node {
                     id
+                    createdAt
+                    url
                     title
                     bodyHTML
                     comments(first: 99) {
