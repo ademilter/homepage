@@ -83,7 +83,7 @@ function VideosPage({
             <ColExtra>
               <ExternalLink
                 urls={[
-                  { name: 'YouTube', url: 'https://vsco.co/adem/gallery' },
+                  { name: 'YouTube', url: 'https://youtube.com/ademilter' },
                   { name: 'Instagram', url: 'https://instagram.com/ademilter' }
                 ]}
               />
