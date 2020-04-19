@@ -1,8 +1,8 @@
 :root {
   --ff-text: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     sans-serif;
-  --ff-display: -apple-system-headline, system-ui, BlinkMacSystemFont,
-    'Segoe UI', Roboto, sans-serif;
+  --ff-display: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
   --lh-body: 1.5;
   --fw-bold: 600;
 

@@ -12,8 +12,7 @@ import {
   Title,
   ExternalLink,
   Header,
-  FaqPost,
-  BlogPost
+  FaqPost
 } from '../components'
 
 function FaqPage({ location, data: { allGithubData } }) {

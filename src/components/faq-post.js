@@ -5,7 +5,7 @@ import { ExternalLink } from './icons'
 
 import styles from './faq-post.module.css'
 
-function FaqPost({ id, createdAt, url, title, bodyHTML, labels }) {
+function FaqPost({ id, createdAt, url, title, bodyHTML }) {
   const [isShow, setShow] = React.useState(false)
 
   return (
