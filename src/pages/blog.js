@@ -1,4 +1,6 @@
 import React from 'react'
+import groupBy from 'lodash.groupby'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -7,12 +9,19 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
+  BlogPost,
   Title,
   ExternalLink,
   Header
 } from '../components'
 
-function IndexPage({ location }) {
+function BlogPage({ location, data: { blogPostData } }) {
+  // const lastPost = blogPostData.edges[0].node
+  // const otherPost = blogPostData.edges.splice(1)
+  const postGroupByYear = groupBy(blogPostData.edges, ({ node }) => {
+    return new Date(node.frontmatter.date).getFullYear()
+  })
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -24,7 +33,15 @@ function IndexPage({ location }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>deneme</ColContent>
+
+            <ColContent>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Dignissimos dolores impedit incidunt labore nemo nihil nisi odit
+                possimus quod, rem! Aliquid, asperiores, excepturi? Illum
+                impedit inventore numquam quibusdam sunt, unde?
+              </p>
+            </ColContent>
 
             <ColExtra>
               <ExternalLink
@@ -38,20 +55,49 @@ function IndexPage({ location }) {
         </div>
       </section>
 
-      {/* - */}
-      <section id="section-last-photo">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Son Fotoğraflar</Title>
-            </ColSidebar>
+      {/* SECTION YEAR */}
+      {Object.keys(postGroupByYear)
+        .reverse()
+        .map(year => (
+          <section key={year} id="section-last-photo">
+            <div className="container">
+              <Grid>
+                <ColSidebar>
+                  <Title>{year}</Title>
+                </ColSidebar>
 
-            <ColContent>deneme</ColContent>
-          </Grid>
-        </div>
-      </section>
+                <ColContent>
+                  {postGroupByYear[year].reverse().map(({ node }) => (
+                    <BlogPost key={node.id} {...node} />
+                  ))}
+                </ColContent>
+              </Grid>
+            </div>
+          </section>
+        ))}
     </Layout>
   )
 }
 
-export default IndexPage
+export const query = graphql`
+  {
+    blogPostData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/data/blog/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            desc
+            url
+            date
+          }
+        }
+      }
+    }
+  }
+`
+
+export default BlogPage
