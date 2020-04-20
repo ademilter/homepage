@@ -7,7 +7,6 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Title,
   ExternalLink,
   Header
 } from '../components'
@@ -24,29 +23,18 @@ function IndexPage({ location }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>deneme</ColContent>
+            <ColContent>test yayını</ColContent>
 
             <ColExtra>
               <ExternalLink
                 urls={[
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' },
+                  { name: 'YouTube', url: 'https://youtube.com/ademilter' },
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
                   { name: 'Instagram', url: 'https://instagram.com/ademilter' }
                 ]}
               />
             </ColExtra>
-          </Grid>
-        </div>
-      </section>
-
-      {/* - */}
-      <section id="section-last-photo">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Son Fotoğraflar</Title>
-            </ColSidebar>
-
-            <ColContent>deneme</ColContent>
           </Grid>
         </div>
       </section>
