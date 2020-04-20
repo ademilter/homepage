@@ -5,9 +5,9 @@ import dayjs from 'dayjs'
 import { Link } from './index'
 
 import styles from './blog-post.module.css'
+import { graphql } from 'gatsby'
 
-function BlogPost({ frontmatter }) {
-  const { url, title, desc, date } = frontmatter
+function BlogPost({ title, url, date }) {
   const { host } = Url.parse(url)
 
   return (
@@ -30,5 +30,17 @@ function BlogPost({ frontmatter }) {
     </article>
   )
 }
+
+export const query = graphql`
+  fragment BlogPost on MarkdownRemark {
+    id
+    frontmatter {
+      title
+      desc
+      url
+      date
+    }
+  }
+`
 
 export default BlogPost
