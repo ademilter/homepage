@@ -36,12 +36,38 @@ function FaqPage({ location, data: { allGithubData } }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>deneme</ColContent>
+            <ColContent>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+            </ColContent>
 
             <ColExtra>
               <ExternalLink
                 urls={[
                   { name: 'Github', url: 'https://github.com/ademilter' },
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' },
                   { name: 'YouTube', url: 'https://youtube.com/ademilter' }
                 ]}
               />

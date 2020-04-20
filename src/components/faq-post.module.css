@@ -15,7 +15,7 @@
   font-size: var(--fs-title);
 }
 
-.meta {
+.footer {
   font-size: var(--fs-small);
   margin-top: 4px;
   color: var(--c-default-light);

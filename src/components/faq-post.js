@@ -13,8 +13,11 @@ function FaqPost({ id, createdAt, url, title, bodyHTML }) {
       key={id}
       className={[styles.post, isShow ? 'open' : null].join(' ')}
     >
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.meta}>
+      {/* BODY */}
+      <header>
+        <h3 className={styles.title}>{title}</h3>
+      </header>
+      <footer className={styles.footer}>
         <span>
           {dayjs(createdAt)
             .locale('tr')
@@ -28,8 +31,9 @@ function FaqPost({ id, createdAt, url, title, bodyHTML }) {
         >
           Detayı {isShow ? 'kapat' : 'aç'}
         </button>
-      </p>
+      </footer>
 
+      {/* CONTENT */}
       {isShow && (
         <div>
           <div
@@ -38,15 +42,17 @@ function FaqPost({ id, createdAt, url, title, bodyHTML }) {
               __html: bodyHTML
             }}
           />
-          <a
-            className={styles.linkUrl}
-            href={url}
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span>Cevabı oku</span>
-            <ExternalLink />
-          </a>
+          <div>
+            <a
+              className={styles.linkUrl}
+              href={url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span>Cevabı oku</span>
+              <ExternalLink />
+            </a>
+          </div>
         </div>
       )}
     </article>
