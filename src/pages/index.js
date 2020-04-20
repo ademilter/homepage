@@ -8,7 +8,8 @@ import {
   ColExtra,
   ColSidebar,
   ExternalLink,
-  Header
+  Header,
+  Html
 } from '../components'
 
 function IndexPage({ location }) {
@@ -23,7 +24,23 @@ function IndexPage({ location }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>test yayını</ColContent>
+            <ColContent>
+              <Html>
+                <p>
+                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
+                  yaşıyorum. Askerlik vazifemi tamamladıktan sonra tanıştığım
+                  web işçiliği serüvenimde 10 seneyi devirdim. Şu an Frontend
+                  Geliştirici olarak <b>ICS Defense</b> şirketinde çalışıyorum.
+                  Kendimi sürekli güncel tutmaya ve öğrendiklerimi insanlarla
+                  paylaşmaya çalışıyorum.
+                </p>
+                <p>
+                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
+                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
+                  kaliteli yapan insanların yetişmesine katkı sağlamak.
+                </p>
+              </Html>
+            </ColContent>
 
             <ColExtra>
               <ExternalLink

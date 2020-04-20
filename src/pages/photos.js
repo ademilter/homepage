@@ -82,10 +82,13 @@ function PhotosPage({
       </section>
 
       <PhotoSection title="Güncel" data={lastPhotoData.edges}>
+        {/*<Html>*/}
         {/*<p>*/}
-        {/*  Fotoğraf, konuşmadan anlatmak gibidir. Herkesin baktığı yere senin*/}
-        {/*  gözünden göstermek gibidir.*/}
+        {/*  Fotoğraf, konuşmadan anlatmaktır. Herkesin baktığı yere kendi gözünden*/}
+        {/*  göstermektir. Başkası için normal olanı keşfetmektir. Fotoğraf yaşamak*/}
+        {/*  gibidir.*/}
         {/*</p>*/}
+        {/*</Html>*/}
       </PhotoSection>
       <PhotoSection title="Dergiler" data={journalPhotoData.edges} />
     </Layout>

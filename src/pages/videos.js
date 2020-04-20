@@ -8,6 +8,7 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
+  Html,
   VideoPost,
   Title,
   ExternalLink,
@@ -42,12 +43,7 @@ function VideoSection({ title, data }) {
 
 function VideosPage({
   location,
-  data: {
-    heroVideoData,
-    developmentVideoData,
-    designVideoData,
-    conferenceVideoData
-  }
+  data: { developmentVideoData, designVideoData, conferenceVideoData }
 }) {
   return (
     <Layout>
@@ -62,21 +58,21 @@ function VideosPage({
             </ColSidebar>
 
             <ColContent>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                cum dolore dolorum maxime mollitia necessitatibus officia
-                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
-                nam obcaecati optio quidem ratione? Non!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                cum dolore dolorum maxime mollitia necessitatibus officia
-                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
-                nam obcaecati optio quidem ratione? Non!
-              </p>
-              {heroVideoData.edges.length && (
-                <VideoPost {...heroVideoData.edges[0].node.frontmatter} />
-              )}
+              <Html>
+                <p>
+                  <b>Yazılım</b>, <b>tasarım</b> ve <b>tecrübelerimi</b>{' '}
+                  paylaştığım video eğitimlere ücretsiz olarak erişebilirsiniz.
+                </p>
+                <p>
+                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
+                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
+                  kaliteli yapan insanların yetişmesine katkı sağlamak.
+                </p>
+              </Html>
+
+              {/*{heroVideoData.edges.length && (*/}
+              {/*  <VideoPost {...heroVideoData.edges[0].node.frontmatter} />*/}
+              {/*)}*/}
             </ColContent>
 
             <ColExtra>

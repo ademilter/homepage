@@ -12,7 +12,8 @@ import {
   BlogPost,
   Title,
   ExternalLink,
-  Header
+  Header,
+  Html
 } from '../components'
 
 function BlogPage({ location, data: { blogPostData } }) {
@@ -35,18 +36,9 @@ function BlogPage({ location, data: { blogPostData } }) {
             </ColSidebar>
 
             <ColContent>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                cum dolore dolorum maxime mollitia necessitatibus officia
-                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
-                nam obcaecati optio quidem ratione? Non!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                cum dolore dolorum maxime mollitia necessitatibus officia
-                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
-                nam obcaecati optio quidem ratione? Non!
-              </p>
+              <Html>
+                <p>Medium üzerinden yayınladığım blog yazıları</p>
+              </Html>
             </ColContent>
 
             <ColExtra>

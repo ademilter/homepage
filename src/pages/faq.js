@@ -12,7 +12,9 @@ import {
   Title,
   ExternalLink,
   Header,
-  FaqPost
+  FaqPost,
+  Button,
+  Html
 } from '../components'
 
 function FaqPage({ location, data: { allGithubData } }) {
@@ -36,19 +38,35 @@ function FaqPage({ location, data: { allGithubData } }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
+
             <ColContent>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                cum dolore dolorum maxime mollitia necessitatibus officia
-                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
-                nam obcaecati optio quidem ratione? Non!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                cum dolore dolorum maxime mollitia necessitatibus officia
-                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
-                nam obcaecati optio quidem ratione? Non!
-              </p>
+              <Html>
+                <p>
+                  Varlık gösterdiğim bütün platformlardan çok fazla soru
+                  alıyorum ve bu soruların neredeyse hepsi herkesin tekrar
+                  soracağı sorulardan oluşuyor. Bunun önüne geçmek için soru ve
+                  cevapları herkesin görebileceği ortak bir havuzda toplamak
+                  istedim.
+                </p>
+
+                <p>
+                  Soru sormadan önce mutlaka aşağıdaki içeriklere göz atın.
+                  Cevap bulamadığınız takdirde aşağıdaki kurallara uygun şekilde
+                  sorunuzu iletin. Anlayışınız için teşekkür ederim.
+                </p>
+
+                <ul>
+                  <li>Basit ve anlaşılır bir başlık kullanın.</li>
+                  <li>
+                    Destek ve teknik konular için Stack Overflow'u kullanın.
+                  </li>
+                  <li>Soru sormadan önce empati yapın ve nazik olun.</li>
+                </ul>
+
+                <Button href="" rel="noopener noreferrer" target="_blank">
+                  Soru Sor
+                </Button>
+              </Html>
             </ColContent>
 
             <ColExtra>
