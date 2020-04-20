@@ -1,0 +1,12 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  color: var(--c-theme);
+  background-color: var(--c-default);
+  font-size: var(--fs-small);
+
+  &:hover {
+    background-color: var(--c-highlight);
+  }
+}

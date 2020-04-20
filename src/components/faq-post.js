@@ -1,10 +1,11 @@
 import React from 'react'
 import dayjs from 'dayjs'
+import { graphql } from 'gatsby'
 
 import { ExternalLink } from './icons'
+import Button from './button'
 
 import styles from './faq-post.module.css'
-import { graphql } from 'gatsby'
 
 function FaqPost({ id, createdAt, url, title, bodyHTML }) {
   const [isShow, setShow] = React.useState(false)
@@ -44,15 +45,15 @@ function FaqPost({ id, createdAt, url, title, bodyHTML }) {
             }}
           />
           <div>
-            <a
-              className={styles.linkUrl}
+            <Button
+              className={styles.openLink}
               href={url}
               rel="noopener noreferrer"
               target="_blank"
             >
               <span>Cevabı oku</span>
               <ExternalLink />
-            </a>
+            </Button>
           </div>
         </div>
       )}

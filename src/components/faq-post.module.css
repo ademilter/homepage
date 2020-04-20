@@ -47,20 +47,10 @@
   }
 }
 
-.link-url {
+.open-link {
   margin-top: 32px;
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 16px;
-  color: var(--c-theme);
-  background-color: var(--c-default);
-  font-size: var(--fs-small);
 
   svg {
     margin-left: 8px;
-  }
-
-  &:hover {
-    background-color: var(--c-highlight);
   }
 }
