@@ -8,9 +8,9 @@ import styles from './header.module.css'
 const MENU = [
   { name: 'Anasayfa', url: '/' },
   { name: 'Fotoğraflar', url: '/photos' },
-  { name: 'Eğitim Videoları', url: '/videos' },
-  { name: 'Blog Yazıları', url: '/blog' },
-  { name: 'S.S.S', url: '/faq' },
+  { name: 'Eğitimler', url: '/videos' },
+  { name: 'Yazılar', url: '/blog' },
+  { name: 'S.S.S', url: '/faq' }
   // { name: 'Alıntılar', url: '/excerpts' },
   // { name: 'Çalışma Masam', url: '/my-desk' }
 ]
@@ -31,14 +31,8 @@ function Header({ pathname }) {
         className={styles.button}
         onClick={() => setShowMenu(!showNav)}
       >
-        {showNav ? (
-          <X className={styles.iconClose} />
-        ) : (
-          <>
-            {activePage && activePage.name}
-            <ChevronDown className={styles.iconArrow} />
-          </>
-        )}
+        <span>{activePage && activePage.name}</span>
+        <span className={styles.icon}>{showNav ? <X /> : <ChevronDown />}</span>
       </button>
 
       {showNav && (

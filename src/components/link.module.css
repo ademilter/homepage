@@ -1,5 +1,5 @@
 .link {
   &:hover {
-    color: var(--c-highlight);
+    /*color: var(--c-highlight);*/
   }
 }

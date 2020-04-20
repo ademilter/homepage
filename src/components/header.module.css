@@ -6,16 +6,13 @@
 .button {
   width: 100%;
   font-weight: var(--fw-bold);
-  font-size: var(--fs-title);
+  font-size: var(--fs-body);
+  text-align: left;
+  text-transform: uppercase;
 }
 
-.icon-arrow {
-  margin-top: 3px;
+.icon {
   margin-left: 4px;
-}
-
-.icon-close {
-  margin-left: auto;
 }
 
 .link {

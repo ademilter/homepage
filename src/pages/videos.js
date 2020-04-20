@@ -62,6 +62,30 @@ function VideosPage({
             </ColSidebar>
 
             <ColContent>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
               {heroVideoData.edges.length && (
                 <Link url={heroVideoData.edges[0].node.frontmatter.url}>
                   <Photo
@@ -84,7 +108,8 @@ function VideosPage({
               <ExternalLink
                 urls={[
                   { name: 'YouTube', url: 'https://youtube.com/ademilter' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
+                  { name: 'Instagram', url: 'https://instagram.com/ademilter' },
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
                 ]}
               />
             </ColExtra>
