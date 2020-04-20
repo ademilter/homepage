@@ -109,19 +109,7 @@ export const query = graphql`
             issues {
               edges {
                 node {
-                  id
-                  createdAt
-                  url
-                  title
-                  bodyHTML
-                  labels {
-                    edges {
-                      node {
-                        id
-                        name
-                      }
-                    }
-                  }
+                  ...IssueNode
                 }
               }
             }

@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import { ExternalLink } from './icons'
 
 import styles from './faq-post.module.css'
+import { graphql } from 'gatsby'
 
 function FaqPost({ id, createdAt, url, title, bodyHTML }) {
   const [isShow, setShow] = React.useState(false)
@@ -58,5 +59,23 @@ function FaqPost({ id, createdAt, url, title, bodyHTML }) {
     </article>
   )
 }
+
+export const query = graphql`
+  fragment IssueNode on GithubDataDataRepositoryIssuesEdgesNode {
+    id
+    createdAt
+    url
+    title
+    bodyHTML
+    labels {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+`
 
 export default FaqPost
