@@ -8,35 +8,35 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Photo,
-  Meta,
-  Link,
+  VideoPost,
   Title,
   ExternalLink,
   Header
 } from '../components'
 
-function VideoGrid({ data }) {
+function VideoSection({ title, data }) {
   return (
-    <r-grid columns="1" columns-t="2" columns-d="3">
-      {data.edges.map(({ node }, i) => {
-        return (
-          <r-cell key={node.id} span-t="1">
-            <Link url={node.frontmatter.url}>
-              <Photo img={node.frontmatter.photo.childImageSharp.fluid}>
-                <Meta
-                  title={node.frontmatter.title}
-                  desc1={[
-                    `${node.frontmatter.totalVideo} video`,
-                    `${node.frontmatter.totalDuration} dakika`
-                  ].join(' • ')}
-                />
-              </Photo>
-            </Link>
-          </r-cell>
-        )
-      })}
-    </r-grid>
+    <section id="section-development-videos">
+      <div className="container">
+        <Grid>
+          <ColSidebar>
+            <Title>{title}</Title>
+          </ColSidebar>
+
+          <ColContent>
+            <r-grid columns="1" columns-t="2" columns-d="3">
+              {data.edges.map(({ node }, i) => {
+                return (
+                  <r-cell key={node.id} span-t="1">
+                    <VideoPost {...node.frontmatter} />
+                  </r-cell>
+                )
+              })}
+            </r-grid>
+          </ColContent>
+        </Grid>
+      </div>
+    </section>
   )
 }
 
@@ -87,20 +87,7 @@ function VideosPage({
                 nam obcaecati optio quidem ratione? Non!
               </p>
               {heroVideoData.edges.length && (
-                <Link url={heroVideoData.edges[0].node.frontmatter.url}>
-                  <Photo
-                    img={
-                      heroVideoData.edges[0].node.frontmatter.photo
-                        .childImageSharp.fluid
-                    }
-                  >
-                    <Meta
-                      title={heroVideoData.edges[0].node.frontmatter.title}
-                      desc1={heroVideoData.edges[0].node.frontmatter.desc}
-                      desc2={heroVideoData.edges[0].node.frontmatter.extra}
-                    />
-                  </Photo>
-                </Link>
+                <VideoPost {...heroVideoData.edges[0].node.frontmatter} />
               )}
             </ColContent>
 
@@ -117,50 +104,12 @@ function VideosPage({
         </div>
       </section>
 
-      {/* DEVELOPMENT VIDEOS */}
-      <section id="section-development-videos">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Yazılım Eğitimleri</Title>
-            </ColSidebar>
-
-            <ColContent>
-              <VideoGrid data={developmentVideoData} />
-            </ColContent>
-          </Grid>
-        </div>
-      </section>
-
-      {/* DESIGN VIDEOS */}
-      <section id="section-design-videos">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Tasarım Eğitimleri</Title>
-            </ColSidebar>
-
-            <ColContent>
-              <VideoGrid data={designVideoData} />
-            </ColContent>
-          </Grid>
-        </div>
-      </section>
-
-      {/* CONFERENCE VIDEOS */}
-      <section id="section-design-videos">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Katıldığım Konferanslar</Title>
-            </ColSidebar>
-
-            <ColContent>
-              <VideoGrid data={conferenceVideoData} />
-            </ColContent>
-          </Grid>
-        </div>
-      </section>
+      <VideoSection title="Yazılım" data={developmentVideoData} />
+      <VideoSection title="Tasarım" data={designVideoData} />
+      <VideoSection
+        title="Katıldığım Konferanslar"
+        data={conferenceVideoData}
+      />
     </Layout>
   )
 }
@@ -177,23 +126,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            totalVideo
-            totalDuration
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...VideoPost
         }
       }
     }
@@ -206,23 +139,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            totalVideo
-            totalDuration
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...VideoPost
         }
       }
     }
@@ -235,23 +152,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            totalVideo
-            totalDuration
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...VideoPost
         }
       }
     }
@@ -264,23 +165,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            totalVideo
-            totalDuration
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...VideoPost
         }
       }
     }
