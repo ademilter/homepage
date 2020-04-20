@@ -5,7 +5,6 @@
 
 .button {
   width: 100%;
-  font-weight: var(--fw-bold);
   font-size: var(--fs-body);
   text-align: left;
   text-transform: uppercase;
