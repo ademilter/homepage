@@ -8,36 +8,35 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Photo,
-  Meta,
-  Link,
   Title,
   ExternalLink,
+  PhotoPost,
   Header
 } from '../components'
 
-function PhotoGrid({ data }) {
+function PhotoSection({ title, data }) {
   return (
-    <r-grid columns="1" columns-t="2" columns-d="3">
-      {data.edges.map(({ node }, i) => {
-        return (
-          <r-cell key={node.id} span-t="1">
-            <Link url={node.frontmatter.url}>
-              <Photo
-                aspectRatio="4-3"
-                img={node.frontmatter.photo.childImageSharp.fluid}
-              >
-                <Meta
-                  title={node.frontmatter.title}
-                  desc1={node.frontmatter.location}
-                  desc2={node.frontmatter.device}
-                />
-              </Photo>
-            </Link>
-          </r-cell>
-        )
-      })}
-    </r-grid>
+    <section id="section-last-photo">
+      <div className="container">
+        <Grid>
+          <ColSidebar>
+            <Title>{title}</Title>
+          </ColSidebar>
+
+          <ColContent>
+            <r-grid columns="1" columns-t="2" columns-d="3">
+              {data.map(({ node }) => {
+                return (
+                  <r-cell key={node.id} span-t="1">
+                    <PhotoPost aspectRatio="4-3" {...node.frontmatter} />
+                  </r-cell>
+                )
+              })}
+            </r-grid>
+          </ColContent>
+        </Grid>
+      </div>
+    </section>
   )
 }
 
@@ -56,24 +55,13 @@ function PhotosPage({
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
+
             <ColContent>
               {heroPhotoData.edges.length && (
-                <Link url={heroPhotoData.edges[0].node.frontmatter.url}>
-                  <Photo
-                    aspectRatio="4-3"
-                    img={
-                      heroPhotoData.edges[0].node.frontmatter.photo
-                        .childImageSharp.fluid
-                    }
-                  >
-                    <Meta
-                      title={heroPhotoData.edges[0].node.frontmatter.title}
-                      desc1={heroPhotoData.edges[0].node.frontmatter.desc}
-                      desc2={heroPhotoData.edges[0].node.frontmatter.location}
-                      desc3={heroPhotoData.edges[0].node.frontmatter.device}
-                    />
-                  </Photo>
-                </Link>
+                <PhotoPost
+                  aspectRatio="4-3"
+                  {...heroPhotoData.edges[0].node.frontmatter}
+                />
               )}
             </ColContent>
 
@@ -89,35 +77,8 @@ function PhotosPage({
         </div>
       </section>
 
-      {/* LAST PHOTOS */}
-      <section id="section-last-photo">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Son Fotoğraflar</Title>
-            </ColSidebar>
-
-            <ColContent>
-              <PhotoGrid data={lastPhotoData} />
-            </ColContent>
-          </Grid>
-        </div>
-      </section>
-
-      {/* JOURNAL */}
-      <section id="section-last-photo">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Dergiler</Title>
-            </ColSidebar>
-
-            <ColContent>
-              <PhotoGrid data={journalPhotoData} />
-            </ColContent>
-          </Grid>
-        </div>
-      </section>
+      <PhotoSection title="Fotoğraflar" data={lastPhotoData.edges} />
+      <PhotoSection title="Dergiler" data={journalPhotoData.edges} />
     </Layout>
   )
 }
