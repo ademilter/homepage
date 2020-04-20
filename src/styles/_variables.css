@@ -26,7 +26,6 @@
 @media (--t) {
   :root {
     --fs-base: 18px;
-    --fs-title: 1.2rem;
   }
 }
 
@@ -34,7 +33,7 @@
   :root {
     --c-theme: #101010;
     --c-highlight: #ffef5f;
-    --c-default: #fff;
+    --c-default: rgba(255, 255, 255, 0.9);
     --c-default-light: rgba(255, 255, 255, 0.5);
     --c-default-hide: rgba(255, 255, 255, 0.12);
     --c-default-smoke: rgba(255, 255, 255, 0.05);
