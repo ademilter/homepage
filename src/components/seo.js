@@ -11,7 +11,8 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
-            author
+            url
+            username
           }
         }
       }
@@ -50,7 +51,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author
+          content: site.siteMetadata.username
         },
         {
           name: `twitter:title`,
@@ -66,9 +67,9 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `tr`,
+  lang: 'tr',
   meta: [],
-  description: ``
+  description: ''
 }
 
 SEO.propTypes = {

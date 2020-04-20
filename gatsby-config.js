@@ -2,9 +2,10 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'Adem ilter',
-    description: 'test',
-    author: '@ademilter'
+    title: 'Adem ilter - Design and Code',
+    description: 'Frontend Developer from Istanbul',
+    username: '@ademilter',
+    url: 'https://ademilter.com'
   },
   plugins: [
     {
