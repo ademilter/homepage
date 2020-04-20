@@ -14,16 +14,20 @@ import {
   Header
 } from '../components'
 
-function PhotoSection({ title, data }) {
+function PhotoSection({ title, data, children }) {
   return (
     <section id="section-last-photo">
       <div className="container">
         <Grid>
-          <ColSidebar>
-            <Title>{title}</Title>
-          </ColSidebar>
+          {title && (
+            <ColSidebar>
+              <Title>{title}</Title>
+            </ColSidebar>
+          )}
 
           <ColContent>
+            {children}
+
             <r-grid columns="1" columns-t="2" columns-d="3">
               {data.map(({ node }) => {
                 return (
@@ -77,7 +81,12 @@ function PhotosPage({
         </div>
       </section>
 
-      <PhotoSection title="Fotoğraflar" data={lastPhotoData.edges} />
+      <PhotoSection title="Güncel" data={lastPhotoData.edges}>
+        {/*<p>*/}
+        {/*  Fotoğraf, konuşmadan anlatmak gibidir. Herkesin baktığı yere senin*/}
+        {/*  gözünden göstermek gibidir.*/}
+        {/*</p>*/}
+      </PhotoSection>
       <PhotoSection title="Dergiler" data={journalPhotoData.edges} />
     </Layout>
   )
@@ -95,23 +104,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            location
-            device
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...PhotoPost
         }
       }
     }
@@ -125,23 +118,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            location
-            device
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...PhotoPost
         }
       }
     }
@@ -155,23 +132,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          frontmatter {
-            title
-            desc
-            location
-            device
-            url
-            date
-            category
-            photo {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...PhotoPost
         }
       }
     }

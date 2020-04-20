@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import { Link, Meta, Photo } from './index'
 
@@ -19,5 +20,27 @@ function PhotoPost({ aspectRatio, url, desc, photo, title, location, device }) {
     </article>
   )
 }
+
+export const query = graphql`
+  fragment PhotoPost on MarkdownRemark {
+    id
+    frontmatter {
+      title
+      desc
+      location
+      device
+      url
+      date
+      category
+      photo {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 export default PhotoPost
