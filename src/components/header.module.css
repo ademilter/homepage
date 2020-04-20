@@ -1,0 +1,30 @@
+.header {
+  position: sticky;
+  top: 50px;
+}
+
+.button {
+  width: 100%;
+  font-size: var(--fs-body);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.icon {
+  margin-left: 4px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  height: var(--finger);
+  color: var(--c-default);
+
+  &:hover {
+    color: var(--c-highlight);
+  }
+
+  &:global(.active) {
+    color: var(--c-default-light);
+  }
+}

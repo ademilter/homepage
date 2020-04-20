@@ -1,0 +1,42 @@
+:root {
+  --ff-text: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --ff-display: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+  --lh-body: 1.5;
+  --lh-title: 1.2;
+  --fw-bold: 600;
+
+  --fs-base: 17px;
+  --fs-body: 1rem;
+  --fs-title: 1.2rem;
+  --fs-small: 0.9rem;
+
+  --c-theme: #fff;
+  --c-highlight: red;
+  --c-default: #101010;
+  --c-default-light: rgba(0, 0, 0, 0.5);
+  --c-default-hide: rgba(0, 0, 0, 0.12);
+  --c-default-smoke: rgba(0, 0, 0, 0.05);
+
+  --gap: 32px;
+  --finger: 46px;
+}
+
+@media (--t) {
+  :root {
+    --fs-base: 18px;
+    --fs-title: 1.2rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-theme: #101010;
+    --c-highlight: #ffef5f;
+    --c-default: #fff;
+    --c-default-light: rgba(255, 255, 255, 0.5);
+    --c-default-hide: rgba(255, 255, 255, 0.12);
+    --c-default-smoke: rgba(255, 255, 255, 0.05);
+  }
+}

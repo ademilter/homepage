@@ -1,24 +1,44 @@
 {
   "name": "ademilter-website",
-  "version": "0.0.20",
-  "license": "ISC",
+  "private": true,
+  "description": "my personal website",
+  "version": "0.1.0",
+  "author": "Adem ilter <ademilter@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "build": "cross-env NEXT_EXPORT=true next build",
-    "export": "yarn build && cross-env NEXT_EXPORT=true next export",
-    "now-build": "yarn export",
-    "start": "serve out"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
   },
   "dependencies": {
-    "next": "latest",
-    "next-offline": "^5.0.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "react-typist": "^2.0.5"
+    "dayjs": "^1.8.24",
+    "gatsby": "^2.20.12",
+    "gatsby-image": "^2.3.1",
+    "gatsby-plugin-manifest": "^2.3.3",
+    "gatsby-plugin-offline": "^3.1.2",
+    "gatsby-plugin-postcss": "^2.2.1",
+    "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-source-github-api": "^0.2.1",
+    "gatsby-transformer-remark": "^2.7.1",
+    "gatsby-transformer-sharp": "^2.4.3",
+    "lodash.groupby": "^4.6.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "url": "^0.11.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.0",
-    "prettier": "^1.19.1",
-    "serve": "^11.3.0"
+    "@svgr/cli": "^5.3.1",
+    "autoprefixer": "^9.7.6",
+    "postcss-custom-media": "^7.0.8",
+    "postcss-each": "^0.10.0",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
+    "prettier": "^1.19.1"
   }
 }
