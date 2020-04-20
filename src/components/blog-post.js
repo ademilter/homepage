@@ -1,28 +1,32 @@
 import React from 'react'
-import url from 'url'
+import Url from 'url'
 import dayjs from 'dayjs'
 
-import { Link, Meta } from './index'
+import { Link } from './index'
 
 import styles from './blog-post.module.css'
 
 function BlogPost({ frontmatter }) {
-  const parseUrl = url.parse(frontmatter.url)
+  const { url, title, desc, date } = frontmatter
+  const { host } = Url.parse(url)
 
   return (
     <article className={styles.post}>
-      <Link url={frontmatter.url}>
-        <Meta
-          title={frontmatter.title}
-          desc1={frontmatter.desc}
-          desc2={[
-            dayjs(frontmatter.date)
-              .locale('tr')
-              .format('D MMMM'),
-            parseUrl.host
-          ].join(' • ')}
-        />
-      </Link>
+      <header>
+        <Link url={url}>
+          <h3 className={styles.title}>{title}</h3>
+          {/*<p className={styles.desc}>{desc}</p>*/}
+        </Link>
+      </header>
+      <footer className={styles.footer}>
+        <span>
+          {dayjs(date)
+            .locale('tr')
+            .format('D MMMM')}
+        </span>
+        {' • '}
+        <span>{host}</span>
+      </footer>
     </article>
   )
 }

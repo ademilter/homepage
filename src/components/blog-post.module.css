@@ -1,5 +1,20 @@
 .post {
   border-top: 1px solid var(--c-default-hide);
-  padding-top: 32px;
-  padding-bottom: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.desc {
+  margin-top: 4px;
+  color: var(--c-default-light);
+}
+
+.title {
+  font-size: var(--fs-title);
+}
+
+.footer {
+  margin-top: 4px;
+  color: var(--c-default-light);
+  font-size: var(--fs-small);
 }

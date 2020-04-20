@@ -36,18 +36,36 @@ function BlogPage({ location, data: { blogPostData } }) {
 
             <ColContent>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Dignissimos dolores impedit incidunt labore nemo nihil nisi odit
-                possimus quod, rem! Aliquid, asperiores, excepturi? Illum
-                impedit inventore numquam quibusdam sunt, unde?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                cum dolore dolorum maxime mollitia necessitatibus officia
+                praesentium rerum unde ut? Asperiores culpa cupiditate impedit
+                nam obcaecati optio quidem ratione? Non!
               </p>
             </ColContent>
 
             <ColExtra>
               <ExternalLink
                 urls={[
-                  { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
+                  { name: 'Medium', url: 'https://medium.com/@ademilter' },
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
                 ]}
               />
             </ColExtra>
@@ -67,7 +85,7 @@ function BlogPage({ location, data: { blogPostData } }) {
                 </ColSidebar>
 
                 <ColContent>
-                  {postGroupByYear[year].reverse().map(({ node }) => (
+                  {postGroupByYear[year].map(({ node }) => (
                     <BlogPost key={node.id} {...node} />
                   ))}
                 </ColContent>
