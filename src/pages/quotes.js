@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -8,11 +9,12 @@ import {
   ColExtra,
   ColSidebar,
   Title,
-  ExternalLink,
+  QuotePost,
+  ExternalList,
   Header
 } from '../components'
 
-function ExcerptsPage({ location }) {
+function QuotesPage({ location, data: { quotesData } }) {
   return (
     <Layout>
       <SEO title="Home" />
@@ -27,7 +29,7 @@ function ExcerptsPage({ location }) {
             <ColContent>deneme</ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
                   { name: 'Instagram', url: 'https://instagram.com/ademilter' }
@@ -42,11 +44,11 @@ function ExcerptsPage({ location }) {
       <section id="section-last-photo">
         <div className="container">
           <Grid>
-            <ColSidebar>
-              <Title>Son Fotoğraflar</Title>
-            </ColSidebar>
-
-            <ColContent>deneme</ColContent>
+            <ColContent>
+              {quotesData.edges.map(({ node }) => {
+                return <QuotePost {...node.frontmatter} />
+              })}
+            </ColContent>
           </Grid>
         </div>
       </section>
@@ -54,4 +56,19 @@ function ExcerptsPage({ location }) {
   )
 }
 
-export default ExcerptsPage
+export const query = graphql`
+  {
+    quotesData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/data/quotes/" } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          ...QuotePost
+        }
+      }
+    }
+  }
+`
+
+export default QuotesPage

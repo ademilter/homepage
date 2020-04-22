@@ -10,8 +10,8 @@ const MENU = [
   { name: 'Fotoğraflar', url: '/photos' },
   { name: 'Eğitimler', url: '/videos' },
   { name: 'Yazılar', url: '/blog' },
-  { name: 'S.S.S', url: '/faq' }
-  // { name: 'Alıntılar', url: '/excerpts' },
+  { name: 'S.S.S', url: '/faq' },
+  { name: 'Alıntılar', url: '/quotes' }
   // { name: 'Çalışma Masam', url: '/my-desk' }
 ]
 
