@@ -11,7 +11,7 @@ import {
   Html,
   VideoPost,
   Title,
-  ExternalLink,
+  ExternalList,
   Header
 } from '../components'
 
@@ -76,7 +76,7 @@ function VideosPage({
             </ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'YouTube', url: 'https://youtube.com/ademilter' },
                   { name: 'Instagram', url: 'https://instagram.com/ademilter' },

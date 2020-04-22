@@ -16,6 +16,7 @@ import {
   Button,
   Html
 } from '../components'
+import { ExternalLink } from '../components/icons'
 
 function FaqPage({ location, data: { allGithubData } }) {
   const repository = allGithubData.nodes[0].data.repository.issues.edges
@@ -70,7 +71,7 @@ function FaqPage({ location, data: { allGithubData } }) {
             </ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'Github', url: 'https://github.com/ademilter' },
                   { name: 'Twitter', url: 'https://twitter.com/ademilter' },

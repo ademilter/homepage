@@ -1,6 +1,6 @@
 export { default as SEO } from './seo'
 export { default as Layout } from './layout'
-export { default as ExternalLink } from './external-link'
+export { default as ExternalList } from './external-list'
 export { default as Meta } from './meta'
 export { default as Photo } from './photo'
 export { default as BlogPost } from './blog-post'

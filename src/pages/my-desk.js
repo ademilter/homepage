@@ -8,7 +8,7 @@ import {
   ColExtra,
   ColSidebar,
   Title,
-  ExternalLink,
+  ExternalList,
   Header
 } from '../components'
 
@@ -27,7 +27,7 @@ function MyDeskPage({ location }) {
             <ColContent>deneme</ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
                   { name: 'Instagram', url: 'https://instagram.com/ademilter' }

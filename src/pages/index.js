@@ -9,7 +9,7 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  ExternalLink,
+  ExternalList,
   Header,
   Html
 } from '../components'
@@ -46,7 +46,7 @@ function IndexPage({ location, data }) {
             </ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'Twitter', url: 'https://twitter.com/ademilter' },
                   { name: 'YouTube', url: 'https://youtube.com/ademilter' },

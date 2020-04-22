@@ -9,7 +9,7 @@ import {
   ColExtra,
   ColSidebar,
   Title,
-  ExternalLink,
+  ExternalList,
   PhotoPost,
   Header
 } from '../components'
@@ -70,7 +70,7 @@ function PhotosPage({
             </ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
                   { name: 'Instagram', url: 'https://instagram.com/ademilter' }

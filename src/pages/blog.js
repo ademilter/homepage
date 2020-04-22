@@ -11,7 +11,7 @@ import {
   ColSidebar,
   BlogPost,
   Title,
-  ExternalLink,
+  ExternalList,
   Header,
   Html
 } from '../components'
@@ -42,7 +42,7 @@ function BlogPage({ location, data: { blogPostData } }) {
             </ColContent>
 
             <ColExtra>
-              <ExternalLink
+              <ExternalList
                 urls={[
                   { name: 'Medium', url: 'https://medium.com/@ademilter' },
                   { name: 'Twitter', url: 'https://twitter.com/ademilter' }
