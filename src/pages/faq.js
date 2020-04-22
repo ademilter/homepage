@@ -10,7 +10,7 @@ import {
   ColExtra,
   ColSidebar,
   Title,
-  ExternalLink,
+  ExternalList,
   Header,
   FaqPost,
   Button,
@@ -64,8 +64,13 @@ function FaqPage({ location, data: { allGithubData } }) {
                   <li>Soru sormadan önce empati yapın ve nazik olun.</li>
                 </ul>
 
-                <Button href="" rel="noopener noreferrer" target="_blank">
-                  Soru Sor
+                <Button
+                  href="https://github.com/ademilter/AMA"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span>Soru Sor</span>
+                  <ExternalLink />
                 </Button>
               </Html>
             </ColContent>
