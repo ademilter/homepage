@@ -1,4 +1,6 @@
 import React from 'react'
+import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import {
   Layout,
@@ -12,7 +14,7 @@ import {
   Html
 } from '../components'
 
-function IndexPage({ location }) {
+function IndexPage({ location, data }) {
   return (
     <Layout>
       <SEO title="Home" />
@@ -26,18 +28,19 @@ function IndexPage({ location }) {
             </ColSidebar>
             <ColContent>
               <Html>
+                <Img fluid={data.file.childImageSharp.fluid} />
+
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Askerlik vazifemi tamamladıktan sonra tanıştığım
                   web işçiliği serüvenimde 10 seneyi devirdim. Şu an Frontend
                   Geliştirici olarak <b>ICS Defense</b> şirketinde çalışıyorum.
-                  Kendimi sürekli güncel tutmaya ve öğrendiklerimi insanlarla
-                  paylaşmaya çalışıyorum.
                 </p>
+
                 <p>
-                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
-                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
-                  kaliteli yapan insanların yetişmesine katkı sağlamak.
+                  Kendimi sürekli güncel tutmaya ve öğrendiklerimi insanlarla
+                  paylaşmaya çalışıyorum. Özellikle youtube kanalımda eğitim
+                  videoları yayınlıyorum.
                 </p>
               </Html>
             </ColContent>
@@ -58,5 +61,17 @@ function IndexPage({ location }) {
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    file(name: { eq: "i-am" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
