@@ -54,7 +54,12 @@ img {
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration-color: transparent;
+
+  &:hover {
+    text-decoration-color: var(--c-default-light);
+    text-decoration-thickness: 1px;
+  }
 }
 
 section + section {

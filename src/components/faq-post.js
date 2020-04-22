@@ -1,25 +1,24 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import { graphql } from 'gatsby'
+import Fragment from 'react-dom-fragment'
 
 import { ExternalLink } from './icons'
 import Button from './button'
+import Post from './post'
+import Html from './html'
 
 import styles from './faq-post.module.css'
 
-function FaqPost({ id, createdAt, url, title, bodyHTML }) {
+function FaqPost({ createdAt, url, title, bodyHTML }) {
   const [isShow, setShow] = React.useState(false)
 
   return (
-    <article
-      key={id}
+    <Post
       className={[styles.post, isShow ? 'open' : null].join(' ')}
+      title={title}
     >
-      {/* BODY */}
-      <header>
-        <h3 className={styles.title}>{title}</h3>
-      </header>
-      <footer className={styles.footer}>
+      <Post.Meta>
         <span>
           {dayjs(createdAt)
             .locale('tr')
@@ -33,31 +32,24 @@ function FaqPost({ id, createdAt, url, title, bodyHTML }) {
         >
           Detayı {isShow ? 'kapat' : 'aç'}
         </button>
-      </footer>
+      </Post.Meta>
 
-      {/* CONTENT */}
-      {isShow && (
-        <div>
-          <div
-            className={styles.body}
-            dangerouslySetInnerHTML={{
-              __html: bodyHTML
-            }}
-          />
-          <div>
-            <Button
-              className={styles.openLink}
-              href={url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+      <Post.Extra>
+        {isShow && (
+          <Html>
+            <Fragment
+              dangerouslySetInnerHTML={{
+                __html: bodyHTML
+              }}
+            />
+            <Button href={url} rel="noopener noreferrer" target="_blank">
               <span>Cevabı oku</span>
               <ExternalLink />
             </Button>
-          </div>
-        </div>
-      )}
-    </article>
+          </Html>
+        )}
+      </Post.Extra>
+    </Post>
   )
 }
 

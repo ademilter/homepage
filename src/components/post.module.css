@@ -1,0 +1,24 @@
+.post {
+  border-top: 1px solid var(--c-default-hide);
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.title {
+  font-size: var(--fs-title);
+}
+
+.desc {
+  margin-top: 4px;
+  color: var(--c-default-light);
+}
+
+.meta {
+  /*font-size: var(--fs-small);*/
+  margin-top: 4px;
+  color: var(--c-default-light);
+}
+
+.extra {
+  margin-top: 32px;
+}

@@ -5,7 +5,7 @@ import { Link, Meta, Photo } from './index'
 
 import styles from './video-post.module.css'
 
-function VidepPost({ title, totalVideo, totalDuration, url, photo }) {
+function VideoPost({ title, totalVideo, totalDuration, url, photo }) {
   return (
     <article className={styles.post}>
       <Link url={url}>
@@ -44,4 +44,4 @@ export const query = graphql`
   }
 `
 
-export default VidepPost
+export default VideoPost

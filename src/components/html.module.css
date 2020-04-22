@@ -1,5 +1,10 @@
 .content {
-  > * {
-    margin-bottom: 32px;
+  > * + * {
+    margin-top: 32px;
+  }
+
+  ul,
+  ol {
+    padding-left: 1em;
   }
 }
