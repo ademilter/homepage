@@ -80,7 +80,7 @@ function MyDeskPage({
 
 export const query = graphql`
   {
-    heroData: file(name: { eq: "my-desk" }) {
+    heroData: file(name: { eq: "my-desk-trim" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
