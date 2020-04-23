@@ -8,7 +8,6 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Title,
   QuotePost,
   ExternalList,
   Header

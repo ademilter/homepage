@@ -1,4 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import {
   Layout,
@@ -7,12 +9,43 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Title,
   ExternalList,
-  Header
+  DevicePost,
+  Header,
+  Html,
+  Title
 } from '../components'
 
-function MyDeskPage({ location }) {
+function DeviceSection({ title, data }) {
+  return (
+    <section id="section-development-videos">
+      <div className="container">
+        <Grid>
+          <ColSidebar>
+            <Title>{title}</Title>
+          </ColSidebar>
+
+          <ColContent>
+            <r-grid columns="1" columns-t="2" columns-d="3">
+              {data.edges.map(({ node }) => {
+                return (
+                  <r-cell key={node.id} span-t="1">
+                    <DevicePost {...node.frontmatter} />
+                  </r-cell>
+                )
+              })}
+            </r-grid>
+          </ColContent>
+        </Grid>
+      </div>
+    </section>
+  )
+}
+
+function MyDeskPage({
+  location,
+  data: { heroData, homeData, everywhereData }
+}) {
   return (
     <Layout>
       <SEO title="Home" />
@@ -24,7 +57,13 @@ function MyDeskPage({ location }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>deneme</ColContent>
+            <ColContent>
+              <Html>
+                <Img fluid={heroData.childImageSharp.fluid} />
+
+                <p>test</p>
+              </Html>
+            </ColContent>
 
             <ColExtra>
               <ExternalList
@@ -38,20 +77,48 @@ function MyDeskPage({ location }) {
         </div>
       </section>
 
-      {/* - */}
-      <section id="section-last-photo">
-        <div className="container">
-          <Grid>
-            <ColSidebar>
-              <Title>Son Fotoğraflar</Title>
-            </ColSidebar>
-
-            <ColContent>deneme</ColContent>
-          </Grid>
-        </div>
-      </section>
+      <DeviceSection title="Genel" data={everywhereData} />
+      <DeviceSection title="Ev" data={homeData} />
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    heroData: file(name: { eq: "my-desk" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    homeData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/my-desk/" }
+        frontmatter: { category: { eq: "home" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          ...DevicePost
+        }
+      }
+    }
+    everywhereData: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/data/my-desk/" }
+        frontmatter: { category: { eq: "everywhere" } }
+      }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      edges {
+        node {
+          ...DevicePost
+        }
+      }
+    }
+  }
+`
 
 export default MyDeskPage

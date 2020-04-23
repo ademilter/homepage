@@ -11,8 +11,8 @@ const MENU = [
   { name: 'Eğitimler', url: '/videos' },
   { name: 'Yazılar', url: '/blog' },
   { name: 'S.S.S', url: '/faq' },
-  { name: 'Alıntılar', url: '/quotes' }
-  // { name: 'Çalışma Masam', url: '/my-desk' }
+  { name: 'Alıntılar', url: '/quotes' },
+  { name: 'Çalışma Masam', url: '/my-desk' }
 ]
 
 function trailingSlashes(pathname) {
