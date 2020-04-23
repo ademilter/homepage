@@ -30,9 +30,12 @@ function QuotesPage({ location, data: { quotesData } }) {
             <ColExtra>
               <ExternalList
                 urls={[
+                  { name: 'Github', url: 'https://github.com/ademilter' },
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' },
+                  { name: 'Medium', url: 'https://medium.com/@ademilter' },
+                  { name: 'YouTube', url: 'https://youtube.com/ademilter' },
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' },
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
+                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
                 ]}
               />
             </ColExtra>
