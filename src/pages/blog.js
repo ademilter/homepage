@@ -43,8 +43,11 @@ function BlogPage({ location, data: { blogPostData } }) {
             <ColExtra>
               <ExternalList
                 urls={[
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' },
                   { name: 'Medium', url: 'https://medium.com/@ademilter' },
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
+                  { name: 'YouTube', url: 'https://youtube.com/ademilter' },
+                  { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
+                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
                 ]}
               />
             </ColExtra>
