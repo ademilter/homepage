@@ -12,8 +12,8 @@ function PhotoPost({ aspectRatio, url, desc, photo, title, location, device }) {
         <Photo aspectRatio={aspectRatio} img={photo.childImageSharp.fluid}>
           <Meta
             title={title}
-            desc1={desc}
-            desc2={[location, device].join(' • ')}
+            desc1={[location, device].join(' • ')}
+            desc2={desc}
           />
         </Photo>
       </Link>

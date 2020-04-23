@@ -7,7 +7,6 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Title,
   ExternalList,
   Header
 } from '../components'
@@ -42,10 +41,6 @@ function MyDeskPage({ location }) {
       <section id="section-last-photo">
         <div className="container">
           <Grid>
-            <ColSidebar>
-              <Title>Son Fotoğraflar</Title>
-            </ColSidebar>
-
             <ColContent>deneme</ColContent>
           </Grid>
         </div>

@@ -8,7 +8,6 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Title,
   ExternalList,
   PhotoPost,
   Header
@@ -19,11 +18,7 @@ function PhotoSection({ title, data, children }) {
     <section id="section-last-photo">
       <div className="container">
         <Grid>
-          {title && (
-            <ColSidebar>
-              <Title>{title}</Title>
-            </ColSidebar>
-          )}
+          {title && <ColSidebar title={title} />}
 
           <ColContent>
             {children}
@@ -81,7 +76,7 @@ function PhotosPage({
         </div>
       </section>
 
-      <PhotoSection title="Güncel" data={lastPhotoData.edges}>
+      <PhotoSection data={lastPhotoData.edges}>
         {/*<Html>*/}
         {/*<p>*/}
         {/*  Fotoğraf, konuşmadan anlatmaktır. Herkesin baktığı yere kendi gözünden*/}

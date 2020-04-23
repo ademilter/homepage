@@ -10,7 +10,6 @@ import {
   ColExtra,
   ColSidebar,
   BlogPost,
-  Title,
   ExternalList,
   Header,
   Html
@@ -60,10 +59,7 @@ function BlogPage({ location, data: { blogPostData } }) {
           <section key={year} id="section-last-photo">
             <div className="container">
               <Grid>
-                <ColSidebar>
-                  <Title>{year}</Title>
-                </ColSidebar>
-
+                <ColSidebar title={year} />
                 <ColContent>
                   {postGroupByYear[year].map(({ node }) => (
                     <BlogPost key={node.id} {...node.frontmatter} />

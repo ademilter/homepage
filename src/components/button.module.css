@@ -4,7 +4,6 @@
   padding: 8px 16px;
   color: var(--c-theme);
   background-color: var(--c-default);
-  font-size: var(--fs-small);
   text-decoration: none;
 
   &:hover {

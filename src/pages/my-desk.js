@@ -12,8 +12,7 @@ import {
   ExternalList,
   DevicePost,
   Header,
-  Html,
-  Title
+  Html
 } from '../components'
 
 function DeviceSection({ title, data }) {
@@ -21,10 +20,7 @@ function DeviceSection({ title, data }) {
     <section id="section-development-videos">
       <div className="container">
         <Grid>
-          <ColSidebar>
-            <Title>{title}</Title>
-          </ColSidebar>
-
+          <ColSidebar title={title} />
           <ColContent>
             <r-grid columns="1" columns-t="2" columns-d="3">
               {data.edges.map(({ node }) => {
@@ -60,8 +56,6 @@ function MyDeskPage({
             <ColContent>
               <Html>
                 <Img fluid={heroData.childImageSharp.fluid} />
-
-                <p>test</p>
               </Html>
             </ColContent>
 
@@ -69,7 +63,8 @@ function MyDeskPage({
               <ExternalList
                 urls={[
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
+                  { name: 'Instagram', url: 'https://instagram.com/ademilter' },
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
                 ]}
               />
             </ColExtra>

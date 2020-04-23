@@ -9,7 +9,6 @@ import {
   ColContent,
   ColExtra,
   ColSidebar,
-  Title,
   ExternalList,
   Header,
   FaqPost,
@@ -95,10 +94,7 @@ function FaqPage({ location, data: { allGithubData } }) {
           <section key={year} id="section-last-photo">
             <div className="container">
               <Grid>
-                <ColSidebar>
-                  <Title>{year}</Title>
-                </ColSidebar>
-
+                <ColSidebar title={year} />
                 <ColContent>
                   {faqGroupByLabel[year].reverse().map(({ node }) => (
                     <FaqPost key={node.id} {...node} />

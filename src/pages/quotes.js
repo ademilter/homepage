@@ -25,13 +25,14 @@ function QuotesPage({ location, data: { quotesData } }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>deneme</ColContent>
+            <ColContent>-</ColContent>
 
             <ColExtra>
               <ExternalList
                 urls={[
                   { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
+                  { name: 'Instagram', url: 'https://instagram.com/ademilter' },
+                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
                 ]}
               />
             </ColExtra>

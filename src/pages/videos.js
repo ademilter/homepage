@@ -10,7 +10,6 @@ import {
   ColSidebar,
   Html,
   VideoPost,
-  Title,
   ExternalList,
   Header
 } from '../components'
@@ -20,10 +19,7 @@ function VideoSection({ title, data }) {
     <section id="section-development-videos">
       <div className="container">
         <Grid>
-          <ColSidebar>
-            <Title>{title}</Title>
-          </ColSidebar>
-
+          <ColSidebar title={title} />
           <ColContent>
             <r-grid columns="1" columns-t="2" columns-d="3">
               {data.edges.map(({ node }, i) => {

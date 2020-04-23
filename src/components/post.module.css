@@ -1,11 +1,12 @@
 .post {
   border-top: 1px solid var(--c-default-hide);
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .title {
   font-size: var(--fs-title);
+  line-height: var(--lh-title);
 }
 
 .desc {
@@ -14,7 +15,6 @@
 }
 
 .meta {
-  /*font-size: var(--fs-small);*/
   margin-top: 4px;
   color: var(--c-default-light);
 }

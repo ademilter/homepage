@@ -39,10 +39,6 @@ h6 {
   font-weight: var(--fw-bold);
 }
 
-small {
-  font-size: var(--fs-small);
-}
-
 svg {
   vertical-align: middle;
 }
@@ -58,7 +54,6 @@ a {
 
   &:hover {
     text-decoration-color: var(--c-default-light);
-    text-decoration-thickness: 1px;
   }
 }
 

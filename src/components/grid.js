@@ -1,4 +1,5 @@
 import React from 'react'
+import { SidebarTitle } from './index'
 
 export default function Grid({ children }) {
   return (
@@ -8,9 +9,10 @@ export default function Grid({ children }) {
   )
 }
 
-export function ColSidebar({ children }) {
+export function ColSidebar({ title, children }) {
   return (
     <r-cell span="2" span-t="1" span-d="1-2">
+      {title && <SidebarTitle>{title}</SidebarTitle>}
       {children}
     </r-cell>
   )
