@@ -31,11 +31,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --c-theme: rgba(26, 27, 40, 1);
-    --c-highlight: #ffef5f;
-    --c-default: rgba(255, 255, 255, 0.9);
-    --c-default-light: rgba(166, 167, 193, 0.6);
-    --c-default-hide: rgba(166, 167, 193, 0.12);
-    --c-default-smoke: rgba(255, 255, 255, 0.06);
+    --c-theme: rgb(31, 32, 43);
+    --c-highlight: #42FFCC;
+    --c-default: rgba(255, 255, 255, 0.95);
+    --c-default-light: rgba(180, 180, 200, 0.6);
+    --c-default-hide: rgba(180, 180, 200, 0.14);
+    --c-default-smoke: rgba(180, 180, 200, 0.1);
   }
 }

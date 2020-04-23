@@ -50,11 +50,7 @@ img {
 
 a {
   color: inherit;
-  text-decoration-color: transparent;
-
-  &:hover {
-    text-decoration-color: var(--c-default-light);
-  }
+  text-decoration: none;
 }
 
 section + section {

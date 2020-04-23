@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ExternalLink } from './icons'
+import { ArrowUpRight } from './icons'
 
 import styles from './external-list.module.css'
 
@@ -16,7 +16,7 @@ function ExternalList({ urls = [] }) {
           href={link.url}
         >
           {link.name}
-          <ExternalLink className={styles.icon} />
+          <ArrowUpRight className={styles.icon} />
         </a>
       ))}
     </div>
