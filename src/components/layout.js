@@ -1,20 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-// import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Footer from './footer'
 
 function Layout({ children }) {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
-
   return (
     <>
       <main>{children}</main>
@@ -23,8 +12,37 @@ function Layout({ children }) {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired
-}
+export const query = graphql`
+  fragment SiteMetaData on Site {
+    siteMetadata {
+      socialLinks {
+        vsco {
+          name
+          url
+        }
+        instagram {
+          name
+          url
+        }
+        twitter {
+          name
+          url
+        }
+        medium {
+          name
+          url
+        }
+        github {
+          name
+          url
+        }
+        youtube {
+          name
+          url
+        }
+      }
+    }
+  }
+`
 
 export default Layout

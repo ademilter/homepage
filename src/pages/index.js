@@ -14,7 +14,9 @@ import {
   Html
 } from '../components'
 
-function IndexPage({ location, data }) {
+function IndexPage({ location, data: { metaData, heroData } }) {
+  const { twitter, youtube, instagram } = metaData.siteMetadata.socialLinks
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -28,7 +30,7 @@ function IndexPage({ location, data }) {
             </ColSidebar>
             <ColContent>
               <Html>
-                <Img fluid={data.file.childImageSharp.fluid} />
+                <Img fluid={heroData.childImageSharp.fluid} />
 
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
@@ -46,14 +48,7 @@ function IndexPage({ location, data }) {
             </ColContent>
 
             <ColExtra>
-              <ExternalList
-                urls={[
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' },
-                  { name: 'YouTube', url: 'https://youtube.com/ademilter' },
-                  { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
-                ]}
-              />
+              <ExternalList urls={[twitter, youtube, instagram]} />
             </ColExtra>
           </Grid>
         </div>
@@ -64,7 +59,10 @@ function IndexPage({ location, data }) {
 
 export const query = graphql`
   {
-    file(name: { eq: "i-am" }) {
+    metaData: site {
+      ...SiteMetaData
+    }
+    heroData: file(name: { eq: "i-am" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

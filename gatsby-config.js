@@ -5,17 +5,25 @@ module.exports = {
     title: 'Adem ilter - Design and Code',
     description: 'Frontend Developer from Istanbul',
     username: '@ademilter',
-    url: 'https://ademilter.com'
+    url: 'https://ademilter.com',
+    socialLinks: {
+      vsco: { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
+      instagram: { name: 'Instagram', url: 'https://instagram.com/ademilter' },
+      twitter: { name: 'Twitter', url: 'https://twitter.com/ademilter' },
+      medium: { name: 'Medium', url: 'https://medium.com/@ademilter' },
+      github: { name: 'Github', url: 'https://github.com/ademilter' },
+      youtube: { name: 'YouTube', url: 'https://youtube.com/ademilter' }
+    }
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Adem ilter',
-        short_name: 'starter',
+        short_name: 'Ai',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#000',
+        theme_color: '#000',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png'
       }

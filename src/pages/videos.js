@@ -39,8 +39,10 @@ function VideoSection({ title, data }) {
 
 function VideosPage({
   location,
-  data: { developmentVideoData, designVideoData, conferenceVideoData }
+  data: { metaData, developmentVideoData, designVideoData, conferenceVideoData }
 }) {
+  const { youtube, instagram, twitter } = metaData.siteMetadata.socialLinks
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -72,13 +74,7 @@ function VideosPage({
             </ColContent>
 
             <ColExtra>
-              <ExternalList
-                urls={[
-                  { name: 'YouTube', url: 'https://youtube.com/ademilter' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' },
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
-                ]}
-              />
+              <ExternalList urls={[youtube, instagram, twitter]} />
             </ColExtra>
           </Grid>
         </div>
@@ -96,6 +92,9 @@ function VideosPage({
 
 export const query = graphql`
   {
+    metaData: site {
+      ...SiteMetaData
+    }
     heroVideoData: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/data/videos/" }

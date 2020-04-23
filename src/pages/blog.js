@@ -15,9 +15,9 @@ import {
   Html
 } from '../components'
 
-function BlogPage({ location, data: { blogPostData } }) {
-  // const lastPost = blogPostData.edges[0].node
-  // const otherPost = blogPostData.edges.splice(1)
+function BlogPage({ location, data: { metaData, blogPostData } }) {
+  const { medium, twitter } = metaData.siteMetadata.socialLinks
+
   const postGroupByYear = groupBy(blogPostData.edges, ({ node }) => {
     return new Date(node.frontmatter.date).getFullYear()
   })
@@ -41,12 +41,7 @@ function BlogPage({ location, data: { blogPostData } }) {
             </ColContent>
 
             <ColExtra>
-              <ExternalList
-                urls={[
-                  { name: 'Medium', url: 'https://medium.com/@ademilter' },
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
-                ]}
-              />
+              <ExternalList urls={[medium, twitter]} />
             </ColExtra>
           </Grid>
         </div>
@@ -75,6 +70,9 @@ function BlogPage({ location, data: { blogPostData } }) {
 
 export const query = graphql`
   {
+    metaData: site {
+      ...SiteMetaData
+    }
     blogPostData: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/data/blog/" } }
       sort: { fields: frontmatter___date, order: DESC }

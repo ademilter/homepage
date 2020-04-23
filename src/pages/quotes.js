@@ -13,7 +13,9 @@ import {
   Header
 } from '../components'
 
-function QuotesPage({ location, data: { quotesData } }) {
+function QuotesPage({ location, data: { metaData, quotesData } }) {
+  const { vsco, instagram, twitter } = metaData.siteMetadata.socialLinks
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -28,13 +30,7 @@ function QuotesPage({ location, data: { quotesData } }) {
             <ColContent>-</ColContent>
 
             <ColExtra>
-              <ExternalList
-                urls={[
-                  { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' },
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' }
-                ]}
-              />
+              <ExternalList urls={[vsco, instagram, twitter]} />
             </ColExtra>
           </Grid>
         </div>
@@ -46,7 +42,7 @@ function QuotesPage({ location, data: { quotesData } }) {
           <Grid>
             <ColContent>
               {quotesData.edges.map(({ node }) => {
-                return <QuotePost {...node.frontmatter} />
+                return <QuotePost key={node.id} {...node.frontmatter} />
               })}
             </ColContent>
           </Grid>
@@ -58,6 +54,9 @@ function QuotesPage({ location, data: { quotesData } }) {
 
 export const query = graphql`
   {
+    metaData: site {
+      ...SiteMetaData
+    }
     quotesData: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/data/quotes/" } }
       sort: { fields: frontmatter___date, order: DESC }

@@ -41,8 +41,10 @@ function PhotoSection({ title, data, children }) {
 
 function PhotosPage({
   location,
-  data: { heroPhotoData, lastPhotoData, journalPhotoData }
+  data: { metaData, heroPhotoData, lastPhotoData, journalPhotoData }
 }) {
+  const { vsco, instagram } = metaData.siteMetadata.socialLinks
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -65,12 +67,7 @@ function PhotosPage({
             </ColContent>
 
             <ColExtra>
-              <ExternalList
-                urls={[
-                  { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-                  { name: 'Instagram', url: 'https://instagram.com/ademilter' }
-                ]}
-              />
+              <ExternalList urls={[vsco, instagram]} />
             </ColExtra>
           </Grid>
         </div>
@@ -92,6 +89,9 @@ function PhotosPage({
 
 export const query = graphql`
   {
+    metaData: site {
+      ...SiteMetaData
+    }
     heroPhotoData: allMarkdownRemark(
       filter: {
         fileAbsolutePath: { regex: "/data/photos/" }

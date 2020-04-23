@@ -17,7 +17,9 @@ import {
 } from '../components'
 import { ExternalLink } from '../components/icons'
 
-function FaqPage({ location, data: { allGithubData } }) {
+function FaqPage({ location, data: { metaData, allGithubData } }) {
+  const { github, twitter, youtube } = metaData.siteMetadata.socialLinks
+
   const repository = allGithubData.nodes[0].data.repository.issues.edges
   const faqGroupByLabel = groupBy(repository, ({ node }) => {
     const labels = node.labels.edges
@@ -75,13 +77,7 @@ function FaqPage({ location, data: { allGithubData } }) {
             </ColContent>
 
             <ColExtra>
-              <ExternalList
-                urls={[
-                  { name: 'Github', url: 'https://github.com/ademilter' },
-                  { name: 'Twitter', url: 'https://twitter.com/ademilter' },
-                  { name: 'YouTube', url: 'https://youtube.com/ademilter' }
-                ]}
-              />
+              <ExternalList urls={[github, twitter, youtube]} />
             </ColExtra>
           </Grid>
         </div>
@@ -110,6 +106,9 @@ function FaqPage({ location, data: { allGithubData } }) {
 
 export const query = graphql`
   {
+    metaData: site {
+      ...SiteMetaData
+    }
     allGithubData {
       nodes {
         data {

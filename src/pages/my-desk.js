@@ -80,6 +80,9 @@ function MyDeskPage({
 
 export const query = graphql`
   {
+    metaData: site {
+      ...SiteMetaData
+    }
     heroData: file(name: { eq: "my-desk" }) {
       childImageSharp {
         fluid {
