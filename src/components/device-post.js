@@ -5,7 +5,7 @@ import { Meta, Photo } from './index'
 
 import styles from './device-post.module.css'
 
-function DevicePost({ name, what, good, bad, photo }) {
+function DevicePost({ name, what, photo }) {
   return (
     <article className={styles.post}>
       <Photo aspectRatio="4-3" img={photo.childImageSharp.fluid}>
@@ -22,8 +22,6 @@ export const query = graphql`
       name
       what
       category
-      good
-      bad
       photo {
         childImageSharp {
           fluid {
