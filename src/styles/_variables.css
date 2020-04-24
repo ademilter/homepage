@@ -12,8 +12,8 @@
   --lh-title: 1.3;
 
   --c-theme: #fff;
-  --c-highlight: red;
-  --c-default: #101010;
+  --c-highlight: #1559d8;
+  --c-default: rgba(0, 0, 0, 0.9);
   --c-default-light: rgba(0, 0, 0, 0.5);
   --c-default-hide: rgba(0, 0, 0, 0.12);
   --c-default-smoke: rgba(0, 0, 0, 0.05);
@@ -32,7 +32,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-theme: rgb(31, 32, 43);
-    --c-highlight: #42FFCC;
+    --c-highlight: #42ffcc;
     --c-default: rgba(255, 255, 255, 0.95);
     --c-default-light: rgba(180, 180, 200, 0.6);
     --c-default-hide: rgba(180, 180, 200, 0.14);
