@@ -3,8 +3,8 @@ import * as React from 'react'
 function SvgExternalLink(props) {
   return (
     <svg
-      width={24}
-      height={24}
+      width={22}
+      height={22}
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
