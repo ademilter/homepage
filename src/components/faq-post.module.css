@@ -11,3 +11,7 @@
 .switch {
   color: inherit;
 }
+
+.html {
+  composes: content from './html.module.css';
+}

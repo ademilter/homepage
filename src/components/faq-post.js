@@ -1,7 +1,6 @@
 import React from 'react'
 import dayjs from 'dayjs'
 import { graphql } from 'gatsby'
-import Fragment from 'react-dom-fragment'
 
 import { ExternalLink } from './icons'
 import Button from './button'
@@ -37,7 +36,8 @@ function FaqPost({ createdAt, url, title, bodyHTML }) {
       <Post.Extra>
         {isShow && (
           <Html>
-            <Fragment
+            <div
+              className={styles.html}
               dangerouslySetInnerHTML={{
                 __html: bodyHTML
               }}
