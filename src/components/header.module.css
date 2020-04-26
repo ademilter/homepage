@@ -6,14 +6,12 @@
 .button {
   width: 100%;
   font-size: var(--fs-body);
-  line-height: var(--lh-title);
-  font-weight: normal;
+  font-weight: var(--fw-normal);
   text-align: left;
-  text-transform: uppercase;
-}
 
-.icon {
-  margin-left: 4px;
+  span {
+    margin-right: 8px;
+  }
 }
 
 .link {

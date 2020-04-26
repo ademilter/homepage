@@ -2,8 +2,5 @@
   position: sticky;
   top: 50px;
   font-size: var(--fs-body);
-  line-height: var(--lh-title);
-  font-weight: normal;
-  text-transform: uppercase;
   color: var(--c-default-light);
 }

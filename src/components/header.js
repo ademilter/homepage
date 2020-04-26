@@ -10,9 +10,9 @@ const MENU = [
   { name: 'Fotoğraflar', url: '/photos' },
   { name: 'Eğitimler', url: '/videos' },
   { name: 'Yazılar', url: '/blog' },
-  { name: 'S.S.S', url: '/faq' },
+  { name: 'S.S.S.', url: '/faq' },
   { name: 'Alıntılar', url: '/quotes' },
-  { name: 'Çalışma Masam', url: '/my-desk' }
+  { name: 'Masam', url: '/my-desk' }
 ]
 
 function trailingSlashes(pathname) {
@@ -31,8 +31,8 @@ function Header({ pathname }) {
         className={styles.button}
         onClick={() => setShowMenu(!showNav)}
       >
-        <span>{activePage && activePage.name}</span>
-        <span className={styles.icon}>{showNav ? <X /> : <ChevronDown />}</span>
+        {!showNav && <span>{activePage && activePage.name}</span>}
+        <span>{showNav ? <X /> : <ChevronDown />}</span>
       </button>
 
       {showNav && (

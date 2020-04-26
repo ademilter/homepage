@@ -21,7 +21,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--ff-text);
   line-height: var(--lh-body);
-  font-weight: normal;
+  font-weight: var(--fw-normal);
   font-size: var(--fs-body);
   background-color: var(--c-theme);
   color: var(--c-default);

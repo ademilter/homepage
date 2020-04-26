@@ -1,21 +1,16 @@
 .post {
   border-top: 1px solid var(--c-default-hide);
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .title {
   font-size: var(--fs-title);
-  line-height: var(--lh-title);
-}
-
-.desc {
-  margin-top: 4px;
-  color: var(--c-default-light);
 }
 
 .meta {
   margin-top: 4px;
+  font-size: var(--fs-small);
   color: var(--c-default-light);
 }
 
