@@ -1,3 +1,7 @@
 .footer {
-  height: 200px;
+  margin-top: 128px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  font-size: var(--fs-small);
+  color: var(--c-default-light);
 }
