@@ -15,7 +15,7 @@ function QuotePost({ quote, author }) {
           rel="noopener noreferrer"
           target="_blank"
           href={`https://twitter.com/intent/tweet?url=${encodeURI(
-            window.location.href
+            typeof window !== 'undefined' ? window.location.href : ''
           )}&text=${encodeURI(`❝${quote}❞`)}`}
         >
           Tweet
