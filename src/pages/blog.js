@@ -24,7 +24,7 @@ function BlogPage({ location, data: { metaData, blogPostData } }) {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Yazılar" />
 
       {/* HERO */}
       <section id="section-hero">
@@ -51,7 +51,7 @@ function BlogPage({ location, data: { metaData, blogPostData } }) {
       {Object.keys(postGroupByYear)
         .reverse()
         .map(year => (
-          <section key={year} id="section-last-photo">
+          <section key={year}>
             <div className="container">
               <Grid>
                 <ColSidebar title={year} />

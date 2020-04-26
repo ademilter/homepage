@@ -31,7 +31,7 @@ function FaqPage({ location, data: { metaData, allGithubData } }) {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="S.S.S." />
 
       {/* HERO */}
       <section id="section-hero">
@@ -87,7 +87,7 @@ function FaqPage({ location, data: { metaData, allGithubData } }) {
       {Object.keys(faqGroupByLabel)
         .reverse()
         .map(year => (
-          <section key={year} id="section-last-photo">
+          <section key={year}>
             <div className="container">
               <Grid>
                 <ColSidebar title={year} />

@@ -18,7 +18,7 @@ function QuotesPage({ location, data: { metaData, quotesData } }) {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Alıntılar" />
 
       {/* HERO */}
       <section id="section-hero">
@@ -27,7 +27,10 @@ function QuotesPage({ location, data: { metaData, quotesData } }) {
             <ColSidebar>
               <Header pathname={location.pathname} />
             </ColSidebar>
-            <ColContent>-</ColContent>
+            <ColContent>
+              Okuduğum kitaplarda ve digital platformlarda görüp hoşuma giden
+              alıntılar.
+            </ColContent>
 
             <ColExtra>
               <ExternalList urls={[vsco, instagram, twitter]} />
@@ -37,7 +40,7 @@ function QuotesPage({ location, data: { metaData, quotesData } }) {
       </section>
 
       {/* - */}
-      <section id="section-last-photo">
+      <section>
         <div className="container">
           <Grid>
             <ColContent>

@@ -16,7 +16,7 @@ import {
 
 function VideoSection({ title, data }) {
   return (
-    <section id="section-development-videos">
+    <section>
       <div className="container">
         <Grid>
           <ColSidebar title={title} />
@@ -45,7 +45,7 @@ function VideosPage({
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Eğitimler" />
 
       {/* HERO */}
       <section id="section-hero-video">

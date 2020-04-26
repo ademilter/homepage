@@ -19,7 +19,7 @@ function IndexPage({ location, data: { metaData, heroData } }) {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Anasayfa" />
 
       {/* HERO */}
       <section id="section-hero">

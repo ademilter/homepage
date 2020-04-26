@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description = '', lang = 'tr', meta = [], title = '' }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -64,24 +63,11 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
     >
       <link
-        href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap"
+        href="https://fonts.googleapis.com/css?family=Inter:400,500&display=swap"
         rel="stylesheet"
       />
     </Helmet>
   )
-}
-
-SEO.defaultProps = {
-  lang: 'tr',
-  meta: [],
-  description: ''
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired
 }
 
 export default SEO

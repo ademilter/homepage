@@ -15,7 +15,7 @@ import {
 
 function PhotoSection({ title, data, children }) {
   return (
-    <section id="section-last-photo">
+    <section>
       <div className="container">
         <Grid>
           {title && <ColSidebar title={title} />}
@@ -47,7 +47,7 @@ function PhotosPage({
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Fotoğraflar" />
 
       {/* HERO */}
       <section id="section-hero">

@@ -17,7 +17,7 @@ import {
 
 function DeviceSection({ title, data }) {
   return (
-    <section id="section-development-videos">
+    <section>
       <div className="container">
         <Grid>
           <ColSidebar title={title} />
@@ -44,7 +44,7 @@ function MyDeskPage({
 }) {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Masam" />
 
       {/* HERO */}
       <section id="section-hero">
