@@ -17,6 +17,8 @@ html {
 
 body {
   overflow-x: hidden;
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--ff-text);
@@ -39,6 +41,11 @@ h6 {
   font-weight: var(--fw-bold);
 }
 
+::selection {
+  color: var(--c-theme);
+  background-color: var(--c-highlight);
+}
+
 svg {
   vertical-align: middle;
 }
@@ -51,6 +58,11 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:focus {
+  outline: 0.2rem solid var(--c-highlight);
+  outline-offset: 0.3rem;
 }
 
 section + section {
