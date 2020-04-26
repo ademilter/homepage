@@ -1,6 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import {
   Layout,
@@ -31,18 +31,21 @@ function IndexPage({ location, data: { metaData, heroData } }) {
             <ColContent>
               <Html>
                 <Img fluid={heroData.childImageSharp.fluid} />
-
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Askerlik vazifemi tamamladıktan sonra tanıştığım
-                  web işçiliği serüvenimde 10 seneyi devirdim. Şu an Frontend
+                  web işçiliği serüvenimde 12 seneyi devirdim. Şu an Frontend
                   Geliştirici olarak <b>ICS Defense</b> şirketinde çalışıyorum.
                 </p>
-
                 <p>
                   Kendimi sürekli güncel tutmaya ve öğrendiklerimi insanlarla
-                  paylaşmaya çalışıyorum. Özellikle youtube kanalımda eğitim
-                  videoları yayınlıyorum.
+                  paylaşmaya çalışıyorum. Özellikle youtube kanalımda{' '}
+                  <Link to="/videos">eğitim videoları</Link> yayınlıyorum.
+                </p>
+                <p>
+                  Hayatın içinden <Link to="/photos">fotoğraflar</Link> çekmeyi,
+                  yeni yerler keşfetmeyi, dağları, rüzgarı ve bulutları çok
+                  seviyorum.
                 </p>
               </Html>
             </ColContent>
