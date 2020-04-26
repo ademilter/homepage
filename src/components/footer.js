@@ -21,7 +21,7 @@ function Footer() {
                 >
                   kaynak kodlarını
                 </a>{' '}
-                githab üzerinden paylaştım &lt;3
+                github üzerinden paylaştım &lt;3
               </p>
             </Html>
           </ColContent>
