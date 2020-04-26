@@ -6,8 +6,8 @@
   --c-default-hide: rgba(0, 0, 0, 0.12);
   --c-default-smoke: rgba(0, 0, 0, 0.05);
 
-  --ff-text: 'Inter', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, sans-serif;
+  --ff-sans: 'Inter', sans-serif;
+  --ff-serif: 'IBM Plex Serif', serif;
 
   --fw-normal: 400;
   --fw-bold: 500;
@@ -34,9 +34,9 @@
   :root {
     --c-theme: rgb(23, 24, 35);
     --c-highlight: #42ffcc;
-    --c-default: rgba(255, 255, 255, 0.95);
-    --c-default-light: rgba(180, 180, 200, 0.6);
-    --c-default-hide: rgba(180, 180, 200, 0.14);
+    --c-default: rgba(255, 255, 255, 0.96);
+    --c-default-light: rgba(180, 180, 200, 0.7);
+    --c-default-hide: rgba(180, 180, 200, 0.1);
     --c-default-smoke: rgba(180, 180, 200, 0.1);
   }
 }

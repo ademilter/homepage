@@ -1,5 +1,5 @@
 ---
-quote: "The first step in crafting the life you want is to get rid of everything you don't."
+quote: 'İstediğiniz hayatı hazırlamanın ilk adımı, istemediğiniz her şeyden kurtulmaktır.'
 author: 'Joshua Becker'
 date: 2020-04-25
 ---

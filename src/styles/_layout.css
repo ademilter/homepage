@@ -21,7 +21,7 @@ body {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: var(--ff-text);
+  font-family: var(--ff-sans);
   line-height: var(--lh-body);
   font-weight: var(--fw-normal);
   font-size: var(--fs-body);
@@ -61,8 +61,8 @@ a {
 }
 
 :focus {
-  outline: 0.2rem solid var(--c-highlight);
-  outline-offset: 0.3rem;
+  outline-color: var(--c-highlight);
+  outline-offset: 0.2rem;
 }
 
 section + section {

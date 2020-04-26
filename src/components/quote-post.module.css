@@ -1,0 +1,12 @@
+.post {
+  h3 {
+    font-family: var(--ff-serif);
+    font-size: 1.24rem;
+    font-style: italic;
+
+    &:before {
+      content: '❝ ';
+      color: var(--c-default-light);
+    }
+  }
+}
