@@ -1,12 +1,9 @@
 .post {
   h3 {
     font-family: var(--ff-serif);
-    font-size: 1.24rem;
+    font-size: 1.2rem;
+    line-height: 1.4;
     font-style: italic;
-
-    &:before {
-      content: '❝ ';
-      color: var(--c-default-light);
-    }
+    margin-bottom: 8px;
   }
 }

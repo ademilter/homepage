@@ -63,7 +63,7 @@ function SEO({ description = '', lang = 'tr', meta = [], title = '' }) {
       ].concat(meta)}
     >
       <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@0;1&family=Inter:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
         rel="stylesheet"
       />
     </Helmet>
