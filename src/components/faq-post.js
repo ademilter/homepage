@@ -1,5 +1,5 @@
 import React from 'react'
-import dayjs from 'dayjs'
+import moment from 'moment'
 import { graphql } from 'gatsby'
 
 import { ExternalLink } from './icons'
@@ -18,11 +18,7 @@ function FaqPost({ createdAt, url, title, bodyHTML }) {
       title={title}
     >
       <Post.Meta>
-        <span>
-          {dayjs(createdAt)
-            .locale('tr')
-            .format('D MMMM YYYY')}
-        </span>
+        <span>{moment(createdAt).format('DD MMMM YYYY')}</span>
         {' • '}
         <button
           type="button"

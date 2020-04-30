@@ -1,11 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import Seo from './seo'
 import Footer from './footer'
 
 function Layout({ children }) {
   return (
     <>
+      <Seo />
       <main>{children}</main>
       <Footer />
     </>
@@ -37,6 +39,10 @@ export const query = graphql`
           url
         }
         youtube {
+          name
+          url
+        }
+        feyz {
           name
           url
         }

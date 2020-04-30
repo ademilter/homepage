@@ -10,7 +10,8 @@ import {
   ColSidebar,
   QuotePost,
   ExternalList,
-  Header
+  Header,
+  Html
 } from '../components'
 
 function QuotesPage({ location, data: { metaData, quotesData } }) {
@@ -28,8 +29,12 @@ function QuotesPage({ location, data: { metaData, quotesData } }) {
               <Header pathname={location.pathname} />
             </ColSidebar>
             <ColContent>
-              Okuduğum kitaplarda ve digital platformlarda görüp hoşuma giden
-              alıntılar.
+              <Html>
+                <p>
+                  Kitaplarda ve digital platformlarda okuyup beğendiğim
+                  cümleleri burada arşivliyorum.
+                </p>
+              </Html>
             </ColContent>
 
             <ColExtra>

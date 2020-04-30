@@ -13,7 +13,8 @@ module.exports = {
       twitter: { name: 'Twitter', url: 'https://twitter.com/ademilter' },
       medium: { name: 'Medium', url: 'https://medium.com/@ademilter' },
       github: { name: 'Github', url: 'https://github.com/ademilter' },
-      youtube: { name: 'YouTube', url: 'https://youtube.com/ademilter' }
+      youtube: { name: 'YouTube', url: 'https://youtube.com/ademilter' },
+      feyz: { name: 'Feyz', url: 'https://t.me/feyzli' }
     }
   },
   plugins: [
