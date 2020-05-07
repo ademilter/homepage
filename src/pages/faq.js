@@ -93,7 +93,7 @@ function FaqPage({ location, data: { metaData, allGithubData } }) {
                 <ColSidebar title={year} />
                 <ColContent>
                   {faqGroupByLabel[year].reverse().map(({ node }) => (
-                    <FaqPost key={node.id} {...node} />
+                    <FaqPost key={node.id} {...node} location={location} />
                   ))}
                 </ColContent>
               </Grid>

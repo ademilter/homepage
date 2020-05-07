@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { graphql } from 'gatsby'
+import slugify from 'slugify'
 
 import { ExternalLink } from './icons'
 import Button from './button'
@@ -9,21 +10,29 @@ import Html from './html'
 
 import styles from './faq-post.module.css'
 
-function FaqPost({ createdAt, url, title, bodyHTML }) {
-  const [isShow, setShow] = React.useState(false)
+function FaqPost({ createdAt, url, title, bodyHTML, location }) {
+  const [isShow, showSet] = React.useState(false)
+  const slug = slugify(title, { lower: true, strict: true })
+  const { hash } = location
+
+  React.useEffect(() => {
+    if (`#${slug}` === hash) showSet(true)
+    else showSet(false)
+  }, [hash])
 
   return (
     <Post
+      id={slug}
       className={[styles.post, isShow ? 'open' : null].join(' ')}
       title={title}
     >
       <Post.Meta>
-        <span>{moment.utc(createdAt).format('DD MMMM YYYY')}</span>
+        <a href={`#${slug}`}>{moment.utc(createdAt).format('DD MMMM YYYY')}</a>
         {' • '}
         <button
           type="button"
           className={styles.switch}
-          onClick={() => setShow(!isShow)}
+          onClick={() => showSet(!isShow)}
         >
           Detayı {isShow ? 'kapat' : 'aç'}
         </button>

@@ -4,13 +4,13 @@ import Link from './link'
 
 import styles from './post.module.css'
 
-function Post({ title, url, className, children }) {
+function Post({ title, url, className, children, ...props }) {
   const childs = React.Children.map(children, child =>
     React.cloneElement(child, { ...child.props })
   )
 
   return (
-    <article className={[styles.post, className].join(' ')}>
+    <article className={[styles.post, className].join(' ')} {...props}>
       {url ? (
         <Link url={url}>
           <h3 className={styles.title}>{title}</h3>
