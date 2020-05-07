@@ -18,7 +18,7 @@ function FaqPost({ createdAt, url, title, bodyHTML }) {
       title={title}
     >
       <Post.Meta>
-        <span>{moment(createdAt).format('DD MMMM YYYY')}</span>
+        <span>{moment.utc(createdAt).format('DD MMMM YYYY')}</span>
         {' • '}
         <button
           type="button"

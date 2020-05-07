@@ -14,7 +14,7 @@ function BlogPost({ title, url, date }) {
     <Post title={title} url={url} className={styles.post}>
       <Post.Meta>
         <span>
-          {moment(date)
+          {moment.utc(date)
 
             .format('DD MMMM')}
         </span>

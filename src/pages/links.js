@@ -22,16 +22,13 @@ function LinksPage({ location, data: { metaData, linksData } }) {
   const { twitter, feyz } = metaData.siteMetadata.socialLinks
 
   const lastWeekData = linksData.edges.filter(({ node }) => {
-    return moment(node.frontmatter.date).isBetween(
-      moment().subtract(1, 'weeks'),
-      moment(),
-      null,
-      '[]'
-    )
+    return moment
+      .utc(node.frontmatter.date)
+      .isBetween(moment.utc().subtract(1, 'weeks'), moment.utc(), null, '[]')
   })
 
   const linkGroupByDay = groupBy(lastWeekData, ({ node }) => {
-    return moment(node.frontmatter.date).format('DD MMMM YYYY')
+    return moment.utc(node.frontmatter.date).format('DD MMMM YYYY')
   })
 
   return (
