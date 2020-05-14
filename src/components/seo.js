@@ -62,6 +62,8 @@ function SEO({ description = '', lang = 'tr', meta = [], title = '' }) {
         }
       ].concat(meta)}
     >
+      <link rel="canonical" href={site.siteMetadata.url} />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
         rel="stylesheet"
