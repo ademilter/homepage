@@ -18,7 +18,7 @@ function FaqPost({ createdAt, url, title, bodyHTML, location }) {
   React.useEffect(() => {
     if (`#${slug}` === hash) showSet(true)
     else showSet(false)
-  }, [hash])
+  }, [slug, hash])
 
   return (
     <Post
