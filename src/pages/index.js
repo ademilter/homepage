@@ -32,7 +32,7 @@ function IndexPage({ location, data: { metaData, heroData } }) {
               <Html>
                 <Img fluid={heroData.childImageSharp.fluid} />
                 <p>
-                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcı olarak çalışıyorum.
+                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarım Yöneticisi olarak çalışıyorum.
                 </p>
                 <p>
                   Web tasarım ve yazılım sektöründe yaklaşık 12 senedir çalışıyorum. Bu süreçte edindiğim tecrübe ve bilgi birikimnini <Link to="/videos">youtube</Link> kanalımda insanlara aktarmaya çalışıyorum.
