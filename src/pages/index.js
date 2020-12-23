@@ -35,7 +35,7 @@ function IndexPage({ location, data: { metaData, heroData } }) {
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarım Yöneticisi olarak çalışıyorum.
                 </p>
                 <p>
-                  Web tasarım ve yazılım sektöründe yaklaşık 12 senedir çalışıyorum. Bu süreçte edindiğim tecrübe ve bilgi birikimnini <Link to="/videos">youtube</Link> kanalımda insanlara aktarmaya çalışıyorum.
+                  Web tasarım ve yazılım sektöründe yaklaşık 12 senedir çalışıyorum. Bu süreçte edindiğim tecrübe ve bilgi birikimini <Link to="/videos">youtube</Link> kanalımda insanlara aktarmaya çalışıyorum.
                 </p>
                 <p>
                   Amacım; kaliteli türkçe içeriğin az olduğu türkiye sektöründe globaldeki kaliteli kanallarla aynı seviyede içerikler üretebilmek ve sektördeki eski alışkanlıkları yenilerle değiştirerek daha iyi bir yere taşımasına ön ayak olmak.
