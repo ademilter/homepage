@@ -7,13 +7,13 @@ import styles from './header.module.css'
 
 const MENU = [
   { name: 'Anasayfa', url: '/' },
-  // { name: 'Fotoğraflar', url: '/photos' },
+  { name: 'Fotoğraflar', url: '/photos' },
+  { name: 'Malzemeler', url: '/uses' }
   // { name: 'Eğitimler', url: '/videos' },
   // { name: 'Yazılar', url: '/blog' },
   // { name: 'Linkler', url: '/links' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
-  { name: 'Masam', url: '/my-desk' }
 ]
 
 function Header() {
