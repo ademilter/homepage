@@ -6,43 +6,21 @@
   "author": "Adem ilter <ademilter@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "gatsby": "^2.20.12",
-    "gatsby-image": "^2.3.1",
-    "gatsby-plugin-google-analytics": "^2.2.4",
-    "gatsby-plugin-manifest": "^2.3.3",
-    "gatsby-plugin-offline": "^3.1.2",
-    "gatsby-plugin-postcss": "^2.2.1",
-    "gatsby-plugin-react-helmet": "^3.2.1",
-    "gatsby-plugin-sharp": "^2.5.3",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^2.2.2",
-    "gatsby-source-github-api": "^0.2.1",
-    "gatsby-transformer-remark": "^2.7.1",
-    "gatsby-transformer-sharp": "^2.4.3",
-    "lodash.groupby": "^4.6.0",
-    "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-dom-fragment": "^1.0.0",
-    "react-helmet": "^5.2.1",
-    "slugify": "^1.4.0",
-    "url": "^0.11.0"
+    "next": "^10.0.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@svgr/cli": "^5.3.1",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^10.1.0",
+    "postcss": "^8.2.1",
     "postcss-custom-media": "^7.0.8",
-    "postcss-each": "^0.10.0",
-    "postcss-import": "^12.0.1",
-    "postcss-nested": "^4.2.1",
-    "prettier": "^1.19.1"
+    "postcss-import": "^14.0.0",
+    "postcss-nested": "^5.0.3",
+    "prettier": "^2.2.1"
   }
 }

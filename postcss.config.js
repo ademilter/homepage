@@ -1,11 +1,16 @@
 module.exports = {
   plugins: {
-    autoprefixer: {},
-    'postcss-import': {},
+    "autoprefixer": {},
     'postcss-nested': {},
-    'postcss-each': {},
     'postcss-custom-media': {
-      importFrom: ['./src/styles/viewport.css']
+      importFrom: [
+        {
+          customMedia: { '--t': '(min-width: 768px)' }
+        },
+        {
+          customMedia: { '--d': '(min-width: 992px)' }
+        }
+      ]
     }
   }
 }
