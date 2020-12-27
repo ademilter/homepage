@@ -3,15 +3,15 @@
     margin-top: 32px;
   }
 
-  a:not([role='button']) {
+  a:not(figure a) {
     text-decoration-line: underline;
     text-decoration-color: var(--c-default-light);
   }
 
-/*  &:hover {
+  a:hover {
     color: var(--c-highlight);
     text-decoration-color: currentColor;
-  }*/
+  }
 
   ul,
   ol {

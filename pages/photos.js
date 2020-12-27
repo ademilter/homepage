@@ -8,9 +8,9 @@ import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
-import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
+import Figure from '@comp/figure'
 
 function PhotosPage({ cover, journals, photos }) {
   return (
@@ -28,22 +28,17 @@ function PhotosPage({ cover, journals, photos }) {
 
             <ColContent>
               <Html>
-                <AspectRatio ratio="4-3">
-                  {/*<Image
+                <a href={cover.Url}>
+                  <Figure
                     src={cover.Photo[0].thumbnails.full.url}
                     alt={cover.Name}
-                    width={cover.Photo[0].thumbnails.full.width}
-                    height={cover.Photo[0].thumbnails.full.height}
-                  />*/}
-                  <img
-                    src={cover.Photo[0].thumbnails.full.url}
-                    alt={cover.Name}
-                  />
-                </AspectRatio>
-                <TextTitle>{cover.Name}</TextTitle>
-                <TextSmall>
-                  {cover.Location} • {cover.Device}
-                </TextSmall>
+                  >
+                    <TextTitle>{cover.Name}</TextTitle>
+                    <TextSmall>
+                      {cover.Location} • {cover.Device}
+                    </TextSmall>
+                  </Figure>
+                </a>
 
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
@@ -80,28 +75,25 @@ function DeviceSection({ title, data }) {
           <ColSidebar>
             {title && <SidebarTitle>{title}</SidebarTitle>}
           </ColSidebar>
+
           <ColContent>
-            <Grid col="1" col-t="2">
+            <Grid col="1" col-t="2" col-d="3">
               {data.map((item) => {
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
-                      <AspectRatio ratio="4-3">
-                        {/*<Image
+                      <a href={item.Url}>
+                        <Figure
+                          ratio="4-3"
                           src={item.Photo[0].thumbnails.large.url}
                           alt={item.Name}
-                          width={item.Photo[0].thumbnails.large.width}
-                          height={item.Photo[0].thumbnails.large.height}
-                        />*/}
-                        <img
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                        />
-                      </AspectRatio>
-                      <TextTitle>{item.Name}</TextTitle>
-                      <TextSmall>
-                        {item.Location} • {item.Device}
-                      </TextSmall>
+                        >
+                          <TextTitle>{item.Name}</TextTitle>
+                          <TextSmall>
+                            {item.Location} • {item.Device}
+                          </TextSmall>
+                        </Figure>
+                      </a>
                     </article>
                   </Col>
                 )

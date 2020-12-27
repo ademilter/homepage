@@ -25,13 +25,6 @@ function HomePage() {
 
             <ColContent>
               <Html>
-                {/*<Image
-                  src="/i-am.jpg"
-                  alt="Picture of the author"
-                  width={1433}
-                  height={1018}
-                  quality={90}
-                />*/}
                 <AspectRatio ratio="4-3">
                   <img src="/i-am.jpg" alt="Adem ilter" />
                 </AspectRatio>

@@ -8,9 +8,9 @@ import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
-import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
+import Figure from '@comp/figure'
 
 function UsesPage({ cover, general, home }) {
   return (
@@ -28,19 +28,11 @@ function UsesPage({ cover, general, home }) {
 
             <ColContent>
               <Html>
-                <AspectRatio ratio="4-3">
-                  <img
-                    src={cover.Photo[0].thumbnails.full.url}
-                    alt={cover.Name}
-                  />
-                  {/*
-                  <Image
-                    src={cover.Photo[0].thumbnails.full.url}
-                    alt={cover.Name}
-                    width={cover.Photo[0].thumbnails.full.width}
-                    height={cover.Photo[0].thumbnails.full.height}
-                  />*/}
-                </AspectRatio>
+                <Figure
+                  ratio="4-3"
+                  src={cover.Photo[0].thumbnails.full.url}
+                  alt={cover.Name}
+                />
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
@@ -82,21 +74,14 @@ function DeviceSection({ title, data }) {
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
-                      <AspectRatio ratio="4-3">
-                        <img
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                        />
-                        {/*
-                        <Image
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                          width={item.Photo[0].thumbnails.large.width}
-                          height={item.Photo[0].thumbnails.large.height}
-                        />*/}
-                      </AspectRatio>
-                      <TextTitle>{item.Name}</TextTitle>
-                      <TextSmall>{item.Description}</TextSmall>
+                      <Figure
+                        ratio="4-3"
+                        src={item.Photo[0].thumbnails.large.url}
+                        alt={item.Name}
+                      >
+                        <TextTitle>{item.Name}</TextTitle>
+                        <TextSmall>{item.Description}</TextSmall>
+                      </Figure>
                     </article>
                   </Col>
                 )

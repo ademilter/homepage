@@ -11,6 +11,7 @@ import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
+import Figure from '@comp/figure'
 
 function VideosPage({ development, design, conference }) {
   return (
@@ -70,26 +71,20 @@ function DeviceSection({ title, data }) {
             {title && <SidebarTitle>{title}</SidebarTitle>}
           </ColSidebar>
           <ColContent>
-            <Grid col="1" col-t="2" col-d="3">
+            <Grid col="1" col-t="2">
               {data.map((item) => {
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
-                      <AspectRatio>
-                        <img
+                      <a href={item.Url}>
+                        <Figure
                           src={item.Photo[0].thumbnails.large.url}
                           alt={item.Name}
-                        />
-                        {/*
-                        <Image
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                          width={item.Photo[0].thumbnails.large.width}
-                          height={item.Photo[0].thumbnails.large.height}
-                        />*/}
-                      </AspectRatio>
-                      <TextTitle>{item.Name}</TextTitle>
-                      <TextSmall>{item.Description}</TextSmall>
+                        >
+                          <TextTitle>{item.Name}</TextTitle>
+                          <TextSmall>{item.Description}</TextSmall>
+                        </Figure>
+                      </a>
                     </article>
                   </Col>
                 )

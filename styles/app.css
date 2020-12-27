@@ -116,7 +116,13 @@ a {
 }
 
 section + section {
-  margin-top: 120px;
+  margin-top: 60px;
+
+  @media (--t) {
+    & {
+      margin-top: 120px;
+    }
+  }
 }
 
 button {
@@ -128,4 +134,3 @@ button {
   display: inline-flex;
   align-items: center;
 }
-
