@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import Html from '@comp/html'
@@ -21,13 +22,20 @@ function HomePage() {
             <ColSidebar>
               <Header />
             </ColSidebar>
+
             <ColContent>
               <Html>
-                {/* <Img fluid={heroData.childImageSharp.fluid} /> */}
+                <Image
+                  src="/i-am.jpg"
+                  alt="Picture of the author"
+                  width={1433}
+                  height={1018}
+                  quality={90}
+                />
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
-                  yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarım Yöneticisi
-                  olarak çalışıyorum.
+                  yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
+                  görev alıyorum.
                 </p>
                 <p>
                   Web tasarım ve yazılım sektöründe yaklaşık 12 senedir
