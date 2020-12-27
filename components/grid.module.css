@@ -1,0 +1,489 @@
+
+/* Raster grid subsystem (rsms.me/raster) */
+.grid {
+  display: grid;
+  --grid-tc: repeat(6, 1fr);
+  grid-template-columns: var(--grid-tc);
+  --grid-cs: 1; /* column start */
+  --grid-ce: -1; /* column end */
+  grid-gap: var(--gap);
+}
+
+/* .col -- cell or column */
+.grid > .col {
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.grid[col='1'] {
+  --grid-tc: repeat(1, 1fr);
+}
+.grid[col='2'] {
+  --grid-tc: repeat(2, 1fr);
+}
+.grid[col='3'] {
+  --grid-tc: repeat(3, 1fr);
+}
+.grid[col='4'] {
+  --grid-tc: repeat(4, 1fr);
+}
+.grid[col='5'] {
+  --grid-tc: repeat(5, 1fr);
+}
+.grid[col='6'] {
+  --grid-tc: repeat(6, 1fr);
+}
+.grid[col='7'] {
+  --grid-tc: repeat(7, 1fr);
+}
+.grid[col='8'] {
+  --grid-tc: repeat(8, 1fr);
+}
+.grid[col='9'] {
+  --grid-tc: repeat(9, 1fr);
+}
+.grid[col='10'] {
+  --grid-tc: repeat(10, 1fr);
+}
+.grid[col='11'] {
+  --grid-tc: repeat(11, 1fr);
+}
+.grid[col='12'] {
+  --grid-tc: repeat(12, 1fr);
+}
+
+/* span=start... */
+.grid > .col[span^='1'] {
+  --grid-cs: 1;
+}
+.grid > .col[span^='2'] {
+  --grid-cs: 2;
+}
+.grid > .col[span^='3'] {
+  --grid-cs: 3;
+}
+.grid > .col[span^='4'] {
+  --grid-cs: 4;
+}
+.grid > .col[span^='5'] {
+  --grid-cs: 5;
+}
+.grid > .col[span^='6'] {
+  --grid-cs: 6;
+}
+.grid > .col[span^='7'] {
+  --grid-cs: 7;
+}
+.grid > .col[span^='8'] {
+  --grid-cs: 8;
+}
+.grid > .col[span^='9'] {
+  --grid-cs: 9;
+}
+.grid > .col[span^='10'] {
+  --grid-cs: 10;
+}
+.grid > .col[span^='11'] {
+  --grid-cs: 11;
+}
+.grid > .col[span^='12'] {
+  --grid-cs: 12;
+}
+
+/* span=...+width, span=...-end */
+.grid > .col[span$='+1'],
+.grid > .col[span='1'] {
+  --grid-ce: 1;
+}
+.grid > .col[span$='+2'],
+.grid > .col[span$='-1'],
+.grid > .col[span='2'] {
+  --grid-ce: 2;
+}
+.grid > .col[span$='+3'],
+.grid > .col[span$='-2'],
+.grid > .col[span='3'] {
+  --grid-ce: 3;
+}
+.grid > .col[span$='+4'],
+.grid > .col[span$='-3'],
+.grid > .col[span='4'] {
+  --grid-ce: 4;
+}
+.grid > .col[span$='+5'],
+.grid > .col[span$='-4'],
+.grid > .col[span='5'] {
+  --grid-ce: 5;
+}
+.grid > .col[span$='+6'],
+.grid > .col[span$='-5'],
+.grid > .col[span='6'] {
+  --grid-ce: 6;
+}
+.grid > .col[span$='+7'],
+.grid > .col[span$='-6'],
+.grid > .col[span='7'] {
+  --grid-ce: 7;
+}
+.grid > .col[span$='+8'],
+.grid > .col[span$='-7'],
+.grid > .col[span='8'] {
+  --grid-ce: 8;
+}
+.grid > .col[span$='+9'],
+.grid > .col[span$='-8'],
+.grid > .col[span='9'] {
+  --grid-ce: 9;
+}
+.grid > .col[span$='+10'],
+.grid > .col[span$='-9'],
+.grid > .col[span='10'] {
+  --grid-ce: 10;
+}
+.grid > .col[span$='+11'],
+.grid > .col[span$='-10'],
+.grid > .col[span='11'] {
+  --grid-ce: 11;
+}
+.grid > .col[span$='+12'],
+.grid > .col[span$='-11'],
+.grid > .col[span='12'] {
+  --grid-ce: 12;
+}
+.grid > .col[span$='-12'] {
+  --grid-ce: 13;
+}
+
+/* connect vars */
+.grid > .col[span] {
+  grid-column-end: span var(--grid-ce);
+}
+.grid > .col[span*='+'],
+.grid > .col[span*='-'],
+.grid > .col[span*='..'] {
+  grid-column-start: var(--grid-cs);
+}
+.grid > .col[span*='-'],
+.grid > .col[span*='..'] {
+  grid-column-end: var(--grid-ce);
+}
+.grid > .col[span='row'] {
+  grid-column: 1 / -1;
+}
+
+@media (--t) {
+  .grid[col-t='1'] {
+    --grid-tc: repeat(1, 1fr);
+  }
+  .grid[col-t='2'] {
+    --grid-tc: repeat(2, 1fr);
+  }
+  .grid[col-t='3'] {
+    --grid-tc: repeat(3, 1fr);
+  }
+  .grid[col-t='4'] {
+    --grid-tc: repeat(4, 1fr);
+  }
+  .grid[col-t='5'] {
+    --grid-tc: repeat(5, 1fr);
+  }
+  .grid[col-t='6'] {
+    --grid-tc: repeat(6, 1fr);
+  }
+  .grid[col-t='7'] {
+    --grid-tc: repeat(7, 1fr);
+  }
+  .grid[col-t='8'] {
+    --grid-tc: repeat(8, 1fr);
+  }
+  .grid[col-t='9'] {
+    --grid-tc: repeat(9, 1fr);
+  }
+  .grid[col-t='10'] {
+    --grid-tc: repeat(10, 1fr);
+  }
+  .grid[col-t='11'] {
+    --grid-tc: repeat(11, 1fr);
+  }
+  .grid[col-t='12'] {
+    --grid-tc: repeat(12, 1fr);
+  }
+
+  /* span-t=start... */
+  .grid > .col[span-t^='1'] {
+    --grid-cs: 1;
+  }
+  .grid > .col[span-t^='2'] {
+    --grid-cs: 2;
+  }
+  .grid > .col[span-t^='3'] {
+    --grid-cs: 3;
+  }
+  .grid > .col[span-t^='4'] {
+    --grid-cs: 4;
+  }
+  .grid > .col[span-t^='5'] {
+    --grid-cs: 5;
+  }
+  .grid > .col[span-t^='6'] {
+    --grid-cs: 6;
+  }
+  .grid > .col[span-t^='7'] {
+    --grid-cs: 7;
+  }
+  .grid > .col[span-t^='8'] {
+    --grid-cs: 8;
+  }
+  .grid > .col[span-t^='9'] {
+    --grid-cs: 9;
+  }
+  .grid > .col[span-t^='10'] {
+    --grid-cs: 10;
+  }
+  .grid > .col[span-t^='11'] {
+    --grid-cs: 11;
+  }
+  .grid > .col[span-t^='12'] {
+    --grid-cs: 12;
+  }
+
+  /* span-t=...+width, span-t=...-end */
+  .grid > .col[span-t$='+1'],
+  .grid > .col[span-t='1'] {
+    --grid-ce: 1;
+  }
+  .grid > .col[span-t$='+2'],
+  .grid > .col[span-t$='-1'],
+  .grid > .col[span-t='2'] {
+    --grid-ce: 2;
+  }
+  .grid > .col[span-t$='+3'],
+  .grid > .col[span-t$='-2'],
+  .grid > .col[span-t='3'] {
+    --grid-ce: 3;
+  }
+  .grid > .col[span-t$='+4'],
+  .grid > .col[span-t$='-3'],
+  .grid > .col[span-t='4'] {
+    --grid-ce: 4;
+  }
+  .grid > .col[span-t$='+5'],
+  .grid > .col[span-t$='-4'],
+  .grid > .col[span-t='5'] {
+    --grid-ce: 5;
+  }
+  .grid > .col[span-t$='+6'],
+  .grid > .col[span-t$='-5'],
+  .grid > .col[span-t='6'] {
+    --grid-ce: 6;
+  }
+  .grid > .col[span-t$='+7'],
+  .grid > .col[span-t$='-6'],
+  .grid > .col[span-t='7'] {
+    --grid-ce: 7;
+  }
+  .grid > .col[span-t$='+8'],
+  .grid > .col[span-t$='-7'],
+  .grid > .col[span-t='8'] {
+    --grid-ce: 8;
+  }
+  .grid > .col[span-t$='+9'],
+  .grid > .col[span-t$='-8'],
+  .grid > .col[span-t='9'] {
+    --grid-ce: 9;
+  }
+  .grid > .col[span-t$='+10'],
+  .grid > .col[span-t$='-9'],
+  .grid > .col[span-t='10'] {
+    --grid-ce: 10;
+  }
+  .grid > .col[span-t$='+11'],
+  .grid > .col[span-t$='-10'],
+  .grid > .col[span-t='11'] {
+    --grid-ce: 11;
+  }
+  .grid > .col[span-t$='+12'],
+  .grid > .col[span-t$='-11'],
+  .grid > .col[span-t='12'] {
+    --grid-ce: 12;
+  }
+  .grid > .col[span-s$='-12'] {
+    --grid-ce: 13;
+  }
+
+  /* connect vars */
+  .grid > .col[span-s] {
+    grid-column-end: span var(--grid-ce);
+  }
+  .grid > .col[span-t*='+'],
+  .grid > .col[span-t*='-'],
+  .grid > .col[span-t*='..'] {
+    grid-column-start: var(--grid-cs);
+  }
+  .grid > .col[span-t*='-'],
+  .grid > .col[span-t*='..'] {
+    grid-column-end: var(--grid-ce);
+  }
+  .grid > .col[span-t='row'] {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (--d) {
+  .grid[col-d='1'] {
+    --grid-tc: repeat(1, 1fr);
+  }
+  .grid[col-d='2'] {
+    --grid-tc: repeat(2, 1fr);
+  }
+  .grid[col-d='3'] {
+    --grid-tc: repeat(3, 1fr);
+  }
+  .grid[col-d='4'] {
+    --grid-tc: repeat(4, 1fr);
+  }
+  .grid[col-d='5'] {
+    --grid-tc: repeat(5, 1fr);
+  }
+  .grid[col-d='6'] {
+    --grid-tc: repeat(6, 1fr);
+  }
+  .grid[col-d='7'] {
+    --grid-tc: repeat(7, 1fr);
+  }
+  .grid[col-d='8'] {
+    --grid-tc: repeat(8, 1fr);
+  }
+  .grid[col-d='9'] {
+    --grid-tc: repeat(9, 1fr);
+  }
+  .grid[col-d='10'] {
+    --grid-tc: repeat(10, 1fr);
+  }
+  .grid[col-d='11'] {
+    --grid-tc: repeat(11, 1fr);
+  }
+  .grid[col-d='12'] {
+    --grid-tc: repeat(12, 1fr);
+  }
+
+  /* span-d=start... */
+  .grid > .col[span-d^='1'] {
+    --grid-cs: 1;
+  }
+  .grid > .col[span-d^='2'] {
+    --grid-cs: 2;
+  }
+  .grid > .col[span-d^='3'] {
+    --grid-cs: 3;
+  }
+  .grid > .col[span-d^='4'] {
+    --grid-cs: 4;
+  }
+  .grid > .col[span-d^='5'] {
+    --grid-cs: 5;
+  }
+  .grid > .col[span-d^='6'] {
+    --grid-cs: 6;
+  }
+  .grid > .col[span-d^='7'] {
+    --grid-cs: 7;
+  }
+  .grid > .col[span-d^='8'] {
+    --grid-cs: 8;
+  }
+  .grid > .col[span-d^='9'] {
+    --grid-cs: 9;
+  }
+  .grid > .col[span-d^='10'] {
+    --grid-cs: 10;
+  }
+  .grid > .col[span-d^='11'] {
+    --grid-cs: 11;
+  }
+  .grid > .col[span-d^='12'] {
+    --grid-cs: 12;
+  }
+
+  /* span-d=...+width, span-d=...-end */
+  .grid > .col[span-d$='+1'],
+  .grid > .col[span-d='1'] {
+    --grid-ce: 1;
+  }
+  .grid > .col[span-d$='+2'],
+  .grid > .col[span-d$='-1'],
+  .grid > .col[span-d='2'] {
+    --grid-ce: 2;
+  }
+  .grid > .col[span-d$='+3'],
+  .grid > .col[span-d$='-2'],
+  .grid > .col[span-d='3'] {
+    --grid-ce: 3;
+  }
+  .grid > .col[span-d$='+4'],
+  .grid > .col[span-d$='-3'],
+  .grid > .col[span-d='4'] {
+    --grid-ce: 4;
+  }
+  .grid > .col[span-d$='+5'],
+  .grid > .col[span-d$='-4'],
+  .grid > .col[span-d='5'] {
+    --grid-ce: 5;
+  }
+  .grid > .col[span-d$='+6'],
+  .grid > .col[span-d$='-5'],
+  .grid > .col[span-d='6'] {
+    --grid-ce: 6;
+  }
+  .grid > .col[span-d$='+7'],
+  .grid > .col[span-d$='-6'],
+  .grid > .col[span-d='7'] {
+    --grid-ce: 7;
+  }
+  .grid > .col[span-d$='+8'],
+  .grid > .col[span-d$='-7'],
+  .grid > .col[span-d='8'] {
+    --grid-ce: 8;
+  }
+  .grid > .col[span-d$='+9'],
+  .grid > .col[span-d$='-8'],
+  .grid > .col[span-d='9'] {
+    --grid-ce: 9;
+  }
+  .grid > .col[span-d$='+10'],
+  .grid > .col[span-d$='-9'],
+  .grid > .col[span-d='10'] {
+    --grid-ce: 10;
+  }
+  .grid > .col[span-d$='+11'],
+  .grid > .col[span-d$='-10'],
+  .grid > .col[span-d='11'] {
+    --grid-ce: 11;
+  }
+  .grid > .col[span-d$='+12'],
+  .grid > .col[span-d$='-11'],
+  .grid > .col[span-d='12'] {
+    --grid-ce: 12;
+  }
+  .grid > .col[span-d$='-12'] {
+    --grid-ce: 13;
+  }
+
+  /* connect vars */
+  .grid > .col[span-d] {
+    grid-column-end: span var(--grid-ce);
+  }
+  .grid > .col[span-d*='+'],
+  .grid > .col[span-d*='-'],
+  .grid > .col[span-d*='..'] {
+    grid-column-start: var(--grid-cs);
+  }
+  .grid > .col[span-d*='-'],
+  .grid > .col[span-d*='..'] {
+    grid-column-end: var(--grid-ce);
+  }
+  .grid > .col[span-d='row'] {
+    grid-column: 1 / -1;
+  }
+}
