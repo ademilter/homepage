@@ -1,5 +1,4 @@
 import Head from 'next/head'
-// import Link from 'next/link'
 import Image from 'next/image'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
@@ -13,13 +12,11 @@ import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 
-function MyDeskPage({ general, home }) {
-  console.log(general, home)
-
+function PhotosPage({ cover, journals, photos }) {
   return (
     <Layout>
       <Head>
-        <title>Masam</title>
+        <title>Fotoğraflar</title>
       </Head>
 
       <section id="section-hero">
@@ -31,15 +28,18 @@ function MyDeskPage({ general, home }) {
 
             <ColContent>
               <Html>
-                <AspectRatio>
+                <AspectRatio ratio="4-3">
                   <Image
-                    src="/my-desk.jpg"
-                    alt="Picture of the author"
-                    width={5412 / 3}
-                    height={2971 / 3}
+                    src={cover.Photo[0].thumbnails.large.url}
+                    alt={cover.Name}
+                    width={cover.Photo[0].thumbnails.large.width}
+                    height={cover.Photo[0].thumbnails.large.height}
                     quality={90}
                   />
                 </AspectRatio>
+                <TextTitle>{cover.Name}</TextTitle>
+                <TextSmall>{cover.Location}</TextSmall>
+
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
@@ -61,8 +61,8 @@ function MyDeskPage({ general, home }) {
         </Container>
       </section>
 
-      <DeviceSection title="Genel" data={general} />
-      <DeviceSection title="Ev" data={home} />
+      <DeviceSection data={photos} />
+      <DeviceSection title="Dergiler" data={journals} />
     </Layout>
   )
 }
@@ -73,7 +73,7 @@ function DeviceSection({ title, data }) {
       <Container>
         <CustomGrid>
           <ColSidebar>
-            <SidebarTitle>{title}</SidebarTitle>
+            {title && <SidebarTitle>{title}</SidebarTitle>}
           </ColSidebar>
           <ColContent>
             <Grid col="1" col-t="2">
@@ -91,7 +91,7 @@ function DeviceSection({ title, data }) {
                         />
                       </AspectRatio>
                       <TextTitle>{item.Name}</TextTitle>
-                      <TextSmall>{item.Description}</TextSmall>
+                      <TextSmall>{item.Location}</TextSmall>
                     </article>
                   </Col>
                 )
@@ -105,18 +105,20 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.API_URL + '/api/desk')
+  const res = await fetch(process.env.API_URL + '/api/photos')
   const data = await res.json()
 
-  const general = data.filter((o) => o.Category === 'General')
-  const home = data.filter((o) => o.Category === 'Home')
+  const cover = data.filter((o) => o.Category === 'Cover')
+  const journals = data.filter((o) => o.Category === 'Journal')
+  const photos = data.filter((o) => o.Category === 'Photo')
 
   return {
     props: {
-      general,
-      home
+      cover: cover[0],
+      journals,
+      photos
     }
   }
 }
 
-export default MyDeskPage
+export default PhotosPage
