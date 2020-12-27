@@ -30,11 +30,10 @@ function PhotosPage({ cover, journals, photos }) {
               <Html>
                 <AspectRatio ratio="4-3">
                   <Image
-                    src={cover.Photo[0].thumbnails.large.url}
+                    src={cover.Photo[0].thumbnails.full.url}
                     alt={cover.Name}
-                    width={cover.Photo[0].thumbnails.large.width}
-                    height={cover.Photo[0].thumbnails.large.height}
-                    quality={90}
+                    width={cover.Photo[0].thumbnails.full.width}
+                    height={cover.Photo[0].thumbnails.full.height}
                   />
                 </AspectRatio>
                 <TextTitle>{cover.Name}</TextTitle>
@@ -87,7 +86,6 @@ function DeviceSection({ title, data }) {
                           alt={item.Name}
                           width={item.Photo[0].thumbnails.large.width}
                           height={item.Photo[0].thumbnails.large.height}
-                          quality={90}
                         />
                       </AspectRatio>
                       <TextTitle>{item.Name}</TextTitle>

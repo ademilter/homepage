@@ -13,9 +13,7 @@ import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 
-function MyDeskPage({ general, home }) {
-  console.log(general, home)
-
+function MyDeskPage({ cover, general, home }) {
   return (
     <Layout>
       <Head>
@@ -31,13 +29,12 @@ function MyDeskPage({ general, home }) {
 
             <ColContent>
               <Html>
-                <AspectRatio>
+                <AspectRatio ratio="4-3">
                   <Image
-                    src="/my-desk.jpg"
-                    alt="Picture of the author"
-                    width={5412 / 3}
-                    height={2971 / 3}
-                    quality={90}
+                    src={cover.Photo[0].thumbnails.full.url}
+                    alt={cover.Name}
+                    width={cover.Photo[0].thumbnails.full.width}
+                    height={cover.Photo[0].thumbnails.full.height}
                   />
                 </AspectRatio>
                 <p>
@@ -87,7 +84,6 @@ function DeviceSection({ title, data }) {
                           alt={item.Name}
                           width={item.Photo[0].thumbnails.large.width}
                           height={item.Photo[0].thumbnails.large.height}
-                          quality={90}
                         />
                       </AspectRatio>
                       <TextTitle>{item.Name}</TextTitle>
@@ -108,11 +104,15 @@ export async function getStaticProps() {
   const res = await fetch(process.env.API_URL + '/api/uses')
   const data = await res.json()
 
+  const cover = data.filter((o) => o.Category === 'Cover')
   const general = data.filter((o) => o.Category === 'General')
   const home = data.filter((o) => o.Category === 'Home')
 
+  console.log(JSON.stringify(cover))
+
   return {
     props: {
+      cover: cover[0],
       general,
       home
     }
