@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "next start"
+    "start": "serve out"
   },
   "dependencies": {
     "airtable": "^0.10.1",
@@ -16,7 +16,8 @@
     "next": "^10.0.4",
     "next-pwa": "^5.0.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.1.0",

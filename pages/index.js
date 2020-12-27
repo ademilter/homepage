@@ -7,6 +7,7 @@ import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import ExternalList from '@comp/external-list'
 import Header from '@comp/header'
 import Container from '@comp/container'
+import AspectRatio from '@comp/aspect-ratio'
 
 function HomePage() {
   return (
@@ -31,7 +32,9 @@ function HomePage() {
                   height={1018}
                   quality={90}
                 />*/}
-                <img src="/i-am.jpg" alt="Adem ilter" />
+                <AspectRatio ratio="4-3">
+                  <img src="/i-am.jpg" alt="Adem ilter" />
+                </AspectRatio>
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
