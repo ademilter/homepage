@@ -13,7 +13,7 @@ export function TextTitle({ children, className, ...props }) {
 
 export function TextSmall({ children, className, ...props }) {
   return (
-    <p className={cn(styles.desc, className)} {...props}>
+    <p className={cn(styles.small, className)} {...props}>
       {children}
     </p>
   )

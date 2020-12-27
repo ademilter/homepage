@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import Html from '@comp/html'
@@ -11,6 +10,7 @@ import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
+import { sleep, Table } from '@lib/helper'
 
 function VideosPage({ development, design, conference }) {
   return (
@@ -76,12 +76,17 @@ function DeviceSection({ title, data }) {
                   <Col key={item.id} span-t="1">
                     <article>
                       <AspectRatio>
+                        <img
+                          src={item.Photo[0].thumbnails.large.url}
+                          alt={item.Name}
+                        />
+                        {/*
                         <Image
                           src={item.Photo[0].thumbnails.large.url}
                           alt={item.Name}
                           width={item.Photo[0].thumbnails.large.width}
                           height={item.Photo[0].thumbnails.large.height}
-                        />
+                        />*/}
                       </AspectRatio>
                       <TextTitle>{item.Name}</TextTitle>
                       <TextSmall>{item.Description}</TextSmall>
@@ -98,8 +103,9 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.API_URL + '/api/videos')
-  const data = await res.json()
+  await sleep()
+  const table = new Table('Video')
+  const data = (await table.getAllData()) || []
 
   const development = data.filter((o) => o.Category === 'Development')
   const design = data.filter((o) => o.Category === 'Design')

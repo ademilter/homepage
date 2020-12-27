@@ -1,18 +1,21 @@
 const withPWA = require('next-pwa')
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
 
-const isDev = process.env.NODE_ENV !== 'production'
+const nextConfig = (phase) => {
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER
 
-const nextConfig = {
-  env: {
-    API_URL: isDev ? 'http://localhost:3000' : 'https://ademilter.com'
-  },
-  images: {
-    domains: ['dl.airtable.com']
-  },
-  pwa: {
-    dest: 'public',
-    disable: isDev
+  return {
+    env: {
+      API_URL: isDev ? 'http://localhost:3000' : 'https://ademilter.com'
+    },
+    images: {
+      domains: ['dl.airtable.com']
+    },
+    pwa: {
+      dest: 'public',
+      disable: isDev
+    }
   }
 }
 
-module.exports = withPWA(nextConfig)
+module.exports = (phase) => withPWA(nextConfig(phase))

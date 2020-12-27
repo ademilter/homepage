@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import Html from '@comp/html'
@@ -11,6 +10,7 @@ import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
+import { sleep, Table } from '@lib/helper'
 
 function PhotosPage({ cover, journals, photos }) {
   return (
@@ -29,11 +29,15 @@ function PhotosPage({ cover, journals, photos }) {
             <ColContent>
               <Html>
                 <AspectRatio ratio="4-3">
-                  <Image
+                  {/*<Image
                     src={cover.Photo[0].thumbnails.full.url}
                     alt={cover.Name}
                     width={cover.Photo[0].thumbnails.full.width}
                     height={cover.Photo[0].thumbnails.full.height}
+                  />*/}
+                  <img
+                    src={cover.Photo[0].thumbnails.full.url}
+                    alt={cover.Name}
                   />
                 </AspectRatio>
                 <TextTitle>{cover.Name}</TextTitle>
@@ -83,11 +87,15 @@ function DeviceSection({ title, data }) {
                   <Col key={item.id} span-t="1">
                     <article>
                       <AspectRatio ratio="4-3">
-                        <Image
+                        {/*<Image
                           src={item.Photo[0].thumbnails.large.url}
                           alt={item.Name}
                           width={item.Photo[0].thumbnails.large.width}
                           height={item.Photo[0].thumbnails.large.height}
+                        />*/}
+                        <img
+                          src={item.Photo[0].thumbnails.large.url}
+                          alt={item.Name}
                         />
                       </AspectRatio>
                       <TextTitle>{item.Name}</TextTitle>
@@ -107,8 +115,9 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.API_URL + '/api/photos')
-  const data = await res.json()
+  await sleep()
+  const table = new Table('Photo')
+  const data = (await table.getAllData()) || []
 
   const cover = data.filter((o) => o.Category === 'Cover')
   const journals = data.filter((o) => o.Category === 'Journal')

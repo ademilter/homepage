@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import Html from '@comp/html'
@@ -25,13 +24,14 @@ function HomePage() {
 
             <ColContent>
               <Html>
-                <Image
+                {/*<Image
                   src="/i-am.jpg"
                   alt="Picture of the author"
                   width={1433}
                   height={1018}
                   quality={90}
-                />
+                />*/}
+                <img src="/i-am.jpg" alt="Adem ilter" />
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
@@ -40,8 +40,10 @@ function HomePage() {
                 <p>
                   Web tasarım ve yazılım sektöründe yaklaşık 12 senedir
                   çalışıyorum. Bu süreçte edindiğim tecrübe ve bilgi birikimnini{' '}
-                  <Link href="/videos">youtube</Link> kanalımda insanlara
-                  aktarmaya çalışıyorum.
+                  <Link href="/videos">
+                    <a>youtube</a>
+                  </Link>{' '}
+                  kanalımda insanlara aktarmaya çalışıyorum.
                 </p>
                 <p>
                   Amacım; kaliteli türkçe içeriğin az olduğu türkiye sektöründe

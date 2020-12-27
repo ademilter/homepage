@@ -6,3 +6,4 @@ public/sw*
 public/workbox*
 .DS_Store
 .env.local
+out/
