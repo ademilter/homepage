@@ -7,7 +7,7 @@ module.exports = {
     email: 'ademilter@gmail.com',
     name: 'Adem ilter'
   },
-  lang: 'en',
+  lang: 'tr',
   social: {
     vsco: { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
     instagram: { name: 'Instagram', url: 'https://instagram.com/ademilter' },

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import Html from '@comp/html'
-import Grid, { ColContent, ColExtra, ColSidebar } from '@comp/grid'
+import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import ExternalList from '@comp/external-list'
 import Header from '@comp/header'
 import Container from '@comp/container'
@@ -18,7 +18,7 @@ function HomePage() {
 
       <section id="section-hero">
         <Container>
-          <Grid>
+          <CustomGrid>
             <ColSidebar>
               <Header />
             </ColSidebar>
@@ -61,7 +61,7 @@ function HomePage() {
                 ]}
               />
             </ColExtra>
-          </Grid>
+          </CustomGrid>
         </Container>
       </section>
     </Layout>

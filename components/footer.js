@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Grid, { ColContent } from './grid'
+import { CustomGrid, ColContent } from './custom-grid'
 import Html from './html'
 
 import styles from './footer.module.css'
@@ -10,7 +10,7 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <Container>
-        <Grid>
+        <CustomGrid>
           <ColContent>
             <Html>
               <p>
@@ -26,7 +26,7 @@ function Footer() {
               </p>
             </Html>
           </ColContent>
-        </Grid>
+        </CustomGrid>
       </Container>
     </footer>
   )

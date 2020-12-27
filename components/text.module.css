@@ -1,0 +1,8 @@
+.small {
+  font-size: var(--fs-small);
+  color: var(--c-default-light);
+}
+
+.title {
+  font-size: var(--fs-body);
+}

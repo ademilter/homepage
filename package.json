@@ -11,8 +11,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "airtable": "^0.10.1",
     "classnames": "^2.2.6",
     "next": "^10.0.4",
+    "next-pwa": "^5.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

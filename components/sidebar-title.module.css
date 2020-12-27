@@ -1,0 +1,6 @@
+.title {
+  position: sticky;
+  top: 50px;
+  font-size: var(--fs-body);
+  color: var(--c-default-light);
+}
