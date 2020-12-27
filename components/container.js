@@ -1,7 +1,14 @@
 import React from 'react'
+import cn from 'classnames'
 
 import styles from './container.module.css'
 
-export default function Container({ children }) {
-  return <div className={styles.container}>{children}</div>
+function Container({ children, className, ...props }) {
+  return (
+    <div className={cn(styles.container, className)} {...props}>
+      {children}
+    </div>
+  )
 }
+
+export default Container
