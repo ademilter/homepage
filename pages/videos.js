@@ -12,11 +12,11 @@ import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 
-function PhotosPage({ cover, journals, photos }) {
+function VideosPage({ development, design, conference }) {
   return (
     <Layout>
       <Head>
-        <title>Fotoğraflar</title>
+        <title>Eğitimler</title>
       </Head>
 
       <section id="section-hero">
@@ -28,23 +28,15 @@ function PhotosPage({ cover, journals, photos }) {
 
             <ColContent>
               <Html>
-                <AspectRatio ratio="4-3">
-                  <Image
-                    src={cover.Photo[0].thumbnails.full.url}
-                    alt={cover.Name}
-                    width={cover.Photo[0].thumbnails.full.width}
-                    height={cover.Photo[0].thumbnails.full.height}
-                  />
-                </AspectRatio>
-                <TextTitle>{cover.Name}</TextTitle>
-                <TextSmall>
-                  {cover.Location} • {cover.Device}
-                </TextSmall>
+                <p>
+                  Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
+                  ücretsiz olarak erişebilirsiniz.
+                </p>
 
                 <p>
-                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
-                  yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
-                  görev alıyorum.
+                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
+                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
+                  kaliteli yapan insanların yetişmesine katkı sağlamak.
                 </p>
               </Html>
             </ColContent>
@@ -62,8 +54,9 @@ function PhotosPage({ cover, journals, photos }) {
         </Container>
       </section>
 
-      <DeviceSection data={photos} />
-      <DeviceSection title="Dergiler" data={journals} />
+      <DeviceSection title="Yazılım" data={development} />
+      <DeviceSection title="Tasarım" data={design} />
+      <DeviceSection title="Konferanslar" data={conference} />
     </Layout>
   )
 }
@@ -77,12 +70,12 @@ function DeviceSection({ title, data }) {
             {title && <SidebarTitle>{title}</SidebarTitle>}
           </ColSidebar>
           <ColContent>
-            <Grid col="1" col-t="2">
+            <Grid col="1" col-t="2" col-d="3">
               {data.map((item) => {
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
-                      <AspectRatio ratio="4-3">
+                      <AspectRatio>
                         <Image
                           src={item.Photo[0].thumbnails.large.url}
                           alt={item.Name}
@@ -91,9 +84,7 @@ function DeviceSection({ title, data }) {
                         />
                       </AspectRatio>
                       <TextTitle>{item.Name}</TextTitle>
-                      <TextSmall>
-                        {item.Location} • {item.Device}
-                      </TextSmall>
+                      <TextSmall>{item.Description}</TextSmall>
                     </article>
                   </Col>
                 )
@@ -107,20 +98,20 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(process.env.API_URL + '/api/photos')
+  const res = await fetch(process.env.API_URL + '/api/videos')
   const data = await res.json()
 
-  const cover = data.filter((o) => o.Category === 'Cover')
-  const journals = data.filter((o) => o.Category === 'Journal')
-  const photos = data.filter((o) => o.Category === 'Photo')
+  const development = data.filter((o) => o.Category === 'Development')
+  const design = data.filter((o) => o.Category === 'Design')
+  const conference = data.filter((o) => o.Category === 'Conference')
 
   return {
     props: {
-      cover: cover[0],
-      journals,
-      photos
+      development,
+      design,
+      conference
     }
   }
 }
 
-export default PhotosPage
+export default VideosPage

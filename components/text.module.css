@@ -4,5 +4,6 @@
 }
 
 .title {
+  font-weight: var(--fw-normal);
   font-size: var(--fs-body);
 }

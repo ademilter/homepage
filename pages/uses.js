@@ -13,7 +13,7 @@ import SidebarTitle from '@comp/sidebar-title'
 import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 
-function MyDeskPage({ cover, general, home }) {
+function UsesPage({ cover, general, home }) {
   return (
     <Layout>
       <Head>
@@ -119,4 +119,4 @@ export async function getStaticProps() {
   }
 }
 
-export default MyDeskPage
+export default UsesPage
