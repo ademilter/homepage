@@ -26,6 +26,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --c-theme: #111;
+    --c-highlight: #fff700;
     --c-default: rgba(255, 255, 255, 0.9);
     --c-default-light: rgba(180, 180, 200, 0.65);
     --c-default-hide: rgba(180, 180, 200, 0.12);
