@@ -11,12 +11,13 @@ import SidebarTitle from '@comp/sidebar-title'
 import { TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
 import Figure from '@comp/figure'
+import Url from 'url'
 
-function PhotosPage({ cover, journals, photos }) {
+function LikesPage({ likes }) {
   return (
     <Layout>
       <Head>
-        <title>Fotoğraflar</title>
+        <title>Beğendiklerim</title>
       </Head>
 
       <section id="section-hero">
@@ -27,27 +28,25 @@ function PhotosPage({ cover, journals, photos }) {
             </ColSidebar>
 
             <ColContent>
-              {cover.length > 0 && (
-                <Figure
-                  href={cover[0].Url}
-                  src={cover[0].Photo[0].thumbnails.full.url}
-                  alt={cover[0].Name}
-                >
-                  {/*<TextTitle>{cover[0].Name}</TextTitle>*/}
-                  <TextSmall>
-                    {cover[0].Location} • {cover[0].Device}
-                  </TextSmall>
-                  <TextSmall>{cover[0].Description}</TextSmall>
-                </Figure>
-              )}
+              <Grid col="1" col-t="1" col-d="3">
+                <Col span="1" span-t="1" span-d="2">
+                  <Html>
+                    <p>
+                      İnternette gezinirken beğendiğim şeylerin küçük bir
+                      listesi. Beni takip edenlerin de beğeneceğini düşündüğüm,
+                      belli bir kategorisi olmayan karışık şeyler.
+                    </p>
+                  </Html>
+                </Col>
+              </Grid>
             </ColContent>
 
             <ColExtra>
               <ExternalList
                 urls={[
-                  SiteConfig.social.vsco,
+                  SiteConfig.social.twitter,
                   SiteConfig.social.instagram,
-                  SiteConfig.social.twitter
+                  SiteConfig.social.youtube
                 ]}
               />
             </ColExtra>
@@ -55,8 +54,7 @@ function PhotosPage({ cover, journals, photos }) {
         </Container>
       </section>
 
-      <DeviceSection data={photos} />
-      <DeviceSection title="Dergiler" data={journals} />
+      <DeviceSection data={likes} />
     </Layout>
   )
 }
@@ -71,21 +69,19 @@ function DeviceSection({ title, data }) {
           </ColSidebar>
 
           <ColContent>
-            <Grid col="1" col-t="2">
+            <Grid col="1" col-t="2" col-d="3">
               {data.map((item) => {
+                const { host } = Url.parse(item.Url)
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
                       <Figure
                         href={item.Url}
-                        ratio="4-3"
                         src={item.Photo[0].thumbnails.large.url}
                         alt={item.Name}
                       >
-                        {/*<TextTitle>{item.Name}</TextTitle>*/}
-                        <TextSmall>
-                          {item.Location} • {item.Device}
-                        </TextSmall>
+                        <TextTitle>{item.Name}</TextTitle>
+                        <TextSmall>{host}</TextSmall>
                       </Figure>
                     </article>
                   </Col>
@@ -101,20 +97,14 @@ function DeviceSection({ title, data }) {
 
 export async function getStaticProps() {
   await sleep()
-  const table = new Table('Photo')
+  const table = new Table('Like')
   const data = (await table.getAllData()) || []
-
-  const cover = data.filter((o) => o.Category === 'Cover')
-  const journals = data.filter((o) => o.Category === 'Journal')
-  const photos = data.filter((o) => o.Category === 'Photo')
 
   return {
     props: {
-      cover,
-      journals,
-      photos
+      likes: data
     }
   }
 }
 
-export default PhotosPage
+export default LikesPage

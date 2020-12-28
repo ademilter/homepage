@@ -27,20 +27,13 @@ function DeskPage({ cover, general, home }) {
             </ColSidebar>
 
             <ColContent>
-              <Html>
-                {cover.length > 0 && (
-                  <Figure
-                    ratio="4-3"
-                    src={cover[0].Photo[0].thumbnails.full.url}
-                    alt={cover[0].Name}
-                  />
-                )}
-                <p>
-                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
-                  yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
-                  görev alıyorum.
-                </p>
-              </Html>
+              {cover.length > 0 && (
+                <Figure
+                  ratio="4-3"
+                  src={cover[0].Photo[0].thumbnails.full.url}
+                  alt={cover[0].Name}
+                />
+              )}
             </ColContent>
 
             <ColExtra>

@@ -9,9 +9,9 @@ const MENU = [
   { name: 'Anasayfa', url: '/' },
   { name: 'Fotoğraflar', url: '/photos' },
   { name: 'Eğitimler', url: '/videos' },
-  { name: 'Masam', url: '/desk' }
+  { name: 'Masam', url: '/desk' },
+  { name: 'Beğendiklerim', url: '/likes' }
   // { name: 'Yazılar', url: '/blog' },
-  // { name: 'Linkler', url: '/links' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
 ]
