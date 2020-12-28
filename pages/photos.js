@@ -27,27 +27,19 @@ function PhotosPage({ cover, journals, photos }) {
             </ColSidebar>
 
             <ColContent>
-              <Html>
-                {cover.length > 0 && (
-                  <Figure
-                    href={cover[0].Url}
-                    src={cover[0].Photo[0].thumbnails.full.url}
-                    alt={cover[0].Name}
-                  >
-                    {/*<TextTitle>{cover[0].Name}</TextTitle>*/}
-                    <TextSmall>
-                      {cover[0].Location} • {cover[0].Device}
-                    </TextSmall>
-                    <TextSmall>{cover[0].Description}</TextSmall>
-                  </Figure>
-                )}
-
-                <p>
-                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
-                  yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
-                  görev alıyorum.
-                </p>
-              </Html>
+              {cover.length > 0 && (
+                <Figure
+                  href={cover[0].Url}
+                  src={cover[0].Photo[0].thumbnails.full.url}
+                  alt={cover[0].Name}
+                >
+                  {/*<TextTitle>{cover[0].Name}</TextTitle>*/}
+                  <TextSmall>
+                    {cover[0].Location} • {cover[0].Device}
+                  </TextSmall>
+                  <TextSmall>{cover[0].Description}</TextSmall>
+                </Figure>
+              )}
             </ColContent>
 
             <ColExtra>

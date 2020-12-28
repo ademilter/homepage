@@ -28,13 +28,17 @@ function LikesPage({ likes }) {
             </ColSidebar>
 
             <ColContent>
-              <Html>
-                <p>
-                  Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
-                  yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
-                  görev alıyorum.
-                </p>
-              </Html>
+              <Grid col="1" col-t="1" col-d="3">
+                <Col span="1" span-t="1" span-d="2">
+                  <Html>
+                    <p>
+                      İnternette gezinirken beğendiğim şeylerin küçük bir
+                      listesi. Beni takip edenlerin de beğeneceğini düşündüğüm,
+                      belli bir kategorisi olmayan karışık şeyler.
+                    </p>
+                  </Html>
+                </Col>
+              </Grid>
             </ColContent>
 
             <ColExtra>

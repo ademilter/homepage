@@ -27,18 +27,22 @@ function VideosPage({ development, design, conference }) {
             </ColSidebar>
 
             <ColContent>
-              <Html>
-                <p>
-                  Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
-                  ücretsiz olarak erişebilirsiniz.
-                </p>
+              <Grid col="1" col-t="1" col-d="3">
+                <Col span="1" span-t="1" span-d="2">
+                  <Html>
+                    <p>
+                      Yazılım, tasarım ve tecrübelerimi paylaştığım video
+                      eğitimlere ücretsiz olarak erişebilirsiniz.
+                    </p>
 
-                <p>
-                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
-                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
-                  kaliteli yapan insanların yetişmesine katkı sağlamak.
-                </p>
-              </Html>
+                    <p>
+                      Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
+                      zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
+                      kaliteli yapan insanların yetişmesine katkı sağlamak.
+                    </p>
+                  </Html>
+                </Col>
+              </Grid>
             </ColContent>
 
             <ColExtra>
@@ -70,7 +74,7 @@ function DeviceSection({ title, data }) {
             {title && <SidebarTitle>{title}</SidebarTitle>}
           </ColSidebar>
           <ColContent>
-            <Grid col="1" col-t="2">
+            <Grid col="1" col-t="2" col-d="3">
               {data.map((item) => {
                 return (
                   <Col key={item.id} span-t="1">
