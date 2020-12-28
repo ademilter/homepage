@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "start": "serve out"
+    "start": "serve out",
+    "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
   },
   "dependencies": {
     "airtable": "^0.10.1",
@@ -20,6 +21,7 @@
     "serve": "^11.3.2"
   },
   "devDependencies": {
+    "@svgr/cli": "^5.5.0",
     "autoprefixer": "^10.1.0",
     "postcss": "^8.2.1",
     "postcss-custom-media": "^7.0.8",
