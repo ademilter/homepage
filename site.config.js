@@ -1,13 +1,13 @@
 module.exports = {
   title: 'Next Template',
   description: 'Next PWA Template',
-  siteUrl: 'https://github.com/ademilter/next-web-template',
-  googleAnalytic: 'X-XXXXXXXXXX',
+  lang: 'tr',
+  siteUrl: 'https://ademilter.com',
+  googleAnalytic: 'UA-17768654-1',
   author: {
     email: 'ademilter@gmail.com',
     name: 'Adem ilter'
   },
-  lang: 'tr',
   social: {
     vsco: { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
     instagram: { name: 'Instagram', url: 'https://instagram.com/ademilter' },
