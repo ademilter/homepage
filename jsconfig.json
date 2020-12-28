@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@comp/*": ["components/*"],
+      "@data/*": ["data/*"],
+      "@lib/*": ["lib/*"],
+      "@style/*": ["styles/*"]
+    }
+  }
+}
