@@ -38,6 +38,7 @@ function PhotosPage({ cover, journals, photos }) {
                     <TextSmall>
                       {cover[0].Location} • {cover[0].Device}
                     </TextSmall>
+                    <TextSmall>{cover[0].Description}</TextSmall>
                   </Figure>
                 )}
 

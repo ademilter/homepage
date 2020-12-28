@@ -12,7 +12,7 @@ import { TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
 import Figure from '@comp/figure'
 
-function UsesPage({ cover, general, home }) {
+function DeskPage({ cover, general, home }) {
   return (
     <Layout>
       <Head>
@@ -114,4 +114,4 @@ export async function getStaticProps() {
   }
 }
 
-export default UsesPage
+export default DeskPage

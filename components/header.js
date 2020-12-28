@@ -8,8 +8,8 @@ import styles from './header.module.css'
 const MENU = [
   { name: 'Anasayfa', url: '/' },
   { name: 'Fotoğraflar', url: '/photos' },
-  { name: 'Malzemeler', url: '/uses' },
-  { name: 'Eğitimler', url: '/videos' }
+  { name: 'Eğitimler', url: '/videos' },
+  { name: 'Masam', url: '/desk' }
   // { name: 'Yazılar', url: '/blog' },
   // { name: 'Linkler', url: '/links' },
   // { name: 'S.S.S.', url: '/faq' },
