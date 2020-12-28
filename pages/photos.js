@@ -28,17 +28,18 @@ function PhotosPage({ cover, journals, photos }) {
 
             <ColContent>
               <Html>
-                <a href={cover.Url}>
+                {cover.length > 0 && (
                   <Figure
-                    src={cover.Photo[0].thumbnails.full.url}
-                    alt={cover.Name}
+                    href={cover[0].Url}
+                    src={cover[0].Photo[0].thumbnails.full.url}
+                    alt={cover[0].Name}
                   >
-                    <TextTitle>{cover.Name}</TextTitle>
+                    {/*<TextTitle>{cover[0].Name}</TextTitle>*/}
                     <TextSmall>
-                      {cover.Location} • {cover.Device}
+                      {cover[0].Location} • {cover[0].Device}
                     </TextSmall>
                   </Figure>
-                </a>
+                )}
 
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
@@ -77,23 +78,22 @@ function DeviceSection({ title, data }) {
           </ColSidebar>
 
           <ColContent>
-            <Grid col="1" col-t="2" col-d="3">
+            <Grid col="1" col-t="2">
               {data.map((item) => {
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
-                      <a href={item.Url}>
-                        <Figure
-                          ratio="4-3"
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                        >
-                          <TextTitle>{item.Name}</TextTitle>
-                          <TextSmall>
-                            {item.Location} • {item.Device}
-                          </TextSmall>
-                        </Figure>
-                      </a>
+                      <Figure
+                        href={item.Url}
+                        ratio="4-3"
+                        src={item.Photo[0].thumbnails.large.url}
+                        alt={item.Name}
+                      >
+                        {/*<TextTitle>{item.Name}</TextTitle>*/}
+                        <TextSmall>
+                          {item.Location} • {item.Device}
+                        </TextSmall>
+                      </Figure>
                     </article>
                   </Col>
                 )
@@ -117,7 +117,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      cover: cover[0],
+      cover,
       journals,
       photos
     }

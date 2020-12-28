@@ -1,9 +1,9 @@
-.content {
+.html {
   > * + * {
     margin-top: 32px;
   }
 
-  a:not(figure a) {
+  a {
     text-decoration-line: underline;
     text-decoration-color: var(--c-default-light);
   }

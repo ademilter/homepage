@@ -23,21 +23,20 @@
   --finger: 46px;
 }
 
-@media (--t) {
-  :root {
-    --fs-base: 18px;
-    --gap: 32px;
-  }
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --c-theme: #111;
-    --c-highlight: yellow;
     --c-default: rgba(255, 255, 255, 0.9);
     --c-default-light: rgba(180, 180, 200, 0.65);
     --c-default-hide: rgba(180, 180, 200, 0.12);
     --c-default-smoke: rgba(180, 180, 200, 0.1);
+  }
+}
+
+@media (--t) {
+  :root {
+    --fs-base: 18px;
+    --gap: 32px;
   }
 }
 

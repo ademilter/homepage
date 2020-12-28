@@ -28,11 +28,13 @@ function UsesPage({ cover, general, home }) {
 
             <ColContent>
               <Html>
-                <Figure
-                  ratio="4-3"
-                  src={cover.Photo[0].thumbnails.full.url}
-                  alt={cover.Name}
-                />
+                {cover.length > 0 && (
+                  <Figure
+                    ratio="4-3"
+                    src={cover[0].Photo[0].thumbnails.full.url}
+                    alt={cover[0].Name}
+                  />
+                )}
                 <p>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
@@ -105,7 +107,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      cover: cover[0],
+      cover,
       general,
       home
     }

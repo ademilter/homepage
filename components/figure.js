@@ -1,9 +1,8 @@
-import React from 'react'
-
-import styles from './figure.module.css'
 import AspectRatio from '@comp/aspect-ratio'
 
-function Figure({ src, alt, ratio, children }) {
+import styles from './figure.module.css'
+
+function Base({ src, alt, ratio, children }) {
   return (
     <figure className={styles.figure}>
       <AspectRatio ratio={ratio}>
@@ -14,6 +13,16 @@ function Figure({ src, alt, ratio, children }) {
         <figcaption className={styles.caption}>{children}</figcaption>
       )}
     </figure>
+  )
+}
+
+function Figure({ href, children, ...rest }) {
+  return href ? (
+    <a className={styles.link} href={href}>
+      <Base {...rest}>{children}</Base>
+    </a>
+  ) : (
+    <Base {...rest}>{children}</Base>
   )
 }
 

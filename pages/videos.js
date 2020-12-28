@@ -8,7 +8,6 @@ import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
-import AspectRatio from '@comp/aspect-ratio'
 import { TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
 import Figure from '@comp/figure'
@@ -76,15 +75,14 @@ function DeviceSection({ title, data }) {
                 return (
                   <Col key={item.id} span-t="1">
                     <article>
-                      <a href={item.Url}>
-                        <Figure
-                          src={item.Photo[0].thumbnails.large.url}
-                          alt={item.Name}
-                        >
-                          <TextTitle>{item.Name}</TextTitle>
-                          <TextSmall>{item.Description}</TextSmall>
-                        </Figure>
-                      </a>
+                      <Figure
+                        href={item.Url}
+                        src={item.Photo[0].thumbnails.large.url}
+                        alt={item.Name}
+                      >
+                        <TextTitle>{item.Name}</TextTitle>
+                        <TextSmall>{item.Description}</TextSmall>
+                      </Figure>
                     </article>
                   </Col>
                 )
