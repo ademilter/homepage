@@ -5,9 +5,11 @@ import styles from './figure.module.css'
 function Base({ src, alt, ratio, children }) {
   return (
     <figure className={styles.figure}>
-      <AspectRatio ratio={ratio}>
-        <img src={src} alt={alt} />
-      </AspectRatio>
+      {src && (
+        <AspectRatio ratio={ratio}>
+          <img src={src} alt={alt} />
+        </AspectRatio>
+      )}
 
       {children && (
         <figcaption className={styles.caption}>{children}</figcaption>

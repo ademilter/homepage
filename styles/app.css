@@ -20,7 +20,7 @@
 
   --lh-body: 1.46;
 
-  --gap: 24px;
+  --gap: 32px;
   --finger: 46px;
 }
 
@@ -38,7 +38,7 @@
 @media (--t) {
   :root {
     --fs-base: 18px;
-    --gap: 32px;
+    --gap: 40px;
   }
 }
 
@@ -121,7 +121,7 @@ section + section {
 
   @media (--t) {
     & {
-      margin-top: 120px;
+      margin-top: 80px;
     }
   }
 }

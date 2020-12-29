@@ -60,12 +60,14 @@ function DeviceSection({ title, data }) {
     <section>
       <Container>
         <CustomGrid>
-          <ColSidebar>
-            {title && <SidebarTitle>{title}</SidebarTitle>}
-          </ColSidebar>
+          {title && (
+            <ColSidebar>
+              <SidebarTitle>{title}</SidebarTitle>
+            </ColSidebar>
+          )}
 
           <ColContent>
-            <Grid col="1" col-t="2" col-d="3">
+            <Grid col="1" col-t="2" col-d="2">
               {data.map((item) => {
                 const { host } = Url.parse(item.Url)
                 return (
@@ -73,7 +75,11 @@ function DeviceSection({ title, data }) {
                     <article>
                       <Figure
                         href={item.Url}
-                        src={item.Photo[0].thumbnails.large.url}
+                        src={
+                          item.Photo
+                            ? item.Photo[0].thumbnails.large.url
+                            : 'https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80'
+                        }
                         alt={item.Name}
                       >
                         <TextTitle>{item.Name}</TextTitle>

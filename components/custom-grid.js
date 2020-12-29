@@ -28,7 +28,9 @@ export function ColContent({ children, ...props }) {
 export function ColExtra({ children, ...props }) {
   return (
     <Col span="2" span-t="2-4" span-d="11-12" {...props}>
-      {children}
+      <Grid col="1" col-t="2" col-d="1">
+        <Col span="1">{children}</Col>
+      </Grid>
     </Col>
   )
 }
