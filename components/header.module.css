@@ -6,8 +6,8 @@
 .button {
   width: 100%;
   font-size: var(--fs-body);
-  font-weight: var(--fw-normal);
   text-align: left;
+  font-weight: var(--fw-bold);
 
   span {
     margin-right: 8px;
