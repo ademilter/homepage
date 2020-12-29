@@ -33,11 +33,11 @@ function PhotosPage({ cover, journals, photos }) {
                   src={cover[0].Photo[0].thumbnails.full.url}
                   alt={cover[0].Name}
                 >
-                  {/*<TextTitle>{cover[0].Name}</TextTitle>*/}
-                  <TextSmall>
-                    {cover[0].Location} • {cover[0].Device}
-                  </TextSmall>
-                  <TextSmall>{cover[0].Description}</TextSmall>
+                  <TextTitle>{cover[0].Location}</TextTitle>
+                  <TextSmall>{cover[0].Device}</TextSmall>
+                  {cover[0].Description && (
+                    <TextSmall>{cover[0].Description}</TextSmall>
+                  )}
                 </Figure>
               )}
             </ColContent>
@@ -82,10 +82,8 @@ function DeviceSection({ title, data }) {
                         src={item.Photo[0].thumbnails.large.url}
                         alt={item.Name}
                       >
-                        {/*<TextTitle>{item.Name}</TextTitle>*/}
-                        <TextSmall>
-                          {item.Location} • {item.Device}
-                        </TextSmall>
+                        <TextTitle>{item.Location}</TextTitle>
+                        <TextSmall>{item.Device}</TextSmall>
                       </Figure>
                     </article>
                   </Col>

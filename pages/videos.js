@@ -70,7 +70,7 @@ function DeviceSection({ title, data }) {
             {title && <SidebarTitle>{title}</SidebarTitle>}
           </ColSidebar>
           <ColContent>
-            <Grid col="1" col-t="2" col-d="3">
+            <Grid col="1" col-t="2">
               {data.map((item) => {
                 return (
                   <Col key={item.id} span-t="1">
