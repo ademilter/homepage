@@ -18,3 +18,11 @@ export function TextSmall({ children, className, ...props }) {
     </p>
   )
 }
+
+export function TextLarge({ children, className, ...props }) {
+  return (
+    <p className={cn(styles.large, className)} {...props}>
+      {children}
+    </p>
+  )
+}

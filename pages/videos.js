@@ -8,7 +8,7 @@ import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
-import { TextSmall, TextTitle } from '@comp/text'
+import { TextLarge, TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
 import Figure from '@comp/figure'
 
@@ -27,22 +27,18 @@ function VideosPage({ development, design, conference }) {
             </ColSidebar>
 
             <ColContent>
-              <Grid col="1" col-t="1" col-d="3">
-                <Col span="1" span-t="1" span-d="2">
-                  <Html>
-                    <p>
-                      Yazılım, tasarım ve tecrübelerimi paylaştığım video
-                      eğitimlere ücretsiz olarak erişebilirsiniz.
-                    </p>
+              <Html>
+                <TextLarge>
+                  Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
+                  ücretsiz olarak erişebilirsiniz.
+                </TextLarge>
 
-                    <p>
-                      Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
-                      zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
-                      kaliteli yapan insanların yetişmesine katkı sağlamak.
-                    </p>
-                  </Html>
-                </Col>
-              </Grid>
+                <TextLarge>
+                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
+                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
+                  kaliteli yapan insanların yetişmesine katkı sağlamak.
+                </TextLarge>
+              </Html>
             </ColContent>
 
             <ColExtra>

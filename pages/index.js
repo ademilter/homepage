@@ -8,6 +8,7 @@ import ExternalList from '@comp/external-list'
 import Header from '@comp/header'
 import Container from '@comp/container'
 import AspectRatio from '@comp/aspect-ratio'
+import { TextLarge } from '@comp/text'
 
 function HomePage() {
   return (
@@ -28,25 +29,25 @@ function HomePage() {
                 <AspectRatio ratio="4-3">
                   <img src="/i-am.jpg" alt="Adem ilter" />
                 </AspectRatio>
-                <p>
+                <TextLarge>
                   Ben Adem, evli ve iki çocuk babası olarak İstanbul'da
                   yaşıyorum. Şu an Superpeer şirketinde Ürün Tasarımcısı olarak
                   görev alıyorum.
-                </p>
-                <p>
+                </TextLarge>
+                <TextLarge>
                   Web tasarım ve yazılım sektöründe yaklaşık 12 senedir
                   çalışıyorum. Bu süreçte edindiğim tecrübe ve bilgi birikimnini{' '}
                   <Link href="/videos">
                     <a>youtube</a>
                   </Link>{' '}
                   kanalımda insanlara aktarmaya çalışıyorum.
-                </p>
-                <p>
+                </TextLarge>
+                <TextLarge>
                   Amacım; kaliteli türkçe içeriğin az olduğu türkiye sektöründe
                   globaldeki kaliteli kanallarla aynı seviyede içerikler
                   üretebilmek ve sektördeki eski alışkanlıkları yenilerle
                   değiştirerek daha iyi bir yere taşımasına ön ayak olmak.
-                </p>
+                </TextLarge>
               </Html>
             </ColContent>
 

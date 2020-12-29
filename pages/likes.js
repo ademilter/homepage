@@ -8,7 +8,7 @@ import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
-import { TextSmall, TextTitle } from '@comp/text'
+import { TextLarge, TextSmall, TextTitle } from '@comp/text'
 import { sleep, Table } from '@lib/helper'
 import Figure from '@comp/figure'
 import Url from 'url'
@@ -28,17 +28,13 @@ function LikesPage({ likes }) {
             </ColSidebar>
 
             <ColContent>
-              <Grid col="1" col-t="1" col-d="3">
-                <Col span="1" span-t="1" span-d="2">
-                  <Html>
-                    <p>
-                      İnternette gezinirken beğendiğim şeylerin küçük bir
-                      listesi. Beni takip edenlerin de beğeneceğini düşündüğüm,
-                      belli bir kategorisi olmayan karışık şeyler.
-                    </p>
-                  </Html>
-                </Col>
-              </Grid>
+              <Html>
+                <TextLarge>
+                  İnternette gezinirken beğendiğim şeylerin küçük bir listesi.
+                  Beni takip edenlerin de beğeneceğini düşündüğüm, belli bir
+                  kategorisi olmayan karışık şeyler.
+                </TextLarge>
+              </Html>
             </ColContent>
 
             <ColExtra>
