@@ -43,7 +43,7 @@ function DeviceSection({ title, data }) {
 
       {data.map((item) => {
         return (
-          <article>
+          <article key={item._id}>
             <AspectRatio ratio={4 / 3}>
               <Image
                 src={item.Photo[0].thumbnails.large.url}

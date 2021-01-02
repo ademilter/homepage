@@ -8,7 +8,7 @@ const MENU = [
   { name: 'Fotoğraflar', url: '/photos' },
   { name: 'Eğitimler', url: '/videos' },
   { name: 'Masam', url: '/desk' },
-  { name: 'Beğendiklerim', url: '/likes' }
+  { name: 'Yer imleri', url: '/bookmarks' }
   // { name: 'Yazılar', url: '/blog' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },

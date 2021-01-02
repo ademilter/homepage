@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import Layout from '@comp/layout'
+import parseISO from 'date-fns/parseISO'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
+import { Chakra } from '../chakra'
+import { getBookmark } from '@lib/raindrop'
 import {
   AspectRatio,
   Image,
@@ -12,11 +16,8 @@ import {
   StackDivider,
   VStack
 } from '@chakra-ui/react'
-import parseISO from 'date-fns/parseISO'
-import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
-import { Chakra } from '../chakra'
 
-function LikesPage({ data }) {
+function BookmarkPage({ data }) {
   return (
     <Chakra>
       <Layout>
@@ -66,17 +67,7 @@ function LikesPage({ data }) {
 }
 
 export async function getStaticProps() {
-  const url = `https://api.raindrop.io/rest/v1/raindrops/0?search=[{"key":"tag","val":"history"}]`
-
-  const res = await fetch(url, {
-    method: 'get',
-    headers: new Headers({
-      Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`,
-      'Content-Type': 'application/x-www-form-urlencoded'
-    })
-  })
-
-  const data = await res.json()
+  const data = await getBookmark()
 
   if (!data) {
     return {
@@ -92,4 +83,4 @@ export async function getStaticProps() {
   }
 }
 
-export default LikesPage
+export default BookmarkPage
