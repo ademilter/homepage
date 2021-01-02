@@ -1,13 +1,18 @@
 import Head from 'next/head'
-import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
-import Html from '@comp/html'
-import ExternalList from '@comp/external-list'
-import Header from '@comp/header'
-import Container from '@comp/container'
-import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
-import { TextLarge } from '@comp/text'
-import { Link, Box, Text, HStack } from '@chakra-ui/react'
+import {
+  Container,
+  AspectRatio,
+  Image,
+  Heading,
+  Link,
+  Box,
+  Text,
+  HStack,
+  Flex
+} from '@chakra-ui/react'
+import parseISO from 'date-fns/parseISO'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 
 function LikesPage({ data }) {
   return (
@@ -16,58 +21,38 @@ function LikesPage({ data }) {
         <title>Beğendiklerim</title>
       </Head>
 
-      <section id="section-hero">
-        <Container>
-          <CustomGrid>
-            <ColSidebar>
-              <Header />
-            </ColSidebar>
+      <Container maxW="2xl">
+        <Text>
+          İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
+          takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
+          olmayan karışık şeyler.
+        </Text>
 
-            <ColContent>
-              <Html>
-                <TextLarge>
-                  İnternette gezinirken beğendiğim şeylerin küçük bir listesi.
-                  Beni takip edenlerin de beğeneceğini düşündüğüm, belli bir
-                  kategorisi olmayan karışık şeyler.
-                </TextLarge>
-              </Html>
-            </ColContent>
-
-            <ColExtra>
-              <ExternalList
-                urls={[
-                  SiteConfig.social.twitter,
-                  SiteConfig.social.instagram,
-                  SiteConfig.social.youtube
-                ]}
-              />
-            </ColExtra>
-          </CustomGrid>
-        </Container>
-      </section>
-
-      <section>
-        <Container>
-          <CustomGrid>
-            <ColContent>
-              {data.map((item) => {
-                return (
-                  <Box p={4} key={item._id}>
-                    <Text as="h3">
-                      <Link href={item.link}>{item.title}</Link>
-                    </Text>
-                    <Text as="p">{item.excerpt}</Text>
-                    <HStack spacing={5}>
-                      <Text>{item.domain}</Text>
-                      <Text>{item.created}</Text>
-                    </HStack>
-                  </Box>
-                )
-              })}
-            </ColContent>
-          </CustomGrid>
-        </Container>
-      </section>
+        {data.map((item) => {
+          return (
+            <Flex py={6} key={item._id} borderBottomWidth={1}>
+              <Box order={1} flexGrow={1}>
+                <Heading as="h4" size="sm">
+                  <Link href={item.link}>{item.title}</Link>
+                </Heading>
+                <Text as="p">{item.excerpt}</Text>
+                <HStack spacing={0} color="gray.500">
+                  <Text>{item.domain}</Text>
+                  <Text>・</Text>
+                  <Text>
+                    {formatDistanceToNowStrict(parseISO(item.created))}
+                  </Text>
+                </HStack>
+              </Box>
+              <Box mr={6} flexShrink={0} w={[80, 120]}>
+                <AspectRatio ratio={4 / 3}>
+                  <Image src={item.cover} alt="naruto" objectFit="cover" />
+                </AspectRatio>
+              </Box>
+            </Flex>
+          )
+        })}
+      </Container>
     </Layout>
   )
 }
@@ -84,8 +69,6 @@ export async function getStaticProps() {
   })
 
   const data = await res.json()
-
-  console.log(data)
 
   if (!data) {
     return {
