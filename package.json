@@ -11,8 +11,12 @@
     "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.1.0",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "airtable": "^0.10.1",
     "classnames": "^2.2.6",
+    "framer-motion": "^3.1.1",
     "next": "^10.0.4",
     "next-pwa": "^5.0.1",
     "react": "^17.0.1",

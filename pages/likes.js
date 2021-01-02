@@ -2,13 +2,12 @@ import Head from 'next/head'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import Html from '@comp/html'
-import { Grid, Col } from '@comp/grid'
 import ExternalList from '@comp/external-list'
 import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
-import { TextLarge, TextSmall, TextTitle } from '@comp/text'
-import Figure from '@comp/figure'
+import { TextLarge } from '@comp/text'
+import { Link, Box, Text, HStack } from '@chakra-ui/react'
 
 function LikesPage({ data }) {
   return (
@@ -47,35 +46,29 @@ function LikesPage({ data }) {
         </Container>
       </section>
 
-      <DeviceSection data={data} />
-    </Layout>
-  )
-}
-
-function DeviceSection({ data }) {
-  return (
-    <section>
-      <Container>
-        <CustomGrid>
-          <ColContent>
-            <Grid col="1" col-t="2" col-d="2">
+      <section>
+        <Container>
+          <CustomGrid>
+            <ColContent>
               {data.map((item) => {
                 return (
-                  <Col key={item._id} span-t="1">
-                    <article>
-                      <Figure href={item.link} src={item.cover} alt={item.Name}>
-                        <TextTitle>{item.title}</TextTitle>
-                        <TextSmall>{item.domain}</TextSmall>
-                      </Figure>
-                    </article>
-                  </Col>
+                  <Box p={4} key={item._id}>
+                    <Text as="h3">
+                      <Link href={item.link}>{item.title}</Link>
+                    </Text>
+                    <Text as="p">{item.excerpt}</Text>
+                    <HStack spacing={5}>
+                      <Text>{item.domain}</Text>
+                      <Text>{item.created}</Text>
+                    </HStack>
+                  </Box>
                 )
               })}
-            </Grid>
-          </ColContent>
-        </CustomGrid>
-      </Container>
-    </section>
+            </ColContent>
+          </CustomGrid>
+        </Container>
+      </section>
+    </Layout>
   )
 }
 
@@ -91,6 +84,8 @@ export async function getStaticProps() {
   })
 
   const data = await res.json()
+
+  console.log(data)
 
   if (!data) {
     return {
