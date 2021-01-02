@@ -7,13 +7,10 @@ import ExternalList from '@comp/external-list'
 import Header from '@comp/header'
 import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
-import SidebarTitle from '@comp/sidebar-title'
 import { TextLarge, TextSmall, TextTitle } from '@comp/text'
-import { sleep, Table } from '@lib/helper'
 import Figure from '@comp/figure'
-import Url from 'url'
 
-function LikesPage({ likes }) {
+function LikesPage({ data }) {
   return (
     <Layout>
       <Head>
@@ -50,40 +47,25 @@ function LikesPage({ likes }) {
         </Container>
       </section>
 
-      <DeviceSection data={likes} />
+      <DeviceSection data={data} />
     </Layout>
   )
 }
 
-function DeviceSection({ title, data }) {
+function DeviceSection({ data }) {
   return (
     <section>
       <Container>
         <CustomGrid>
-          {title && (
-            <ColSidebar>
-              <SidebarTitle>{title}</SidebarTitle>
-            </ColSidebar>
-          )}
-
           <ColContent>
             <Grid col="1" col-t="2" col-d="2">
               {data.map((item) => {
-                const { host } = Url.parse(item.Url)
                 return (
-                  <Col key={item.id} span-t="1">
+                  <Col key={item._id} span-t="1">
                     <article>
-                      <Figure
-                        href={item.Url}
-                        src={
-                          item.Photo
-                            ? item.Photo[0].thumbnails.large.url
-                            : 'https://images.unsplash.com/photo-1569982175971-d92b01cf8694?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80'
-                        }
-                        alt={item.Name}
-                      >
-                        <TextTitle>{item.Name}</TextTitle>
-                        <TextSmall>{host}</TextSmall>
+                      <Figure href={item.link} src={item.cover} alt={item.Name}>
+                        <TextTitle>{item.title}</TextTitle>
+                        <TextSmall>{item.domain}</TextSmall>
                       </Figure>
                     </article>
                   </Col>
@@ -98,14 +80,29 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  await sleep()
-  const table = new Table('Like')
-  const data = (await table.getAllData()) || []
+  const url = `https://api.raindrop.io/rest/v1/raindrops/0?search=[{"key":"tag","val":"history"}]`
+
+  const res = await fetch(url, {
+    method: 'get',
+    headers: new Headers({
+      Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`,
+      'Content-Type': 'application/x-www-form-urlencoded'
+    })
+  })
+
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true
+    }
+  }
 
   return {
     props: {
-      likes: data
-    }
+      data: data.items
+    },
+    revalidate: 60
   }
 }
 

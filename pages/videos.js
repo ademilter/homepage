@@ -9,7 +9,7 @@ import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
 import { TextLarge, TextSmall, TextTitle } from '@comp/text'
-import { sleep, Table } from '@lib/helper'
+import { getTable } from '@lib/airtable'
 import Figure from '@comp/figure'
 
 function VideosPage({ development, design, conference }) {
@@ -96,9 +96,7 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  await sleep()
-  const table = new Table('Video')
-  const data = (await table.getAllData()) || []
+  const data = await getTable('Video')
 
   const development = data.filter((o) => o.Category === 'Development')
   const design = data.filter((o) => o.Category === 'Design')
@@ -109,7 +107,8 @@ export async function getStaticProps() {
       development,
       design,
       conference
-    }
+    },
+    revalidate: 600
   }
 }
 

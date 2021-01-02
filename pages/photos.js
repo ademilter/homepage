@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
-import Html from '@comp/html'
 import { Grid, Col } from '@comp/grid'
 import ExternalList from '@comp/external-list'
 import Header from '@comp/header'
@@ -9,7 +8,7 @@ import Container from '@comp/container'
 import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
 import { TextSmall, TextTitle } from '@comp/text'
-import { sleep, Table } from '@lib/helper'
+import { getTable } from '@lib/airtable'
 import Figure from '@comp/figure'
 
 function PhotosPage({ cover, journals, photos }) {
@@ -98,9 +97,7 @@ function DeviceSection({ title, data }) {
 }
 
 export async function getStaticProps() {
-  await sleep()
-  const table = new Table('Photo')
-  const data = (await table.getAllData()) || []
+  const data = await getTable('Photo')
 
   const cover = data.filter((o) => o.Category === 'Cover')
   const journals = data.filter((o) => o.Category === 'Journal')
@@ -111,7 +108,8 @@ export async function getStaticProps() {
       cover,
       journals,
       photos
-    }
+    },
+    revalidate: 600
   }
 }
 

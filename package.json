@@ -7,8 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
-    "start": "serve out",
+    "build": "next build",
     "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
   },
   "dependencies": {
@@ -17,9 +16,7 @@
     "next": "^10.0.4",
     "next-pwa": "^5.0.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "serve": "^11.3.2",
-    "url": "^0.11.0"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@svgr/cli": "^5.5.0",
