@@ -1,8 +1,6 @@
 import NextLink from 'next/link'
 import { Link } from '@chakra-ui/react'
 
-import styles from './header.module.css'
-
 const MENU = [
   { name: 'Anasayfa', url: '/' },
   { name: 'Fotoğraflar', url: '/photos' },
@@ -21,7 +19,7 @@ function Header() {
         {MENU.map((page) => {
           return (
             <Link as={NextLink} key={page.url} href={page.url}>
-              <a className={styles.link}>{page.name}</a>
+              <a>{page.name}</a>
             </Link>
           )
         })}
