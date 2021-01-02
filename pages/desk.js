@@ -1,11 +1,8 @@
 import Head from 'next/head'
 import Layout from '@comp/layout'
-import { Grid, Col } from '@comp/grid'
-import SidebarTitle from '@comp/sidebar-title'
-import { TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
-import Figure from '@comp/figure'
 import { Chakra } from '../chakra'
+import { Image, Text, Heading, AspectRatio } from '@chakra-ui/react'
 
 function DeskPage({ cover, general, home }) {
   return (
@@ -16,10 +13,10 @@ function DeskPage({ cover, general, home }) {
         </Head>
 
         {cover.length > 0 && (
-          <Figure
-            ratio="4-3"
+          <Image
             src={cover[0].Photo[0].thumbnails.full.url}
             alt={cover[0].Name}
+            objectFit="cover"
           />
         )}
 
@@ -33,26 +30,25 @@ function DeskPage({ cover, general, home }) {
 function DeviceSection({ title, data }) {
   return (
     <section>
-      <SidebarTitle>{title}</SidebarTitle>
+      <Heading>{title}</Heading>
 
-      <Grid col="1" col-t="2">
-        {data.map((item) => {
-          return (
-            <Col key={item.id} span-t="1">
-              <article>
-                <Figure
-                  ratio="4-3"
-                  src={item.Photo[0].thumbnails.large.url}
-                  alt={item.Name}
-                >
-                  <TextTitle>{item.Name}</TextTitle>
-                  <TextSmall>{item.Description}</TextSmall>
-                </Figure>
-              </article>
-            </Col>
-          )
-        })}
-      </Grid>
+      {data.map((item) => {
+        return (
+          <div>
+            <AspectRatio ratio={4 / 3}>
+              <Image
+                src={item.Photo[0].thumbnails.full.url}
+                alt={item.Name}
+                objectFit="cover"
+              />
+            </AspectRatio>
+            <a href={item.Url}>
+              <Text>{item.Name}</Text>
+              <Text>{item.Description}</Text>
+            </a>
+          </div>
+        )
+      })}
     </section>
   )
 }

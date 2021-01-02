@@ -1,11 +1,8 @@
 import Head from 'next/head'
 import Layout from '@comp/layout'
-import { Grid, Col } from '@comp/grid'
-import SidebarTitle from '@comp/sidebar-title'
-import { TextLarge, TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
-import Figure from '@comp/figure'
 import { Chakra } from '../chakra'
+import { Image, Text, Heading } from '@chakra-ui/react'
 
 function VideosPage({ development, design, conference }) {
   return (
@@ -15,16 +12,16 @@ function VideosPage({ development, design, conference }) {
           <title>Eğitimler</title>
         </Head>
 
-        <TextLarge>
+        <Text>
           Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
           ücretsiz olarak erişebilirsiniz.
-        </TextLarge>
+        </Text>
 
-        <TextLarge>
+        <Text>
           Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
           süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
           insanların yetişmesine katkı sağlamak.
-        </TextLarge>
+        </Text>
 
         <DeviceSection title="Yazılım" data={development} />
         <DeviceSection title="Tasarım" data={design} />
@@ -37,26 +34,24 @@ function VideosPage({ development, design, conference }) {
 function DeviceSection({ title, data }) {
   return (
     <section>
-      {title && <SidebarTitle>{title}</SidebarTitle>}
+      {title && <Heading>{title}</Heading>}
 
-      <Grid col="1" col-t="2">
-        {data.map((item) => {
-          return (
-            <Col key={item.id} span-t="1">
-              <article>
-                <Figure
-                  href={item.Url}
-                  src={item.Photo[0].thumbnails.large.url}
-                  alt={item.Name}
-                >
-                  <TextTitle>{item.Name}</TextTitle>
-                  <TextSmall>{item.Description}</TextSmall>
-                </Figure>
-              </article>
-            </Col>
-          )
-        })}
-      </Grid>
+      {data.map((item) => {
+        return (
+          <article>
+            <Image
+              src={item.Photo[0].thumbnails.large.url}
+              alt={item.Name}
+              objectFit="cover"
+            />
+
+            <a href={item.Url}>
+              <Text>{item.Name}</Text>
+              <Text>{item.Description}</Text>
+            </a>
+          </article>
+        )
+      })}
     </section>
   )
 }

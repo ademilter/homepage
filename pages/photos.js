@@ -1,11 +1,8 @@
 import Head from 'next/head'
 import Layout from '@comp/layout'
-import { Grid, Col } from '@comp/grid'
-import SidebarTitle from '@comp/sidebar-title'
-import { TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
-import Figure from '@comp/figure'
 import { Chakra } from '../chakra'
+import { AspectRatio, Image, Text, Heading } from '@chakra-ui/react'
 
 function PhotosPage({ cover, journals, photos }) {
   return (
@@ -16,17 +13,20 @@ function PhotosPage({ cover, journals, photos }) {
         </Head>
 
         {cover.length > 0 && (
-          <Figure
-            href={cover[0].Url}
-            src={cover[0].Photo[0].thumbnails.full.url}
-            alt={cover[0].Name}
-          >
-            <TextTitle>{cover[0].Location}</TextTitle>
-            <TextSmall>{cover[0].Device}</TextSmall>
-            {cover[0].Description && (
-              <TextSmall>{cover[0].Description}</TextSmall>
-            )}
-          </Figure>
+          <div>
+            <AspectRatio ratio={4 / 3}>
+              <Image
+                src={cover[0].Photo[0].thumbnails.full.url}
+                alt={cover[0].Name}
+                objectFit="cover"
+              />
+            </AspectRatio>
+            <a href={cover[0].Url}>
+              <Text>{cover[0].Location}</Text>
+              <Text>{cover[0].Device}</Text>
+              {cover[0].Description && <Text>{cover[0].Description}</Text>}
+            </a>
+          </div>
         )}
 
         <DeviceSection data={photos} />
@@ -39,27 +39,26 @@ function PhotosPage({ cover, journals, photos }) {
 function DeviceSection({ title, data }) {
   return (
     <section>
-      {title && <SidebarTitle>{title}</SidebarTitle>}
+      {title && <Heading>{title}</Heading>}
 
-      <Grid col="1" col-t="2">
-        {data.map((item) => {
-          return (
-            <Col key={item.id} span-t="1">
-              <article>
-                <Figure
-                  href={item.Url}
-                  ratio="4-3"
-                  src={item.Photo[0].thumbnails.large.url}
-                  alt={item.Name}
-                >
-                  <TextTitle>{item.Location}</TextTitle>
-                  <TextSmall>{item.Device}</TextSmall>
-                </Figure>
-              </article>
-            </Col>
-          )
-        })}
-      </Grid>
+      {data.map((item) => {
+        return (
+          <article>
+            <AspectRatio ratio={4 / 3}>
+              <Image
+                src={item.Photo[0].thumbnails.large.url}
+                alt={item.Name}
+                objectFit="cover"
+              />
+            </AspectRatio>
+
+            <a href={item.Url}>
+              <Text>{item.Location}</Text>
+              <Text>{item.Device}</Text>
+            </a>
+          </article>
+        )
+      })}
     </section>
   )
 }
