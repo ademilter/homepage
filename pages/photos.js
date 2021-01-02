@@ -1,11 +1,6 @@
 import Head from 'next/head'
-import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
 import { Grid, Col } from '@comp/grid'
-import ExternalList from '@comp/external-list'
-import Header from '@comp/header'
-import Container from '@comp/container'
-import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
 import { TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
@@ -18,41 +13,19 @@ function PhotosPage({ cover, journals, photos }) {
         <title>Fotoğraflar</title>
       </Head>
 
-      <section id="section-hero">
-        <Container>
-          <CustomGrid>
-            <ColSidebar>
-              <Header />
-            </ColSidebar>
-
-            <ColContent>
-              {cover.length > 0 && (
-                <Figure
-                  href={cover[0].Url}
-                  src={cover[0].Photo[0].thumbnails.full.url}
-                  alt={cover[0].Name}
-                >
-                  <TextTitle>{cover[0].Location}</TextTitle>
-                  <TextSmall>{cover[0].Device}</TextSmall>
-                  {cover[0].Description && (
-                    <TextSmall>{cover[0].Description}</TextSmall>
-                  )}
-                </Figure>
-              )}
-            </ColContent>
-
-            <ColExtra>
-              <ExternalList
-                urls={[
-                  SiteConfig.social.vsco,
-                  SiteConfig.social.instagram,
-                  SiteConfig.social.twitter
-                ]}
-              />
-            </ColExtra>
-          </CustomGrid>
-        </Container>
-      </section>
+      {cover.length > 0 && (
+        <Figure
+          href={cover[0].Url}
+          src={cover[0].Photo[0].thumbnails.full.url}
+          alt={cover[0].Name}
+        >
+          <TextTitle>{cover[0].Location}</TextTitle>
+          <TextSmall>{cover[0].Device}</TextSmall>
+          {cover[0].Description && (
+            <TextSmall>{cover[0].Description}</TextSmall>
+          )}
+        </Figure>
+      )}
 
       <DeviceSection data={photos} />
       <DeviceSection title="Dergiler" data={journals} />
@@ -63,35 +36,27 @@ function PhotosPage({ cover, journals, photos }) {
 function DeviceSection({ title, data }) {
   return (
     <section>
-      <Container>
-        <CustomGrid>
-          <ColSidebar>
-            {title && <SidebarTitle>{title}</SidebarTitle>}
-          </ColSidebar>
+      {title && <SidebarTitle>{title}</SidebarTitle>}
 
-          <ColContent>
-            <Grid col="1" col-t="2">
-              {data.map((item) => {
-                return (
-                  <Col key={item.id} span-t="1">
-                    <article>
-                      <Figure
-                        href={item.Url}
-                        ratio="4-3"
-                        src={item.Photo[0].thumbnails.large.url}
-                        alt={item.Name}
-                      >
-                        <TextTitle>{item.Location}</TextTitle>
-                        <TextSmall>{item.Device}</TextSmall>
-                      </Figure>
-                    </article>
-                  </Col>
-                )
-              })}
-            </Grid>
-          </ColContent>
-        </CustomGrid>
-      </Container>
+      <Grid col="1" col-t="2">
+        {data.map((item) => {
+          return (
+            <Col key={item.id} span-t="1">
+              <article>
+                <Figure
+                  href={item.Url}
+                  ratio="4-3"
+                  src={item.Photo[0].thumbnails.large.url}
+                  alt={item.Name}
+                >
+                  <TextTitle>{item.Location}</TextTitle>
+                  <TextSmall>{item.Device}</TextSmall>
+                </Figure>
+              </article>
+            </Col>
+          )
+        })}
+      </Grid>
     </section>
   )
 }

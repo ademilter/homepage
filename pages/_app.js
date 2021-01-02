@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react'
+import FontFace from '@comp/font-face'
 
 import theme from '../theme'
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -18,9 +19,8 @@ function MyApp({ Component, pageProps }) {
         >
           <Component {...pageProps} />
         </ColorModeProvider>
+        <FontFace />
       </ChakraProvider>
     </>
   )
 }
-
-export default MyApp

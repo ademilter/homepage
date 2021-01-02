@@ -11,6 +11,7 @@
     "svgr": "svgr ./icons -d ./src/components/icons --svg-props 'className=' --svgo-config .svgorc.json"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.0.2",
     "@chakra-ui/react": "^1.1.0",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",

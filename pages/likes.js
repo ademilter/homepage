@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Layout from '@comp/layout'
 import {
-  Container,
   AspectRatio,
   Image,
   Heading,
@@ -9,7 +8,9 @@ import {
   Box,
   Text,
   HStack,
-  Flex
+  Flex,
+  StackDivider,
+  VStack
 } from '@chakra-ui/react'
 import parseISO from 'date-fns/parseISO'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
@@ -21,21 +22,30 @@ function LikesPage({ data }) {
         <title>Beğendiklerim</title>
       </Head>
 
-      <Container maxW="2xl">
-        <Text>
+      <VStack spacing={5} align="stretch">
+        <Heading>Beğendiklerim</Heading>
+
+        <Text fontSize="xl">
           İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
           takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
           olmayan karışık şeyler.
         </Text>
+      </VStack>
 
+      <VStack
+        mt={12}
+        spacing={6}
+        align="stretch"
+        divider={<StackDivider borderColor="gray.200" />}
+      >
         {data.map((item) => {
           return (
-            <Flex py={6} key={item._id} borderBottomWidth={1}>
+            <Flex key={item._id}>
               <Box order={1} flexGrow={1}>
                 <Heading as="h4" size="sm">
                   <Link href={item.link}>{item.title}</Link>
                 </Heading>
-                <Text as="p">{item.excerpt}</Text>
+                <Text noOfLines={2}>{item.excerpt}</Text>
                 <HStack spacing={0} color="gray.500">
                   <Text>{item.domain}</Text>
                   <Text>・</Text>
@@ -52,7 +62,7 @@ function LikesPage({ data }) {
             </Flex>
           )
         })}
-      </Container>
+      </VStack>
     </Layout>
   )
 }

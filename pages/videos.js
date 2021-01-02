@@ -19,40 +19,16 @@ function VideosPage({ development, design, conference }) {
         <title>Eğitimler</title>
       </Head>
 
-      <section id="section-hero">
-        <Container>
-          <CustomGrid>
-            <ColSidebar>
-              <Header />
-            </ColSidebar>
+      <TextLarge>
+        Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere ücretsiz
+        olarak erişebilirsiniz.
+      </TextLarge>
 
-            <ColContent>
-              <Html>
-                <TextLarge>
-                  Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
-                  ücretsiz olarak erişebilirsiniz.
-                </TextLarge>
-
-                <TextLarge>
-                  Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim
-                  zorlu süreçlerden edindiğim tecrübeleri aktarmak ve işini
-                  kaliteli yapan insanların yetişmesine katkı sağlamak.
-                </TextLarge>
-              </Html>
-            </ColContent>
-
-            <ColExtra>
-              <ExternalList
-                urls={[
-                  SiteConfig.social.vsco,
-                  SiteConfig.social.instagram,
-                  SiteConfig.social.twitter
-                ]}
-              />
-            </ColExtra>
-          </CustomGrid>
-        </Container>
-      </section>
+      <TextLarge>
+        Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
+        süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
+        insanların yetişmesine katkı sağlamak.
+      </TextLarge>
 
       <DeviceSection title="Yazılım" data={development} />
       <DeviceSection title="Tasarım" data={design} />
@@ -64,33 +40,26 @@ function VideosPage({ development, design, conference }) {
 function DeviceSection({ title, data }) {
   return (
     <section>
-      <Container>
-        <CustomGrid>
-          <ColSidebar>
-            {title && <SidebarTitle>{title}</SidebarTitle>}
-          </ColSidebar>
-          <ColContent>
-            <Grid col="1" col-t="2">
-              {data.map((item) => {
-                return (
-                  <Col key={item.id} span-t="1">
-                    <article>
-                      <Figure
-                        href={item.Url}
-                        src={item.Photo[0].thumbnails.large.url}
-                        alt={item.Name}
-                      >
-                        <TextTitle>{item.Name}</TextTitle>
-                        <TextSmall>{item.Description}</TextSmall>
-                      </Figure>
-                    </article>
-                  </Col>
-                )
-              })}
-            </Grid>
-          </ColContent>
-        </CustomGrid>
-      </Container>
+      {title && <SidebarTitle>{title}</SidebarTitle>}
+
+      <Grid col="1" col-t="2">
+        {data.map((item) => {
+          return (
+            <Col key={item.id} span-t="1">
+              <article>
+                <Figure
+                  href={item.Url}
+                  src={item.Photo[0].thumbnails.large.url}
+                  alt={item.Name}
+                >
+                  <TextTitle>{item.Name}</TextTitle>
+                  <TextSmall>{item.Description}</TextSmall>
+                </Figure>
+              </article>
+            </Col>
+          )
+        })}
+      </Grid>
     </section>
   )
 }

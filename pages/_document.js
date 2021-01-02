@@ -1,8 +1,12 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 import { ColorModeScript } from '@chakra-ui/react'
 import SiteConfig from '../site.config'
 
-class MyDocument extends Document {
+export default class MyDocument extends NextDocument {
+  static async getInitialProps(ctx) {
+    return NextDocument.getInitialProps(ctx)
+  }
+
   render() {
     return (
       <Html lang={SiteConfig.lang}>
@@ -45,8 +49,11 @@ class MyDocument extends Document {
           />
 
           <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            href="/fonts/Inter-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
           />
 
           {/* analytic */}
@@ -65,6 +72,7 @@ class MyDocument extends Document {
             </>
           )}
         </Head>
+
         <body>
           <ColorModeScript />
           <Main />
@@ -74,5 +82,3 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument
