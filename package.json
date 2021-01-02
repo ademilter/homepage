@@ -20,6 +20,7 @@
     "date-fns": "^2.16.1",
     "framer-motion": "^3.1.1",
     "next": "^10.0.4",
+    "next-cookies": "^2.0.3",
     "next-pwa": "^5.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

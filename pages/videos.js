@@ -1,39 +1,36 @@
 import Head from 'next/head'
-import SiteConfig from '../site.config'
 import Layout from '@comp/layout'
-import Html from '@comp/html'
 import { Grid, Col } from '@comp/grid'
-import ExternalList from '@comp/external-list'
-import Header from '@comp/header'
-import Container from '@comp/container'
-import { CustomGrid, ColContent, ColExtra, ColSidebar } from '@comp/custom-grid'
 import SidebarTitle from '@comp/sidebar-title'
 import { TextLarge, TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
 import Figure from '@comp/figure'
+import { Chakra } from '../chakra'
 
 function VideosPage({ development, design, conference }) {
   return (
-    <Layout>
-      <Head>
-        <title>Eğitimler</title>
-      </Head>
+    <Chakra>
+      <Layout>
+        <Head>
+          <title>Eğitimler</title>
+        </Head>
 
-      <TextLarge>
-        Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere ücretsiz
-        olarak erişebilirsiniz.
-      </TextLarge>
+        <TextLarge>
+          Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
+          ücretsiz olarak erişebilirsiniz.
+        </TextLarge>
 
-      <TextLarge>
-        Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
-        süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
-        insanların yetişmesine katkı sağlamak.
-      </TextLarge>
+        <TextLarge>
+          Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
+          süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
+          insanların yetişmesine katkı sağlamak.
+        </TextLarge>
 
-      <DeviceSection title="Yazılım" data={development} />
-      <DeviceSection title="Tasarım" data={design} />
-      <DeviceSection title="Konferanslar" data={conference} />
-    </Layout>
+        <DeviceSection title="Yazılım" data={development} />
+        <DeviceSection title="Tasarım" data={design} />
+        <DeviceSection title="Konferanslar" data={conference} />
+      </Layout>
+    </Chakra>
   )
 }
 

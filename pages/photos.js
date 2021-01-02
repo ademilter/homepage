@@ -5,31 +5,34 @@ import SidebarTitle from '@comp/sidebar-title'
 import { TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
 import Figure from '@comp/figure'
+import { Chakra } from '../chakra'
 
 function PhotosPage({ cover, journals, photos }) {
   return (
-    <Layout>
-      <Head>
-        <title>Fotoğraflar</title>
-      </Head>
+    <Chakra>
+      <Layout>
+        <Head>
+          <title>Fotoğraflar</title>
+        </Head>
 
-      {cover.length > 0 && (
-        <Figure
-          href={cover[0].Url}
-          src={cover[0].Photo[0].thumbnails.full.url}
-          alt={cover[0].Name}
-        >
-          <TextTitle>{cover[0].Location}</TextTitle>
-          <TextSmall>{cover[0].Device}</TextSmall>
-          {cover[0].Description && (
-            <TextSmall>{cover[0].Description}</TextSmall>
-          )}
-        </Figure>
-      )}
+        {cover.length > 0 && (
+          <Figure
+            href={cover[0].Url}
+            src={cover[0].Photo[0].thumbnails.full.url}
+            alt={cover[0].Name}
+          >
+            <TextTitle>{cover[0].Location}</TextTitle>
+            <TextSmall>{cover[0].Device}</TextSmall>
+            {cover[0].Description && (
+              <TextSmall>{cover[0].Description}</TextSmall>
+            )}
+          </Figure>
+        )}
 
-      <DeviceSection data={photos} />
-      <DeviceSection title="Dergiler" data={journals} />
-    </Layout>
+        <DeviceSection data={photos} />
+        <DeviceSection title="Dergiler" data={journals} />
+      </Layout>
+    </Chakra>
   )
 }
 

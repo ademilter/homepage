@@ -5,25 +5,28 @@ import SidebarTitle from '@comp/sidebar-title'
 import { TextSmall, TextTitle } from '@comp/text'
 import { getTable } from '@lib/airtable'
 import Figure from '@comp/figure'
+import { Chakra } from '../chakra'
 
 function DeskPage({ cover, general, home }) {
   return (
-    <Layout>
-      <Head>
-        <title>Masam</title>
-      </Head>
+    <Chakra>
+      <Layout>
+        <Head>
+          <title>Masam</title>
+        </Head>
 
-      {cover.length > 0 && (
-        <Figure
-          ratio="4-3"
-          src={cover[0].Photo[0].thumbnails.full.url}
-          alt={cover[0].Name}
-        />
-      )}
+        {cover.length > 0 && (
+          <Figure
+            ratio="4-3"
+            src={cover[0].Photo[0].thumbnails.full.url}
+            alt={cover[0].Name}
+          />
+        )}
 
-      <DeviceSection title="Genel" data={general} />
-      <DeviceSection title="Ev" data={home} />
-    </Layout>
+        <DeviceSection title="Genel" data={general} />
+        <DeviceSection title="Ev" data={home} />
+      </Layout>
+    </Chakra>
   )
 }
 

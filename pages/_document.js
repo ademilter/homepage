@@ -3,7 +3,7 @@ import { ColorModeScript } from '@chakra-ui/react'
 import SiteConfig from '../site.config'
 
 export default class MyDocument extends NextDocument {
-  static async getInitialProps(ctx) {
+  static getInitialProps(ctx) {
     return NextDocument.getInitialProps(ctx)
   }
 

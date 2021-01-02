@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react'
 import FontFace from '@comp/font-face'
-
-import theme from '../theme'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -11,16 +8,8 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <ChakraProvider resetCSS theme={theme}>
-        <ColorModeProvider
-          options={{
-            useSystemColorMode: true
-          }}
-        >
-          <Component {...pageProps} />
-        </ColorModeProvider>
-        <FontFace />
-      </ChakraProvider>
+      <Component {...pageProps} />
+      <FontFace />
     </>
   )
 }
