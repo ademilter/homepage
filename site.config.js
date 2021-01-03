@@ -16,6 +16,6 @@ module.exports = {
     github: 'https://github.com/ademilter',
     youtube: 'https://youtube.com/ademilter',
     feyz: 'https://t.me/feyzli',
-    superpeer: 'https://t.me/feyzli'
+    superpeer: 'https://superpeer.com/adem'
   }
 }

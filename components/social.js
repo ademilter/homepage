@@ -1,15 +1,8 @@
 import SiteConfig from '../site.config'
 import { HStack, Link, IconButton } from '@chakra-ui/react'
 
-function SocialButton({ children }) {
-  return (
-    <IconButton
-      as={Link}
-      isExternal
-      href={SiteConfig.social.twitter}
-      icon={children}
-    />
-  )
+function SocialButton({ href, children }) {
+  return <IconButton as={Link} isExternal href={href} icon={children} />
 }
 
 function Social({
@@ -23,7 +16,7 @@ function Social({
   return (
     <HStack {...props}>
       {twitter && (
-        <SocialButton>
+        <SocialButton href={SiteConfig.social.twitter}>
           <svg
             role="img"
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +30,7 @@ function Social({
         </SocialButton>
       )}
       {youtube && (
-        <SocialButton>
+        <SocialButton href={SiteConfig.social.youtube}>
           <svg
             role="img"
             xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +44,7 @@ function Social({
         </SocialButton>
       )}
       {github && (
-        <SocialButton>
+        <SocialButton href={SiteConfig.social.github}>
           <svg
             role="img"
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +58,7 @@ function Social({
         </SocialButton>
       )}
       {instagram && (
-        <SocialButton>
+        <SocialButton href={SiteConfig.social.instagram}>
           <svg
             role="img"
             xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +72,7 @@ function Social({
         </SocialButton>
       )}
       {superpeer && (
-        <SocialButton>
+        <SocialButton href={SiteConfig.social.superpeer}>
           <svg
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
