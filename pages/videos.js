@@ -20,17 +20,9 @@ function VideosPage({ development, design, conference }) {
         </Head>
 
         <Container maxW="2xl">
-          <Heading>Eğitimler</Heading>
-
-          <Text fontSize="xl" mt={2}>
+          <Text fontSize="2xl">
             Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
             ücretsiz olarak erişebilirsiniz.
-          </Text>
-
-          <Text mt={2}>
-            Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
-            süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
-            insanların yetişmesine katkı sağlamak.
           </Text>
         </Container>
 
@@ -44,10 +36,8 @@ function VideosPage({ development, design, conference }) {
 
 function DeviceSection({ title, data }) {
   return (
-    <Container maxW="6xl" my={8}>
-      {title && <Heading>{title}</Heading>}
-
-      <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={4}>
+    <Container maxW="6xl" mt={20}>
+      <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={8}>
         {data.map((item) => {
           return (
             <GridItem key={item._id}>

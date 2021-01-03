@@ -21,27 +21,24 @@ function DeskPage({ cover, data }) {
         </Head>
 
         <Container maxW="2xl">
-          <Heading>Fotoğraflar</Heading>
-
-          <Text fontSize="xl" mt={2}>
+          <Text fontSize="2xl">
             İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
             takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
             olmayan karışık şeyler.
           </Text>
         </Container>
 
-        <Container maxW="6xl" my={8}>
-          {cover.length > 0 && (
+        {cover.length > 0 && (
+          <Container maxW="6xl" mt={20}>
             <Image
               src={cover[0].Photo[0].thumbnails.full.url}
               alt={cover[0].Name}
-              objectFit="cover"
             />
-          )}
-        </Container>
+          </Container>
+        )}
 
-        <Container maxW="6xl" my={8}>
-          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={4}>
+        <Container maxW="6xl" mt={20}>
+          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={8}>
             {data.map((item) => {
               return (
                 <GridItem key={item._id}>

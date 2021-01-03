@@ -14,10 +14,9 @@ function HomePage() {
         </Head>
 
         <Container maxW="2xl">
-          <Heading>Ben Adem</Heading>
-
-          <Text fontSize="2xl" mt={2}>
-            Evli ve iki çocuk babası olarak İstanbul'da yaşıyorum. Şu an{' '}
+          <Text fontSize="2xl">
+            Merhaba, ben Adem. Evli ve iki çocuk babası olarak İstanbul'da
+            yaşıyorum. Şu an{' '}
             <Link as={NextLink} href="http://superpeer.com" isExternal>
               <a>Superpeer</a>
             </Link>{' '}
@@ -25,7 +24,7 @@ function HomePage() {
           </Text>
         </Container>
 
-        <Container maxW="6xl" my={8}>
+        <Container maxW="6xl" mt={20}>
           <Image src="/i-am.jpg" alt="Adem ilter" width={1433} height={1018} />
         </Container>
       </Layout>

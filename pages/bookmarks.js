@@ -27,16 +27,14 @@ function BookmarkPage({ data }) {
         </Head>
 
         <Container maxW="2xl">
-          <Heading>Beğendiklerim</Heading>
-
-          <Text fontSize="xl" mt={2}>
+          <Text fontSize="2xl">
             İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
             takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
             olmayan karışık şeyler.
           </Text>
 
           <VStack
-            mt={12}
+            mt={20}
             spacing={6}
             align="stretch"
             divider={<StackDivider />}
