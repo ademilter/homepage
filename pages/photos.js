@@ -2,9 +2,17 @@ import Head from 'next/head'
 import Layout from '@comp/layout'
 import { getTable } from '@lib/airtable'
 import { Chakra } from '../chakra'
-import { AspectRatio, Image, Text, Heading } from '@chakra-ui/react'
+import {
+  AspectRatio,
+  Grid,
+  GridItem,
+  Image,
+  Text,
+  Heading,
+  Container
+} from '@chakra-ui/react'
 
-function PhotosPage({ cover, journals, photos }) {
+function PhotosPage({ data }) {
   return (
     <Chakra>
       <Layout>
@@ -12,69 +20,47 @@ function PhotosPage({ cover, journals, photos }) {
           <title>Fotoğraflar</title>
         </Head>
 
-        {cover.length > 0 && (
-          <div>
-            <AspectRatio ratio={4 / 3}>
-              <Image
-                src={cover[0].Photo[0].thumbnails.full.url}
-                alt={cover[0].Name}
-                objectFit="cover"
-              />
-            </AspectRatio>
-            <a href={cover[0].Url}>
-              <Text>{cover[0].Location}</Text>
-              <Text>{cover[0].Device}</Text>
-              {cover[0].Description && <Text>{cover[0].Description}</Text>}
-            </a>
-          </div>
-        )}
+        <Container maxW="2xl">
+          <Heading>Fotoğraflar</Heading>
 
-        <DeviceSection data={photos} />
-        <DeviceSection title="Dergiler" data={journals} />
+          <Text fontSize="xl" mt={2}>
+            İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
+            takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
+            olmayan karışık şeyler.
+          </Text>
+        </Container>
+
+        <Container maxW="6xl" my={8}>
+          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={4}>
+            {data.map((item) => {
+              return (
+                <GridItem key={item._id}>
+                  <Image
+                    src={item.Photo[0].url}
+                    alt={item.Name}
+                    objectFit="cover"
+                  />
+
+                  <a href={item.Url}>
+                    <Text>{item.Location}</Text>
+                    <Text>{item.Device}</Text>
+                  </a>
+                </GridItem>
+              )
+            })}
+          </Grid>
+        </Container>
       </Layout>
     </Chakra>
-  )
-}
-
-function DeviceSection({ title, data }) {
-  return (
-    <section>
-      {title && <Heading>{title}</Heading>}
-
-      {data.map((item) => {
-        return (
-          <article key={item._id}>
-            <AspectRatio ratio={4 / 3}>
-              <Image
-                src={item.Photo[0].thumbnails.large.url}
-                alt={item.Name}
-                objectFit="cover"
-              />
-            </AspectRatio>
-
-            <a href={item.Url}>
-              <Text>{item.Location}</Text>
-              <Text>{item.Device}</Text>
-            </a>
-          </article>
-        )
-      })}
-    </section>
   )
 }
 
 export async function getStaticProps() {
   const data = await getTable('Photo')
 
-  const cover = data.filter((o) => o.Category === 'Cover')
-  const journals = data.filter((o) => o.Category === 'Journal')
-  const photos = data.filter((o) => o.Category === 'Photo')
-
   return {
     props: {
-      cover,
-      journals,
-      photos
+      data
     },
     revalidate: 600
   }

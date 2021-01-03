@@ -2,7 +2,14 @@ import Head from 'next/head'
 import Layout from '@comp/layout'
 import { getTable } from '@lib/airtable'
 import { Chakra } from '../chakra'
-import { Image, Text, Heading } from '@chakra-ui/react'
+import {
+  Image,
+  Text,
+  Heading,
+  Container,
+  Grid,
+  GridItem
+} from '@chakra-ui/react'
 
 function VideosPage({ development, design, conference }) {
   return (
@@ -12,16 +19,20 @@ function VideosPage({ development, design, conference }) {
           <title>Eğitimler</title>
         </Head>
 
-        <Text>
-          Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
-          ücretsiz olarak erişebilirsiniz.
-        </Text>
+        <Container maxW="2xl">
+          <Heading>Eğitimler</Heading>
 
-        <Text>
-          Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
-          süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
-          insanların yetişmesine katkı sağlamak.
-        </Text>
+          <Text fontSize="xl" mt={2}>
+            Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
+            ücretsiz olarak erişebilirsiniz.
+          </Text>
+
+          <Text mt={2}>
+            Amacım, yeni başlayan arkadaşlara yön göstermek, geçtiğim zorlu
+            süreçlerden edindiğim tecrübeleri aktarmak ve işini kaliteli yapan
+            insanların yetişmesine katkı sağlamak.
+          </Text>
+        </Container>
 
         <DeviceSection title="Yazılım" data={development} />
         <DeviceSection title="Tasarım" data={design} />
@@ -33,26 +44,28 @@ function VideosPage({ development, design, conference }) {
 
 function DeviceSection({ title, data }) {
   return (
-    <section>
+    <Container maxW="6xl" my={8}>
       {title && <Heading>{title}</Heading>}
 
-      {data.map((item) => {
-        return (
-          <article>
-            <Image
-              src={item.Photo[0].thumbnails.large.url}
-              alt={item.Name}
-              objectFit="cover"
-            />
+      <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={4}>
+        {data.map((item) => {
+          return (
+            <GridItem key={item._id}>
+              <Image
+                src={item.Photo[0].thumbnails.large.url}
+                alt={item.Name}
+                objectFit="cover"
+              />
 
-            <a href={item.Url}>
-              <Text>{item.Name}</Text>
-              <Text>{item.Description}</Text>
-            </a>
-          </article>
-        )
-      })}
-    </section>
+              <a href={item.Url}>
+                <Text>{item.Name}</Text>
+                <Text>{item.Description}</Text>
+              </a>
+            </GridItem>
+          )
+        })}
+      </Grid>
+    </Container>
   )
 }
 
