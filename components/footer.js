@@ -5,12 +5,12 @@ function Footer() {
   return (
     <Box as="footer" py={10}>
       <Container maxW="2xl">
-        <Text>
+        <Text color="gray.500">
           Bu web sitesinin{' '}
           <Link href="https://github.com/ademilter/homepage" isExternal>
-            kaynak kodlarına
+            <b>kaynak kodlarına</b>
           </Link>{' '}
-          açıktır ❤️
+          Github üzerinden ulaşabilirsiniz ❤️
         </Text>
       </Container>
     </Box>
