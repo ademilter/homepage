@@ -56,7 +56,7 @@ function Header() {
             {/* row */}
             {MENU.map((item) => {
               return (
-                <MenuItem p={0} key={item.url} passHref>
+                <MenuItem p={0} key={item.url}>
                   <NextLink href={item.url}>
                     <Link
                       px={3}

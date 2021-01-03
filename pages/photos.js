@@ -69,7 +69,7 @@ function PhotosPage({ data }) {
           >
             {data.map((item) => {
               return (
-                <GridItem key={item._id}>
+                <GridItem key={item.Id}>
                   <Link href={item.Url}>
                     <NextImage
                       src={item.Photo[0].thumbnails.full.url}

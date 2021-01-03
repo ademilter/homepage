@@ -88,7 +88,7 @@ function DeviceSection({ title, data }) {
       <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
         {data.map((item) => {
           return (
-            <GridItem key={item._id}>
+            <GridItem key={item.Id}>
               <Link href={item.Url}>
                 <NextImage
                   src={item.Photo[0].thumbnails.full.url}
