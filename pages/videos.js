@@ -10,11 +10,10 @@ import {
   GridItem,
   Box,
   Link,
-  HStack
+  Wrap,
+  WrapItem
 } from '@chakra-ui/react'
 import Social from '@comp/social'
-import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
-import parseISO from 'date-fns/parseISO'
 
 function VideosPage({ data }) {
   return (
@@ -49,11 +48,17 @@ function VideosPage({ data }) {
                     <Box mt={3}>
                       <Text as="b">{item.Name}</Text>
 
-                      <HStack spacing={0} color="gray.500">
-                        <Text>{item.Description}</Text>
-                        <Text>・</Text>
-                        <Text>{item.Category}</Text>
-                      </HStack>
+                      <Wrap spacing={0} align="center" color="gray.500">
+                        <WrapItem>
+                          <Text>{item.Category}</Text>
+                        </WrapItem>
+                        <WrapItem>
+                          <Text>・</Text>
+                        </WrapItem>
+                        <WrapItem>
+                          <Text>{item.Description}</Text>
+                        </WrapItem>
+                      </Wrap>
                     </Box>
                   </Link>
                 </GridItem>

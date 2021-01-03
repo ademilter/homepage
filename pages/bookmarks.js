@@ -7,11 +7,11 @@ import { getBookmark } from '@lib/raindrop'
 import {
   AspectRatio,
   Image,
-  Button,
+  Wrap,
+  WrapItem,
   Link,
   Box,
   Text,
-  HStack,
   Flex,
   StackDivider,
   VStack,
@@ -29,9 +29,9 @@ function BookmarkPage({ data }) {
 
         <Container maxW="2xl">
           <Text fontSize="2xl">
-            İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
-            takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
-            olmayan karışık şeyler.
+            İnternette gezinirken beğendiğim ve beni takip edenlerin de
+            beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık
+            şeyler.
           </Text>
 
           <Social mt={6} twitter youtube github instagram />
@@ -52,13 +52,21 @@ function BookmarkPage({ data }) {
                       </Link>
                     </Text>
                     <Text noOfLines={2}>{item.excerpt}</Text>
-                    <HStack spacing={0} color="gray.500">
-                      <Text>{item.domain}</Text>
-                      <Text>・</Text>
-                      <Text>
-                        {formatDistanceToNowStrict(parseISO(item.created))}
-                      </Text>
-                    </HStack>
+                    <Wrap spacing={0} align="center" color="gray.500">
+                      <WrapItem>
+                        <Text>{item.domain}</Text>
+                      </WrapItem>
+                      <WrapItem>
+                        <Text>・</Text>
+                      </WrapItem>
+                      <WrapItem>
+                        <Text>
+                          {formatDistanceToNowStrict(parseISO(item.created), {
+                            addSuffix: true
+                          })}
+                        </Text>
+                      </WrapItem>
+                    </Wrap>
                   </Box>
                   <Box mr={6} flexShrink={0} w={['80px', 120]}>
                     <AspectRatio ratio={4 / 3}>
