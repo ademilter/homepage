@@ -9,12 +9,13 @@ module.exports = {
     name: 'Adem ilter'
   },
   social: {
-    vsco: { name: 'VSCO', url: 'https://vsco.co/adem/gallery' },
-    instagram: { name: 'Instagram', url: 'https://instagram.com/ademilter' },
-    twitter: { name: 'Twitter', url: 'https://twitter.com/ademilter' },
-    medium: { name: 'Medium', url: 'https://medium.com/@ademilter' },
-    github: { name: 'Github', url: 'https://github.com/ademilter' },
-    youtube: { name: 'YouTube', url: 'https://youtube.com/ademilter' },
-    feyz: { name: 'Feyz', url: 'https://t.me/feyzli' }
+    vsco: 'https://vsco.co/adem/gallery',
+    instagram: 'https://instagram.com/ademilter',
+    twitter: 'https://twitter.com/ademilter',
+    medium: 'https://medium.com/@ademilter',
+    github: 'https://github.com/ademilter',
+    youtube: 'https://youtube.com/ademilter',
+    feyz: 'https://t.me/feyzli',
+    superpeer: 'https://t.me/feyzli'
   }
 }
