@@ -1,5 +1,4 @@
 import NextLink from 'next/link'
-import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import {
@@ -8,7 +7,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuDivider,
   Link,
   Avatar,
   HStack,
@@ -31,8 +29,6 @@ const MENU = [
 
 function Header() {
   const router = useRouter()
-
-  const [showNav, setShowMenu] = useState(false)
   const activePage = MENU.find((_) => _.url === router.pathname)
 
   return (

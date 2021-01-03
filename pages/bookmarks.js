@@ -55,7 +55,7 @@ function BookmarkPage({ data }) {
                       </Text>
                     </HStack>
                   </Box>
-                  <Box mr={6} flexShrink={0} w={[80, 120]}>
+                  <Box mr={6} flexShrink={0} w={['80px', 120]}>
                     <AspectRatio ratio={4 / 3}>
                       <Image
                         src={item.cover}
