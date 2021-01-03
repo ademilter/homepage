@@ -7,7 +7,7 @@ import { getBookmark } from '@lib/raindrop'
 import {
   AspectRatio,
   Image,
-  Heading,
+  Button,
   Link,
   Box,
   Text,
@@ -15,8 +15,7 @@ import {
   Flex,
   StackDivider,
   VStack,
-  Container,
-  IconButton
+  Container
 } from '@chakra-ui/react'
 import Social from '@comp/social'
 
@@ -47,9 +46,11 @@ function BookmarkPage({ data }) {
               return (
                 <Flex key={item._id}>
                   <Box order={1} flexGrow={1}>
-                    <Heading as="h4" size="sm">
-                      <Link href={item.link}>{item.title}</Link>
-                    </Heading>
+                    <Text as="h4" fontWeight="bold" size="sm">
+                      <Link href={item.link} isExternal>
+                        {item.title}
+                      </Link>
+                    </Text>
                     <Text noOfLines={2}>{item.excerpt}</Text>
                     <HStack spacing={0} color="gray.500">
                       <Text>{item.domain}</Text>

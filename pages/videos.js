@@ -3,10 +3,20 @@ import Layout from '@comp/layout'
 import { getTable } from '@lib/airtable'
 import { Chakra } from '../chakra'
 import NextImage from 'next/image'
-import { Text, Container, Grid, GridItem, Box, Link } from '@chakra-ui/react'
+import {
+  Text,
+  Container,
+  Grid,
+  GridItem,
+  Box,
+  Link,
+  HStack
+} from '@chakra-ui/react'
 import Social from '@comp/social'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
+import parseISO from 'date-fns/parseISO'
 
-function VideosPage({ development, design, conference }) {
+function VideosPage({ data }) {
   return (
     <Chakra>
       <Layout>
@@ -23,54 +33,47 @@ function VideosPage({ development, design, conference }) {
           <Social mt={6} twitter youtube github />
         </Container>
 
-        <DeviceSection title="Yazılım" data={development} />
-        <DeviceSection title="Tasarım" data={design} />
-        <DeviceSection title="Konferanslar" data={conference} />
+        <Container maxW="6xl" mt={20}>
+          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
+            {data.map((item) => {
+              return (
+                <GridItem key={item.Id}>
+                  <Link href={item.Url} isExternal>
+                    <NextImage
+                      src={item.Photo[0].thumbnails.full.url}
+                      alt={item.Name}
+                      width={item.Photo[0].thumbnails.large.width}
+                      height={item.Photo[0].thumbnails.large.height}
+                      layout="responsive"
+                    />
+                    <Box mt={3}>
+                      <Text as="b">{item.Name}</Text>
+
+                      <HStack spacing={0} color="gray.500">
+                        <Text>{item.Description}</Text>
+                        <Text>・</Text>
+                        <Text>{item.Category}</Text>
+                      </HStack>
+                    </Box>
+                  </Link>
+                </GridItem>
+              )
+            })}
+          </Grid>
+        </Container>
       </Layout>
     </Chakra>
-  )
-}
-
-function DeviceSection({ title, data }) {
-  return (
-    <Container maxW="6xl" mt={20}>
-      <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
-        {data.map((item) => {
-          return (
-            <GridItem key={item.Id}>
-              <Link href={item.Url}>
-                <NextImage
-                  src={item.Photo[0].thumbnails.full.url}
-                  alt={item.Name}
-                  width={item.Photo[0].thumbnails.large.width}
-                  height={item.Photo[0].thumbnails.large.height}
-                  layout="responsive"
-                />
-                <Box mt={3}>
-                  <Text as="b">{item.Name}</Text>
-                  <Text color="gray.500">{item.Description}</Text>
-                </Box>
-              </Link>
-            </GridItem>
-          )
-        })}
-      </Grid>
-    </Container>
   )
 }
 
 export async function getStaticProps() {
   const data = await getTable('Video')
 
-  const development = data.filter((o) => o.Category === 'Development')
-  const design = data.filter((o) => o.Category === 'Design')
-  const conference = data.filter((o) => o.Category === 'Conference')
+  console.log(data)
 
   return {
     props: {
-      development,
-      design,
-      conference
+      data
     },
     revalidate: 600
   }

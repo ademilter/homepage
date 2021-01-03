@@ -40,7 +40,7 @@ function DeskPage({ cover, data }) {
             {data.map((item) => {
               return (
                 <GridItem key={item.Id}>
-                  <Link href={item.Url}>
+                  <Box>
                     <NextImage
                       src={item.Photo[0].thumbnails.full.url}
                       alt={item.Name}
@@ -52,7 +52,7 @@ function DeskPage({ cover, data }) {
                       <Text as="b">{item.Name}</Text>
                       <Text color="gray.500">{item.Description}</Text>
                     </Box>
-                  </Link>
+                  </Box>
                 </GridItem>
               )
             })}
