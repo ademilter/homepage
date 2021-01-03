@@ -15,11 +15,7 @@ function PhotosPage({ data }) {
         </Head>
 
         <Container maxW="2xl">
-          <Text fontSize="2xl">
-            İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
-            takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
-            olmayan karışık şeyler.
-          </Text>
+          <Text fontSize="2xl">Buraya metin gelecek</Text>
 
           <Social mt={6} twitter instagram />
         </Container>

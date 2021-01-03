@@ -16,9 +16,8 @@ function DeskPage({ cover, data }) {
 
         <Container maxW="2xl">
           <Text fontSize="2xl">
-            İnternette gezinirken beğendiğim şeylerin küçük bir listesi. Beni
-            takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi
-            olmayan karışık şeyler.
+            İşlerimi yaparken ve günlük hayatta sık kullandığım araçların
+            listesi.
           </Text>
 
           <Social mt={6} twitter youtube instagram />

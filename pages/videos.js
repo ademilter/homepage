@@ -16,8 +16,8 @@ function VideosPage({ development, design, conference }) {
 
         <Container maxW="2xl">
           <Text fontSize="2xl">
-            Yazılım, tasarım ve tecrübelerimi paylaştığım video eğitimlere
-            ücretsiz olarak erişebilirsiniz.
+            Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
+            listedeki bütün videoları ücretsiz olarak izleyebilirsiniz.
           </Text>
 
           <Social mt={6} twitter youtube github />
