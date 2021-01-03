@@ -21,11 +21,7 @@ function PhotosPage({ data }) {
         </Container>
 
         <Container maxW="6xl" mt={20}>
-          <Grid
-            templateColumns={{ sm: '1fr', md: '1fr 1fr' }}
-            gap={10}
-            justifyContent="center"
-          >
+          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
             {data.map((item) => {
               return (
                 <GridItem key={item.Id}>
