@@ -2,14 +2,8 @@ import Head from 'next/head'
 import Layout from '@comp/layout'
 import { getTable } from '@lib/airtable'
 import { Chakra } from '../chakra'
-import {
-  Image,
-  Text,
-  Heading,
-  Container,
-  Grid,
-  GridItem
-} from '@chakra-ui/react'
+import NextImage from 'next/image'
+import { Text, Container, Grid, GridItem, Box, Link } from '@chakra-ui/react'
 
 function VideosPage({ development, design, conference }) {
   return (
@@ -37,20 +31,23 @@ function VideosPage({ development, design, conference }) {
 function DeviceSection({ title, data }) {
   return (
     <Container maxW="6xl" mt={20}>
-      <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={8}>
+      <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
         {data.map((item) => {
           return (
             <GridItem key={item._id}>
-              <Image
-                src={item.Photo[0].thumbnails.large.url}
-                alt={item.Name}
-                objectFit="cover"
-              />
-
-              <a href={item.Url}>
-                <Text>{item.Name}</Text>
-                <Text>{item.Description}</Text>
-              </a>
+              <Link href={item.Url}>
+                <NextImage
+                  src={item.Photo[0].thumbnails.full.url}
+                  alt={item.Name}
+                  width={item.Photo[0].thumbnails.large.width}
+                  height={item.Photo[0].thumbnails.large.height}
+                  layout="responsive"
+                />
+                <Box mt={3}>
+                  <Text as="b">{item.Name}</Text>
+                  <Text color="gray.500">{item.Description}</Text>
+                </Box>
+              </Link>
             </GridItem>
           )
         })}

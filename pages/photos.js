@@ -1,16 +1,9 @@
 import Head from 'next/head'
 import Layout from '@comp/layout'
 import { getTable } from '@lib/airtable'
+import NextImage from 'next/image'
 import { Chakra } from '../chakra'
-import {
-  AspectRatio,
-  Grid,
-  GridItem,
-  Image,
-  Text,
-  Heading,
-  Container
-} from '@chakra-ui/react'
+import { Grid, Box, Link, GridItem, Text, Container } from '@chakra-ui/react'
 
 function PhotosPage({ data }) {
   return (
@@ -29,20 +22,27 @@ function PhotosPage({ data }) {
         </Container>
 
         <Container maxW="6xl" mt={20}>
-          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={8}>
+          <Grid
+            templateColumns={{ sm: '1fr', md: '1fr 1fr' }}
+            gap={10}
+            justifyContent="center"
+          >
             {data.map((item) => {
               return (
                 <GridItem key={item._id}>
-                  <Image
-                    src={item.Photo[0].url}
-                    alt={item.Name}
-                    objectFit="cover"
-                  />
-
-                  <a href={item.Url}>
-                    <Text>{item.Location}</Text>
-                    <Text>{item.Device}</Text>
-                  </a>
+                  <Link href={item.Url}>
+                    <NextImage
+                      src={item.Photo[0].thumbnails.full.url}
+                      alt={item.Name}
+                      width={item.Photo[0].thumbnails.large.width}
+                      height={item.Photo[0].thumbnails.large.height}
+                      layout="responsive"
+                    />
+                    <Box mt={3}>
+                      <Text as="b">{item.Location}</Text>
+                      <Text color="gray.500">{item.Device}</Text>
+                    </Box>
+                  </Link>
                 </GridItem>
               )
             })}

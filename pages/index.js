@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import NextLink from 'next/link'
-import Image from 'next/image'
+import NextImage from 'next/image'
 import Layout from '@comp/layout'
 import { Chakra } from '../chakra'
-import { Container, Heading, Link, Text } from '@chakra-ui/react'
+import { Container, Link, Text } from '@chakra-ui/react'
 
 function HomePage() {
   return (
@@ -25,7 +25,13 @@ function HomePage() {
         </Container>
 
         <Container maxW="6xl" mt={20}>
-          <Image src="/i-am.jpg" alt="Adem ilter" width={1433} height={1018} />
+          <NextImage
+            src="/i-am.jpg"
+            alt="Adem ilter"
+            width={1433}
+            height={1018}
+            layout="responsive"
+          />
         </Container>
       </Layout>
     </Chakra>

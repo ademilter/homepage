@@ -2,15 +2,8 @@ import Head from 'next/head'
 import Layout from '@comp/layout'
 import { getTable } from '@lib/airtable'
 import { Chakra } from '../chakra'
-import {
-  Image,
-  Text,
-  Heading,
-  AspectRatio,
-  Container,
-  Grid,
-  GridItem
-} from '@chakra-ui/react'
+import NextImage from 'next/image'
+import { Text, Link, Container, Grid, GridItem, Box } from '@chakra-ui/react'
 
 function DeskPage({ cover, data }) {
   return (
@@ -30,29 +23,34 @@ function DeskPage({ cover, data }) {
 
         {cover.length > 0 && (
           <Container maxW="6xl" mt={20}>
-            <Image
+            <NextImage
               src={cover[0].Photo[0].thumbnails.full.url}
               alt={cover[0].Name}
+              width={cover[0].Photo[0].thumbnails.large.width}
+              height={cover[0].Photo[0].thumbnails.large.height}
+              layout="responsive"
             />
           </Container>
         )}
 
         <Container maxW="6xl" mt={20}>
-          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={8}>
+          <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
             {data.map((item) => {
               return (
                 <GridItem key={item._id}>
-                  <AspectRatio ratio={4 / 3}>
-                    <Image
+                  <Link href={item.Url}>
+                    <NextImage
                       src={item.Photo[0].thumbnails.full.url}
                       alt={item.Name}
-                      objectFit="cover"
+                      width={item.Photo[0].thumbnails.large.width}
+                      height={item.Photo[0].thumbnails.large.height}
+                      layout="responsive"
                     />
-                  </AspectRatio>
-                  <a href={item.Url}>
-                    <Text>{item.Name}</Text>
-                    <Text>{item.Description}</Text>
-                  </a>
+                    <Box mt={3}>
+                      <Text as="b">{item.Name}</Text>
+                      <Text color="gray.500">{item.Description}</Text>
+                    </Box>
+                  </Link>
                 </GridItem>
               )
             })}
