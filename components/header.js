@@ -2,7 +2,6 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import {
-  Button,
   Menu,
   MenuButton,
   MenuList,
@@ -12,8 +11,11 @@ import {
   HStack,
   Text,
   Box,
-  Container
+  Container,
+  Button,
+  MenuDivider
 } from '@chakra-ui/react'
+import { useColorMode } from '@chakra-ui/react'
 
 const MENU = [
   { name: 'Anasayfa', url: '/' },
@@ -28,6 +30,9 @@ const MENU = [
 ]
 
 function Header() {
+  const { colorMode, toggleColorMode } = useColorMode()
+  const isDark = colorMode === 'dark'
+
   const router = useRouter()
   const activePage = MENU.find((_) => _.url === router.pathname)
 
@@ -53,7 +58,6 @@ function Header() {
 
           {/* dropdown */}
           <MenuList>
-            {/* row */}
             {MENU.map((item) => {
               return (
                 <MenuItem as="div" p={0} key={item.url}>
@@ -71,9 +75,12 @@ function Header() {
               )
             })}
 
-            {/*<MenuDivider />*/}
+            <MenuDivider />
 
-            {/* row */}
+            <MenuItem onClick={toggleColorMode}>
+              {isDark ? 'Light Theme' : 'Dark Theme'}
+            </MenuItem>
+
             {/*<MenuItem p={0}>*/}
             {/*  <Link px={3} py={2} w="full" _hover={{ textDecoration: 'none' }}>*/}
             {/*    Twitter*/}

@@ -1,15 +1,27 @@
 import Head from 'next/head'
+import theme from '../theme'
+import { ChakraProvider } from '@chakra-ui/react'
+
+import Header from '@comp/header'
+import Footer from '@comp/footer'
 import FontFace from '@comp/font-face'
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      <ChakraProvider theme={theme}>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
 
-      <Component {...pageProps} />
-      <FontFace />
+        <Header />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+
+        <FontFace />
+      </ChakraProvider>
     </>
   )
 }
