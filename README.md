@@ -6,7 +6,7 @@
 
 1. Öncelikle terminalden proje dizinin gidin
 
-2. Airtable ve Raindrop hesaplarından gerekli kodları alıp aşağıdaki bölümlere ekleyin
+2. `.env.example` dosyasının adını `.env` olarak değiştirip, Airtable ve Raindrop hesaplarından gerekli kodları alıp aşağıdaki bölümlere ekleyin
 
 ```bash
 AIRTABLE_API_KEY=
