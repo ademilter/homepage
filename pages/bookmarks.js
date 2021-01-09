@@ -2,6 +2,8 @@ import Head from 'next/head'
 import parseISO from 'date-fns/parseISO'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import { getBookmark } from '@lib/raindrop'
+import { StarIcon } from '@chakra-ui/icons'
+import { useState } from 'react'
 import {
   AspectRatio,
   Image,
@@ -18,6 +20,18 @@ import {
 import Social from '@comp/social'
 
 function BookmarkCard(item) {
+  const [like, likeSet] = useState(item.like)
+
+  const liked = async (id) => {
+    const response = await fetch('/api/like', {
+      method: 'POST',
+      body: JSON.stringify({ id }),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' }
+    })
+    const data = await response.json()
+    likeSet(data.count)
+  }
+
   return (
     <Flex key={item._id}>
       <Box d={['none', 'block']} mr={6} flexShrink={0} w={140}>
@@ -45,6 +59,22 @@ function BookmarkCard(item) {
                 addSuffix: true
               })}
             </Text>
+          </WrapItem>
+          <WrapItem>
+            <Text>・</Text>
+          </WrapItem>
+          <WrapItem>
+            <Link
+              as={Text}
+              onClick={() => {
+                liked(item._id)
+              }}
+            >
+              <Flex align="center">
+                <StarIcon mr={1} fontSize={12} />
+                {like}
+              </Flex>
+            </Link>
           </WrapItem>
         </Wrap>
       </Box>
@@ -80,15 +110,9 @@ function BookmarkPage({ data }) {
 export async function getStaticProps() {
   const data = await getBookmark()
 
-  if (!data) {
-    return {
-      notFound: true
-    }
-  }
-
   return {
     props: {
-      data: data.items
+      data
     },
     revalidate: 600
   }
