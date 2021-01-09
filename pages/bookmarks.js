@@ -67,7 +67,7 @@ function BookmarkCard(item) {
             >
               <Flex align="center">
                 <StarIcon mr={1} fontSize={12} />
-                {like}
+                {like ? like : null}
               </Flex>
             </Link>
           </WrapItem>
@@ -120,7 +120,7 @@ export async function getStaticProps() {
     props: {
       data
     },
-    revalidate: 60
+    revalidate: 600
   }
 }
 
