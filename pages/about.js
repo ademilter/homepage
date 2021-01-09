@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
-import { Chakra } from '../chakra'
 import { Container, Heading, Link, Text } from '@chakra-ui/react'
 
 function HomePage() {

@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import theme from '../theme'
 import { ChakraProvider } from '@chakra-ui/react'
-
 import Header from '@comp/header'
 import Footer from '@comp/footer'
 import FontFace from '@comp/font-face'
