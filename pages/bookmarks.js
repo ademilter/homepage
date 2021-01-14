@@ -1,9 +1,12 @@
 import Head from 'next/head'
+import { tr } from 'date-fns/locale'
 import parseISO from 'date-fns/parseISO'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
+import format from 'date-fns/format'
 import { getBookmark } from '@lib/raindrop'
 import { StarIcon } from '@chakra-ui/icons'
 import { useState } from 'react'
+import groupBy from 'lodash.groupby'
 import {
   AspectRatio,
   Image,
@@ -13,6 +16,7 @@ import {
   Box,
   Text,
   Flex,
+  Heading,
   StackDivider,
   VStack,
   Container
@@ -56,7 +60,8 @@ function BookmarkCard(item) {
           <WrapItem>
             <Text>
               {formatDistanceToNowStrict(parseISO(item.created), {
-                addSuffix: true
+                addSuffix: true,
+                locale: tr
               })}
             </Text>
           </WrapItem>
@@ -82,7 +87,7 @@ function BookmarkCard(item) {
   )
 }
 
-function BookmarkPage({ data }) {
+function BookmarkPage({ dataGroupByDay }) {
   return (
     <>
       <Head>
@@ -97,11 +102,23 @@ function BookmarkPage({ data }) {
 
         <Social mt={6} twitter youtube github instagram />
 
-        <VStack mt={20} spacing={6} align="stretch" divider={<StackDivider />}>
-          {data.map((item) => {
-            return <BookmarkCard key={item._id} {...item} />
-          })}
-        </VStack>
+        {Object.keys(dataGroupByDay).map((date) => (
+          <Box mt={20}>
+            <Heading tag="h4" size="sm" fontWeight="normal" color="gray.500">
+              {date}
+            </Heading>
+            <VStack
+              mt={5}
+              spacing={5}
+              align="stretch"
+              divider={<StackDivider />}
+            >
+              {dataGroupByDay[date].map((item) => {
+                return <BookmarkCard key={item._id} {...item} />
+              })}
+            </VStack>
+          </Box>
+        ))}
       </Container>
     </>
   )
@@ -110,9 +127,14 @@ function BookmarkPage({ data }) {
 export async function getStaticProps() {
   const data = await getBookmark()
 
+  const dataGroupByDay = groupBy(data, (item) => {
+    return format(parseISO(item.created), 'd MMMM yyyy', { locale: tr })
+  })
+
   return {
     props: {
-      data
+      data,
+      dataGroupByDay
     },
     revalidate: 600
   }
