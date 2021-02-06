@@ -1,27 +1,19 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { ChevronDownIcon } from '@chakra-ui/icons'
 import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Link,
-  Avatar,
-  HStack,
-  Text,
   Box,
+  Text,
+  Stack,
+  Link,
   Container,
-  Button,
-  MenuDivider
+  useColorModeValue
 } from '@chakra-ui/react'
-import { useColorMode } from '@chakra-ui/react'
 
 const MENU = [
-  { name: 'Anasayfa', url: '/' },
-  { name: 'Fotoğraflar', url: '/photos' },
+  { name: 'Giriş', url: '/' },
   // { name: 'Hakkımda', url: '/about' },
-  { name: 'Eğitimler', url: '/videos' },
+  { name: 'Fotoğraf', url: '/photos' },
+  // { name: 'Eğitimler', url: '/videos' },
   { name: 'Masam', url: '/desk' },
   { name: 'Yer imleri', url: '/bookmarks' }
   // { name: 'Yazılar', url: '/blog' },
@@ -29,70 +21,40 @@ const MENU = [
   // { name: 'Alıntılar', url: '/quotes' },
 ]
 
-function Header() {
-  const { colorMode, toggleColorMode } = useColorMode()
-  const isDark = colorMode === 'dark'
-
+function MenuLink({ url, name }) {
   const router = useRouter()
-  const activePage = MENU.find((_) => _.url === router.pathname)
+  const activePage = url === router.pathname
+  const linkColor = useColorModeValue(
+    activePage ? 'blackAlpha.500' : 'blackAlpha.700',
+    activePage ? 'whiteAlpha.500' : 'whiteAlpha.700'
+  )
+  const linkHoverColor = useColorModeValue('blackAlpha.900', 'whiteAlpha.900')
 
   return (
-    <Box as="header" py={10}>
+    <NextLink href={url} passHref>
+      <Text
+        as={Link}
+        decoration="none"
+        color={linkColor}
+        _hover={{ color: linkHoverColor }}
+      >
+        {name}
+      </Text>
+    </NextLink>
+  )
+}
+
+function Header() {
+  const bgColor = useColorModeValue('blackAlpha.50', 'whiteAlpha.50')
+
+  return (
+    <Box as="header" py={6} bg={bgColor}>
       <Container maxW="2xl">
-        <Menu as="nav">
-          <MenuButton
-            as={Button}
-            ml={-3}
-            px={3}
-            py={2}
-            h="auto"
-            bg="transparent"
-          >
-            {/* visible */}
-            <HStack spacing={2}>
-              <Avatar size="sm" src="/ademilter.jpg" name="Adem ilter" />
-              <Text fontSize="lg">{activePage && activePage.name}</Text>
-              <ChevronDownIcon />
-            </HStack>
-          </MenuButton>
-
-          {/* dropdown */}
-          <MenuList>
-            {MENU.map((item) => {
-              return (
-                <MenuItem as="div" p={0} key={item.url}>
-                  <NextLink href={item.url}>
-                    <Link
-                      px={3}
-                      py={2}
-                      w="full"
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      {item.name}
-                    </Link>
-                  </NextLink>
-                </MenuItem>
-              )
-            })}
-
-            <MenuDivider />
-
-            <MenuItem onClick={toggleColorMode}>
-              {isDark ? 'Light Theme' : 'Dark Theme'}
-            </MenuItem>
-
-            {/*<MenuItem p={0}>*/}
-            {/*  <Link px={3} py={2} w="full" _hover={{ textDecoration: 'none' }}>*/}
-            {/*    Twitter*/}
-            {/*  </Link>*/}
-            {/*</MenuItem>*/}
-            {/*<MenuItem p={0}>*/}
-            {/*  <Link px={3} py={2} w="full" _hover={{ textDecoration: 'none' }}>*/}
-            {/*    Contact*/}
-            {/*  </Link>*/}
-            {/*</MenuItem>*/}
-          </MenuList>
-        </Menu>
+        <Stack as="nav" spacing={4} direction={['column', 'row']}>
+          {MENU.map((item) => (
+            <MenuLink key={item.url} {...item} />
+          ))}
+        </Stack>
       </Container>
     </Box>
   )

@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
 import {
@@ -11,22 +10,15 @@ import {
   Wrap,
   WrapItem
 } from '@chakra-ui/react'
-import Social from '@comp/social'
 
 function VideosPage({ data }) {
   return (
     <>
-      <Head>
-        <title>Eğitimler</title>
-      </Head>
-
       <Container maxW="2xl">
         <Text fontSize="2xl">
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
           listedeki bütün videoları ücretsiz olarak izleyebilirsiniz.
         </Text>
-
-        <Social mt={6} twitter youtube github />
       </Container>
 
       <Container maxW="6xl" mt={20}>

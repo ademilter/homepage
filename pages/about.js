@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import NextLink from 'next/link'
 import NextImage from 'next/image'
 import { Container, Heading, Link, Text } from '@chakra-ui/react'
@@ -6,10 +5,6 @@ import { Container, Heading, Link, Text } from '@chakra-ui/react'
 function HomePage() {
   return (
     <>
-      <Head>
-        <title>Home Page</title>
-      </Head>
-
       <Container maxW="2xl">
         <Heading>Merhaba 🖐</Heading>
 
@@ -48,6 +43,16 @@ function HomePage() {
           sektördeki eski alışkanlıkları yenilerle değiştirerek daha iyi bir
           yere taşımasına ön ayak olmak.
         </Text>
+      </Container>
+
+      <Container maxW="6xl" mt={20}>
+        <NextImage
+          src="/i-am.jpg"
+          alt="Adem ilter"
+          width={1433}
+          height={1018}
+          layout="responsive"
+        />
       </Container>
     </>
   )

@@ -1,32 +1,41 @@
-import Head from 'next/head'
-import NextLink from 'next/link'
-import NextImage from 'next/image'
-import { Container, Link, Text } from '@chakra-ui/react'
+import { VStack, Container, Link, Text } from '@chakra-ui/react'
 import Social from '@comp/social'
+import NextImage from 'next/image'
+import SiteConfig from '../site.config'
 
 function HomePage() {
   return (
     <>
-      <Head>
-        <title>Home Page</title>
-      </Head>
-
       <Container maxW="2xl">
-        <Text fontSize="2xl">
-          Merhaba, ben Adem. Evli ve iki çocuk babası olarak İstanbul'da
-          yaşıyorum. Şu an{' '}
-          <Link as={NextLink} href="http://superpeer.com" isExternal>
-            <a>Superpeer</a>
-          </Link>{' '}
-          şirketinde Ürün Tasarımcısı olarak görev alıyorum.
-        </Text>
+        <VStack spacing={6} align="stretch" fontSize="2xl">
+          {/*<Avatar size="2xl" src="/ademilter.jpg" name="Adem ilter" />*/}
 
-        <Social mt={6} twitter github instagram superpeer youtube />
+          <Text>Hey, ben Adem</Text>
+
+          <Text>
+            İstanbul'da yaşıyorum ve{' '}
+            <Text as={Link} isExternal href="http://superpeer.com">
+              Superpeer
+            </Text>{' '}
+            şirketinde Ürün Tasarımcı olarak çalışıyorum.
+          </Text>
+
+          <Text>
+            Sektördeki eski teknoloji ve alışkanlıkları yenilerle değiştirmek
+            için{' '}
+            <Text as={Link} isExternal href={SiteConfig.social.youtube}>
+              youtube kanalımda
+            </Text>{' '}
+            modern türkçe içerikler üretiyorum.
+          </Text>
+        </VStack>
+
+        <Social mt={6} />
       </Container>
 
       <Container maxW="6xl" mt={20}>
         <NextImage
-          src="/i-am.jpg"
+          src="/photos/i-am.jpg"
           alt="Adem ilter"
           width={1433}
           height={1018}

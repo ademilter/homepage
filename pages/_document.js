@@ -10,10 +10,27 @@ export default class MyDocument extends NextDocument {
     return (
       <Html lang={SiteConfig.lang}>
         <Head>
+          <link
+            rel="preload"
+            href="/fonts/Inter-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/Inter-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+
           {/* base */}
           <meta charSet="utf-8" />
+          <meta name="robots" content="follow, index" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="description" content={SiteConfig.description} />
+          <link rel="canonical" href={SiteConfig.siteUrl} />
 
           {/* facebook */}
           <meta property="og:url" content={SiteConfig.siteUrl} />
@@ -28,32 +45,31 @@ export default class MyDocument extends NextDocument {
           <meta name="twitter:description" content={SiteConfig.description} />
 
           {/* pwa */}
-          <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#fff" />
-          <meta name="application-name" content={SiteConfig.title} />
-          <meta name="apple-mobile-web-app-title" content={SiteConfig.title} />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="default"
-          />
+          <link href="/static/icons/site.webmanifest" rel="manifest" />
           <link
+            href="/static/icons/icon-apple-touch-icon.png"
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/icons/apple-touch-icon.png"
           />
           <link
+            href="/static/icons/icon-favicon-32x32.png"
             rel="icon"
-            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>"
+            sizes="32x32"
+            type="image/png"
           />
-
           <link
-            rel="preload"
-            href="/fonts/Inter-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
+            href="/static/icons/icon-favicon-16x16.png"
+            rel="icon"
+            sizes="16x16"
+            type="image/png"
           />
+          <link
+            color="#ffffff"
+            href="/static/icons/icon-safari-pinned-tab.svg"
+            rel="mask-icon"
+          />
+          <meta content="#ffffff" name="theme-color" />
+          <meta content="#ffffff" name="msapplication-TileColor" />
 
           {/* analytic */}
           {SiteConfig.googleAnalytic && (

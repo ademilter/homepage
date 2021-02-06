@@ -1,22 +1,14 @@
-import Head from 'next/head'
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
 import { Text, Container, Grid, GridItem, Box } from '@chakra-ui/react'
-import Social from '@comp/social'
 
 function DeskPage({ cover, data }) {
   return (
     <>
-      <Head>
-        <title>Masam</title>
-      </Head>
-
       <Container maxW="2xl">
         <Text fontSize="2xl">
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.
         </Text>
-
-        <Social mt={6} twitter youtube instagram />
       </Container>
 
       {cover.length > 0 && (

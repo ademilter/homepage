@@ -1,20 +1,12 @@
-import Head from 'next/head'
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
-import { Grid, Box, Link, GridItem, Text, Container } from '@chakra-ui/react'
-import Social from '@comp/social'
+import { Grid, Link, GridItem, Text, Container } from '@chakra-ui/react'
 
 function PhotosPage({ data }) {
   return (
     <>
-      <Head>
-        <title>Fotoğraflar</title>
-      </Head>
-
       <Container maxW="2xl">
         <Text fontSize="2xl">Buraya metin gelecek</Text>
-
-        <Social mt={6} twitter instagram />
       </Container>
 
       <Container maxW="6xl" mt={20}>
@@ -30,10 +22,10 @@ function PhotosPage({ data }) {
                     height={item.Photo[0].thumbnails.large.height}
                     layout="responsive"
                   />
-                  <Box mt={3}>
-                    <Text as="b">{item.Location}</Text>
-                    <Text color="gray.500">{item.Device}</Text>
-                  </Box>
+                  {/*<Box mt={3}>*/}
+                  {/*  <Text as="b">{item.Location}</Text>*/}
+                  {/*  <Text color="gray.500">{item.Device}</Text>*/}
+                  {/*</Box>*/}
                 </Link>
               </GridItem>
             )

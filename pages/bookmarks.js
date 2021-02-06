@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { tr } from 'date-fns/locale'
 import parseISO from 'date-fns/parseISO'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
@@ -19,9 +18,9 @@ import {
   Heading,
   StackDivider,
   VStack,
-  Container
+  Container,
+  useColorModeValue
 } from '@chakra-ui/react'
-import Social from '@comp/social'
 
 function BookmarkCard(item) {
   const [like, likeSet] = useState(item.like)
@@ -36,21 +35,32 @@ function BookmarkCard(item) {
     likeSet(data.count)
   }
 
+  const descColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.800')
+  const metaColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
+
   return (
     <Flex key={item._id}>
-      <Box d={['none', 'block']} mr={6} flexShrink={0} w={140}>
+      <Box d={['none', 'block']} mr={6} flexShrink={0} w={160}>
         <AspectRatio ratio={4 / 3}>
           <Image src={item.cover} alt={item.title} objectFit="cover" />
         </AspectRatio>
       </Box>
+
       <Box flexGrow={1}>
-        <Text as="h4" fontWeight="bold" size="sm">
-          <Link href={item.link} isExternal>
+        {/* title */}
+        <Text as="h4" fontWeight="bold" fontSize="lg">
+          <Text as={Link} href={item.link} isExternal decoration="none">
             {item.title}
-          </Link>
+          </Text>
         </Text>
-        <Text noOfLines={2}>{item.excerpt}</Text>
-        <Wrap spacing={0} align="center" color="gray.500">
+
+        {/* desc */}
+        <Text noOfLines={1} color={descColor}>
+          {item.excerpt}
+        </Text>
+
+        {/* meta */}
+        <Wrap spacing={0} align="center" mt={2} color={metaColor}>
           <WrapItem>
             <Text>{item.domain}</Text>
           </WrapItem>
@@ -71,6 +81,7 @@ function BookmarkCard(item) {
           <WrapItem>
             <Link
               as={Text}
+              decoration="none"
               onClick={() => {
                 liked(item._id)
               }}
@@ -88,30 +99,32 @@ function BookmarkCard(item) {
 }
 
 function BookmarkPage({ dataGroupByDay }) {
+  const dateColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
+  const dividerColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.200')
+
   return (
     <>
-      <Head>
-        <title>Beğendiklerim</title>
-      </Head>
-
       <Container maxW="2xl">
         <Text fontSize="2xl">
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
         </Text>
 
-        <Social mt={6} twitter youtube github instagram />
-
         {Object.keys(dataGroupByDay).map((date) => (
-          <Box mt={20}>
-            <Heading tag="h4" size="sm" fontWeight="normal" color="gray.500">
+          <Box key={date} mt={20}>
+            <Heading
+              tag="h4"
+              fontSize="md"
+              fontWeight="normal"
+              color={dateColor}
+            >
               {date}
             </Heading>
             <VStack
-              mt={5}
-              spacing={5}
+              mt={6}
+              spacing={4}
               align="stretch"
-              divider={<StackDivider />}
+              divider={<StackDivider borderBottomColor={dividerColor} />}
             >
               {dataGroupByDay[date].map((item) => {
                 return <BookmarkCard key={item._id} {...item} />
@@ -133,7 +146,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data,
       dataGroupByDay
     },
     revalidate: 600
