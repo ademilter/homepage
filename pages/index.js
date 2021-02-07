@@ -2,6 +2,7 @@ import { VStack, Container, Link, Text } from '@chakra-ui/react'
 import Social from '@comp/social'
 import NextImage from 'next/image'
 import SiteConfig from '../site.config'
+import React from 'react'
 
 function HomePage() {
   return (

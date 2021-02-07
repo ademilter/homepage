@@ -36,7 +36,7 @@ const theme = extendTheme({
             color: mode('blackAlpha.900', 'whiteAlpha.900')(props),
             textDecorationColor: mode(
               props.theme.colors.blue[200],
-              props.theme.colors.blue[200]
+              props.theme.colors.yellow[200]
             )(props)
           }
         }
