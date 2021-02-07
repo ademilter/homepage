@@ -1,9 +1,10 @@
 .next
-node_modules
 .idea
+node_modules
 public/ui
 public/sw*
 public/workbox*
 .DS_Store
-.env.local
 out/
+.env
+.env.local

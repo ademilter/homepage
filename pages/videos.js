@@ -8,12 +8,22 @@ import {
   Box,
   Link,
   Wrap,
-  WrapItem
+  WrapItem, useColorModeValue
 } from '@chakra-ui/react'
 
 function VideosPage({ data }) {
+  // const bgColor = useColorModeValue('', '#30333e')
+
   return (
     <>
+      {/*<style jsx global>*/}
+      {/*  {`*/}
+      {/*    body {*/}
+      {/*      background: ${bgColor};*/}
+      {/*    }*/}
+      {/*  `}*/}
+      {/*</style>*/}
+
       <Container maxW="2xl">
         <Text fontSize="2xl">
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu

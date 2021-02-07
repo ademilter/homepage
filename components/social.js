@@ -33,8 +33,8 @@ function Social({
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            width={24}
-            height={24}
+            width={22}
+            height={22}
           >
             <title>Twitter icon</title>
             <path
@@ -50,8 +50,8 @@ function Social({
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            width={24}
-            height={24}
+            width={22}
+            height={22}
           >
             <title>YouTube icon</title>
             <path
@@ -67,8 +67,8 @@ function Social({
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            width={24}
-            height={24}
+            width={22}
+            height={22}
           >
             <title>GitHub icon</title>
             <path
@@ -84,8 +84,8 @@ function Social({
             role="img"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            width={24}
-            height={24}
+            width={22}
+            height={22}
           >
             <title>Instagram icon</title>
             <path
@@ -101,8 +101,8 @@ function Social({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 50 55"
-            width={24}
-            height={24}
+            width={22}
+            height={22}
           >
             <path
               fill="currentColor"

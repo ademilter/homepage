@@ -1,17 +1,20 @@
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
-import { Grid, Link, GridItem, Text, Container } from '@chakra-ui/react'
+import { Grid, Link, GridItem, Container, useColorModeValue } from '@chakra-ui/react'
 
 function PhotosPage({ data }) {
+  // const bgColor = useColorModeValue('', '#3e3030')
+
   return (
     <>
-      <style jsx global>
-        {`
-          body {
-            background-color: #403737;
-          }
-        `}
-      </style>
+      {/*<style jsx global>*/}
+      {/*  {`*/}
+      {/*    body {*/}
+      {/*      background: ${bgColor};*/}
+      {/*    }*/}
+      {/*  `}*/}
+      {/*</style>*/}
+
       {/*<Container maxW="2xl">*/}
       {/*  <Text fontSize="2xl">Buraya metin gelecek</Text>*/}
       {/*</Container>*/}
