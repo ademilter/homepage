@@ -17,8 +17,12 @@ import { StarIcon } from '@chakra-ui/icons'
 
 function BookmarkCardMeta(item) {
   const [like, likeSet] = useState(item.like)
+  const [likeLoading, likeLoadingSet] = useState(null)
 
   const liked = async (id) => {
+    if (likeLoading === id) return
+    likeLoadingSet(id)
+
     const response = await fetch('/api/like', {
       method: 'POST',
       body: JSON.stringify({ id }),
@@ -26,6 +30,7 @@ function BookmarkCardMeta(item) {
     })
     const data = await response.json()
     likeSet(data.count)
+    likeLoadingSet(null)
   }
 
   const metaColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
@@ -53,6 +58,7 @@ function BookmarkCardMeta(item) {
         <Text
           as={Link}
           decoration="none"
+          cursor="pointer"
           onClick={() => {
             liked(item._id)
           }}
