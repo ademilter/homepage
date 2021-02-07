@@ -10,7 +10,7 @@ function HomePage() {
         <VStack spacing={6} align="stretch" fontSize="2xl">
           {/*<Avatar size="2xl" src="/ademilter.jpg" name="Adem ilter" />*/}
 
-          <Text>Hey, ben Adem</Text>
+          <Text fontWeight="bold">Merhaba, ben Adem ✨</Text>
 
           <Text>
             İstanbul'da yaşıyorum ve{' '}
