@@ -5,11 +5,20 @@ import { Grid, Link, GridItem, Text, Container } from '@chakra-ui/react'
 function PhotosPage({ data }) {
   return (
     <>
-      <Container maxW="2xl">
-        <Text fontSize="2xl">Buraya metin gelecek</Text>
-      </Container>
+      <style jsx global>
+        {`
+          body {
+            background-color: #403737;
+          }
+        `}
+      </style>
+      {/*<Container maxW="2xl">*/}
+      {/*  <Text fontSize="2xl">Buraya metin gelecek</Text>*/}
+      {/*</Container>*/}
 
-      <Container maxW="6xl" mt={20}>
+      {/*<Container maxW="6xl" mt={20}>*/}
+
+      <Container maxW="6xl">
         <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
           {data.map((item) => {
             return (
