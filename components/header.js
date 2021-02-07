@@ -13,7 +13,7 @@ const MENU = [
   { name: 'Giriş', url: '/' },
   // { name: 'Hakkımda', url: '/about' },
   { name: 'Fotoğraf', url: '/photos' },
-  // { name: 'Eğitimler', url: '/videos' },
+  { name: 'Eğitim', url: '/videos' },
   { name: 'Masam', url: '/desk' },
   { name: 'Yer imleri', url: '/bookmarks' }
   // { name: 'Yazılar', url: '/blog' },
@@ -25,8 +25,8 @@ function MenuLink({ url, name }) {
   const router = useRouter()
   const activePage = url === router.pathname
   const linkColor = useColorModeValue(
-    activePage ? 'blackAlpha.500' : 'blackAlpha.700',
-    activePage ? 'whiteAlpha.500' : 'whiteAlpha.700'
+    activePage ? 'blackAlpha.600' : 'blackAlpha.800',
+    activePage ? 'whiteAlpha.600' : 'whiteAlpha.800'
   )
   const linkHoverColor = useColorModeValue('blackAlpha.900', 'whiteAlpha.900')
 

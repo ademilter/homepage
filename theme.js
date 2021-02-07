@@ -9,7 +9,7 @@ const config = {
 const styles = {
   global: (props) => ({
     body: {
-      color: mode('blackAlpha.800', 'whiteAlpha.800')(props),
+      color: mode('blackAlpha.900', 'whiteAlpha.900')(props),
       bg: mode('white', 'customBlack')(props)
     }
   })
@@ -21,7 +21,7 @@ const theme = extendTheme({
     body: 'Inter, sans-serif'
   },
   colors: {
-    customBlack: '#141516'
+    customBlack: '#333'
   },
   components: {
     Link: {
