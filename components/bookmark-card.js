@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Text,
   Link,
@@ -13,26 +13,8 @@ import {
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
-import { StarIcon } from '@chakra-ui/icons'
 
 function BookmarkCardMeta(item) {
-  const [like, likeSet] = useState(item.like)
-  const [likeLoading, likeLoadingSet] = useState(null)
-
-  const liked = async (id) => {
-    if (likeLoading === id) return
-    likeLoadingSet(id)
-
-    const response = await fetch('/api/like', {
-      method: 'POST',
-      body: JSON.stringify({ id }),
-      headers: { 'Content-type': 'application/json; charset=UTF-8' }
-    })
-    const data = await response.json()
-    likeSet(data.count)
-    likeLoadingSet(null)
-  }
-
   const metaColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
 
   return (
@@ -49,24 +31,6 @@ function BookmarkCardMeta(item) {
             addSuffix: true,
             locale: tr
           })}
-        </Text>
-      </WrapItem>
-      <WrapItem>
-        <Text>・</Text>
-      </WrapItem>
-      <WrapItem>
-        <Text
-          as={Link}
-          decoration="none"
-          cursor="pointer"
-          onClick={() => {
-            liked(item._id)
-          }}
-        >
-          <Flex align="center">
-            <StarIcon mr={1} fontSize={12} />
-            {like}
-          </Flex>
         </Text>
       </WrapItem>
     </Wrap>

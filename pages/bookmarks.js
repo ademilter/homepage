@@ -65,6 +65,8 @@ function BookmarkPage({ dataGroupByDay }) {
 export async function getStaticProps() {
   const data = await getBookmark()
 
+  // console.log(data)
+
   const dataGroupByDay = groupBy(data, (item) => {
     return format(parseISO(item.created), 'd MMMM yyyy', { locale: tr })
   })
