@@ -21,7 +21,7 @@ const theme = extendTheme({
     body: 'Inter, sans-serif'
   },
   colors: {
-    customBlack: '#2a2c2f'
+    customBlack: '#202020'
   },
   components: {
     Link: {
