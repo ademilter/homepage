@@ -9,7 +9,7 @@ const nextConfig = (phase) => {
       API_URL: isDev ? 'http://localhost:3000' : 'https://ademilter.com'
     },
     images: {
-      domains: ['dl.airtable.com']
+      domains: ['dl.airtable.com', 'images.unsplash.com']
     },
     pwa: {
       dest: 'public',

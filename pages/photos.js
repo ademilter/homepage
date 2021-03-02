@@ -1,43 +1,23 @@
-import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
-import { Grid, Link, GridItem, Container, useColorModeValue } from '@chakra-ui/react'
+import { Grid, Link, GridItem, Container } from '@chakra-ui/react'
+import { getPhotos } from '@lib/unsplash'
 
 function PhotosPage({ data }) {
-  // const bgColor = useColorModeValue('', '#3e3030')
-
   return (
     <>
-      {/*<style jsx global>*/}
-      {/*  {`*/}
-      {/*    body {*/}
-      {/*      background: ${bgColor};*/}
-      {/*    }*/}
-      {/*  `}*/}
-      {/*</style>*/}
-
-      {/*<Container maxW="2xl">*/}
-      {/*  <Text fontSize="2xl">Buraya metin gelecek</Text>*/}
-      {/*</Container>*/}
-
-      {/*<Container maxW="6xl" mt={20}>*/}
-
       <Container maxW="6xl">
         <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
           {data.map((item) => {
             return (
-              <GridItem key={item.Id}>
-                <Link href={item.Url} isExternal>
+              <GridItem key={item.id}>
+                <Link href={item.links.html} isExternal>
                   <NextImage
-                    src={item.Photo[0].thumbnails.full.url}
-                    alt={item.Name}
-                    width={item.Photo[0].thumbnails.large.width}
-                    height={item.Photo[0].thumbnails.large.height}
+                    src={item.urls.regular}
+                    alt={item.description}
+                    width={item.width}
+                    height={item.height}
                     layout="responsive"
                   />
-                  {/*<Box mt={3}>*/}
-                  {/*  <Text as="b">{item.Location}</Text>*/}
-                  {/*  <Text color="gray.500">{item.Device}</Text>*/}
-                  {/*</Box>*/}
                 </Link>
               </GridItem>
             )
@@ -49,13 +29,13 @@ function PhotosPage({ data }) {
 }
 
 export async function getStaticProps() {
-  const data = await getTable('Photo')
+  const data = await getPhotos()
 
   return {
     props: {
       data
     },
-    revalidate: 600
+    revalidate: 6000
   }
 }
 
