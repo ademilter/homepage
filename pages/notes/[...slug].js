@@ -3,22 +3,25 @@ import { getMdxNode, getMdxPaths } from 'next-mdx/server'
 import { mdxComponents } from 'components/mdx-components'
 import { Container } from '@chakra-ui/react'
 import React from 'react'
+import PageTransition from '@comp/page-transition'
 
 function PostPage({ post }) {
   const content = useHydrate(post, {
     components: mdxComponents
   })
   return (
-    <Container maxW="2xl">
-      <article>
-        <h1 className="text-4xl font-extrabold">{post.frontMatter.title}</h1>
-        {post.frontMatter.excerpt ? (
-          <p className="text-xl">{post.frontMatter.excerpt}</p>
-        ) : null}
-        <hr />
-        {content}
-      </article>
-    </Container>
+    <PageTransition>
+      <Container maxW="2xl">
+        <article>
+          <h1 className="text-4xl font-extrabold">{post.frontMatter.title}</h1>
+          {post.frontMatter.excerpt ? (
+            <p className="text-xl">{post.frontMatter.excerpt}</p>
+          ) : null}
+          <hr />
+          {content}
+        </article>
+      </Container>
+    </PageTransition>
   )
 }
 
