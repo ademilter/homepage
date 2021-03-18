@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Stack } from '@chakra-ui/react'
 import React from 'react'
 
 const MENU = [
@@ -30,11 +29,15 @@ function Header() {
   return (
     <header className="py-6 bg-gray-900 text-gray-400">
       <div className="max-w-3xl mx-auto">
-        <Stack as="nav" spacing={4} direction={['column', 'row']}>
+        <nav
+          className="
+          flex flex-col space-y-3
+          md:space-y-0 md:space-x-3 md:flex-row"
+        >
           {MENU.map((item) => (
             <MenuLink key={item.url} {...item} />
           ))}
-        </Stack>
+        </nav>
       </div>
     </header>
   )

@@ -1,34 +1,38 @@
-import { VStack, Link, Text } from '@chakra-ui/react'
 import Social from '@comp/social'
 import NextImage from 'next/image'
 import SiteConfig from '../site.config'
-import React from 'react'
 import PageTransition from '@comp/page-transition'
 
 function HomePage() {
   return (
     <PageTransition>
       <div className="max-w-3xl mx-auto px-4">
-        <VStack spacing={6} align="stretch" fontSize="2xl">
-          <Text fontWeight="bold">Merhaba, ben Adem ✨</Text>
-
-          <Text>
+        <div className="flex flex-col space-y-5 text-2xl">
+          <p className="font-bold">Merhaba, ben Adem ✨</p>
+          <p>
             İstanbul'da yaşıyorum ve{' '}
-            <Text as={Link} isExternal href="http://superpeer.com">
+            <a
+              href="http://superpeer.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Superpeer
-            </Text>{' '}
+            </a>{' '}
             şirketinde Ürün Tasarımcı olarak çalışıyorum.
-          </Text>
-
-          <Text>
+          </p>
+          <p>
             Sektördeki eski teknoloji ve alışkanlıkları yenilerle değiştirmek
             için{' '}
-            <Text as={Link} isExternal href={SiteConfig.social.youtube}>
+            <a
+              href={SiteConfig.social.youtube}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               youtube kanalımda
-            </Text>{' '}
+            </a>{' '}
             modern türkçe içerikler üretiyorum.
-          </Text>
-        </VStack>
+          </p>
+        </div>
 
         <Social mt={6} />
       </div>

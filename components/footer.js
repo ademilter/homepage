@@ -1,25 +1,22 @@
 import React from 'react'
-import { Text, Link, Box, Container, useColorModeValue } from '@chakra-ui/react'
 
 function Footer() {
-  const textColor = useColorModeValue('blackAlpha.600', 'whiteAlpha.600')
-
   return (
-    <Box as="footer" pb={14}>
-      <Container maxW="2xl">
-        <Text color={textColor}>
+    <footer className="pb-14">
+      <div className="max-w-3xl mx-auto">
+        <p>
           Bu web sitesinin kaynak kodlarına{' '}
-          <Text
-            as={Link}
+          <a
             href="https://github.com/ademilter/homepage"
-            isExternal
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Github üzerinden
-          </Text>{' '}
+          </a>{' '}
           ulaşabilirsiniz ❤️
-        </Text>
-      </Container>
-    </Box>
+        </p>
+      </div>
+    </footer>
   )
 }
 
