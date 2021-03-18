@@ -13,22 +13,14 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import BookmarkCard from '@comp/bookmark-card'
+import PageTransition from '@comp/page-transition'
 
 function BookmarkPage({ dataGroupByDay }) {
   const dateColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
   const dividerColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.200')
-  // const bgColor = useColorModeValue('', '#30333e')
 
   return (
-    <>
-      {/*<style jsx global>*/}
-      {/*  {`*/}
-      {/*    body {*/}
-      {/*      background: ${bgColor};*/}
-      {/*    }*/}
-      {/*  `}*/}
-      {/*</style>*/}
-
+    <PageTransition>
       <Container maxW="2xl">
         <Text fontSize="2xl">
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
@@ -58,7 +50,7 @@ function BookmarkPage({ dataGroupByDay }) {
           </Box>
         ))}
       </Container>
-    </>
+    </PageTransition>
   )
 }
 

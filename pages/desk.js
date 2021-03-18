@@ -1,20 +1,11 @@
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
-import { Text, Container, Grid, GridItem, Box, useColorModeValue } from '@chakra-ui/react'
+import { Text, Container, Grid, GridItem, Box } from '@chakra-ui/react'
+import PageTransition from '@comp/page-transition'
 
 function DeskPage({ cover, data }) {
-  // const bgColor = useColorModeValue('', '#303e3a')
-
   return (
-    <>
-      {/*<style jsx global>*/}
-      {/*  {`*/}
-      {/*    body {*/}
-      {/*      background: ${bgColor};*/}
-      {/*    }*/}
-      {/*  `}*/}
-      {/*</style>*/}
-
+    <PageTransition>
       <Container maxW="2xl">
         <Text fontSize="2xl">
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.
@@ -56,7 +47,7 @@ function DeskPage({ cover, data }) {
           })}
         </Grid>
       </Container>
-    </>
+    </PageTransition>
   )
 }
 

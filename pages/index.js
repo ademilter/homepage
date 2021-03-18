@@ -3,10 +3,11 @@ import Social from '@comp/social'
 import NextImage from 'next/image'
 import SiteConfig from '../site.config'
 import React from 'react'
+import PageTransition from '@comp/page-transition'
 
 function HomePage() {
   return (
-    <>
+    <PageTransition>
       <Container maxW="2xl">
         <VStack spacing={6} align="stretch" fontSize="2xl">
           {/*<Avatar size="2xl" src="/ademilter.jpg" name="Adem ilter" />*/}
@@ -43,7 +44,7 @@ function HomePage() {
           layout="responsive"
         />
       </Container>
-    </>
+    </PageTransition>
   )
 }
 

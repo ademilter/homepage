@@ -8,22 +8,13 @@ import {
   Box,
   Link,
   Wrap,
-  WrapItem, useColorModeValue
+  WrapItem
 } from '@chakra-ui/react'
+import PageTransition from '@comp/page-transition'
 
 function VideosPage({ data }) {
-  // const bgColor = useColorModeValue('', '#30333e')
-
   return (
-    <>
-      {/*<style jsx global>*/}
-      {/*  {`*/}
-      {/*    body {*/}
-      {/*      background: ${bgColor};*/}
-      {/*    }*/}
-      {/*  `}*/}
-      {/*</style>*/}
-
+    <PageTransition>
       <Container maxW="2xl">
         <Text fontSize="2xl">
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
@@ -65,7 +56,7 @@ function VideosPage({ data }) {
           })}
         </Grid>
       </Container>
-    </>
+    </PageTransition>
   )
 }
 

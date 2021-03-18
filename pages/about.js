@@ -4,7 +4,7 @@ import { Container, Heading, Link, Text } from '@chakra-ui/react'
 
 function HomePage() {
   return (
-    <>
+    <PageTransition>
       <Container maxW="2xl">
         <Heading>Merhaba 🖐</Heading>
 
@@ -54,7 +54,7 @@ function HomePage() {
           layout="responsive"
         />
       </Container>
-    </>
+    </PageTransition>
   )
 }
 
