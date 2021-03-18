@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Container, Text } from '@chakra-ui/react'
+import PageTransition from '@comp/page-transition'
 
 function Error() {
   return (

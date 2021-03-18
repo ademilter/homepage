@@ -1,6 +1,7 @@
 import NextLink from 'next/link'
 import NextImage from 'next/image'
 import { Container, Heading, Link, Text } from '@chakra-ui/react'
+import PageTransition from '@comp/page-transition'
 
 function HomePage() {
   return (
