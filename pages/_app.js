@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import theme from '../theme'
-import { ChakraProvider, Box } from '@chakra-ui/react'
+import { ChakraProvider } from '@chakra-ui/react'
 import Header from '@comp/header'
 import Footer from '@comp/footer'
 import FontFace from '@comp/font-face'
+import '@style/globals.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -16,9 +17,9 @@ export default function MyApp({ Component, pageProps }) {
 
         <Header />
 
-        <Box as="main" py={20}>
+        <main className="py-20">
           <Component {...pageProps} />
-        </Box>
+        </main>
 
         <Footer />
         <FontFace />

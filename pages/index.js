@@ -1,4 +1,4 @@
-import { VStack, Container, Link, Text } from '@chakra-ui/react'
+import { VStack, Link, Text } from '@chakra-ui/react'
 import Social from '@comp/social'
 import NextImage from 'next/image'
 import SiteConfig from '../site.config'
@@ -8,10 +8,8 @@ import PageTransition from '@comp/page-transition'
 function HomePage() {
   return (
     <PageTransition>
-      <Container maxW="2xl">
+      <div className="max-w-3xl mx-auto px-4">
         <VStack spacing={6} align="stretch" fontSize="2xl">
-          {/*<Avatar size="2xl" src="/ademilter.jpg" name="Adem ilter" />*/}
-
           <Text fontWeight="bold">Merhaba, ben Adem ✨</Text>
 
           <Text>
@@ -33,17 +31,19 @@ function HomePage() {
         </VStack>
 
         <Social mt={6} />
-      </Container>
+      </div>
 
-      <Container maxW="6xl" mt={20}>
-        <NextImage
-          src="/photos/i-am.jpg"
-          alt="Adem ilter"
-          width={1433}
-          height={1018}
-          layout="responsive"
-        />
-      </Container>
+      <div className="max-w-6xl mx-auto">
+        <div className="mt-20">
+          <NextImage
+            src="/photos/i-am.jpg"
+            alt="Adem ilter"
+            width={1433}
+            height={1018}
+            layout="responsive"
+          />
+        </div>
+      </div>
     </PageTransition>
   )
 }

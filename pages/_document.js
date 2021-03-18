@@ -88,7 +88,11 @@ export default class MyDocument extends NextDocument {
           )}
         </Head>
 
-        <body>
+        <body
+          className="
+          bg-gray-50 text-gray-900
+          dark:bg-gray-800 dark:text-gray-100"
+        >
           <Main />
           <NextScript />
         </body>

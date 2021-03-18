@@ -1,13 +1,7 @@
-import NextLink from 'next/link'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import {
-  Box,
-  Text,
-  Stack,
-  Link,
-  Container,
-  useColorModeValue
-} from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
+import React from 'react'
 
 const MENU = [
   { name: 'Giriş', url: '/' },
@@ -24,39 +18,25 @@ const MENU = [
 function MenuLink({ url, name }) {
   const router = useRouter()
   const activePage = url === router.pathname
-  const linkColor = useColorModeValue(
-    activePage ? 'blackAlpha.600' : 'blackAlpha.800',
-    activePage ? 'whiteAlpha.600' : 'whiteAlpha.800'
-  )
-  const linkHoverColor = useColorModeValue('blackAlpha.900', 'whiteAlpha.900')
 
   return (
-    <NextLink href={url} passHref>
-      <Text
-        as={Link}
-        decoration="none"
-        color={linkColor}
-        _hover={{ color: linkHoverColor }}
-      >
-        {name}
-      </Text>
-    </NextLink>
+    <Link href={url}>
+      <a>{name}</a>
+    </Link>
   )
 }
 
 function Header() {
-  const bgColor = useColorModeValue('blackAlpha.50', 'whiteAlpha.50')
-
   return (
-    <Box as="header" py={6} bg={bgColor}>
-      <Container maxW="2xl">
+    <header className="py-6 bg-gray-900 text-gray-400">
+      <div className="max-w-3xl mx-auto">
         <Stack as="nav" spacing={4} direction={['column', 'row']}>
           {MENU.map((item) => (
             <MenuLink key={item.url} {...item} />
           ))}
         </Stack>
-      </Container>
-    </Box>
+      </div>
+    </header>
   )
 }
 
