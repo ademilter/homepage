@@ -15,11 +15,12 @@ export default function MyApp({ Component, pageProps }) {
         </Head>
 
         <Header />
+
         <Box as="main" py={20}>
           <Component {...pageProps} />
         </Box>
-        <Footer />
 
+        <Footer />
         <FontFace />
       </ChakraProvider>
     </>

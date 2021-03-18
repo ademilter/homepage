@@ -14,9 +14,9 @@ const MENU = [
   // { name: 'Hakkımda', url: '/about' },
   { name: 'Fotoğraf', url: '/photos' },
   { name: 'Eğitim', url: '/videos' },
+  { name: 'Notlar', url: '/notes' },
   { name: 'Masam', url: '/desk' },
   { name: 'Yer imleri', url: '/bookmarks' }
-  // { name: 'Yazılar', url: '/blog' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
 ]
