@@ -1,19 +1,18 @@
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
-import { Text, Container, Grid, GridItem, Box } from '@chakra-ui/react'
 import PageTransition from '@comp/page-transition'
 
 function DeskPage({ cover, data }) {
   return (
     <PageTransition>
-      <Container maxW="2xl">
-        <Text fontSize="2xl">
+      <div className="c-sm">
+        <p className="text-2xl">
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.
-        </Text>
-      </Container>
+        </p>
+      </div>
 
       {cover.length > 0 && (
-        <Container maxW="6xl" mt={20}>
+        <div className="c-lg mt-20">
           <NextImage
             src={cover[0].Photo[0].thumbnails.full.url}
             alt={cover[0].Name}
@@ -21,32 +20,30 @@ function DeskPage({ cover, data }) {
             height={cover[0].Photo[0].thumbnails.large.height}
             layout="responsive"
           />
-        </Container>
+        </div>
       )}
 
-      <Container maxW="6xl" mt={20}>
-        <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
+      <div className="c-lg mt-20">
+        <div className="grid grid-cols-2 gap-10">
           {data.map((item) => {
             return (
-              <GridItem key={item.Id}>
-                <Box>
-                  <NextImage
-                    src={item.Photo[0].thumbnails.full.url}
-                    alt={item.Name}
-                    width={item.Photo[0].thumbnails.large.width}
-                    height={item.Photo[0].thumbnails.large.height}
-                    layout="responsive"
-                  />
-                  <Box mt={3}>
-                    <Text as="b">{item.Name}</Text>
-                    <Text color="gray.500">{item.Description}</Text>
-                  </Box>
-                </Box>
-              </GridItem>
+              <div key={item.Id}>
+                <NextImage
+                  src={item.Photo[0].thumbnails.full.url}
+                  alt={item.Name}
+                  width={item.Photo[0].thumbnails.large.width}
+                  height={item.Photo[0].thumbnails.large.height}
+                  layout="responsive"
+                />
+                <div className="mt-2">
+                  <h5 className="font-bold">{item.Name}</h5>
+                  <p className="text-gray-500">{item.Description}</p>
+                </div>
+              </div>
             )
           })}
-        </Grid>
-      </Container>
+        </div>
+      </div>
     </PageTransition>
   )
 }

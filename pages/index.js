@@ -1,43 +1,26 @@
-import Social from '@comp/social'
 import NextImage from 'next/image'
-import SiteConfig from '../site.config'
 import PageTransition from '@comp/page-transition'
 
 function HomePage() {
   return (
     <PageTransition>
-      <div className="max-w-3xl mx-auto px-4">
-        <div className="flex flex-col space-y-5 text-2xl">
-          <p className="font-bold">Merhaba, ben Adem ✨</p>
-          <p>
-            İstanbul'da yaşıyorum ve{' '}
-            <a
-              href="http://superpeer.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Superpeer
-            </a>{' '}
-            şirketinde Ürün Tasarımcı olarak çalışıyorum.
-          </p>
-          <p>
-            Sektördeki eski teknoloji ve alışkanlıkları yenilerle değiştirmek
-            için{' '}
-            <a
-              href={SiteConfig.social.youtube}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              youtube kanalımda
-            </a>{' '}
-            modern türkçe içerikler üretiyorum.
-          </p>
-        </div>
+      <div className="c-sm">
+        <p className="text-2xl">
+          <b className="text-gray-900">
+            Merhaba, ben Adem ilter. İstanbul'da yaşıyan Dijital Ürün
+            Tasarımcısıyım.
+          </b>{' '}
+          Ayrıca front-end teknolojileri, sokak fotoğrafçılığı ve tipografi ile
+          yakından ilgileniyorum.
+        </p>
 
-        <Social mt={6} />
+        <p className="text-2xl mt-6">
+          Youtube kanalımda, sektördeki eski teknoloji ve alışkanlıkları
+          yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
+        </p>
       </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="c-lg">
         <div className="mt-20">
           <NextImage
             src="/photos/i-am.jpg"

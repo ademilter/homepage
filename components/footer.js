@@ -1,18 +1,15 @@
 import React from 'react'
+import A from '@comp/a'
 
 function Footer() {
   return (
     <footer className="pb-14">
-      <div className="max-w-3xl mx-auto">
+      <div className="c-sm">
         <p>
           Bu web sitesinin kaynak kodlarına{' '}
-          <a
-            href="https://github.com/ademilter/homepage"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <A href="https://github.com/ademilter/homepage" blank>
             Github üzerinden
-          </a>{' '}
+          </A>{' '}
           ulaşabilirsiniz ❤️
         </p>
       </div>

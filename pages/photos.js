@@ -1,17 +1,17 @@
 import NextImage from 'next/image'
-import { Grid, Link, GridItem, Container } from '@chakra-ui/react'
 import { getPhotos } from '@lib/unsplash'
 import PageTransition from '@comp/page-transition'
+import A from '@comp/a'
 
 function PhotosPage({ data }) {
   return (
     <PageTransition>
-      <Container maxW="6xl">
-        <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
+      <div className="c-lg">
+        <div className="grid grid-cols-2 gap-10">
           {data.map((item) => {
             return (
-              <GridItem key={item.id}>
-                <Link href={item.links.html} isExternal>
+              <div key={item.id}>
+                <A href={item.links.html} blank>
                   <NextImage
                     src={item.urls.regular}
                     alt={item.description}
@@ -19,12 +19,12 @@ function PhotosPage({ data }) {
                     height={item.height}
                     layout="responsive"
                   />
-                </Link>
-              </GridItem>
+                </A>
+              </div>
             )
           })}
-        </Grid>
-      </Container>
+        </div>
+      </div>
     </PageTransition>
   )
 }

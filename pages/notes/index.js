@@ -1,5 +1,3 @@
-import { Box, Container, Text } from '@chakra-ui/react'
-import React from 'react'
 import { getAllNodes } from 'next-mdx'
 import NextLink from 'next/link'
 import PageTransition from '@comp/page-transition'
@@ -7,10 +5,10 @@ import PageTransition from '@comp/page-transition'
 function NotePage({ posts }) {
   return (
     <PageTransition>
-      <Container maxW="2xl">
-        <Text fontSize="2xl">Kendime notlar</Text>
+      <div className="c-sm">
+        <p className="text-2xl">Kendime notlar</p>
 
-        <Box mt={20}>
+        <div className="mt-20">
           {posts.length ? (
             posts.map((post) => (
               <article key={post.slug}>
@@ -20,10 +18,10 @@ function NotePage({ posts }) {
               </article>
             ))
           ) : (
-            <p>No posts found.</p>
+            <p>Hiç not yazılmamış. İlginç...</p>
           )}
-        </Box>
-      </Container>
+        </div>
+      </div>
     </PageTransition>
   )
 }

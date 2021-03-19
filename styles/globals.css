@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .truncate{
+    white-space: normal !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--chakra-line-clamp);
+    --chakra-line-clamp: 1;
+  }
+}
+
+@layer components {
+  .c-sm {
+    @apply max-w-screen-sm mx-auto px-4;
+  }
+  .c-lg {
+    @apply max-w-screen-xl mx-auto px-4;
+  }
+}

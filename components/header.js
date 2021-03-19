@@ -4,17 +4,17 @@ import React from 'react'
 
 const MENU = [
   { name: 'Giriş', url: '/' },
-  // { name: 'Hakkımda', url: '/about' },
   { name: 'Fotoğraf', url: '/photos' },
   { name: 'Eğitim', url: '/videos' },
   { name: 'Notlar', url: '/notes' },
   { name: 'Masam', url: '/desk' },
   { name: 'Yer imleri', url: '/bookmarks' }
+  // { name: 'Hakkımda', url: '/about' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
 ]
 
-function MenuLink({ url, name }) {
+function NavLink({ url, name }) {
   const router = useRouter()
   const activePage = url === router.pathname
 
@@ -27,15 +27,15 @@ function MenuLink({ url, name }) {
 
 function Header() {
   return (
-    <header className="py-6 bg-gray-900 text-gray-400">
-      <div className="max-w-3xl mx-auto">
+    <header className="py-6 bg-gray-100">
+      <div className="c-sm">
         <nav
           className="
-          flex flex-col space-y-3
-          md:space-y-0 md:space-x-3 md:flex-row"
+          flex flex-col space-y-2
+          md:space-y-0 md:space-x-4 md:flex-row"
         >
           {MENU.map((item) => (
-            <MenuLink key={item.url} {...item} />
+            <NavLink key={item.url} {...item} />
           ))}
         </nav>
       </div>

@@ -1,19 +1,11 @@
 import SiteConfig from '../site.config'
-import { HStack, Link, IconButton, useColorModeValue } from '@chakra-ui/react'
+import A from '@comp/a'
 
 function SocialButton({ href, children }) {
-  const bgColor = useColorModeValue('blackAlpha.100', 'whiteAlpha.100')
-
   return (
-    <IconButton
-      as={Link}
-      isExternal
-      isRound
-      href={href}
-      icon={children}
-      bg={bgColor}
-      size="lg"
-    />
+    <A href={href} blank className="rounded">
+      {children}
+    </A>
   )
 }
 
@@ -22,11 +14,10 @@ function Social({
   twitter = true,
   youtube = true,
   github = false,
-  instagram = true,
-  ...props
+  instagram = true
 }) {
   return (
-    <HStack spacing={3} {...props}>
+    <div className="flex space-x-4">
       {twitter && (
         <SocialButton href={SiteConfig.social.twitter}>
           <svg
@@ -111,7 +102,7 @@ function Social({
           </svg>
         </SocialButton>
       )}
-    </HStack>
+    </div>
   )
 }
 

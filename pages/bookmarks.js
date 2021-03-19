@@ -3,53 +3,30 @@ import parseISO from 'date-fns/parseISO'
 import format from 'date-fns/format'
 import { getBookmark } from '@lib/raindrop'
 import groupBy from 'lodash.groupby'
-import {
-  Box,
-  Text,
-  Heading,
-  StackDivider,
-  VStack,
-  Container,
-  useColorModeValue
-} from '@chakra-ui/react'
 import BookmarkCard from '@comp/bookmark-card'
 import PageTransition from '@comp/page-transition'
 
 function BookmarkPage({ dataGroupByDay }) {
-  const dateColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
-  const dividerColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.200')
-
   return (
     <PageTransition>
-      <Container maxW="2xl">
-        <Text fontSize="2xl">
+      <div className="c-sm">
+        <p className="text-2xl">
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
-        </Text>
+        </p>
 
         {Object.keys(dataGroupByDay).map((date) => (
-          <Box key={date} mt={20}>
-            <Heading
-              tag="h4"
-              fontSize="md"
-              fontWeight="normal"
-              color={dateColor}
-            >
-              {date}
-            </Heading>
-            <VStack
-              mt={6}
-              spacing={4}
-              align="stretch"
-              divider={<StackDivider borderBottomColor={dividerColor} />}
-            >
+          <div key={date} className="mt-20">
+            <h4>{date}</h4>
+
+            <div className="mt-4 space-y-6">
               {dataGroupByDay[date].map((item) => {
                 return <BookmarkCard key={item._id} {...item} />
               })}
-            </VStack>
-          </Box>
+            </div>
+          </div>
         ))}
-      </Container>
+      </div>
     </PageTransition>
   )
 }

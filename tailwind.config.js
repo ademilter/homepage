@@ -1,21 +1,25 @@
 const colors = require('tailwindcss/colors')
+const config = require('tailwindcss/defaultConfig')
 
 module.exports = {
   purge: ['./pages/**/*.{js}', './components/**/*.{js}'],
   darkMode: 'media',
   theme: {
     extend: {},
+    fontFamily: {
+      sans: ['Inter', ...config.theme.fontFamily.sans]
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      white: colors.white,
       gray: colors.gray,
-      red: colors.red,
-      blue: colors.lightBlue,
-      yellow: colors.amber
+      green: colors.green,
+      blue: colors.blue
     }
   },
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')]
 }
