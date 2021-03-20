@@ -6,7 +6,7 @@ import A from '@comp/a'
 function PhotosPage({ data }) {
   return (
     <PageTransition>
-      <div className="c-lg">
+      <div className="c-large">
         <div className="grid grid-cols-2 gap-10">
           {data.map((item) => {
             return (

@@ -5,14 +5,14 @@ import PageTransition from '@comp/page-transition'
 function DeskPage({ cover, data }) {
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <p className="text-2xl">
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.
         </p>
       </div>
 
       {cover.length > 0 && (
-        <div className="c-lg mt-20">
+        <div className="c-large mt-20">
           <NextImage
             src={cover[0].Photo[0].thumbnails.full.url}
             alt={cover[0].Name}
@@ -23,7 +23,7 @@ function DeskPage({ cover, data }) {
         </div>
       )}
 
-      <div className="c-lg mt-20">
+      <div className="c-large mt-20">
         <div className="grid grid-cols-2 gap-10">
           {data.map((item) => {
             return (

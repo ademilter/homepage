@@ -11,7 +11,7 @@ function PostPage({ post }) {
 
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <article className="prose lg:prose-lg">
           <h1>{post.frontMatter.title}</h1>
           {post.frontMatter.excerpt ? <p>{post.frontMatter.excerpt}</p> : null}

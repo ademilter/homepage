@@ -8,7 +8,7 @@ function Error() {
         <title>404</title>
       </Head>
 
-      <div className="c-sm">
+      <div className="c-small">
         <p className="text-4xl">404</p>
       </div>
     </PageTransition>

@@ -6,14 +6,14 @@ import A from '@comp/a'
 function VideosPage({ data }) {
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <p className="text-2xl">
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
           listedeki bütün videoları ücretsiz olarak izleyebilirsiniz.
         </p>
       </div>
 
-      <div className="c-lg mt-20">
+      <div className="c-large mt-20">
         <div className="grid grid-cols-2 gap-10">
           {data.map((item) => {
             return (

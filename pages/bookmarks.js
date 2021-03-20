@@ -9,7 +9,7 @@ import PageTransition from '@comp/page-transition'
 function BookmarkPage({ dataGroupByDay }) {
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <p className="text-2xl">
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.

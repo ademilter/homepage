@@ -4,7 +4,7 @@ import PageTransition from '@comp/page-transition'
 function HomePage() {
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <p className="text-2xl">
           <b className="text-gray-900">
             Merhaba, ben Adem ilter. İstanbul'da yaşıyan Dijital Ürün
@@ -20,7 +20,7 @@ function HomePage() {
         </p>
       </div>
 
-      <div className="c-lg">
+      <div className="c-large">
         <div className="mt-20">
           <NextImage
             src="/photos/i-am.jpg"

@@ -35,10 +35,10 @@ html {
 }
 
 @layer components {
-  .c-sm {
+  .c-small {
     @apply max-w-screen-sm mx-auto px-4;
   }
-  .c-lg {
+  .c-large {
     @apply max-w-screen-xl mx-auto px-4;
   }
 }

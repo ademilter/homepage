@@ -5,7 +5,7 @@ import PageTransition from '@comp/page-transition'
 function NotePage({ posts }) {
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <p className="text-2xl">Kendime notlar</p>
 
         <div className="mt-20">

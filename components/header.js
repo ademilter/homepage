@@ -28,7 +28,7 @@ function NavLink({ url, name }) {
 function Header() {
   return (
     <header className="py-6 bg-gray-100">
-      <div className="c-sm">
+      <div className="c-small">
         <nav
           className="
           flex flex-col space-y-2

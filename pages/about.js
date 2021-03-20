@@ -3,7 +3,7 @@ import PageTransition from '@comp/page-transition'
 function HomePage() {
   return (
     <PageTransition>
-      <div className="c-sm">
+      <div className="c-small">
         <p>
           Amacım; kaliteli türkçe içeriğin az olduğu türkiye sektöründe
           globaldeki kaliteli kanallarla aynı seviyede içerikler üretebilmek ve
