@@ -24,7 +24,7 @@ function DeskPage({ cover, data }) {
       )}
 
       <div className="c-large mt-10">
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid sm:grid-cols-2 gap-10">
           {data.map((item) => {
             return (
               <div key={item.Id}>
