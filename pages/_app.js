@@ -1,4 +1,5 @@
 import '@style/globals.css'
+
 import Head from 'next/head'
 import Header from '@comp/header'
 import Footer from '@comp/footer'
