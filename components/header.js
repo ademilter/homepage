@@ -1,43 +1,73 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React from 'react'
+import { useState, useEffect } from 'react'
 
-const MENU = [
-  { name: 'Giriş', url: '/' },
-  { name: 'Fotoğraf', url: '/photos' },
-  { name: 'Eğitim', url: '/videos' },
-  { name: 'Notlar', url: '/notes' },
-  { name: 'Masam', url: '/desk' },
-  { name: 'Yer imleri', url: '/bookmarks' }
+const MENU = {
+  '/': 'Giriş',
+  '/photos': 'Fotoğraf',
+  '/videos': 'Eğitim',
+  '/notes': 'Notlar',
+  '/desk': 'Masam',
+  '/bookmarks': 'Yer imleri'
   // { name: 'Hakkımda', url: '/about' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
-]
-
-function NavLink({ url, name }) {
-  const router = useRouter()
-  const activePage = url === router.pathname
-
-  return (
-    <Link href={url}>
-      <a>{name}</a>
-    </Link>
-  )
 }
 
 function Header() {
+  const [showNav, showNavSet] = useState(false)
+  const router = useRouter()
+  const splitPath = router.pathname.split('/')
+  const pathname = splitPath.length > 2 ? `/${splitPath[1]}` : router.pathname
+  const activePage = MENU[pathname]
+
+  useEffect(() => {
+    showNavSet(false)
+  }, [router.pathname])
+
   return (
-    <header className="py-6 bg-gray-100">
+    <header className="pt-6">
       <div className="c-small">
-        <nav
-          className="
-          flex flex-col space-y-2
-          md:space-y-0 md:space-x-4 md:flex-row"
-        >
-          {MENU.map((item) => (
-            <NavLink key={item.url} {...item} />
-          ))}
-        </nav>
+        {showNav ? (
+          <nav
+            className="
+            flex flex-col space-y-2
+            md:space-y-0 md:space-x-4 md:flex-row"
+          >
+            {Object.keys(MENU).map((url) => {
+              return (
+                <Link key={url} href={url}>
+                  <a>{MENU[url]}</a>
+                </Link>
+              )
+            })}
+          </nav>
+        ) : (
+          <button
+            type="button"
+            className="flex"
+            onClick={() => {
+              showNavSet(true)
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 8h16M4 16h16"
+              />
+            </svg>
+            <span className="ml-2">{activePage}</span>
+          </button>
+        )}
       </div>
     </header>
   )

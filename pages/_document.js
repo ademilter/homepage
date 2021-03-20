@@ -10,7 +10,7 @@ export default class MyDocument extends NextDocument {
     return (
       <Html
         lang={SiteConfig.lang}
-        className="bg-white text-gray-600 antialiased js-focus-visible"
+        className="bg-white text-gray-500 antialiased js-focus-visible"
       >
         <Head>
           <link

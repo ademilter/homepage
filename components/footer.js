@@ -10,7 +10,7 @@ function Footer() {
           <A href="https://github.com/ademilter/homepage" blank>
             Github üzerinden
           </A>{' '}
-          ulaşabilirsiniz ❤️
+          ulaşabilirsiniz.
         </p>
       </div>
     </footer>
