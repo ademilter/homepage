@@ -21,7 +21,9 @@ function HomePage() {
             Youtube kanalımda, sektördeki eski teknoloji ve alışkanlıkları
             yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
           </p>
+        </div>
 
+        <div className="mt-10">
           <Social />
         </div>
       </div>

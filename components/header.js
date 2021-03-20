@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import IconMenu from '@comp/icons/menu'
 
 const MENU = {
   '/': 'Giriş',
@@ -50,21 +51,7 @@ function Header() {
               showNavSet(true)
             }}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 8h16M4 16h16"
-              />
-            </svg>
+            <IconMenu />
             <span className="ml-2">{activePage}</span>
           </button>
         )}

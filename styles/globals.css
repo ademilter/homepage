@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 @layer base {
   @font-face {
     font-family: 'Inter var';
