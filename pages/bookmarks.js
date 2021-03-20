@@ -1,12 +1,12 @@
-import { tr } from 'date-fns/locale'
-import parseISO from 'date-fns/parseISO'
-import format from 'date-fns/format'
 import { getBookmark } from '@lib/raindrop'
-import groupBy from 'lodash.groupby'
 import BookmarkCard from '@comp/bookmark-card'
 import PageTransition from '@comp/page-transition'
+import groupBy from 'lodash.groupby'
+import format from 'date-fns/format'
+import parseISO from 'date-fns/parseISO'
+import { tr } from 'date-fns/locale'
 
-function BookmarkPage({ dataGroupByDay }) {
+function BookmarkPage({ data, weeks }) {
   return (
     <PageTransition>
       <div className="c-small">
@@ -15,12 +15,12 @@ function BookmarkPage({ dataGroupByDay }) {
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
         </p>
 
-        {Object.keys(dataGroupByDay).map((date) => (
+        {weeks.map((date) => (
           <div key={date} className="mt-20">
-            <h4>{date}</h4>
+            <h4 className="text-gray-400">{date}. Hafta, 2021</h4>
 
-            <div className="mt-4 space-y-6">
-              {dataGroupByDay[date].map((item) => {
+            <div className="mt-6 space-y-8">
+              {data[date].map((item) => {
                 return <BookmarkCard key={item._id} {...item} />
               })}
             </div>
@@ -35,12 +35,21 @@ export async function getStaticProps() {
   const data = await getBookmark()
 
   const dataGroupByDay = groupBy(data, (item) => {
-    return format(parseISO(item.created), 'd MMMM yyyy', { locale: tr })
+    return (
+      format(parseISO(item.created), 'w', {
+        locale: tr
+      }) - 1 // todo: -1'e neden gerek var?
+    )
   })
+
+  const weeks = Object.keys(dataGroupByDay)
+    .map((o) => parseInt(o))
+    .reverse()
 
   return {
     props: {
-      dataGroupByDay
+      data: dataGroupByDay,
+      weeks
     },
     revalidate: 600
   }
