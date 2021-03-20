@@ -23,7 +23,7 @@ function DeskPage({ cover, data }) {
         </div>
       )}
 
-      <div className="c-large mt-20">
+      <div className="c-large mt-10">
         <div className="grid grid-cols-2 gap-10">
           {data.map((item) => {
             return (
