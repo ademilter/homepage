@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors')
 const config = require('tailwindcss/defaultConfig')
 
 module.exports = {
-  purge: ['./pages/**/*.{js}', './components/**/*.{js}'],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'media',
   theme: {
     extend: {},
@@ -13,9 +13,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       white: colors.white,
-      gray: colors.gray,
-      green: colors.green,
-      blue: colors.blue
+      gray: colors.gray
     }
   },
   variants: {

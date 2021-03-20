@@ -14,10 +14,6 @@ const nextConfig = (phase) => {
     pwa: {
       dest: 'public',
       disable: isDev
-    },
-    experimental: {
-      optimizeFonts: true,
-      modern: true
     }
   }
 }
