@@ -1,26 +1,47 @@
-import { getPhotos } from '@lib/unsplash'
+import unsplash from '@lib/unsplash'
 import PageTransition from '@comp/page-transition'
 import dynamic from 'next/dynamic'
+import SiteConfig from '../site.config'
+import MetricCard from '@comp/metric-card'
 const Photos = dynamic(() => import('@comp/photos'), {
   ssr: false
 })
 
-function PhotosPage({ data }) {
+function PhotosPage({ photos, stats }) {
   return (
     <PageTransition>
-      <div className="c-large">
-        <Photos data={data} />
+      <div className="c-small">
+        <div className="grid grid-cols-2 gap-10">
+          <MetricCard
+            href={SiteConfig.social.unsplash}
+            data={stats.views.total}
+          >
+            Unsplash Views
+          </MetricCard>
+          <MetricCard
+            href={SiteConfig.social.unsplash}
+            data={stats.downloads.total}
+          >
+            Unsplash Downloads
+          </MetricCard>
+        </div>
+      </div>
+
+      <div className="c-large mt-16">
+        <Photos data={photos} />
       </div>
     </PageTransition>
   )
 }
 
 export async function getStaticProps() {
-  const data = await getPhotos()
+  const photos = await unsplash.getPhotos()
+  const stats = await unsplash.getStats()
 
   return {
     props: {
-      data
+      photos,
+      stats
     },
     revalidate: 6000
   }

@@ -15,6 +15,7 @@
     "airtable": "^0.10.1",
     "classnames": "^2.2.6",
     "colcade": "^0.2.0",
+    "comma-number": "^2.0.1",
     "date-fns": "^2.19.0",
     "framer-motion": "^3.10.6",
     "lodash.groupby": "^4.6.0",
