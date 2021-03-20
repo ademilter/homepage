@@ -1,23 +1,29 @@
 import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
+import Social from '@comp/social'
 
 function HomePage() {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl">
-          <b className="text-gray-900">
+        <div className="space-y-6">
+          <h1 className="text-2xl font-bold text-gray-900">
             Merhaba, ben Adem ilter. İstanbul'da yaşıyan Dijital Ürün
             Tasarımcısıyım.
-          </b>{' '}
-          Ayrıca front-end teknolojileri, sokak fotoğrafçılığı ve tipografi ile
-          yakından ilgileniyorum.
-        </p>
+          </h1>
 
-        <p className="text-2xl mt-6">
-          Youtube kanalımda, sektördeki eski teknoloji ve alışkanlıkları
-          yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
-        </p>
+          <p className="text-2xl">
+            Front-end teknolojileri, sokak fotoğrafçılığı ve tipografi gibi
+            konularla yakından ilgileniyorum.
+          </p>
+
+          <p className="text-2xl">
+            Youtube kanalımda, sektördeki eski teknoloji ve alışkanlıkları
+            yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
+          </p>
+
+          <Social />
+        </div>
       </div>
 
       <div className="c-large">
