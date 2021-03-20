@@ -2512,6 +2512,11 @@ clone@2.x:
   resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
 
+colcade@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/colcade/-/colcade-0.2.0.tgz#1d4c949d677655865089ba0b78769693beca0b32"
+  integrity sha1-HUyUnWd2VYZQiboLeHaWk77KCzI=
+
 collapse-white-space@^1.0.2:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.6.tgz#e63629c0016665792060dbbeb79c42239d2c5287"

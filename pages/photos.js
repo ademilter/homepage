@@ -1,29 +1,15 @@
-import NextImage from 'next/image'
 import { getPhotos } from '@lib/unsplash'
 import PageTransition from '@comp/page-transition'
-import A from '@comp/a'
+import dynamic from 'next/dynamic'
+const Photos = dynamic(() => import('@comp/photos'), {
+  ssr: false
+})
 
 function PhotosPage({ data }) {
   return (
     <PageTransition>
       <div className="c-large">
-        <div className="grid grid-cols-2 gap-10">
-          {data.map((item) => {
-            return (
-              <div key={item.id}>
-                <A href={item.links.html} blank>
-                  <NextImage
-                    src={item.urls.regular}
-                    alt={item.description}
-                    width={item.width}
-                    height={item.height}
-                    layout="responsive"
-                  />
-                </A>
-              </div>
-            )
-          })}
-        </div>
+        <Photos data={data} />
       </div>
     </PageTransition>
   )
