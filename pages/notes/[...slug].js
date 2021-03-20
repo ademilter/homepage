@@ -12,10 +12,17 @@ function PostPage({ post }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <article className="prose lg:prose-lg">
-          <h1>{post.frontMatter.title}</h1>
-          {post.frontMatter.excerpt ? <p>{post.frontMatter.excerpt}</p> : null}
-          {content}
+        <article>
+          <header>
+            <h1 className="text-4xl font-bold text-highlight">
+              {post.frontMatter.title}
+            </h1>
+            {post.frontMatter.excerpt ? (
+              <p className="mt-2 text-2xl">{post.frontMatter.excerpt}</p>
+            ) : null}
+          </header>
+          <hr className="my-6" />
+          <div className="prose lg:prose-lg dark:prose-dark">{content}</div>
         </article>
       </div>
     </PageTransition>
