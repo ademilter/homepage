@@ -1,40 +1,47 @@
-import NextImage from 'next/image'
-import { Grid, Link, GridItem, Container } from '@chakra-ui/react'
-import { getPhotos } from '@lib/unsplash'
+import unsplash from '@lib/unsplash'
 import PageTransition from '@comp/page-transition'
+import dynamic from 'next/dynamic'
+import SiteConfig from '../site.config'
+import MetricCard from '@comp/metric-card'
+const Photos = dynamic(() => import('@comp/photos'), {
+  ssr: false
+})
 
-function PhotosPage({ data }) {
+function PhotosPage({ photos, stats }) {
   return (
     <PageTransition>
-      <Container maxW="6xl">
-        <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
-          {data.map((item) => {
-            return (
-              <GridItem key={item.id}>
-                <Link href={item.links.html} isExternal>
-                  <NextImage
-                    src={item.urls.regular}
-                    alt={item.description}
-                    width={item.width}
-                    height={item.height}
-                    layout="responsive"
-                  />
-                </Link>
-              </GridItem>
-            )
-          })}
-        </Grid>
-      </Container>
+      <div className="c-small">
+        <div className="grid grid-cols-2 gap-10">
+          <MetricCard
+            href={SiteConfig.social.unsplash}
+            data={stats.views.total}
+          >
+            Unsplash Views
+          </MetricCard>
+          <MetricCard
+            href={SiteConfig.social.unsplash}
+            data={stats.downloads.total}
+          >
+            Unsplash Downloads
+          </MetricCard>
+        </div>
+      </div>
+
+      <div className="c-large mt-16">
+        <Photos data={photos} />
+      </div>
     </PageTransition>
   )
 }
 
 export async function getStaticProps() {
-  const data = await getPhotos()
+  const photos = await unsplash.getPhotos()
+  const stats = await unsplash.getStats()
 
   return {
     props: {
-      data
+      photos,
+      stats
     },
     revalidate: 6000
   }

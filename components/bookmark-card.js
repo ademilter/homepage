@@ -1,69 +1,36 @@
-import React from 'react'
-import {
-  Text,
-  Link,
-  Box,
-  Flex,
-  AspectRatio,
-  Image,
-  Wrap,
-  WrapItem,
-  useColorModeValue
-} from '@chakra-ui/react'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
-
-function BookmarkCardMeta(item) {
-  const metaColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
-
-  return (
-    <Wrap spacing={0} align="center" mt={2} color={metaColor}>
-      <WrapItem>
-        <Text>{item.domain}</Text>
-      </WrapItem>
-      <WrapItem>
-        <Text>・</Text>
-      </WrapItem>
-      <WrapItem>
-        <Text>
-          {formatDistanceToNowStrict(parseISO(item.created), {
-            addSuffix: true,
-            locale: tr
-          })}
-        </Text>
-      </WrapItem>
-    </Wrap>
-  )
-}
+import A from '@comp/a'
 
 function BookmarkCard(item) {
-  const descColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.800')
-
   return (
-    <Flex key={item._id}>
-      <Box d={['none', 'block']} mr={6} flexShrink={0} w={160}>
-        <AspectRatio ratio={4 / 3}>
-          <Image src={item.cover} alt={item.title} objectFit="cover" />
-        </AspectRatio>
-      </Box>
+    <div key={item._id} className="flex">
+      <div className="hidden sm:block mr-6 flex-shrink-0 w-44">
+        <img src={item.cover} alt={item.title} />
+      </div>
 
-      <Box flexGrow={1}>
-        {/* title */}
-        <Text as="h4" fontWeight="bold" fontSize="lg">
-          <Text as={Link} href={item.link} isExternal decoration="none">
+      <div className="flex-grow">
+        <h3 className="text-lg leading-6 font-bold text-highlight">
+          <A href={item.link} blank className="no-underline">
             {item.title}
-          </Text>
-        </Text>
+          </A>
+        </h3>
 
-        {/* desc */}
-        <Text noOfLines={1} color={descColor}>
-          {item.excerpt}
-        </Text>
+        {/*<p className="text-gray-500 truncate">{item.excerpt}</p>*/}
 
-        <BookmarkCardMeta {...item} />
-      </Box>
-    </Flex>
+        <div className="mt-1 flex items-center text-gray-500">
+          <span>{item.domain}</span>
+          <span>・</span>
+          <span>
+            {formatDistanceToNowStrict(parseISO(item.created), {
+              addSuffix: true,
+              locale: tr
+            })}
+          </span>
+        </div>
+      </div>
+    </div>
   )
 }
 

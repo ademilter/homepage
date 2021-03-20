@@ -1,55 +1,32 @@
-import { tr } from 'date-fns/locale'
-import parseISO from 'date-fns/parseISO'
-import format from 'date-fns/format'
 import { getBookmark } from '@lib/raindrop'
-import groupBy from 'lodash.groupby'
-import {
-  Box,
-  Text,
-  Heading,
-  StackDivider,
-  VStack,
-  Container,
-  useColorModeValue
-} from '@chakra-ui/react'
 import BookmarkCard from '@comp/bookmark-card'
 import PageTransition from '@comp/page-transition'
+import groupBy from 'lodash.groupby'
+import format from 'date-fns/format'
+import parseISO from 'date-fns/parseISO'
+import { tr } from 'date-fns/locale'
 
-function BookmarkPage({ dataGroupByDay }) {
-  const dateColor = useColorModeValue('blackAlpha.500', 'whiteAlpha.500')
-  const dividerColor = useColorModeValue('blackAlpha.200', 'whiteAlpha.200')
-
+function BookmarkPage({ data, weeks }) {
   return (
     <PageTransition>
-      <Container maxW="2xl">
-        <Text fontSize="2xl">
+      <div className="c-small">
+        <p className="text-2xl text-highlight">
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
-        </Text>
+        </p>
 
-        {Object.keys(dataGroupByDay).map((date) => (
-          <Box key={date} mt={20}>
-            <Heading
-              tag="h4"
-              fontSize="md"
-              fontWeight="normal"
-              color={dateColor}
-            >
-              {date}
-            </Heading>
-            <VStack
-              mt={6}
-              spacing={4}
-              align="stretch"
-              divider={<StackDivider borderBottomColor={dividerColor} />}
-            >
-              {dataGroupByDay[date].map((item) => {
+        {weeks.map((date) => (
+          <div key={date} className="mt-20">
+            <h4 className="text-gray-400">{date}. Hafta, 2021</h4>
+
+            <div className="mt-6 space-y-8">
+              {data[date].map((item) => {
                 return <BookmarkCard key={item._id} {...item} />
               })}
-            </VStack>
-          </Box>
+            </div>
+          </div>
         ))}
-      </Container>
+      </div>
     </PageTransition>
   )
 }
@@ -58,12 +35,21 @@ export async function getStaticProps() {
   const data = await getBookmark()
 
   const dataGroupByDay = groupBy(data, (item) => {
-    return format(parseISO(item.created), 'd MMMM yyyy', { locale: tr })
+    return (
+      format(parseISO(item.created), 'w', {
+        locale: tr
+      }) - 1 // todo: -1'e neden gerek var?
+    )
   })
+
+  const weeks = Object.keys(dataGroupByDay)
+    .map((o) => parseInt(o))
+    .reverse()
 
   return {
     props: {
-      dataGroupByDay
+      data: dataGroupByDay,
+      weeks
     },
     revalidate: 600
   }

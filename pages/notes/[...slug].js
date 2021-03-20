@@ -1,7 +1,6 @@
 import { useHydrate } from 'next-mdx/client'
 import { getMdxNode, getMdxPaths } from 'next-mdx/server'
 import { mdxComponents } from 'components/mdx-components'
-import { Container } from '@chakra-ui/react'
 import React from 'react'
 import PageTransition from '@comp/page-transition'
 
@@ -9,18 +8,23 @@ function PostPage({ post }) {
   const content = useHydrate(post, {
     components: mdxComponents
   })
+
   return (
     <PageTransition>
-      <Container maxW="2xl">
+      <div className="c-small">
         <article>
-          <h1 className="text-4xl font-extrabold">{post.frontMatter.title}</h1>
-          {post.frontMatter.excerpt ? (
-            <p className="text-xl">{post.frontMatter.excerpt}</p>
-          ) : null}
-          <hr />
-          {content}
+          <header>
+            <h1 className="text-4xl font-bold text-highlight">
+              {post.frontMatter.title}
+            </h1>
+            {post.frontMatter.excerpt ? (
+              <p className="mt-2 text-2xl">{post.frontMatter.excerpt}</p>
+            ) : null}
+          </header>
+          <hr className="my-6" />
+          <div className="prose lg:prose-lg dark:prose-dark">{content}</div>
         </article>
-      </Container>
+      </div>
     </PageTransition>
   )
 }

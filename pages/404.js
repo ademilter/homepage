@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Container, Text } from '@chakra-ui/react'
 import PageTransition from '@comp/page-transition'
 
 function Error() {
@@ -9,9 +8,9 @@ function Error() {
         <title>404</title>
       </Head>
 
-      <Container maxW="2xl">
-        <Text fontSize="2xl">404</Text>
-      </Container>
+      <div className="c-small">
+        <p className="text-4xl text-highlight">404</p>
+      </div>
     </PageTransition>
   )
 }

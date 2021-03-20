@@ -1,33 +1,24 @@
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
-import {
-  Text,
-  Container,
-  Grid,
-  GridItem,
-  Box,
-  Link,
-  Wrap,
-  WrapItem
-} from '@chakra-ui/react'
 import PageTransition from '@comp/page-transition'
+import A from '@comp/a'
 
 function VideosPage({ data }) {
   return (
     <PageTransition>
-      <Container maxW="2xl">
-        <Text fontSize="2xl">
+      <div className="c-small">
+        <p className="text-2xl text-highlight">
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
           listedeki bütün videoları ücretsiz olarak izleyebilirsiniz.
-        </Text>
-      </Container>
+        </p>
+      </div>
 
-      <Container maxW="6xl" mt={20}>
-        <Grid templateColumns={{ sm: '1fr', md: '1fr 1fr' }} gap={10}>
+      <div className="c-large mt-20">
+        <div className="grid sm:grid-cols-2 gap-10">
           {data.map((item) => {
             return (
-              <GridItem key={item.Id}>
-                <Link href={item.Url} isExternal>
+              <div key={item.Id}>
+                <A href={item.Url} blank>
                   <NextImage
                     src={item.Photo[0].thumbnails.full.url}
                     alt={item.Name}
@@ -35,27 +26,24 @@ function VideosPage({ data }) {
                     height={item.Photo[0].thumbnails.large.height}
                     layout="responsive"
                   />
-                  <Box mt={3}>
-                    <Text as="b">{item.Name}</Text>
+                </A>
+                <div className="mt-2">
+                  <h3 className="font-bold text-highlight">
+                    <A href={item.Url} blank className="no-underline">
+                      {item.Name}
+                    </A>
+                  </h3>
 
-                    <Wrap spacing={0} align="center" color="gray.500">
-                      <WrapItem>
-                        <Text>{item.Category}</Text>
-                      </WrapItem>
-                      <WrapItem>
-                        <Text>・</Text>
-                      </WrapItem>
-                      <WrapItem>
-                        <Text>{item.Description}</Text>
-                      </WrapItem>
-                    </Wrap>
-                  </Box>
-                </Link>
-              </GridItem>
+                  <div className="flex space-x-1 text-gray-500">
+                    <span>{item.Category},</span>
+                    <span>{item.Description}</span>
+                  </div>
+                </div>
+              </div>
             )
           })}
-        </Grid>
-      </Container>
+        </div>
+      </div>
     </PageTransition>
   )
 }

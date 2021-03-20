@@ -8,18 +8,23 @@ export default class MyDocument extends NextDocument {
 
   render() {
     return (
-      <Html lang={SiteConfig.lang}>
+      <Html
+        lang={SiteConfig.lang}
+        className="
+        bg-white text-gray-500 antialiased js-focus-visible
+        dark:bg-gray-900 dark:text-gray-400"
+      >
         <Head>
           <link
             rel="preload"
-            href="/fonts/Inter-Regular.woff2"
+            href="/fonts/Inter-roman.var.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Inter-Bold.woff2"
+            href="/fonts/Inter-italic.var.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
