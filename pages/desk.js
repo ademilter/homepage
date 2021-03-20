@@ -6,7 +6,7 @@ function DeskPage({ cover, data }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl">
+        <p className="text-2xl text-highlight">
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.
         </p>
       </div>

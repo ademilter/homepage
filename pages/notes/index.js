@@ -6,7 +6,7 @@ function NotePage({ posts }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl">Kendime notlar</p>
+        <p className="text-2xl text-highlight">Kendime notlar</p>
 
         <div className="mt-20">
           {posts.length ? (

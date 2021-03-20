@@ -28,7 +28,7 @@ function Header() {
 
   return (
     <header className="pt-6">
-      <div className="c-small">
+      <div className="c-small text-lg">
         {showNav ? (
           <nav
             className="

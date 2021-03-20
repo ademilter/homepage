@@ -10,7 +10,7 @@ function BookmarkPage({ data, weeks }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl">
+        <p className="text-2xl text-highlight">
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
         </p>

@@ -7,7 +7,7 @@ function HomePage() {
     <PageTransition>
       <div className="c-small">
         <div className="space-y-6">
-          <h1 className="text-2xl font-bold text-gray-900">
+          <h1 className="text-2xl font-bold text-highlight">
             Merhaba, ben Adem ilter. İstanbul'da yaşıyan Dijital Ürün
             Tasarımcısıyım.
           </h1>

@@ -8,7 +8,8 @@ function SocialButton({ href, children }) {
       blank
       className="
       flex items-center p-3 bg-gray-100 text-gray-600 no-underline rounded-full transition-colors
-      hover:bg-gray-600 hover:text-white"
+      hover:bg-gray-600 hover:text-white
+      dark:bg-gray-700 dark:text-gray-300"
     >
       {children}
     </A>
@@ -17,7 +18,7 @@ function SocialButton({ href, children }) {
 
 function Social({ size = 22 }) {
   return (
-    <div className="flex space-x-4">
+    <div className="flex space-x-3">
       <SocialButton href={'mailto:' + SiteConfig.author.email}>
         <svg
           role="img"

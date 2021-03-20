@@ -7,7 +7,7 @@ function VideosPage({ data }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl">
+        <p className="text-2xl text-highlight">
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
           listedeki bütün videoları ücretsiz olarak izleyebilirsiniz.
         </p>
@@ -28,11 +28,11 @@ function VideosPage({ data }) {
                   />
                 </A>
                 <div className="mt-2">
-                  <h5 className="font-bold">
-                    <A href={item.Url} blank>
+                  <h3 className="font-bold text-highlight">
+                    <A href={item.Url} blank className="no-underline">
                       {item.Name}
                     </A>
-                  </h5>
+                  </h3>
 
                   <div className="flex space-x-1 text-gray-500">
                     <span>{item.Category},</span>

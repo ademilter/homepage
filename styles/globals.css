@@ -33,4 +33,7 @@
   .c-large {
     @apply max-w-screen-xl mx-auto px-4;
   }
+  .text-highlight {
+    @apply text-gray-900 dark:text-gray-50;
+  }
 }

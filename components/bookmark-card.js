@@ -11,7 +11,7 @@ function BookmarkCard(item) {
       </div>
 
       <div className="flex-grow">
-        <h3 className="text-lg leading-6 font-bold text-gray-900">
+        <h3 className="text-lg leading-6 font-bold text-highlight">
           <A href={item.link} blank className="no-underline">
             {item.title}
           </A>
@@ -19,7 +19,7 @@ function BookmarkCard(item) {
 
         {/*<p className="text-gray-500 truncate">{item.excerpt}</p>*/}
 
-        <div className="mt-1 flex items-center text-gray-400">
+        <div className="mt-1 flex items-center text-gray-500">
           <span>{item.domain}</span>
           <span>・</span>
           <span>
