@@ -17,8 +17,8 @@ function PostPage({ post }) {
             <h1 className="text-4xl font-bold text-highlight">
               {post.frontMatter.title}
             </h1>
-            {post.frontMatter.excerpt ? (
-              <p className="mt-2 text-2xl">{post.frontMatter.excerpt}</p>
+            {post.frontMatter.summary ? (
+              <p className="mt-2 text-2xl">{post.frontMatter.summary}</p>
             ) : null}
           </header>
           <hr className="my-6" />

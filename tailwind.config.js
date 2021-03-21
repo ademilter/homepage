@@ -17,8 +17,10 @@ module.exports = {
           css: {
             color: 'inherit',
             'h2, h3, h4, h5': {
-              color: 'inherit',
               'scroll-margin-top': spacing[32]
+            },
+            '*': {
+              color: 'inherit !important'
             }
           }
         },
