@@ -7,7 +7,7 @@ function SocialButton({ href, children }) {
       href={href}
       blank
       className="
-      flex items-center p-3 bg-gray-100 text-gray-600 no-underline rounded-full transition-colors
+      flex items-center p-3 bg-gray-100 text-gray-600 rounded-full transition-colors
       hover:bg-gray-600 hover:text-white
       dark:bg-gray-700 dark:text-gray-300"
     >

@@ -17,6 +17,9 @@
 }
 
 @layer components {
+  html {
+    @apply bg-white text-gray-500 antialiased dark:bg-gray-900 dark:text-gray-400;
+  }
   .c-small {
     @apply max-w-screen-sm mx-auto px-4;
   }
@@ -24,6 +27,7 @@
     @apply max-w-screen-xl mx-auto px-4;
   }
   .text-highlight {
-    @apply text-gray-900 dark:text-gray-50;
+    @apply text-gray-900
+    dark:text-gray-50;
   }
 }

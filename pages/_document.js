@@ -8,12 +8,7 @@ export default class MyDocument extends NextDocument {
 
   render() {
     return (
-      <Html
-        lang={SiteConfig.lang}
-        className="
-        bg-white text-gray-500 antialiased js-focus-visible
-        dark:bg-gray-900 dark:text-gray-400"
-      >
+      <Html lang={SiteConfig.lang}>
         <Head>
           <link
             rel="preload"

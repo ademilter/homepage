@@ -12,7 +12,7 @@ function BookmarkCard(item) {
 
       <div className="flex-grow">
         <h3 className="text-lg leading-6 font-bold text-highlight">
-          <A href={item.link} blank className="no-underline">
+          <A href={item.link} blank>
             {item.title}
           </A>
         </h3>

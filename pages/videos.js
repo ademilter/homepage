@@ -29,7 +29,7 @@ function VideosPage({ data }) {
                 </A>
                 <div className="mt-2">
                   <h3 className="font-bold text-highlight">
-                    <A href={item.Url} blank className="no-underline">
+                    <A href={item.Url} blank>
                       {item.Name}
                     </A>
                   </h3>

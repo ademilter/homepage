@@ -1,6 +1,4 @@
-import cn from 'classnames'
-
-function A({ children, href, blank, className, ...props }) {
+function A({ children, href, blank, ...props }) {
   const isBlank = blank
     ? {
         rel: 'noopener noreferrer',
@@ -9,12 +7,7 @@ function A({ children, href, blank, className, ...props }) {
     : {}
 
   return (
-    <a
-      href={href}
-      {...isBlank}
-      className={cn('underline hover:underline', className)}
-      {...props}
-    >
+    <a href={href} {...isBlank} {...props}>
       {children}
     </a>
   )

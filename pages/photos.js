@@ -27,7 +27,7 @@ function PhotosPage({ photos, stats }) {
         </div>
       </div>
 
-      <div className="c-large mt-16">
+      <div className="c-large mt-20">
         <Photos data={photos} />
       </div>
     </PageTransition>
