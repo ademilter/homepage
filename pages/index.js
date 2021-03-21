@@ -8,7 +8,7 @@ function HomePage() {
       <div className="c-small">
         <div className="space-y-6">
           <h1 className="text-2xl font-bold text-highlight">
-            Merhaba, ben Adem ilter. İstanbul'da yaşıyan Dijital Ürün
+            Merhaba, ben Adem ilter. İstanbul'da yaşayan  Dijital Ürün
             Tasarımcısıyım.
           </h1>
 
@@ -18,7 +18,7 @@ function HomePage() {
           </p>
 
           <p className="text-2xl">
-            Youtube kanalımda, sektördeki eski teknoloji ve alışkanlıkları
+            Youtube kanalımda sektördeki eski teknoloji ve alışkanlıkları
             yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
           </p>
         </div>
