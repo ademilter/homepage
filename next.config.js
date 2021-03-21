@@ -24,7 +24,6 @@ const nextConfig = (phase) => {
           'react-dom': 'preact/compat'
         })
       }
-
       return config
     }
   }

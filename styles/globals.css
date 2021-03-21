@@ -4,11 +4,10 @@
 
 @layer base {
   @font-face {
-    font-family: 'Inter var';
+    font-family: 'Inter';
     font-weight: 100 900;
     font-display: swap;
     font-style: normal;
-    font-named-instance: 'Regular';
     src: url('/fonts/Inter-roman.var.woff2?v=3.15') format('woff2');
   }
   html {
