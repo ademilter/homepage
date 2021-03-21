@@ -1,6 +1,7 @@
 import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
 import Social from '@comp/social'
+import A from '@comp/a'
 
 function HomePage() {
   return (
@@ -21,6 +22,20 @@ function HomePage() {
             Youtube kanalımda sektördeki eski teknoloji ve alışkanlıkları
             yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
           </p>
+        </div>
+
+        <div className="mt-10">
+          <A
+            blank
+            href="https://superpeer.com/adem/-/hey"
+            className="
+            block py-4 px-6 bg-yellow-100 text-yellow-900 text-lg rounded-xl
+            hover:bg-opacity-75
+            dark:bg-blue-900 dark:text-blue-100"
+          >
+            Benimle 1:1 görüşmek istersen, Superpeer profilimden uygun bir zaman
+            dilimini satın alabilirsin ⟶
+          </A>
         </div>
 
         <div className="mt-10">
