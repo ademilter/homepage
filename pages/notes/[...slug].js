@@ -18,11 +18,11 @@ function PostPage({ post }) {
               {post.frontMatter.title}
             </h1>
             {post.frontMatter.summary ? (
-              <p className="mt-2 text-2xl">{post.frontMatter.summary}</p>
+              <p className="mt-2 text-xl">{post.frontMatter.summary}</p>
             ) : null}
           </header>
-          <hr className="my-6" />
-          <div className="prose lg:prose-lg dark:prose-dark">{content}</div>
+          <hr className="my-6 border-gray-700" />
+          <div className="prose dark:prose-dark">{content}</div>
         </article>
       </div>
     </PageTransition>

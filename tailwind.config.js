@@ -19,6 +19,9 @@ module.exports = {
             'h2, h3, h4, h5': {
               'scroll-margin-top': spacing[32]
             },
+            hr: {
+              'border-color': colors.gray['200']
+            },
             '*': {
               color: 'inherit !important'
             }
@@ -27,6 +30,9 @@ module.exports = {
         dark: {
           css: {
             // color: 'inherit'
+            hr: {
+              'border-color': colors.gray['700']
+            }
           }
         }
       })

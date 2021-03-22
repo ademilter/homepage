@@ -46,7 +46,7 @@ function Header() {
         ) : (
           <button
             type="button"
-            className="flex"
+            className="flex items-center"
             onClick={() => {
               showNavSet(true)
             }}
