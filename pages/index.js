@@ -9,29 +9,30 @@ function HomePage() {
       <div className="c-small">
         <div className="space-y-6">
           <h1 className="text-2xl font-bold text-highlight">
-            Merhaba, ben Adem ilter. İstanbul'da yaşayan Dijital Ürün
-            Tasarımcısıyım.
+            Ben Adem ilter.
+            <br />
+            İstanbul'da yaşayan Dijital Ürün Tasarımcısıyım.
           </h1>
 
-          <p className="text-2xl">
+          <p className="text-xl">
             Front-end teknolojileri, sokak fotoğrafçılığı ve tipografi gibi
             konularla yakından ilgileniyorum.
           </p>
 
-          <p className="text-2xl">
+          <p className="text-xl">
             Youtube kanalımda sektördeki eski teknoloji ve alışkanlıkları
             yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
           </p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-8">
           <A
             blank
             href="https://superpeer.com/adem/-/hey"
             className="
-            block py-4 px-6 bg-yellow-100 text-yellow-900 text-lg rounded-xl
+            block py-4 px-6 bg-yellow-100 text-yellow-900 rounded-xl
             hover:bg-opacity-75
-            dark:bg-blue-900 dark:text-blue-100"
+            dark:bg-blue-900 dark:bg-opacity-50 dark:text-blue-400"
           >
             Benimle 1:1 görüşmek istersen, Superpeer profilimden uygun bir zaman
             dilimini satın alabilirsin ⟶
