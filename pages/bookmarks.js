@@ -5,15 +5,16 @@ import groupBy from 'lodash.groupby'
 import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
+import PageTitle from '@comp/page-title'
 
 function BookmarkPage({ data, weeks }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl text-highlight">
+        <PageTitle>
           İnternette gezinirken beğendiğim ve beni takip edenlerin de
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
-        </p>
+        </PageTitle>
 
         {weeks.map((date) => (
           <div key={date} className="mt-20">

@@ -1,12 +1,13 @@
 import { getAllNodes } from 'next-mdx'
 import NextLink from 'next/link'
 import PageTransition from '@comp/page-transition'
+import PageTitle from '@comp/page-title'
 
 function NotePage({ posts }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl text-highlight">Kendime notlar</p>
+        <PageTitle>Kendime notlar</PageTitle>
 
         <div className="mt-20">
           {posts.length ? (

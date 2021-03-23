@@ -2,15 +2,16 @@ import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
 import A from '@comp/a'
+import PageTitle from '@comp/page-title'
 
 function VideosPage({ data }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl text-highlight">
+        <PageTitle>
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
           listedeki bütün videoları ücretsiz olarak izleyebilirsiniz.
-        </p>
+        </PageTitle>
       </div>
 
       <div className="c-large mt-20">

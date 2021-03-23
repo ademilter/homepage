@@ -1,14 +1,15 @@
 import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
+import PageTitle from '@comp/page-title'
 
 function DeskPage({ cover, data }) {
   return (
     <PageTransition>
       <div className="c-small">
-        <p className="text-2xl text-highlight">
+        <PageTitle>
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.
-        </p>
+        </PageTitle>
       </div>
 
       {cover.length > 0 && (
