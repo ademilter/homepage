@@ -12,10 +12,15 @@ function NotePage({ posts }) {
         <div className="mt-20">
           {posts.length ? (
             posts.map((post) => (
-              <article key={post.slug}>
+              <article key={post.slug} className="mb-10">
                 <NextLink href={post.url} passHref>
-                  <a>{post.frontMatter.title}</a>
+                  <a className="text-lg leading-6 font-bold text-highlight">
+                    {post.frontMatter.title}
+                  </a>
                 </NextLink>
+                <p>
+                  <time>{post.frontMatter.date}</time>
+                </p>
               </article>
             ))
           ) : (
