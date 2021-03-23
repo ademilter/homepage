@@ -15,8 +15,8 @@ function HomePage() {
           </h1>
 
           <p className="text-xl">
-            Front-end teknolojileri, sokak fotoğrafçılığı ve tipografi gibi
-            konularla yakından ilgileniyorum.
+            Tasarım araçları, front-end teknolojileri, sokak fotoğrafçılığı ve
+            tipografi gibi konularla yakından ilgileniyorum.
           </p>
 
           <p className="text-xl">
