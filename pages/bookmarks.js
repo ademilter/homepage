@@ -17,8 +17,13 @@ function BookmarkPage({ data, weeks }) {
 
         {weeks.map((date) => (
           <div key={date} className="mt-20">
-            <h4 className="text-gray-400">{date}. Hafta, 2021</h4>
-
+            <h4
+              className="
+              text-2xl text-gray-400
+              dark:text-gray-600"
+            >
+              {date}. Hafta, 2021
+            </h4>
             <div className="mt-6 space-y-8">
               {data[date].map((item) => {
                 return <BookmarkCard key={item._id} {...item} />
