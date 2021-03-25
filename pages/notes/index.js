@@ -8,6 +8,10 @@ function NotePage({ posts }) {
     <PageTransition>
       <div className="c-small">
         <PageTitle>Kendime notlar</PageTitle>
+        <p>
+          bu sayfa henüz beta aşamasında. medium'da yayınladığım yazıları en
+          kısa sürede buraya taşıyacağım inş :)
+        </p>
 
         <div className="mt-20">
           {posts.length ? (
