@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import styles from './comment.module.css'
 
-function CommentTextarea({ onSubmit, isSubmitting }) {
-  const { isAuthenticated, user, loginWithPopup } = useAuth0()
-  const [text, textSet] = useState('')
+function CommentTextarea({ text, textSet, onSubmit, isSubmitting }) {
+  const { isAuthenticated, loginWithPopup } = useAuth0()
 
   const onBeforeSubmit = async (e) => {
     e.preventDefault()
