@@ -2,8 +2,6 @@ import redis from '@lib/redis'
 import { nanoid } from 'nanoid'
 
 export default async (req, res) => {
-  // redis.hdel('comments', 1616773092687)
-
   if (req.method === 'GET') {
     const { url } = req.query
 

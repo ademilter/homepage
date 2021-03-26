@@ -6,8 +6,6 @@ function CommentTextarea({ onSubmit, isSubmitting }) {
   const { isAuthenticated, user, loginWithPopup } = useAuth0()
   const [text, textSet] = useState('')
 
-  console.log(user)
-
   const onBeforeSubmit = async (e) => {
     e.preventDefault()
     onSubmit(text)
@@ -25,25 +23,11 @@ function CommentTextarea({ onSubmit, isSubmitting }) {
 
       <div className="flex items-center mt-4">
         {isAuthenticated ? (
-          <>
-            <div className="flex items-center space-x-4">
-              <button className={styles.button} disabled={isSubmitting}>
-                Send
-              </button>
-            </div>
-            {/*<div className="ml-auto flex items-center space-x-2">*/}
-            {/*  <img src={user.picture} width={26} className="rounded-full" />*/}
-            {/*  <p>{user.name}</p>*/}
-            {/*  <button*/}
-            {/*    type="button"*/}
-            {/*    onClick={() => {*/}
-            {/*      logout()*/}
-            {/*    }}*/}
-            {/*  >*/}
-            {/*    x*/}
-            {/*  </button>*/}
-            {/*</div>*/}
-          </>
+          <div className="flex items-center space-x-4">
+            <button className={styles.button} disabled={isSubmitting}>
+              Send
+            </button>
+          </div>
         ) : (
           <button
             type="button"
