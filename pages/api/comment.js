@@ -4,9 +4,18 @@ export default async (req, res) => {
   const { token, text } = req.body
 
   if (req.method === 'GET') {
-    const comments = await redis.hgetall('comments')
-    console.log('comments', comments)
-    return res.status(200).json(comments)
+    try {
+      const response = await redis.hvals('comments')
+      const comments = response
+        .map((comment) => {
+          console.log(comment)
+          return JSON.parse(comment)
+        })
+        .sort((a, b) => b.created_at - a.created_at)
+      return res.status(200).json(comments)
+    } catch (err) {
+      return res.status(400).json({ error: err.message })
+    }
   }
 
   if (req.method === 'POST') {
@@ -25,16 +34,16 @@ export default async (req, res) => {
         }
       )
       const { name, picture } = await response.json()
-      const id = Date.now()
+      const timestamp = Date.now()
+
       const newComment = {
-        id,
-        created_at: id,
+        created_at: timestamp,
         text,
         name,
         picture
       }
 
-      await redis.hset('comments', id, JSON.stringify(newComment))
+      await redis.hset('comments', timestamp, JSON.stringify(newComment))
       return res.status(200).json(newComment)
     } catch (err) {
       return res.status(400).json({ error: err.message })

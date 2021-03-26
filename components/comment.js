@@ -10,6 +10,7 @@ function Comment() {
     logout
   } = useAuth0()
   const [commentText, commentTextSet] = useState('')
+  const [comments, commentsSet] = useState([])
 
   useEffect(() => {
     async function fetchComments() {
@@ -19,7 +20,7 @@ function Comment() {
         }
       })
       const data = await res.json()
-      console.log(data)
+      commentsSet(data)
     }
     fetchComments()
   }, [])
@@ -87,6 +88,24 @@ function Comment() {
           )}
         </div>
       </form>
+
+      <div className="space-y-4 mt-6">
+        {comments.map((comment) => {
+          return (
+            <div key={comment.created_at} className="flex">
+              <div>
+                <img src={comment.picture} width={30} />
+              </div>
+              <div>
+                <div>
+                  {comment.name} - {comment.created_at}
+                </div>
+                <div>{comment.text}</div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
