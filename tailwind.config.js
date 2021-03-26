@@ -39,7 +39,10 @@ module.exports = {
     }
   },
   variants: {
-    typography: ['dark']
+    typography: ['dark'],
+    extend: {
+      opacity: ['disabled']
+    }
   },
   plugins: [require('@tailwindcss/typography')]
 }
