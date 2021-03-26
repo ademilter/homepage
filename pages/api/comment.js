@@ -7,10 +7,7 @@ export default async (req, res) => {
     try {
       const response = await redis.hvals('comments')
       const comments = response
-        .map((comment) => {
-          console.log(comment)
-          return JSON.parse(comment)
-        })
+        .map((comment) => JSON.parse(comment))
         .sort((a, b) => b.created_at - a.created_at)
       return res.status(200).json(comments)
     } catch (err) {

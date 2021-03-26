@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
+import { tr } from 'date-fns/locale'
 
 function Comment() {
   const {
@@ -11,6 +13,7 @@ function Comment() {
   } = useAuth0()
   const [commentText, commentTextSet] = useState('')
   const [comments, commentsSet] = useState([])
+  const [isSubmitting, isSubmittingSet] = useState(false)
 
   useEffect(() => {
     async function fetchComments() {
@@ -29,6 +32,8 @@ function Comment() {
     e.preventDefault()
     const token = await getAccessTokenSilently()
 
+    isSubmittingSet(true)
+
     const res = await fetch('/api/comment', {
       method: 'POST',
       headers: {
@@ -36,8 +41,9 @@ function Comment() {
       },
       body: JSON.stringify({ token, text: commentText })
     })
-    const data = await res.json()
-    console.log(data)
+    const comment = await res.json()
+    commentsSet([comment, ...comments])
+    isSubmittingSet(false)
   }
 
   return (
@@ -57,9 +63,9 @@ function Comment() {
         <div className="flex items-center mt-2">
           {isAuthenticated ? (
             <>
-              <div className="flex items-center">
+              <div className="flex items-center space-x-4">
                 <img src={user.picture} width={30} className="rounded-full" />
-                <p className="ml-2">{user.name}</p>
+                <p>{user.name}</p>
               </div>
               <div className="ml-auto">
                 <button
@@ -71,7 +77,10 @@ function Comment() {
                 >
                   log out
                 </button>
-                <button className="py-2 px-3 rounded bg-blue-800 text-white">
+                <button
+                  className="py-2 px-3 rounded bg-blue-800 text-white"
+                  disabled={isSubmitting}
+                >
                   Send
                 </button>
               </div>
@@ -89,16 +98,25 @@ function Comment() {
         </div>
       </form>
 
-      <div className="space-y-4 mt-6">
+      <div className="space-y-6 mt-6">
         {comments.map((comment) => {
           return (
-            <div key={comment.created_at} className="flex">
-              <div>
-                <img src={comment.picture} width={30} />
+            <div key={comment.created_at} className="flex space-x-4">
+              <div className="flex-shrink-0">
+                <img
+                  src={comment.picture}
+                  width={30}
+                  className="rounded-full"
+                />
               </div>
               <div>
                 <div>
-                  {comment.name} - {comment.created_at}
+                  <b>{comment.name}</b>{' '}
+                  <time className="text-gray-400">
+                    {formatDistanceToNowStrict(comment.created_at, {
+                      locale: tr
+                    })}
+                  </time>
                 </div>
                 <div>{comment.text}</div>
               </div>
