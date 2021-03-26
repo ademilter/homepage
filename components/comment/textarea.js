@@ -16,7 +16,7 @@ function CommentTextarea({ onSubmit, isSubmitting }) {
       <textarea
         className={styles.textarea}
         rows="2"
-        placeholder={`${user.name}, what are your thoughts?`}
+        placeholder={`What are your thoughts?`}
         onChange={(e) => textSet(e.target.value)}
         value={text}
       />
