@@ -42,41 +42,44 @@ export default function Cat() {
           />{' '}
           Live Cursors
         </label>
-        <label>
-          <input
-            type="text"
-            className="px-2 py-1"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
-        </label>
+        {showSelf && (
+          <label>
+            <input
+              type="text"
+              className="px-2 py-1"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
+          </label>
+        )}
       </div>
-      {Object.entries(cursors)
-        .filter(([key, _]) => showSelf || key !== userID)
-        .map(([userID, cursor]) => (
-          <div
-            key={userID}
-            className="absolute left-0 top-0 select-none pointer-events-none"
-            style={{
-              transition: 'transform 0.025s ease-out',
-              transform: `translate3d(${cursor?.x - 4}px, ${
-                cursor?.y - 4
-              }px, 0px)`,
-              color: cursor?.color || 'black'
-            }}
-          >
-            <Cursor />
+      {showSelf &&
+        Object.entries(cursors)
+          .filter(([key, _]) => showSelf || key !== userID)
+          .map(([userID, cursor]) => (
             <div
-              className="absolute z-50 overflow-auto py-0 px-1 text-white text-sm"
+              key={userID}
+              className="absolute left-0 top-0 select-none pointer-events-none"
               style={{
-                transform: 'translate3d(16px, -4px, 0px)',
-                backgroundColor: cursor?.color
+                transition: 'transform 0.025s ease-out',
+                transform: `translate3d(${cursor?.x - 4}px, ${
+                  cursor?.y - 4
+                }px, 0px)`,
+                color: cursor?.color || 'black'
               }}
             >
-              {cursor.name}
+              <Cursor />
+              <div
+                className="absolute z-50 overflow-auto py-0 px-1 text-white text-sm"
+                style={{
+                  transform: 'translate3d(16px, -4px, 0px)',
+                  backgroundColor: cursor?.color
+                }}
+              >
+                {cursor.name}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
     </div>
   )
 }
