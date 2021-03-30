@@ -81,7 +81,7 @@ export default class MyDocument extends NextDocument {
           )}
         </Head>
 
-        <body>
+        <body className="cursor-none">
           <Main />
           <NextScript />
         </body>

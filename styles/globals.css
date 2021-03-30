@@ -13,6 +13,7 @@
   html {
     scroll-behavior: smooth;
   }
+
 }
 
 @layer components {
@@ -29,5 +30,11 @@
   .text-highlight {
     @apply text-gray-900
     dark:text-gray-50;
+  }
+}
+
+@layer utilities {
+  .cursor-none {
+    cursor: none;
   }
 }
