@@ -12,54 +12,38 @@ const pickRandom = (list) => list[Math.floor(Math.random() * list.length)]
 export default function Cat() {
   const { x, y } = useMousePosition()
   const [cursors, cursorsClient] = usePresence('cursors-room', 'joined')
-  const [showSelf, setShowSelf] = useState(true)
-  const [color, setColor] = useState(null)
-  const [name, setName] = useState('Anonymous')
+  const [showLiveCursors, showLiveCursorsSet] = useState(true)
+  const [color, colorSet] = useState(null)
 
   const userID = useUserID()
 
   useEffect(() => {
-    setColor(pickRandom(COLORS))
+    colorSet(pickRandom(COLORS))
   }, [])
 
   useInterval(() => {
-    cursorsClient.set({ x, y, color, name })
+    cursorsClient.set({ x, y, color })
   }, 25)
-
-  const onToggleCursors = (e) => {
-    setShowSelf(e.target.checked)
-    document.querySelector('body').classList.toggle('cursor-none')
-  }
 
   return (
     <div>
-      <div className="fixed z-10 right-4 bottom-4 space-y-2 flex flex-col p-4 dark:bg-gray-700">
+      <div className="fixed z-10 right-4 bottom-4 px-4 py-2 rounded-sm bg-gray-100 dark:bg-gray-700">
         <label>
           <input
             type="checkbox"
-            onChange={onToggleCursors}
-            checked={showSelf}
+            onChange={(e) => showLiveCursorsSet(e.target.checked)}
+            checked={showLiveCursors}
           />{' '}
           Live Cursors
         </label>
-        {showSelf && (
-          <label>
-            <input
-              type="text"
-              className="px-2 py-1"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
-            />
-          </label>
-        )}
       </div>
-      {showSelf &&
+      {showLiveCursors &&
         Object.entries(cursors)
-          .filter(([key, _]) => showSelf || key !== userID)
+          .filter(([key, _]) => key !== userID)
           .map(([userID, cursor]) => (
             <div
               key={userID}
-              className="absolute left-0 top-0 select-none pointer-events-none"
+              className="absolute left-0 top-0 select-none pointer-events-none opacity-50"
               style={{
                 transition: 'transform 0.025s ease-out',
                 transform: `translate3d(${cursor?.x - 4}px, ${
@@ -69,15 +53,6 @@ export default function Cat() {
               }}
             >
               <Cursor />
-              <div
-                className="absolute z-50 overflow-auto py-0 px-1 text-white text-sm"
-                style={{
-                  transform: 'translate3d(16px, -4px, 0px)',
-                  backgroundColor: cursor?.color
-                }}
-              >
-                {cursor.name}
-              </div>
             </div>
           ))}
     </div>

@@ -32,9 +32,3 @@
     dark:text-gray-50;
   }
 }
-
-@layer utilities {
-  .cursor-none {
-    cursor: none;
-  }
-}

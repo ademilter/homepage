@@ -1,7 +1,7 @@
 const Cursor = (props) => {
   return (
     <svg
-      width="22"
+      width="24"
       viewBox="0 0 30 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
