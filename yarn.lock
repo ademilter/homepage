@@ -1884,28 +1884,6 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@roomservice/browser@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@roomservice/browser/-/browser-3.0.4.tgz#cbacf71b2ed29c7ab337042e9191b954182cbdf3"
-  integrity sha512-vbnCNz4/iwQQcYNxfrTDIB+7CboQ/Rq1DlBL/SHRNSro2kahlnztLDheRCqKr6mLbFq7hguBQ2hstBBcRXm/eA==
-  dependencies:
-    "@roomservice/core" "0.3.2"
-    tiny-invariant "^1.1.0"
-
-"@roomservice/core@0.3.2":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@roomservice/core/-/core-0.3.2.tgz#a3af2a760ecc14863a03ce8f3524ca4257d0fa66"
-  integrity sha512-F4nEw9puvnW2B9N6DxjyXniahJSPx3WWrBEXZYtUKu89DlVsUkvDyEsoozXpAtA5Khj1CICvZIMKj+ba5PdTXg==
-  dependencies:
-    tiny-invariant "^1.1.0"
-
-"@roomservice/react@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@roomservice/react/-/react-1.0.6.tgz#0dbd1028e4278fc139aec63605336c4b93448944"
-  integrity sha512-u1NtnYHxJw3xsUkSeCgOuShHtRlAhj+c8zuTJ7sNpd4hz9d8udi4drOaiYOfdMGANdoNZE4GG9tD19Tjc8+mrg==
-  dependencies:
-    "@roomservice/browser" "^3.0.4"
-
 "@surma/rollup-plugin-off-main-thread@^1.4.1":
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-1.4.2.tgz#e6786b6af5799f82f7ab3a82e53f6182d2b91a58"
@@ -5099,11 +5077,6 @@ timers-browserify@^2.0.4:
   integrity sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==
   dependencies:
     setimmediate "^1.0.4"
-
-tiny-invariant@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
-  integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
