@@ -64,6 +64,13 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
 
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS Feed for feyz.li"
+            href="/feed.xml"
+          />
+
           {/* analytic */}
           {SiteConfig.googleAnalytic && (
             <>
