@@ -8,3 +8,4 @@ public/workbox*
 out/
 .env
 .env.local
+public/feed.xml

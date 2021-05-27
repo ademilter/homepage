@@ -6,6 +6,7 @@ import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
 import PageTitle from '@comp/page-title'
+import rssGenerate from '../scripts/bookmark-rss'
 
 function BookmarkPage({ data, weeks }) {
   return (
@@ -39,12 +40,13 @@ function BookmarkPage({ data, weeks }) {
 
 export async function getStaticProps() {
   const data = await getBookmark()
+  await rssGenerate()
 
   const dataGroupByDay = groupBy(data, (item) => {
     return (
       format(parseISO(item.created), 'w', {
         locale: tr
-      }) - 1 // todo: -1'e neden gerek var?
+      }) - 1 // TODO: -1'e neden gerek var?
     )
   })
 
