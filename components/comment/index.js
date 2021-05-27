@@ -3,7 +3,6 @@ import { useState } from 'react'
 import CommentTextarea from '@comp/comment/textarea'
 import CommentList from '@comp/comment/list'
 import useSWR, { mutate } from 'swr'
-import fetcher from '@lib/fetcher'
 
 function Comments() {
   const { getAccessTokenSilently } = useAuth0()
@@ -13,7 +12,7 @@ function Comments() {
   const urlParams = new URLSearchParams(Object.entries({ url }))
   const fetchCommentUrl = `/api/comment?${urlParams}`
 
-  const { data, isValidating } = useSWR(fetchCommentUrl, fetcher, {
+  const { data, isValidating } = useSWR(fetchCommentUrl, {
     initialData: [],
     revalidateOnMount: true
   })
