@@ -20,8 +20,8 @@ function HomePage() {
           </p>
 
           <p className="text-xl">
-            Youtube kanalımda sektördeki eski teknoloji ve alışkanlıkları
-            yenilerle değiştirmek için modern türkçe içerikler üretiyorum.
+            Sektördeki eski teknoloji ve alışkanlıkları
+            yenilerle değiştirmek için youtube kanalımda modern türkçe içerikler üretiyorum.
           </p>
         </div>
 
