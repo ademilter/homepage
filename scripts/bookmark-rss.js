@@ -3,15 +3,15 @@ const fetch = require('isomorphic-unfetch')
 const RSS = require('rss')
 const fs = require('fs')
 
-const URL = [
-  'https://api.raindrop.io/rest/v1/raindrops/0',
-  '?perpage=50',
-  '&search=[{"key":"tag","val":"history"}]',
-  '&sort=-created'
-].join('')
+const getBookmark = async () => {
+  const query = [
+    `https://api.raindrop.io/rest/v1/raindrops/0`,
+    `?perpage=50`,
+    `&search=[{"key":"tag","val":"history"}]`,
+    `&sort=-created`
+  ].join('')
 
-async function getBookmark() {
-  const res = await fetch(URL, {
+  const res = await fetch(query, {
     method: 'get',
     headers: {
       Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`
