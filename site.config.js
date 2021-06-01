@@ -1,6 +1,6 @@
 module.exports = {
-  title: 'Next Template',
-  description: 'Next PWA Template',
+  title: 'Adem ilter',
+  description: 'Web uygulamaları yapıyorum',
   lang: 'tr',
   siteUrl: 'https://ademilter.com',
   googleAnalytic: 'UA-17768654-1',
