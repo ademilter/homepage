@@ -46,6 +46,4 @@ async function generate() {
   await fs.writeFileSync('./public/feed.xml', feed.xml({ indent: true }))
 }
 
-generate()
-
 module.exports = generate
