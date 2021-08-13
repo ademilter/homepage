@@ -24,7 +24,7 @@
     "isomorphic-unfetch": "^3.1.0",
     "lodash.groupby": "^4.6.0",
     "nanoid": "^3.1.23",
-    "next": "^10.2.3",
+    "next": "^11.1.0",
     "next-mdx": "^0.6.0",
     "next-pwa": "^5.2.21",
     "preact": "^10.5.13",
