@@ -6,6 +6,7 @@ import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
 import PageTitle from '@comp/page-title'
+import { Bookmark } from '@type/bookmark'
 
 function BookmarkPage({ data, weeks }) {
   return (
@@ -38,14 +39,16 @@ function BookmarkPage({ data, weeks }) {
 }
 
 export async function getStaticProps() {
-  const data = await getBookmark()
+  const data: [Bookmark] = await getBookmark()
 
-  const dataGroupByDay = groupBy(data, (item) => {
-    return (
-      format(parseISO(item.created), 'w', {
-        locale: tr
-      }) - 1 // TODO: -1'e neden gerek var?
-    )
+  console.log(data.length)
+
+  const dataGroupByDay = groupBy(data, (item: Bookmark) => {
+    const weekNumber: string = format(parseISO(item.created), 'w', {
+      locale: tr
+    })
+    // TODO: -1'e neden gerek var?
+    return parseInt(weekNumber) - 1
   })
 
   const weeks = Object.keys(dataGroupByDay)

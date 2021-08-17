@@ -1,7 +1,7 @@
 {
   "name": "ademilter-website",
-  "private": true,
   "description": "my personal website",
+  "private": true,
   "version": "0.1.0",
   "author": "Adem ilter <ademilter@gmail.com>",
   "license": "MIT",
@@ -11,33 +11,37 @@
     "start": "next start"
   },
   "dependencies": {
-    "@auth0/auth0-react": "^1.5.0",
+    "@auth0/auth0-react": "^1.6.0",
     "@tailwindcss/typography": "^0.4.1",
     "airtable": "^0.11.1",
     "classnames": "^2.3.1",
     "colcade": "^0.2.0",
     "comma-number": "^2.1.0",
-    "date-fns": "^2.21.3",
+    "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "framer-motion": "^3.10.6",
-    "ioredis": "^4.27.3",
+    "ioredis": "^4.27.7",
     "isomorphic-unfetch": "^3.1.0",
     "lodash.groupby": "^4.6.0",
-    "nanoid": "^3.1.23",
-    "next": "^10.2.3",
-    "next-mdx": "^0.6.0",
-    "next-pwa": "^5.2.21",
-    "preact": "^10.5.13",
+    "nanoid": "^3.1.25",
+    "next": "^11.1.0",
+    "next-mdx": "^0.6.1",
+    "next-pwa": "^5.2.25",
+    "preact": "^10.5.14",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "swr": "^0.5.6"
   },
   "devDependencies": {
     "@tailwindcss/jit": "^0.1.18",
-    "autoprefixer": "^10.2.6",
-    "postcss": "^8.3.0",
-    "prettier": "^2.3.0",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.3.1",
+    "postcss": "^8.3.6",
+    "prettier": "^2.3.2",
     "rss": "^1.2.2",
-    "tailwindcss": "^2.1.2"
+    "tailwindcss": "^2.2.7",
+    "typescript": "^4.3.5"
   }
 }
