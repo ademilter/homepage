@@ -1,3 +1,5 @@
+import { Bookmark } from '@type/bookmark'
+
 const getBookmark = async (page = 0) => {
   const query = [
     `https://api.raindrop.io/rest/v1/raindrops/0`,
@@ -14,7 +16,7 @@ const getBookmark = async (page = 0) => {
     }
   })
   const data = await res.json()
-  let bookmarks = data.items
+  let bookmarks: [Bookmark] = data.items
 
   if (bookmarks.length > 0) {
     return bookmarks.concat(await getBookmark(page + 1))

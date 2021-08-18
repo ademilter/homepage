@@ -41,8 +41,6 @@ function BookmarkPage({ data, weeks }) {
 export async function getStaticProps() {
   const data: [Bookmark] = await getBookmark()
 
-  console.log(data.length)
-
   const dataGroupByDay = groupBy(data, (item: Bookmark) => {
     const weekNumber: string = format(parseISO(item.created), 'w', {
       locale: tr
