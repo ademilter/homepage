@@ -30,18 +30,17 @@
     "preact": "^10.5.14",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "swr": "^0.5.6"
+    "swr": "^1.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/jit": "^0.1.18",
-    "@types/node": "^16.6.1",
-    "@types/react": "^17.0.18",
+    "@types/node": "^16.7.4",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
-    "autoprefixer": "^10.3.1",
+    "autoprefixer": "^10.3.3",
     "postcss": "^8.3.6",
     "prettier": "^2.3.2",
     "rss": "^1.2.2",
-    "tailwindcss": "^2.2.7",
-    "typescript": "^4.3.5"
+    "tailwindcss": "^2.2.8",
+    "typescript": "^4.4.2"
   }
 }
