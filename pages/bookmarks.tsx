@@ -7,6 +7,7 @@ import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
 import PageTitle from '@comp/page-title'
 import { Bookmark } from '@type/bookmark'
+import ms from 'ms'
 
 function BookmarkPage({ data, weeks }) {
   return (
@@ -58,7 +59,7 @@ export async function getStaticProps() {
       data: dataGroupByDay,
       weeks
     },
-    revalidate: 600
+    revalidate: ms('6h')
   }
 }
 

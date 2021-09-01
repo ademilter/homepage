@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import SiteConfig from '../site.config'
 import MetricCard from '@comp/metric-card'
 import PageTitle from '@comp/page-title'
+import ms from 'ms'
 const Photos = dynamic(() => import('@comp/photos'), {
   ssr: false
 })
@@ -50,7 +51,7 @@ export async function getStaticProps() {
       photos,
       stats
     },
-    revalidate: 6000
+    revalidate: ms('1d')
   }
 }
 

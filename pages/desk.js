@@ -2,6 +2,7 @@ import { getTable } from '@lib/airtable'
 import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
 import PageTitle from '@comp/page-title'
+import ms from 'ms'
 
 function DeskPage({ cover, data }) {
   return (
@@ -60,8 +61,7 @@ export async function getStaticProps() {
     props: {
       cover,
       data: [...general, ...home]
-    },
-    revalidate: 600
+    }
   }
 }
 

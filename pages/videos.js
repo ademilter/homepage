@@ -3,6 +3,7 @@ import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
 import A from '@comp/a'
 import PageTitle from '@comp/page-title'
+import ms from 'ms'
 
 function VideosPage({ data }) {
   return (
@@ -55,8 +56,7 @@ export async function getStaticProps() {
   return {
     props: {
       data
-    },
-    revalidate: 600
+    }
   }
 }
 
