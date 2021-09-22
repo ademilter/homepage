@@ -1,6 +1,6 @@
 import { useHydrate } from 'next-mdx/client'
 import { getMdxNode, getMdxPaths } from 'next-mdx/server'
-import { mdxComponents } from 'components/mdx-components'
+import { mdxComponents } from '@comp/mdx-components'
 import React from 'react'
 import PageTransition from '@comp/page-transition'
 import dynamic from 'next/dynamic'

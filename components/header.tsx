@@ -7,9 +7,10 @@ const MENU = {
   '/': 'Giriş',
   '/photos': 'Fotoğraf',
   '/videos': 'Eğitim',
-  '/notes': 'Notlar',
+  // '/notes': 'Notlar',
   '/desk': 'Masam',
-  '/bookmarks': 'Yer imleri'
+  '/bookmarks': 'Yer imleri',
+  '/moodboard': 'Moodboard'
   // { name: 'Hakkımda', url: '/about' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
