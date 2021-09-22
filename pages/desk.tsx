@@ -3,10 +3,15 @@ import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
 import PageTitle from '@comp/page-title'
 import ms from 'ms'
+import Head from 'next/head'
 
 function DeskPage({ cover, data }) {
   return (
     <PageTransition>
+      <Head>
+        <title>Desk - Adem ilter</title>
+      </Head>
+
       <div className="c-small">
         <PageTitle>
           İşlerimi yaparken ve günlük hayatta sık kullandığım araçların listesi.

@@ -4,6 +4,7 @@ import { mdxComponents } from 'components/mdx-components'
 import React from 'react'
 import PageTransition from '@comp/page-transition'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 const Comments = dynamic(() => import('@comp/comment'), { ssr: false })
 
 function PostPage({ post }) {
@@ -13,6 +14,10 @@ function PostPage({ post }) {
 
   return (
     <PageTransition>
+      <Head>
+        <title>{post.frontMatter.title} - Adem ilter</title>
+      </Head>
+
       <div className="c-small">
         <article>
           <header>

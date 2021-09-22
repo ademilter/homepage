@@ -2,10 +2,15 @@ import { getAllNodes } from 'next-mdx'
 import NextLink from 'next/link'
 import PageTransition from '@comp/page-transition'
 import PageTitle from '@comp/page-title'
+import Head from 'next/head'
 
 function NotePage({ posts }) {
   return (
     <PageTransition>
+      <Head>
+        <title>Notes - Adem ilter</title>
+      </Head>
+
       <div className="c-small">
         <PageTitle>Kendime notlar</PageTitle>
         <p>

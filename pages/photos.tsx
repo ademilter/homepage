@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import SiteConfig from '../site.config'
 import MetricCard from '@comp/metric-card'
 import PageTitle from '@comp/page-title'
+import Head from 'next/head'
 
 const Photos = dynamic(() => import('@comp/photos'), {
   ssr: false
@@ -12,6 +13,10 @@ const Photos = dynamic(() => import('@comp/photos'), {
 function PhotosPage({ photos, stats }) {
   return (
     <PageTransition>
+      <Head>
+        <title>Photos - Adem ilter</title>
+      </Head>
+
       <div className="c-small">
         <PageTitle>
           Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem

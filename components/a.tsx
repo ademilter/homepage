@@ -1,6 +1,14 @@
 import cn from 'classnames'
+import { ReactNode } from 'react'
 
-function A({ children, href, blank, className, ...props }) {
+export type Props = {
+  children: ReactNode
+  href: string
+  blank: boolean
+  className?: string
+}
+
+function A({ children, href, blank, className, ...props }: Props) {
   const isBlank = blank
     ? {
         rel: 'noopener noreferrer',

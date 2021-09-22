@@ -3,11 +3,15 @@ import NextImage from 'next/image'
 import PageTransition from '@comp/page-transition'
 import A from '@comp/a'
 import PageTitle from '@comp/page-title'
-import ms from 'ms'
+import Head from 'next/head'
 
 function VideosPage({ data }) {
   return (
     <PageTransition>
+      <Head>
+        <title>Videos - Adem ilter</title>
+      </Head>
+
       <div className="c-small">
         <PageTitle>
           Yazılım, Tasarım ve Tecrübelerimi paylaştığım videoların listesi. Bu
