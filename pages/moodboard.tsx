@@ -5,7 +5,9 @@ import { Dropmark } from 'types/dropmark'
 import Head from 'next/head'
 
 function Moodboard() {
-  const { data, error, isValidating } = useSWR('/api/moodboard')
+  const { data, error, isValidating } = useSWR('/api/moodboard', {
+    revalidateOnFocus: false
+  })
 
   if (isValidating) {
     return <div>Loading</div>
