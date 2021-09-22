@@ -4,9 +4,35 @@ import useSWR from 'swr'
 import { Dropmark } from 'types/dropmark'
 import Head from 'next/head'
 
-function MoodboardPage() {
-  const { data } = useSWR('/api/moodboard')
+function Moodboard() {
+  const { data, error, isValidating } = useSWR('/api/moodboard')
 
+  if (isValidating) {
+    return <div>Loading</div>
+  }
+
+  if (!isValidating && error) {
+    return <div>{error}</div>
+  }
+
+  return (
+    <div className="grid sm:grid-cols-2 gap-8">
+      {data.map((item: Dropmark) => {
+        return (
+          <div key={item.id} className="mb-8">
+            <img
+              src={item.content}
+              width={item.metadata.width}
+              height={item.metadata.height}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+function MoodboardPage() {
   return (
     <PageTransition>
       <Head>
@@ -22,23 +48,7 @@ function MoodboardPage() {
       </div>
 
       <div className="c-large mt-20">
-        {data ? (
-          <div className="grid sm:grid-cols-2 gap-8">
-            {data.map((item: Dropmark) => {
-              return (
-                <div key={item.id} className="mb-8">
-                  <img
-                    src={item.content}
-                    width={item.metadata.width}
-                    height={item.metadata.height}
-                  />
-                </div>
-              )
-            })}
-          </div>
-        ) : (
-          <div>Ups!</div>
-        )}
+        <Moodboard />
       </div>
     </PageTransition>
   )
