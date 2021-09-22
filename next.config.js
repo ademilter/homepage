@@ -9,22 +9,15 @@ const nextConfig = (phase) => {
       API_URL: isDev ? 'http://localhost:3000' : 'https://ademilter.com'
     },
     images: {
-      domains: ['dl.airtable.com', 'images.unsplash.com']
+      domains: [
+        'cdn2.dropmarkusercontent.com',
+        'dl.airtable.com',
+        'images.unsplash.com'
+      ]
     },
     pwa: {
       dest: 'public',
       disable: isDev
-    },
-    webpack: (config, { dev, isServer }) => {
-      // Replace React with Preact only in client production build
-      if (!dev && !isServer) {
-        Object.assign(config.resolve.alias, {
-          react: 'preact/compat',
-          'react-dom/test-utils': 'preact/test-utils',
-          'react-dom': 'preact/compat'
-        })
-      }
-      return config
     }
   }
 }
