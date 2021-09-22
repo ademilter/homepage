@@ -1,6 +1,6 @@
-import React from 'react'
-import A from 'components/a'
-import commaNumber from 'comma-number'
+import React from 'react';
+import A from 'components/a';
+import commaNumber from 'comma-number';
 
 function MetricCard({ children, href, data }) {
   return (
@@ -16,7 +16,7 @@ function MetricCard({ children, href, data }) {
         {commaNumber(data)}
       </p>
     </div>
-  )
+  );
 }
 
-export default MetricCard
+export default MetricCard;

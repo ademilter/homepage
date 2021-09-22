@@ -1,8 +1,8 @@
-import PageTransition from 'components/page-transition'
-import PageTitle from 'components/page-title'
-import { Dropmark } from 'types/dropmark'
-import Head from 'next/head'
-import { getDropmark } from '../lib/dropmark'
+import PageTransition from 'components/page-transition';
+import PageTitle from 'components/page-title';
+import { Dropmark } from 'types/dropmark';
+import Head from 'next/head';
+import { getDropmark } from '../lib/dropmark';
 
 function MoodboardPage({ items }) {
   return (
@@ -30,23 +30,23 @@ function MoodboardPage({ items }) {
                   height={item.metadata.height}
                 />
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </PageTransition>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const items: [Dropmark] = await getDropmark()
+  const items: [Dropmark] = await getDropmark();
 
   return {
     props: {
-      items
+      items,
     },
-    revalidate: 7200
-  }
+    revalidate: 7200,
+  };
 }
 
-export default MoodboardPage
+export default MoodboardPage;

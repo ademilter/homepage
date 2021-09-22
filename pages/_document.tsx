@@ -1,9 +1,9 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import SiteConfig from '../site.config'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import SiteConfig from '../site.config';
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
-    return NextDocument.getInitialProps(ctx)
+    return NextDocument.getInitialProps(ctx);
   }
 
   render() {
@@ -81,7 +81,7 @@ export default class MyDocument extends NextDocument {
               <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
-                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${SiteConfig.googleAnalytic}');`
+                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${SiteConfig.googleAnalytic}');`,
                 }}
               />
             </>
@@ -93,6 +93,6 @@ export default class MyDocument extends NextDocument {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

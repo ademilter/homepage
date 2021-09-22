@@ -1,6 +1,5 @@
 .textarea {
-  @apply
-  flex
+  @apply flex
   w-full
   max-h-40
   p-3
@@ -18,15 +17,14 @@
 
   dark:bg-gray-500
   dark:placeholder-gray-900
-  dark:focus:bg-gray-300
+  dark:focus:bg-gray-300;
 }
 
 .button {
-  @apply
-  py-2 px-4
+  @apply py-2 px-4
   rounded
   bg-blue-800
   text-white
 
-  disabled:opacity-40
+  disabled:opacity-40;
 }

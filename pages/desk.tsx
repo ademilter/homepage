@@ -1,9 +1,9 @@
-import { getTable } from 'lib/airtable'
-import NextImage from 'next/image'
-import PageTransition from 'components/page-transition'
-import PageTitle from 'components/page-title'
-import ms from 'ms'
-import Head from 'next/head'
+import { getTable } from 'lib/airtable';
+import NextImage from 'next/image';
+import PageTransition from 'components/page-transition';
+import PageTitle from 'components/page-title';
+import ms from 'ms';
+import Head from 'next/head';
 
 function DeskPage({ cover, data }) {
   return (
@@ -47,27 +47,27 @@ function DeskPage({ cover, data }) {
                   <p className="text-gray-500">{item.Description}</p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </PageTransition>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const data = await getTable('Gear')
+  const data = await getTable('Gear');
 
-  const cover = data.filter((o) => o.Category === 'Cover')
-  const general = data.filter((o) => o.Category === 'General')
-  const home = data.filter((o) => o.Category === 'Home')
+  const cover = data.filter((o) => o.Category === 'Cover');
+  const general = data.filter((o) => o.Category === 'General');
+  const home = data.filter((o) => o.Category === 'Home');
 
   return {
     props: {
       cover,
-      data: [...general, ...home]
-    }
-  }
+      data: [...general, ...home],
+    },
+  };
 }
 
-export default DeskPage
+export default DeskPage;

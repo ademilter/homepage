@@ -1,7 +1,7 @@
-import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
-import parseISO from 'date-fns/parseISO'
-import { tr } from 'date-fns/locale'
-import A from 'components/a'
+import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
+import parseISO from 'date-fns/parseISO';
+import { tr } from 'date-fns/locale';
+import A from 'components/a';
 
 function BookmarkCard(item) {
   return (
@@ -20,12 +20,12 @@ function BookmarkCard(item) {
         <span>
           {formatDistanceToNowStrict(parseISO(item.created), {
             addSuffix: true,
-            locale: tr
+            locale: tr,
           })}
         </span>
       </div>
     </div>
-  )
+  );
 }
 
-export default BookmarkCard
+export default BookmarkCard;

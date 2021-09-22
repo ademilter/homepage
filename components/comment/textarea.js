@@ -1,13 +1,13 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import styles from './comment.module.css'
+import { useAuth0 } from '@auth0/auth0-react';
+import styles from './comment.module.css';
 
 function CommentTextarea({ text, textSet, onSubmit, isSubmitting }) {
-  const { isAuthenticated, loginWithPopup } = useAuth0()
+  const { isAuthenticated, loginWithPopup } = useAuth0();
 
   const onBeforeSubmit = async (e) => {
-    e.preventDefault()
-    onSubmit(text)
-  }
+    e.preventDefault();
+    onSubmit(text);
+  };
 
   return (
     <form onSubmit={onBeforeSubmit}>
@@ -37,7 +37,7 @@ function CommentTextarea({ text, textSet, onSubmit, isSubmitting }) {
         )}
       </div>
     </form>
-  )
+  );
 }
 
-export default CommentTextarea
+export default CommentTextarea;

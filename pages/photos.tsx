@@ -1,14 +1,14 @@
-import unsplash from 'lib/unsplash'
-import PageTransition from 'components/page-transition'
-import dynamic from 'next/dynamic'
-import SiteConfig from '../site.config'
-import MetricCard from 'components/metric-card'
-import PageTitle from 'components/page-title'
-import Head from 'next/head'
+import unsplash from 'lib/unsplash';
+import PageTransition from 'components/page-transition';
+import dynamic from 'next/dynamic';
+import SiteConfig from '../site.config';
+import MetricCard from 'components/metric-card';
+import PageTitle from 'components/page-title';
+import Head from 'next/head';
 
 const Photos = dynamic(() => import('components/photos'), {
-  ssr: false
-})
+  ssr: false,
+});
 
 function PhotosPage({ photos, stats }) {
   return (
@@ -44,20 +44,20 @@ function PhotosPage({ photos, stats }) {
         <Photos data={photos} />
       </div>
     </PageTransition>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const photos = await unsplash.getPhotos()
-  const stats = await unsplash.getStats()
+  const photos = await unsplash.getPhotos();
+  const stats = await unsplash.getStats();
 
   return {
     props: {
       photos,
-      stats
+      stats,
     },
-    revalidate: 86400
-  }
+    revalidate: 86400,
+  };
 }
 
-export default PhotosPage
+export default PhotosPage;

@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import IconMenu from 'components/icons/menu'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import IconMenu from 'components/icons/menu';
 
 const MENU = {
   '/': 'Giriş',
@@ -10,22 +10,22 @@ const MENU = {
   // '/notes': 'Notlar',
   '/desk': 'Masam',
   '/bookmarks': 'Yer imleri',
-  '/moodboard': 'Moodboard'
+  '/moodboard': 'Moodboard',
   // { name: 'Hakkımda', url: '/about' },
   // { name: 'S.S.S.', url: '/faq' },
   // { name: 'Alıntılar', url: '/quotes' },
-}
+};
 
 function Header() {
-  const [showNav, showNavSet] = useState(false)
-  const router = useRouter()
-  const splitPath = router.pathname.split('/')
-  const pathname = splitPath.length > 2 ? `/${splitPath[1]}` : router.pathname
-  const activePage = MENU[pathname]
+  const [showNav, showNavSet] = useState(false);
+  const router = useRouter();
+  const splitPath = router.pathname.split('/');
+  const pathname = splitPath.length > 2 ? `/${splitPath[1]}` : router.pathname;
+  const activePage = MENU[pathname];
 
   useEffect(() => {
-    showNavSet(false)
-  }, [router.pathname])
+    showNavSet(false);
+  }, [router.pathname]);
 
   return (
     <header className="pt-6">
@@ -41,7 +41,7 @@ function Header() {
                 <Link key={url} href={url}>
                   <a>{MENU[url]}</a>
                 </Link>
-              )
+              );
             })}
           </nav>
         ) : (
@@ -49,7 +49,7 @@ function Header() {
             type="button"
             className="flex items-center"
             onClick={() => {
-              showNavSet(true)
+              showNavSet(true);
             }}
           >
             <IconMenu />
@@ -58,7 +58,7 @@ function Header() {
         )}
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

@@ -1,10 +1,10 @@
-import 'styles/globals.css'
+import 'styles/globals.css';
 
-import Head from 'next/head'
-import Header from 'components/header'
-import Footer from 'components/footer'
-import { Auth0Provider } from '@auth0/auth0-react'
-import { SWRConfig } from 'swr'
+import Head from 'next/head';
+import Header from 'components/header';
+import Footer from 'components/footer';
+import { Auth0Provider } from '@auth0/auth0-react';
+import { SWRConfig } from 'swr';
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }) {
       <SWRConfig
         value={{
           fetcher: (resource, init) =>
-            fetch(resource, init).then((res) => res.json())
+            fetch(resource, init).then((res) => res.json()),
         }}
       >
         <Head>
@@ -31,5 +31,5 @@ export default function MyApp({ Component, pageProps }) {
         <Footer />
       </SWRConfig>
     </Auth0Provider>
-  )
+  );
 }
