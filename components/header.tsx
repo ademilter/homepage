@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import IconMenu from '@comp/icons/menu'
+import IconMenu from 'components/icons/menu'
 
 const MENU = {
   '/': 'Giriş',

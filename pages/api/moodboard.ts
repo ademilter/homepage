@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { Dropmark } from '@type/dropmark'
+import { Dropmark } from 'types/dropmark'
 
 export default async function handler(
   req: NextApiRequest,

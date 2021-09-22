@@ -1,4 +1,4 @@
-import { Bookmark } from '@type/bookmark'
+import { Bookmark } from 'types/bookmark'
 
 const getBookmark = async (page = 0) => {
   const query = [

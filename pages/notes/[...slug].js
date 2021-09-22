@@ -1,11 +1,11 @@
 import { useHydrate } from 'next-mdx/client'
 import { getMdxNode, getMdxPaths } from 'next-mdx/server'
-import { mdxComponents } from '@comp/mdx-components'
+import { mdxComponents } from 'components/mdx-components'
 import React from 'react'
-import PageTransition from '@comp/page-transition'
+import PageTransition from 'components/page-transition'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-const Comments = dynamic(() => import('@comp/comment'), { ssr: false })
+const Comments = dynamic(() => import('components/comment'), { ssr: false })
 
 function PostPage({ post }) {
   const content = useHydrate(post, {

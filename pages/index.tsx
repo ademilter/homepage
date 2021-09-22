@@ -1,7 +1,7 @@
 import NextImage from 'next/image'
-import PageTransition from '@comp/page-transition'
-import Social from '@comp/social'
-import A from '@comp/a'
+import PageTransition from 'components/page-transition'
+import Social from 'components/social'
+import A from 'components/a'
 
 function HomePage() {
   return (
@@ -20,8 +20,8 @@ function HomePage() {
           </p>
 
           <p className="text-xl">
-            Sektördeki eski teknoloji ve alışkanlıkları
-            yenilerle değiştirmek için youtube kanalımda modern türkçe içerikler üretiyorum.
+            Sektördeki eski teknoloji ve alışkanlıkları yenilerle değiştirmek
+            için youtube kanalımda modern türkçe içerikler üretiyorum.
           </p>
         </div>
 

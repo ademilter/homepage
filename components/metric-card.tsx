@@ -1,5 +1,5 @@
 import React from 'react'
-import A from '@comp/a'
+import A from 'components/a'
 import commaNumber from 'comma-number'
 
 function MetricCard({ children, href, data }) {

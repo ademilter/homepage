@@ -1,9 +1,9 @@
 import SiteConfig from '../site.config'
-import A from '@comp/a'
-import IconTwitter from '@comp/icons/twitter'
-import IconYoutube from '@comp/icons/youtube'
-import IconGithub from '@comp/icons/github'
-import IconInstagram from '@comp/icons/instagram'
+import A from 'components/a'
+import IconTwitter from 'components/icons/twitter'
+import IconYoutube from 'components/icons/youtube'
+import IconGithub from 'components/icons/github'
+import IconInstagram from 'components/icons/instagram'
 
 function SocialButton({ href, children }) {
   return (

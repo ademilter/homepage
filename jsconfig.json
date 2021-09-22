@@ -2,11 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@comp/*": ["components/*"],
+      "components/*": ["components/*"],
       "@data/*": ["data/*"],
-      "@lib/*": ["lib/*"],
+      "lib/*": ["lib/*"],
       "@style/*": ["styles/*"],
-      "@type/*": ["types/*"],
+      "types/*": ["types/*"],
       "@hook/*": ["hooks/*"]
     }
   }

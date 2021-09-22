@@ -1,7 +1,7 @@
-import { getTable } from '@lib/airtable'
+import { getTable } from 'lib/airtable'
 import NextImage from 'next/image'
-import PageTransition from '@comp/page-transition'
-import PageTitle from '@comp/page-title'
+import PageTransition from 'components/page-transition'
+import PageTitle from 'components/page-title'
 import ms from 'ms'
 import Head from 'next/head'
 

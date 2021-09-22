@@ -1,12 +1,12 @@
-import unsplash from '@lib/unsplash'
-import PageTransition from '@comp/page-transition'
+import unsplash from 'lib/unsplash'
+import PageTransition from 'components/page-transition'
 import dynamic from 'next/dynamic'
 import SiteConfig from '../site.config'
-import MetricCard from '@comp/metric-card'
-import PageTitle from '@comp/page-title'
+import MetricCard from 'components/metric-card'
+import PageTitle from 'components/page-title'
 import Head from 'next/head'
 
-const Photos = dynamic(() => import('@comp/photos'), {
+const Photos = dynamic(() => import('components/photos'), {
   ssr: false
 })
 

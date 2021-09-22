@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { useState } from 'react'
-import CommentTextarea from '@comp/comment/textarea'
-import CommentList from '@comp/comment/list'
+import CommentTextarea from 'components/comment/textarea'
+import CommentList from 'components/comment/list'
 import useSWR, { mutate } from 'swr'
 
 function Comments() {

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import PageTransition from '@comp/page-transition'
+import PageTransition from 'components/page-transition'
 
 function Error() {
   return (

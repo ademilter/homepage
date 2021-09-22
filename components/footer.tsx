@@ -1,5 +1,5 @@
 import React from 'react'
-import A from '@comp/a'
+import A from 'components/a'
 
 function Footer() {
   return (

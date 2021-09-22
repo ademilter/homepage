@@ -1,7 +1,7 @@
-import PageTransition from '@comp/page-transition'
-import PageTitle from '@comp/page-title'
+import PageTransition from 'components/page-transition'
+import PageTitle from 'components/page-title'
 import useSWR from 'swr'
-import { Dropmark } from '@type/dropmark'
+import { Dropmark } from 'types/dropmark'
 import Head from 'next/head'
 
 function MoodboardPage() {

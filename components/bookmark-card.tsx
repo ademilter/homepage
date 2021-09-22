@@ -1,7 +1,7 @@
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
-import A from '@comp/a'
+import A from 'components/a'
 
 function BookmarkCard(item) {
   return (

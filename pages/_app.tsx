@@ -1,8 +1,8 @@
-import '@style/globals.css'
+import 'styles/globals.css'
 
 import Head from 'next/head'
-import Header from '@comp/header'
-import Footer from '@comp/footer'
+import Header from 'components/header'
+import Footer from 'components/footer'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { SWRConfig } from 'swr'
 

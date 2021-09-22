@@ -1,7 +1,7 @@
 import { useLayoutEffect } from 'react'
 import NextImage from 'next/image'
 import Colcade from 'colcade'
-import A from '@comp/a'
+import A from 'components/a'
 
 function Photos({ data }) {
   useLayoutEffect(() => {

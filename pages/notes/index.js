@@ -1,7 +1,7 @@
 import { getAllNodes } from 'next-mdx'
 import NextLink from 'next/link'
-import PageTransition from '@comp/page-transition'
-import PageTitle from '@comp/page-title'
+import PageTransition from 'components/page-transition'
+import PageTitle from 'components/page-title'
 import Head from 'next/head'
 
 function NotePage({ posts }) {

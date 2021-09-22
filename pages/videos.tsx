@@ -1,8 +1,8 @@
-import { getTable } from '@lib/airtable'
+import { getTable } from 'lib/airtable'
 import NextImage from 'next/image'
-import PageTransition from '@comp/page-transition'
-import A from '@comp/a'
-import PageTitle from '@comp/page-title'
+import PageTransition from 'components/page-transition'
+import A from 'components/a'
+import PageTitle from 'components/page-title'
 import Head from 'next/head'
 
 function VideosPage({ data }) {

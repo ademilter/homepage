@@ -1,12 +1,12 @@
-import { getBookmark } from '@lib/raindrop'
-import BookmarkCard from '@comp/bookmark-card'
-import PageTransition from '@comp/page-transition'
+import { getBookmark } from 'lib/raindrop'
+import BookmarkCard from 'components/bookmark-card'
+import PageTransition from 'components/page-transition'
 import groupBy from 'lodash.groupby'
 import format from 'date-fns/format'
 import parseISO from 'date-fns/parseISO'
 import { tr } from 'date-fns/locale'
-import PageTitle from '@comp/page-title'
-import { Bookmark } from '@type/bookmark'
+import PageTitle from 'components/page-title'
+import { Bookmark } from 'types/bookmark'
 import Head from 'next/head'
 
 function BookmarkPage({ data, weeks }) {
