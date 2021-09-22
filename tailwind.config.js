@@ -3,7 +3,15 @@ const { spacing, fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   mode: 'jit',
-  purge: ['./pages/**/*.js', './components/**/*.js'],
+  purge: {
+    content: [
+      './pages/**/*.{js,ts,jsx,tsx}',
+      './components/**/*.{js,ts,jsx,tsx}'
+    ],
+    options: {
+      keyframes: false
+    }
+  },
   darkMode: 'media',
   theme: {
     extend: {
