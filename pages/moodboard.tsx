@@ -15,9 +15,9 @@ function MoodboardPage() {
 
       <div className="c-small">
         <PageTitle>
-          Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
-          hakkında farkındalığı, detayları görebilmemi ve doğru anı
-          yakalabilmeyi öğretiyor.
+          İyi tasarlanmış ürünleri incelemekten aşırı keyif alırım. Bu tür
+          ürünlerde gördüğüm küçük ama tatlı detayların ekran görüntülerini
+          toplayarak ilham olabilecek bir koleksiyon oluşturuyorum.
         </PageTitle>
       </div>
 
