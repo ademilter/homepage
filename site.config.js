@@ -6,7 +6,7 @@ module.exports = {
   googleAnalytic: 'UA-17768654-1',
   author: {
     email: 'ademilter@gmail.com',
-    name: 'Adem ilter'
+    name: 'Adem ilter',
   },
   social: {
     unsplash: 'https://unsplash.com/@ademilter',
@@ -17,6 +17,6 @@ module.exports = {
     github: 'https://github.com/ademilter',
     youtube: 'https://youtube.com/ademilter',
     feyz: 'https://t.me/feyzli',
-    superpeer: 'https://superpeer.com/adem'
-  }
-}
+    superpeer: 'https://superpeer.com/adem',
+  },
+};

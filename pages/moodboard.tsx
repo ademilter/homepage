@@ -1,40 +1,9 @@
 import PageTransition from 'components/page-transition';
 import PageTitle from 'components/page-title';
-import { Dropmark } from 'types/dropmark';
+import { GithubContent } from 'types/GithubContent';
 import Head from 'next/head';
-import useSWR from 'swr';
 
-function Moodboard() {
-  const { data, error, isValidating } = useSWR('/api/moodboard', {
-    revalidateOnFocus: false,
-  });
-
-  if (isValidating) {
-    return <div>Loading</div>;
-  }
-
-  if (!isValidating && error) {
-    return <div>{error}</div>;
-  }
-
-  return (
-    <div className="grid sm:grid-cols-2 gap-8">
-      {data.map((item: Dropmark) => {
-        return (
-          <div key={item.id} className="mb-8">
-            <img
-              src={item.content}
-              width={item.metadata.width}
-              height={item.metadata.height}
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function MoodboardPage() {
+function MoodboardPage({ items }) {
   return (
     <PageTransition>
       <Head>
@@ -50,21 +19,38 @@ function MoodboardPage() {
       </div>
 
       <div className="c-large mt-20">
-        <Moodboard />
+        <div className="grid sm:grid-cols-2 gap-8">
+          {items.map((item: GithubContent) => {
+            return (
+              <div key={item.sha} className="mb-8">
+                <img src={item.download_url} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </PageTransition>
   );
 }
 
-// export async function getStaticProps() {
-//   const items: [Dropmark] = await getDropmark();
-//
-//   return {
-//     props: {
-//       items,
-//     },
-//     // revalidate: 7200,
-//   };
-// }
+export async function getStaticProps() {
+  const response = await fetch(
+    'https://api.github.com/repos/ademilter/homepage/contents/content/moodboard',
+    {
+      method: 'get',
+      headers: {
+        Authorization: 'token ' + process.env.GITHUB_ACCESS_KEY,
+      },
+    }
+  );
+  const items = await response.json();
+
+  return {
+    props: {
+      items,
+    },
+    revalidate: 7200,
+  };
+}
 
 export default MoodboardPage;

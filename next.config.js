@@ -1,25 +1,25 @@
-const withPWA = require('next-pwa')
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+const withPWA = require('next-pwa');
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 const nextConfig = (phase) => {
-  const isDev = phase === PHASE_DEVELOPMENT_SERVER
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER;
 
   return {
     env: {
-      API_URL: isDev ? 'http://localhost:3000' : 'https://ademilter.com'
+      API_URL: isDev ? 'http://localhost:3000' : 'https://ademilter.com',
     },
     images: {
       domains: [
-        'cdn2.dropmarkusercontent.com',
+        'raw.githubusercontent.com',
         'dl.airtable.com',
-        'images.unsplash.com'
-      ]
+        'images.unsplash.com',
+      ],
     },
     pwa: {
       dest: 'public',
-      disable: isDev
-    }
-  }
-}
+      disable: isDev,
+    },
+  };
+};
 
-module.exports = (phase) => withPWA(nextConfig(phase))
+module.exports = (phase) => withPWA(nextConfig(phase));

@@ -6,7 +6,7 @@ import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import { tr } from 'date-fns/locale';
 import PageTitle from 'components/page-title';
-import { Bookmark } from 'types/bookmark';
+import { Bookmark } from 'types/Bookmark';
 import Head from 'next/head';
 
 function BookmarkPage({ data, weeks }) {
