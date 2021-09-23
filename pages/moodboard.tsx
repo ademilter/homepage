@@ -23,7 +23,7 @@ function MoodboardPage({ items }) {
           {items.map((item: GithubContent) => {
             return (
               <div key={item.sha} className="mb-8">
-                <img src={item.download_url} />
+                <img src={item.download_url} alt={item.name} />
               </div>
             );
           })}
@@ -34,22 +34,25 @@ function MoodboardPage({ items }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    'https://api.github.com/repos/ademilter/homepage/contents/content/moodboard',
-    {
-      method: 'get',
-      headers: {
-        Authorization: 'token ' + process.env.GITHUB_ACCESS_KEY,
-      },
-    }
-  );
-  const items = await response.json();
+  let items = [];
+
+  try {
+    const response = await fetch(
+      'https://api.github.com/repos/ademilter/homepage/contents/content/moodboard',
+      {
+        method: 'get',
+        headers: {
+          Authorization: 'token ' + process.env.GITHUB_ACCESS_KEY,
+        },
+      }
+    );
+    items = await response.json();
+  } catch (_) {}
 
   return {
     props: {
-      items,
+      items: items.reverse(),
     },
-    revalidate: 7200,
   };
 }
 
