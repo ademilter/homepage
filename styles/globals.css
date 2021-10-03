@@ -16,10 +16,6 @@
 }
 
 @layer components {
-  html {
-    @apply bg-white text-gray-600 antialiased
-    dark:bg-gray-900 dark:text-gray-400;
-  }
   .c-small {
     @apply max-w-screen-sm mx-auto px-4;
   }

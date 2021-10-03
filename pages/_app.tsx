@@ -1,6 +1,7 @@
 import 'styles/globals.css';
 
 import Head from 'next/head';
+import Kbar from 'components/Kbar';
 import Header from 'components/header';
 import Footer from 'components/footer';
 import { Auth0Provider } from '@auth0/auth0-react';
@@ -25,10 +26,13 @@ export default function MyApp({ Component, pageProps }) {
         </Head>
 
         <Header />
-        <main className="py-14">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
+
+        <Kbar>
+          <main className="py-14">
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </Kbar>
       </SWRConfig>
     </Auth0Provider>
   );

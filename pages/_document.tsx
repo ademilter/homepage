@@ -8,7 +8,11 @@ export default class MyDocument extends NextDocument {
 
   render() {
     return (
-      <Html lang={SiteConfig.lang}>
+      <Html
+        lang={SiteConfig.lang}
+        className="bg-white text-gray-600 antialiased
+      dark:bg-gray-900 dark:text-gray-400"
+      >
         <Head>
           <link
             rel="preload"
@@ -64,12 +68,12 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
 
-          <link
-            rel="alternate"
-            type="application/rss+xml"
-            title="RSS Feed for feyz.li"
-            href="/feed.xml"
-          />
+          {/*<link*/}
+          {/*  rel="alternate"*/}
+          {/*  type="application/rss+xml"*/}
+          {/*  title="RSS Feed for feyz.li"*/}
+          {/*  href="/feed.xml"*/}
+          {/*/>*/}
 
           {/* analytic */}
           {SiteConfig.googleAnalytic && (
