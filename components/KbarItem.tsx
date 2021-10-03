@@ -10,8 +10,8 @@ export default function KbarItem({ action, handlers, state }) {
       className={classNames(
         'flex items-center rounded p-3 text-gray-600 cursor-pointer transition-all',
         active && 'bg-gray-100 text-gray-900',
-        'dark:text-gray-400',
-        active && 'dark:bg-gray-700 dark:text-gray-100'
+        'dark:text-gray-500',
+        active && 'dark:bg-gray-700 dark:text-gray-50'
       )}
       {...handlers}
     >

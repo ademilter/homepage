@@ -12,7 +12,7 @@ module.exports = {
       keyframes: false,
     },
   },
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
