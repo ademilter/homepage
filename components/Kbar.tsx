@@ -138,7 +138,7 @@ export default function Kbar({ children }: Props) {
     },
     {
       id: 'moodboard',
-      name: 'Moodoard',
+      name: 'Moodboard',
       shortcut: [],
       keywords: '',
       perform: () => push('/moodboard'),
