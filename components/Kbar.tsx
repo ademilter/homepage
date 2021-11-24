@@ -67,7 +67,7 @@ export default function Kbar({ children }: Props) {
         </svg>
       ),
     },
-    {
+    /*{
       id: 'videos',
       name: 'Eğitimler',
       shortcut: [],
@@ -89,7 +89,7 @@ export default function Kbar({ children }: Props) {
           <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
         </svg>
       ),
-    },
+    },*/
     {
       id: 'desk',
       name: 'Ekipmanlar',
@@ -136,7 +136,7 @@ export default function Kbar({ children }: Props) {
         </svg>
       ),
     },
-    {
+    /*{
       id: 'moodboard',
       name: 'Moodboard',
       shortcut: [],
@@ -159,7 +159,7 @@ export default function Kbar({ children }: Props) {
           <polyline points="2 12 12 17 22 12" />
         </svg>
       ),
-    },
+    },*/
     {
       id: 'theme',
       name: 'Theme...',
