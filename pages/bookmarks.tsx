@@ -1,13 +1,11 @@
-import { getBookmark } from 'lib/raindrop';
-import BookmarkCard from 'components/bookmark-card';
-import PageTransition from 'components/page-transition';
-import groupBy from 'lodash.groupby';
-import format from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
-import { tr } from 'date-fns/locale';
-import PageTitle from 'components/page-title';
-import { Bookmark } from 'types/Bookmark';
-import Head from 'next/head';
+import { getBookmark } from 'lib/raindrop'
+import BookmarkCard from 'components/bookmark-card'
+import PageTransition from 'components/page-transition'
+import groupBy from 'lodash.groupby'
+import { parseISO, format } from 'date-fns'
+import PageTitle from 'components/page-title'
+import { Bookmark } from 'types/Bookmark'
+import Head from 'next/head'
 
 function BookmarkPage({ data, weeks }) {
   return (
@@ -33,30 +31,31 @@ function BookmarkPage({ data, weeks }) {
             </h4>
             <div className="mt-6 space-y-6">
               {data[date].map((item) => {
-                return <BookmarkCard key={item._id} {...item} />;
+                return <BookmarkCard key={item._id} {...item} />
               })}
             </div>
           </div>
         ))}
       </div>
     </PageTransition>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const data: [Bookmark] = await getBookmark();
+  const data: [Bookmark] = await getBookmark()
 
   const dataGroupByDay = groupBy(data, (item: Bookmark) => {
-    const weekNumber: string = format(parseISO(item.created), 'w', {
-      locale: tr,
-    });
-    // TODO: -1'e neden gerek var?
-    return parseInt(weekNumber) - 1;
-  });
+    const dateISO = parseISO(item.created)
+    const week = format(dateISO, 'I')
+    const month = format(dateISO, 'M')
+
+    if (month === '1' && ['52', '53'].includes(week)) return 0
+    return week
+  })
 
   const weeks = Object.keys(dataGroupByDay)
     .map((o) => parseInt(o))
-    .reverse();
+    .reverse()
 
   return {
     props: {
@@ -64,7 +63,7 @@ export async function getStaticProps() {
       weeks,
     },
     revalidate: 7200,
-  };
+  }
 }
 
-export default BookmarkPage;
+export default BookmarkPage
