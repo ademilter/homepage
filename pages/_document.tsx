@@ -1,9 +1,9 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
-import SiteConfig from '../site.config';
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import SiteConfig from '../site.config'
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
-    return NextDocument.getInitialProps(ctx);
+    return NextDocument.getInitialProps(ctx)
   }
 
   render() {
@@ -96,6 +96,6 @@ export default class MyDocument extends NextDocument {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

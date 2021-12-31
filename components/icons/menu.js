@@ -15,7 +15,7 @@ function IconMenu({ size = 28 }) {
         d="M4 8h16M4 16h16"
       />
     </svg>
-  );
+  )
 }
 
-export default IconMenu;
+export default IconMenu

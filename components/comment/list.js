@@ -1,5 +1,5 @@
-import formatDistanceToNowStrict from 'date-fns/formatDistanceToNowStrict';
-import { tr } from 'date-fns/locale';
+import { formatDistanceToNowStrict } from 'date-fns'
+import { tr } from 'date-fns/locale'
 
 function CommentList({ comments }) {
   return (
@@ -24,10 +24,10 @@ function CommentList({ comments }) {
               <div>{comment.text}</div>
             </div>
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
-export default CommentList;
+export default CommentList

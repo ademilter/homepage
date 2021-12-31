@@ -1,10 +1,10 @@
-import classNames from 'classnames';
-import * as React from 'react';
+import classNames from 'classnames'
+import * as React from 'react'
 
 type Props = {
-  className?: string;
-  children: React.ReactNode;
-};
+  className?: string
+  children: React.ReactNode
+}
 
 export default function Kbd({ className, children }: Props) {
   return (
@@ -19,5 +19,5 @@ export default function Kbd({ className, children }: Props) {
     >
       {children}
     </kbd>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-import PageTransition from 'components/page-transition';
-import PageTitle from 'components/page-title';
-import { GithubContent } from 'types/GithubContent';
-import Head from 'next/head';
+import PageTransition from 'components/page-transition'
+import PageTitle from 'components/page-title'
+import { GithubContent } from 'types/GithubContent'
+import Head from 'next/head'
 
 function MoodboardPage({ items }) {
   return (
@@ -25,16 +25,16 @@ function MoodboardPage({ items }) {
               <div key={item.sha} className="mb-8">
                 <img src={item.download_url} alt={item.name} />
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </PageTransition>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  let items = [];
+  let items = []
 
   try {
     const response = await fetch(
@@ -45,15 +45,15 @@ export async function getStaticProps() {
           Authorization: 'token ' + process.env.GITHUB_ACCESS_KEY,
         },
       }
-    );
-    items = await response.json();
+    )
+    items = await response.json()
   } catch (_) {}
 
   return {
     props: {
       items: items.reverse(),
     },
-  };
+  }
 }
 
-export default MoodboardPage;
+export default MoodboardPage

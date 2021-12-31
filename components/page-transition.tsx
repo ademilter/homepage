@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
 
 const PageTransition = (props) => (
   <motion.div
@@ -7,6 +7,6 @@ const PageTransition = (props) => (
     transition={{ duration: 0.4 }}
     {...props}
   />
-);
+)
 
-export default PageTransition;
+export default PageTransition

@@ -1,9 +1,9 @@
-import SiteConfig from '../site.config';
-import A from 'components/a';
-import IconTwitter from 'components/icons/twitter';
-import IconYoutube from 'components/icons/youtube';
-import IconGithub from 'components/icons/github';
-import IconInstagram from 'components/icons/instagram';
+import SiteConfig from '../site.config'
+import A from 'components/a'
+import IconTwitter from 'components/icons/twitter'
+import IconYoutube from 'components/icons/youtube'
+import IconGithub from 'components/icons/github'
+import IconInstagram from 'components/icons/instagram'
 
 function SocialButton({ href, children }) {
   return (
@@ -17,7 +17,7 @@ function SocialButton({ href, children }) {
     >
       {children}
     </A>
-  );
+  )
 }
 
 function Social() {
@@ -43,7 +43,7 @@ function Social() {
         <IconInstagram />
       </SocialButton>
     </div>
-  );
+  )
 }
 
-export default Social;
+export default Social

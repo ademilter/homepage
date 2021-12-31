@@ -1,16 +1,16 @@
-import { useHydrate } from 'next-mdx/client';
-import { getMdxNode, getMdxPaths } from 'next-mdx/server';
-import { mdxComponents } from 'components/mdx-components';
-import React from 'react';
-import PageTransition from 'components/page-transition';
-import dynamic from 'next/dynamic';
-import Head from 'next/head';
-const Comments = dynamic(() => import('components/comment'), { ssr: false });
+import { useHydrate } from 'next-mdx/client'
+import { getMdxNode, getMdxPaths } from 'next-mdx/server'
+import { mdxComponents } from 'components/mdx-components'
+import React from 'react'
+import PageTransition from 'components/page-transition'
+import dynamic from 'next/dynamic'
+import Head from 'next/head'
+const Comments = dynamic(() => import('components/comment'), { ssr: false })
 
 function PostPage({ post }) {
   const content = useHydrate(post, {
     components: mdxComponents,
-  });
+  })
 
   return (
     <PageTransition>
@@ -38,30 +38,30 @@ function PostPage({ post }) {
         <Comments />
       </div>
     </PageTransition>
-  );
+  )
 }
 
 export async function getStaticPaths() {
   return {
     paths: await getMdxPaths('post'),
     fallback: false,
-  };
+  }
 }
 
 export async function getStaticProps(context) {
-  const post = await getMdxNode('post', context);
+  const post = await getMdxNode('post', context)
 
   if (!post) {
     return {
       notFound: true,
-    };
+    }
   }
 
   return {
     props: {
       post,
     },
-  };
+  }
 }
 
-export default PostPage;
+export default PostPage

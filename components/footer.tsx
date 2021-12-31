@@ -1,5 +1,5 @@
-import React from 'react';
-import A from 'components/a';
+import React from 'react'
+import A from 'components/a'
 
 function Footer() {
   return (
@@ -14,7 +14,7 @@ function Footer() {
         </p>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

@@ -1,12 +1,12 @@
-import 'styles/globals.css';
+import 'styles/globals.css'
 
-import Head from 'next/head';
-import Kbar from 'components/Kbar';
-import Header from 'components/Header';
-import Footer from 'components/footer';
-import { Auth0Provider } from '@auth0/auth0-react';
-import { SWRConfig } from 'swr';
-import { ThemeProvider } from 'next-themes';
+import Head from 'next/head'
+import Kbar from 'components/Kbar'
+import Header from 'components/Header'
+import Footer from 'components/footer'
+import { Auth0Provider } from '@auth0/auth0-react'
+import { SWRConfig } from 'swr'
+import { ThemeProvider } from 'next-themes'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -40,5 +40,5 @@ export default function MyApp({ Component, pageProps }) {
         </SWRConfig>
       </ThemeProvider>
     </Auth0Provider>
-  );
+  )
 }

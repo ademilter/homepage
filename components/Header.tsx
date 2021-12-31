@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
-import IconMenu from 'components/icons/menu';
-import { useKBar, VisualState } from 'kbar';
+import { useRouter } from 'next/router'
+import IconMenu from 'components/icons/menu'
+import { useKBar, VisualState } from 'kbar'
 
 const MENU = {
   '/': 'Giriş',
@@ -9,14 +9,14 @@ const MENU = {
   '/desk': 'Masam',
   '/bookmarks': 'Yer imleri',
   '/moodboard': 'Moodboard',
-};
+}
 
 function Header() {
-  const { query } = useKBar();
-  const router = useRouter();
-  const splitPath = router.pathname.split('/');
-  const pathname = splitPath.length > 2 ? `/${splitPath[1]}` : router.pathname;
-  const activePage = MENU[pathname];
+  const { query } = useKBar()
+  const router = useRouter()
+  const splitPath = router.pathname.split('/')
+  const pathname = splitPath.length > 2 ? `/${splitPath[1]}` : router.pathname
+  const activePage = MENU[pathname]
 
   return (
     <header className="pt-6">
@@ -29,7 +29,7 @@ function Header() {
               [VisualState.animatingOut, VisualState.hidden].includes(vs)
                 ? VisualState.animatingIn
                 : VisualState.animatingOut
-            );
+            )
           }}
         >
           <IconMenu />
@@ -37,7 +37,7 @@ function Header() {
         </button>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

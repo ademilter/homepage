@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 import {
   KBarAnimator,
   KBarPortal,
@@ -6,19 +6,19 @@ import {
   KBarProvider,
   KBarResults,
   KBarSearch,
-} from 'kbar';
-import { useRouter } from 'next/router';
-import KbarItem from './KbarItem';
-import Kbd from './Kbd';
-import { useTheme } from 'next-themes';
+} from 'kbar'
+import { useRouter } from 'next/router'
+import KbarItem from './KbarItem'
+import Kbd from './Kbd'
+import { useTheme } from 'next-themes'
 
 type Props = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 export default function Kbar({ children }: Props) {
-  const { push } = useRouter();
-  const { setTheme } = useTheme();
+  const { push } = useRouter()
+  const { setTheme } = useTheme()
 
   const actions = [
     {
@@ -67,29 +67,6 @@ export default function Kbar({ children }: Props) {
         </svg>
       ),
     },
-    /*{
-      id: 'videos',
-      name: 'Eğitimler',
-      shortcut: [],
-      keywords: '',
-      perform: () => push('/videos'),
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-        </svg>
-      ),
-    },*/
     {
       id: 'desk',
       name: 'Ekipmanlar',
@@ -207,7 +184,7 @@ export default function Kbar({ children }: Props) {
       perform: () => setTheme('dark'),
       parent: 'theme',
     },
-  ];
+  ]
 
   return (
     <KBarProvider
@@ -255,5 +232,5 @@ export default function Kbar({ children }: Props) {
 
       {children}
     </KBarProvider>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import { getTable } from 'lib/airtable';
-import NextImage from 'next/image';
-import PageTransition from 'components/page-transition';
-import A from 'components/a';
-import PageTitle from 'components/page-title';
-import Head from 'next/head';
+import { getTable } from 'lib/airtable'
+import NextImage from 'next/image'
+import PageTransition from 'components/page-transition'
+import A from 'components/a'
+import PageTitle from 'components/page-title'
+import Head from 'next/head'
 
 function VideosPage({ data }) {
   return (
@@ -46,22 +46,22 @@ function VideosPage({ data }) {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </PageTransition>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const data = await getTable('Video');
+  const data = await getTable('Video')
 
   return {
     props: {
       data,
     },
-  };
+  }
 }
 
-export default VideosPage;
+export default VideosPage

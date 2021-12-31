@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import * as React from 'react';
-import Kbd from './Kbd';
+import classNames from 'classnames'
+import * as React from 'react'
+import Kbd from './Kbd'
 
 export default function KbarItem({ action, handlers, state }) {
-  const active = state.index === state.activeIndex;
+  const active = state.index === state.activeIndex
 
   return (
     <div
@@ -42,5 +42,5 @@ export default function KbarItem({ action, handlers, state }) {
         </svg>
       )}
     </div>
-  );
+  )
 }

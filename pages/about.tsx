@@ -1,4 +1,4 @@
-import PageTransition from 'components/page-transition';
+import PageTransition from 'components/page-transition'
 
 function HomePage() {
   return (
@@ -12,7 +12,7 @@ function HomePage() {
         </p>
       </div>
     </PageTransition>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage

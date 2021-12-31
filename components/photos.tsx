@@ -1,19 +1,19 @@
-import { useLayoutEffect } from 'react';
-import NextImage from 'next/image';
-import Colcade from 'colcade';
-import A from 'components/a';
+import { useLayoutEffect } from 'react'
+import NextImage from 'next/image'
+import Colcade from 'colcade'
+import A from 'components/a'
 
 function Photos({ data }) {
   useLayoutEffect(() => {
     const colc = new Colcade(`.photos`, {
       columns: `.photos-col`,
       items: `.photos-item`,
-    });
+    })
 
     return () => {
-      colc.destroy();
-    };
-  }, []);
+      colc.destroy()
+    }
+  }, [])
 
   return (
     <div className="photos grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -34,10 +34,10 @@ function Photos({ data }) {
               />
             </A>
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 }
 
-export default Photos;
+export default Photos

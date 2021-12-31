@@ -1,12 +1,12 @@
-import cn from 'classnames';
-import { ReactNode } from 'react';
+import cn from 'classnames'
+import { ReactNode } from 'react'
 
 export type Props = {
-  children: ReactNode;
-  href: string;
-  blank: boolean;
-  className?: string;
-};
+  children: ReactNode
+  href: string
+  blank: boolean
+  className?: string
+}
 
 function A({ children, href, blank, className, ...props }: Props) {
   const isBlank = blank
@@ -14,7 +14,7 @@ function A({ children, href, blank, className, ...props }: Props) {
         rel: 'noopener noreferrer',
         target: '_blank',
       }
-    : {};
+    : {}
 
   return (
     <a
@@ -25,7 +25,7 @@ function A({ children, href, blank, className, ...props }: Props) {
     >
       {children}
     </a>
-  );
+  )
 }
 
-export default A;
+export default A
