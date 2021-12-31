@@ -20,7 +20,7 @@ const getBookmark = async (page = 0, year = getYear(new Date())) => {
   let bookmarks: [Bookmark] = data.items
 
   if (bookmarks.length > 0) {
-    return bookmarks.concat(await getBookmark(page + 1))
+    return bookmarks.concat(await getBookmark(page + 1, year))
   } else {
     return bookmarks
   }
