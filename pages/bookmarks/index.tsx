@@ -46,8 +46,8 @@ export async function getStaticProps() {
 
   const dataGroupByDay = groupBy(data, (item: Bookmark) => {
     const dateISO = parseISO(item.created)
-    const week = format(dateISO, 'I')
-    const month = format(dateISO, 'M')
+    const week = format(dateISO, 'I') // ISO week of year | 1, 2, ..., 53
+    const month = format(dateISO, 'M') // 1, 2 ..., 12
 
     if (month === '1' && ['52', '53'].includes(week)) return 0
     return week
