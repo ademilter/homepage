@@ -7,7 +7,7 @@ import PageTitle from 'components/page-title'
 import { Bookmark } from 'types/Bookmark'
 import Head from 'next/head'
 
-function BookmarkPage({ data, weeks }) {
+function BookmarkPage({ data, weeks, year }) {
   return (
     <PageTransition>
       <Head>
@@ -27,7 +27,7 @@ function BookmarkPage({ data, weeks }) {
               text-2xl text-gray-400
               dark:text-gray-600"
             >
-              {date}. Hafta, 2021
+              {date}. Hafta, {year}
             </h4>
             <div className="mt-6 space-y-6">
               {data[date].map((item) => {
@@ -74,6 +74,7 @@ export async function getStaticProps({ params }) {
     props: {
       data: dataGroupByDay,
       weeks,
+      year: params.year,
     },
     revalidate: 7200,
   }
