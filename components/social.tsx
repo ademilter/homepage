@@ -1,9 +1,9 @@
-import SiteConfig from '../site.config'
-import A from 'components/a'
-import IconTwitter from 'components/icons/twitter'
-import IconYoutube from 'components/icons/youtube'
-import IconGithub from 'components/icons/github'
-import IconInstagram from 'components/icons/instagram'
+import { meta } from "../site.config";
+import A from "components/a";
+import IconTwitter from "components/icons/twitter";
+import IconYoutube from "components/icons/youtube";
+import IconGithub from "components/icons/github";
+import IconInstagram from "components/icons/instagram";
 
 function SocialButton({ href, children }) {
   return (
@@ -17,33 +17,35 @@ function SocialButton({ href, children }) {
     >
       {children}
     </A>
-  )
+  );
 }
 
 function Social() {
+  const { twitter, youtube, github, instagram } = meta.social;
+
   return (
     <div className="flex items-center space-x-3">
-      <SocialButton href={'mailto:' + SiteConfig.author.email}>
+      <SocialButton href={"mailto:" + meta.author.email}>
         <span className="mx-2 font-semibold">Eposta</span>
       </SocialButton>
 
-      <SocialButton href={SiteConfig.social.twitter}>
+      <SocialButton href={twitter}>
         <IconTwitter />
       </SocialButton>
 
-      <SocialButton href={SiteConfig.social.youtube}>
+      <SocialButton href={youtube}>
         <IconYoutube />
       </SocialButton>
 
-      <SocialButton href={SiteConfig.social.github}>
+      <SocialButton href={github}>
         <IconGithub />
       </SocialButton>
 
-      <SocialButton href={SiteConfig.social.instagram}>
+      <SocialButton href={instagram}>
         <IconInstagram />
       </SocialButton>
     </div>
-  )
+  );
 }
 
-export default Social
+export default Social;

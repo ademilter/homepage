@@ -1,8 +1,0 @@
-{
-  "post": {
-    "contentPath": "content/notes",
-    "basePath": "/notes",
-    "sortBy": "date",
-    "sortOrder": "desc"
-  }
-}

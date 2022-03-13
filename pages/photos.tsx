@@ -1,14 +1,14 @@
-import unsplash from 'lib/unsplash'
-import PageTransition from 'components/page-transition'
-import dynamic from 'next/dynamic'
-import SiteConfig from '../site.config'
-import MetricCard from 'components/metric-card'
-import PageTitle from 'components/page-title'
-import Head from 'next/head'
+import unsplash from "lib/unsplash";
+import PageTransition from "components/page-transition";
+import dynamic from "next/dynamic";
+import { meta } from "../site.config";
+import MetricCard from "components/metric-card";
+import PageTitle from "components/page-title";
+import Head from "next/head";
 
-const Photos = dynamic(() => import('components/photos'), {
+const Photos = dynamic(() => import("components/photos"), {
   ssr: false,
-})
+});
 
 function PhotosPage({ photos, stats }) {
   return (
@@ -25,16 +25,10 @@ function PhotosPage({ photos, stats }) {
         </PageTitle>
 
         <div className="grid grid-cols-2 gap-10 mt-10">
-          <MetricCard
-            href={SiteConfig.social.unsplash}
-            data={stats.views.total}
-          >
+          <MetricCard href={meta.social.unsplash} data={stats.views.total}>
             Unsplash Views
           </MetricCard>
-          <MetricCard
-            href={SiteConfig.social.unsplash}
-            data={stats.downloads.total}
-          >
+          <MetricCard href={meta.social.unsplash} data={stats.downloads.total}>
             Unsplash Downloads
           </MetricCard>
         </div>
@@ -44,12 +38,12 @@ function PhotosPage({ photos, stats }) {
         <Photos data={photos} />
       </div>
     </PageTransition>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const photos = await unsplash.getPhotos()
-  const stats = await unsplash.getStats()
+  const photos = await unsplash.getPhotos();
+  const stats = await unsplash.getStats();
 
   return {
     props: {
@@ -57,7 +51,7 @@ export async function getStaticProps() {
       stats,
     },
     revalidate: 86400,
-  }
+  };
 }
 
-export default PhotosPage
+export default PhotosPage;

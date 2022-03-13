@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import PageTransition from 'components/page-transition'
+import Head from "next/head";
+import PageTransition from "components/page-transition";
 
 function Error() {
   return (
@@ -12,7 +12,7 @@ function Error() {
         <p className="text-4xl text-highlight">404</p>
       </div>
     </PageTransition>
-  )
+  );
 }
 
-export default Error
+export default Error;

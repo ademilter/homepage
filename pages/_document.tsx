@@ -1,14 +1,14 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import SiteConfig from '../site.config'
+import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import { meta } from "../site.config";
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
-    return NextDocument.getInitialProps(ctx)
+    return NextDocument.getInitialProps(ctx);
   }
 
   render() {
     return (
-      <Html lang={SiteConfig.lang}>
+      <Html lang="tr">
         <Head>
           <link
             rel="preload"
@@ -22,20 +22,20 @@ export default class MyDocument extends NextDocument {
           <meta charSet="utf-8" />
           <meta name="robots" content="follow, index" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta name="description" content={SiteConfig.description} />
-          <link rel="canonical" href={SiteConfig.siteUrl} />
+          <meta name="description" content={meta.description} />
+          <link rel="canonical" href={meta.url} />
 
           {/* facebook */}
-          <meta property="og:url" content={SiteConfig.siteUrl} />
+          <meta property="og:url" content={meta.url} />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content={SiteConfig.title} />
-          <meta property="og:description" content={SiteConfig.description} />
+          <meta property="og:title" content={meta.title} />
+          <meta property="og:description" content={meta.description} />
 
           {/* twitter */}
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content={SiteConfig.siteUrl} />
-          <meta name="twitter:title" content={SiteConfig.title} />
-          <meta name="twitter:description" content={SiteConfig.description} />
+          <meta name="twitter:url" content={meta.url} />
+          <meta name="twitter:title" content={meta.title} />
+          <meta name="twitter:description" content={meta.description} />
 
           {/* pwa */}
           <link href="/static/icons/site.webmanifest" rel="manifest" />
@@ -72,16 +72,16 @@ export default class MyDocument extends NextDocument {
           {/*/>*/}
 
           {/* analytic */}
-          {SiteConfig.googleAnalytic && (
+          {meta.ga && (
             <>
               <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${SiteConfig.googleAnalytic}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${meta.ga}`}
               />
               <script
                 type="text/javascript"
                 dangerouslySetInnerHTML={{
-                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${SiteConfig.googleAnalytic}');`,
+                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${meta.ga}');`,
                 }}
               />
             </>
@@ -96,6 +96,6 @@ export default class MyDocument extends NextDocument {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

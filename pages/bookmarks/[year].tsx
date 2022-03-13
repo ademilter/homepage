@@ -1,11 +1,11 @@
-import { getBookmark } from 'lib/raindrop'
-import BookmarkCard from 'components/bookmark-card'
-import PageTransition from 'components/page-transition'
-import groupBy from 'lodash.groupby'
-import { parseISO, format } from 'date-fns'
-import PageTitle from 'components/page-title'
-import { Bookmark } from 'types/Bookmark'
-import Head from 'next/head'
+import { getBookmark } from "lib/raindrop";
+import BookmarkCard from "components/bookmark-card";
+import PageTransition from "components/page-transition";
+import groupBy from "lodash.groupby";
+import { parseISO, format } from "date-fns";
+import PageTitle from "components/page-title";
+import { Bookmark } from "types/Bookmark";
+import Head from "next/head";
 
 function BookmarkPage({ data, weeks, year }) {
   return (
@@ -31,44 +31,44 @@ function BookmarkPage({ data, weeks, year }) {
             </h4>
             <div className="mt-6 space-y-6">
               {data[date].map((item) => {
-                return <BookmarkCard key={item._id} {...item} />
+                return <BookmarkCard key={item._id} {...item} />;
               })}
             </div>
           </div>
         ))}
       </div>
     </PageTransition>
-  )
+  );
 }
 
 export async function getStaticPaths() {
   return {
-    paths: ['2021', '2022'].map((year) => {
+    paths: ["2021", "2022"].map((year) => {
       return {
         params: {
           year: `${year}`,
         },
-      }
+      };
     }),
     fallback: false,
-  }
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const data: [Bookmark] = await getBookmark(0, params.year)
+  const data: [Bookmark] = await getBookmark(0, params.year);
 
   const dataGroupByDay = groupBy(data, (item: Bookmark) => {
-    const dateISO = parseISO(item.created)
-    const week = format(dateISO, 'I')
-    const month = format(dateISO, 'M')
+    const dateISO = parseISO(item.created);
+    const week = format(dateISO, "I");
+    const month = format(dateISO, "M");
 
-    if (month === '1' && ['52', '53'].includes(week)) return 0
-    return week
-  })
+    if (month === "1" && ["52", "53"].includes(week)) return 0;
+    return week;
+  });
 
   const weeks = Object.keys(dataGroupByDay)
     .map((o) => parseInt(o))
-    .reverse()
+    .reverse();
 
   return {
     props: {
@@ -77,7 +77,7 @@ export async function getStaticProps({ params }) {
       year: params.year,
     },
     revalidate: 7200,
-  }
+  };
 }
 
-export default BookmarkPage
+export default BookmarkPage;

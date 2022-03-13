@@ -1,7 +1,7 @@
-import NextImage from 'next/image'
-import PageTransition from 'components/page-transition'
-import Social from 'components/social'
-import A from 'components/a'
+import NextImage from "next/image";
+import PageTransition from "components/page-transition";
+import Social from "components/social";
+import A from "components/a";
 
 function HomePage() {
   return (
@@ -25,20 +25,6 @@ function HomePage() {
           </p>
         </div>
 
-        <div className="mt-8">
-          <A
-            blank
-            href="https://superpeer.com/adem/-/hey"
-            className="
-            block py-4 px-6 bg-yellow-100 text-yellow-900 rounded-xl
-            hover:bg-opacity-75
-            dark:bg-blue-900 dark:bg-opacity-50 dark:text-blue-400"
-          >
-            Benimle 1:1 görüşmek istersen, Superpeer profilimden uygun bir zaman
-            dilimini satın alabilirsin ⟶
-          </A>
-        </div>
-
         <div className="mt-10">
           <Social />
         </div>
@@ -54,7 +40,7 @@ function HomePage() {
         />
       </div>
     </PageTransition>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

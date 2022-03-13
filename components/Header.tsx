@@ -1,43 +1,41 @@
-import { useRouter } from 'next/router'
-import IconMenu from 'components/icons/menu'
-import { useKBar, VisualState } from 'kbar'
+import { useRouter } from "next/router";
+import Link from "next/link";
+import cx from "classnames";
 
 const MENU = {
-  '/': 'Giriş',
-  '/photos': 'Fotoğraf',
-  '/videos': 'Eğitim',
-  '/desk': 'Masam',
-  '/bookmarks': 'Yer imleri',
-  '/moodboard': 'Moodboard',
-}
+  "/": "Giriş",
+  "/photos": "Fotoğraf",
+  "/desk": "Masam",
+  "/bookmarks": "Yer imleri",
+};
 
 function Header() {
-  const { query } = useKBar()
-  const router = useRouter()
-  const splitPath = router.pathname.split('/')
-  const pathname = splitPath.length > 2 ? `/${splitPath[1]}` : router.pathname
-  const activePage = MENU[pathname]
+  const { pathname } = useRouter();
 
   return (
-    <header className="pt-6">
-      <div className="c-small text-lg">
-        <button
-          type="button"
-          className="flex items-center"
-          onClick={() => {
-            query.setVisualState((vs) =>
-              [VisualState.animatingOut, VisualState.hidden].includes(vs)
-                ? VisualState.animatingIn
-                : VisualState.animatingOut
-            )
-          }}
-        >
-          <IconMenu />
-          <span className="ml-2">{activePage}</span>
-        </button>
+    <header>
+      <div className="c-small">
+        <nav className="py-6 space-x-1 border-b border-gray-200 dark:border-gray-800">
+          {Object.keys(MENU).map((path) => {
+            const name = MENU[path];
+            const isActive = path === pathname;
+            return (
+              <Link key={path} href={path}>
+                <a
+                  className={cx(
+                    "px-2 py-1 rounded",
+                    isActive && "text-white bg-gray-100 dark:bg-gray-800"
+                  )}
+                >
+                  {name}
+                </a>
+              </Link>
+            );
+          })}
+        </nav>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
