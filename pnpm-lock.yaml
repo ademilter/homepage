@@ -13,7 +13,6 @@ specifiers:
   dotenv: ^16.0.0
   framer-motion: ^3.10.6
   lodash.groupby: ^4.6.0
-  nanoid: ^3.1.8
   next: ^12.1.0
   next-pwa: ^5.4.6
   next-themes: ^0.1.1
@@ -21,7 +20,6 @@ specifiers:
   prettier: ^2.5.1
   react: ^17.0.2
   react-dom: ^17.0.2
-  rss: ^1.2.2
   swr: ^1.2.2
   tailwindcss: ^2.2.19
   typescript: ^4.6.2
@@ -35,7 +33,6 @@ dependencies:
   dotenv: 16.0.0
   framer-motion: 3.10.6_react-dom@17.0.2+react@17.0.2
   lodash.groupby: 4.6.0
-  nanoid: 3.3.0
   next: 12.1.0_react-dom@17.0.2+react@17.0.2
   next-pwa: 5.4.6_next@12.1.0
   next-themes: 0.1.1_caa633a00319350dbda42996613fe26c
@@ -51,7 +48,6 @@ devDependencies:
   autoprefixer: 10.4.2_postcss@8.4.8
   postcss: 8.4.8
   prettier: 2.5.1
-  rss: 1.2.2
   typescript: 4.6.2
 
 packages:
@@ -2681,18 +2677,6 @@ packages:
       picomatch: 2.3.1
     dev: false
 
-  /mime-db/1.25.0:
-    resolution: {integrity: sha1-wY29fHOl2/b0SgJNwNFloeexw5I=}
-    engines: {node: '>= 0.6'}
-    dev: true
-
-  /mime-types/2.1.13:
-    resolution: {integrity: sha1-4HqqnGxrmnyjASxpADrSWjnpKog=}
-    engines: {node: '>= 0.6'}
-    dependencies:
-      mime-db: 1.25.0
-    dev: true
-
   /minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
@@ -2710,12 +2694,6 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
-    dev: false
-
-  /nanoid/3.3.0:
-    resolution: {integrity: sha512-JzxqqT5u/x+/KOFSd7JP15DOo9nOoHpx6DYatqIHUW2+flybkm+mdcraotSQR5WcnZr+qhGVh8Ted0KdfSMxlg==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
     dev: false
 
   /nanoid/3.3.1:
@@ -3234,13 +3212,6 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: false
-
-  /rss/1.2.2:
-    resolution: {integrity: sha1-UKFpiHYTgTOnT5oF0r3I240nqSE=}
-    dependencies:
-      mime-types: 2.1.13
-      xml: 1.0.1
-    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -3873,10 +3844,6 @@ packages:
   /wrappy/1.0.2:
     resolution: {integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=}
     dev: false
-
-  /xml/1.0.1:
-    resolution: {integrity: sha1-eLpyAgApxbyHuKgaPPzXS0ovweU=}
-    dev: true
 
   /xtend/4.0.2:
     resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
