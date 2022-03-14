@@ -3,6 +3,7 @@ import NavItem from "./nav-item";
 
 const MENU = {
   "/": "Giriş",
+  "/videos": "Eğitimler",
   "/photos": "Fotoğraf",
   // "/desk": "Masam",
   "/bookmarks": "Yer imleri",

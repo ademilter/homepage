@@ -6,6 +6,7 @@ import { parseISO, format, getYear } from "date-fns";
 import PageTitle from "components/page-title";
 import { Bookmark } from "types/Bookmark";
 import Head from "next/head";
+import ms from "ms";
 
 function BookmarkPage({ data, weeks, year }) {
   return (
@@ -25,7 +26,7 @@ function BookmarkPage({ data, weeks, year }) {
             <h4
               className="
               text-2xl text-gray-400
-              dark:text-gray-600"
+              dark:text-gray-500"
             >
               {date}. Hafta, {year}
             </h4>
@@ -63,7 +64,7 @@ export async function getStaticProps() {
       weeks,
       year: getYear(new Date()),
     },
-    revalidate: 7200,
+    revalidate: ms("1h") / 1000,
   };
 }
 

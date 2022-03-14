@@ -5,6 +5,7 @@ import { meta } from "../site.config";
 import MetricCard from "components/metric-card";
 import PageTitle from "components/page-title";
 import Head from "next/head";
+import ms from "ms";
 
 const Photos = dynamic(() => import("components/photos"), {
   ssr: false,
@@ -50,7 +51,7 @@ export async function getStaticProps() {
       photos,
       stats,
     },
-    revalidate: 86400,
+    revalidate: ms("1d") / 1000,
   };
 }
 
