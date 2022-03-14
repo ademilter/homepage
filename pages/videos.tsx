@@ -176,14 +176,14 @@ function VideosPage({ stats }) {
   return (
     <PageTransition>
       <Head>
-        <title>Photos - Adem ilter</title>
+        <title>Videos - Adem ilter</title>
       </Head>
 
       <div className="c-small">
         <PageTitle>
-          Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
-          hakkında farkındalığı, detayları görebilmemi ve doğru anı
-          yakalabilmeyi öğretiyor.
+          Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
+          listesi. Youtube üzerinden izledikten sonra buradan işaretleyebilir ve
+          düzenli olarak takip edebilirsiniz.
         </PageTitle>
 
         <div className="grid grid-cols-2 gap-10 mt-10">
