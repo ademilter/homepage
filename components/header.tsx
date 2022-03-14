@@ -10,7 +10,7 @@ const MENU = {
 };
 
 function Header() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <header>
@@ -26,9 +26,11 @@ function Header() {
             })}
             <button
               className="c-small"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
             >
-              {theme === "dark" ? "🌞" : "🌚"}
+              {resolvedTheme === "dark" ? "🌞" : "🌚"}
             </button>
           </nav>
         </div>
