@@ -6,6 +6,7 @@ import Head from "next/head";
 import dynamic from "next/dynamic";
 import youtube from "lib/youtube";
 import ms from "ms";
+import gumroad from "../lib/gumroad";
 
 const VideoRow = dynamic(() => import("components/video-row"), {
   ssr: false,
@@ -172,7 +173,7 @@ const videos = {
   ],
 };
 
-function VideosPage({ stats }) {
+function VideosPage({ youtubeStats, gumroadStats }) {
   return (
     <PageTransition>
       <Head>
@@ -186,7 +187,7 @@ function VideosPage({ stats }) {
           düzenli olarak takip edebilirsiniz.
         </PageTitle>
 
-        <div className="mt-6">
+        <div className="mt-10">
           <a
             className="gumroad-button"
             data-gumroad-single-product="true"
@@ -196,12 +197,18 @@ function VideosPage({ stats }) {
           </a>
         </div>
 
-        <div className="grid grid-cols-2 gap-10 mt-10">
-          <MetricCard href={meta.social.youtube} data={stats.subscriberCount}>
-            YouTube Subscribers
+        <div className="mt-10 grid grid-cols-3 gap-4">
+          <MetricCard
+            href={meta.social.youtube}
+            data={youtubeStats.subscriberCount}
+          >
+            Subscribers
           </MetricCard>
-          <MetricCard href={meta.social.youtube} data={stats.viewCount}>
-            YouTube Views
+          <MetricCard href={meta.social.youtube} data={youtubeStats.viewCount}>
+            Views
+          </MetricCard>
+          <MetricCard data={gumroadStats.sales_usd_cents / 100} prefix="$">
+            Thanks ({gumroadStats.sales_count})
           </MetricCard>
         </div>
       </div>
@@ -232,11 +239,13 @@ function VideosPage({ stats }) {
 }
 
 export async function getStaticProps() {
-  const stats = await youtube();
+  const youtubeStats = await youtube();
+  const gumroadStats = await gumroad();
 
   return {
     props: {
-      stats,
+      youtubeStats,
+      gumroadStats,
     },
     revalidate: ms("1d") / 1000,
   };

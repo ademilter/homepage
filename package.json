@@ -1,7 +1,7 @@
 {
   "name": "ademilter-website",
   "description": "my personal website",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Adem ilter <ademilter@gmail.com>",
   "license": "MIT",
   "scripts": {
