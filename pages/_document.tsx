@@ -71,6 +71,8 @@ export default class MyDocument extends NextDocument {
           {/*  href="/feed.xml"*/}
           {/*/>*/}
 
+          <script async src="https://gumroad.com/js/gumroad.js" />
+
           {/* analytic */}
           {meta.ga && (
             <>

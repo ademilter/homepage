@@ -186,11 +186,21 @@ function VideosPage({ stats }) {
           düzenli olarak takip edebilirsiniz.
         </PageTitle>
 
+        <div className="mt-6">
+          <a
+            className="gumroad-button"
+            data-gumroad-single-product="true"
+            href="https://ademilter.gumroad.com/l/icerikler-icin-tesekkurler"
+          >
+            Teşekkürler -
+          </a>
+        </div>
+
         <div className="grid grid-cols-2 gap-10 mt-10">
-          <MetricCard href={meta.social.youtube} data={stats.subscribers}>
+          <MetricCard href={meta.social.youtube} data={stats.subscriberCount}>
             YouTube Subscribers
           </MetricCard>
-          <MetricCard href={meta.social.youtube} data={stats.views}>
+          <MetricCard href={meta.social.youtube} data={stats.viewCount}>
             YouTube Views
           </MetricCard>
         </div>
