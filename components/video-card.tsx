@@ -3,7 +3,7 @@ import slugify from "@sindresorhus/slugify";
 import cx from "classnames";
 // import IconPlay from "./icons/play";
 
-export default function VideoRow({ title, url, itemsCount }) {
+export default function VideoCard({ title, url, itemsCount }) {
   const [check, setCheck] = useLocalStorage(slugify(title), false);
 
   return (

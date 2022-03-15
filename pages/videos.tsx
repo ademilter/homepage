@@ -8,7 +8,7 @@ import youtube from "lib/youtube";
 import ms from "ms";
 import gumroad from "../lib/gumroad";
 
-const VideoRow = dynamic(() => import("components/video-row"), {
+const VideoRow = dynamic(() => import("components/video-card"), {
   ssr: false,
 });
 
