@@ -20,7 +20,7 @@ const videos = {
       itemsCount: -1,
     },
     {
-      title: "Sıfırdan CSS Eğitim",
+      title: "Sıfırdan CSS Eğitimi",
       url: "https://www.youtube.com/playlist?list=PLadt0EaV4m3BX9JaZbKS9B8076bruv93Y",
       itemsCount: 14,
     },
@@ -193,11 +193,11 @@ function VideosPage({ youtubeStats, gumroadStats }) {
             data-gumroad-single-product="true"
             href="https://ademilter.gumroad.com/l/icerikler-icin-tesekkurler"
           >
-            Teşekkürler -
+            Teşekkür -
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-3 gap-4">
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
           <MetricCard
             href={meta.social.youtube}
             data={youtubeStats.subscriberCount}
