@@ -7,6 +7,6 @@ export type Bookmark = {
   domain: string; // 'figma-to-react.vercel.app',
   created: string; // '2021-03-28T01:37:53.050Z'
   tags: [string]; // [ 'history', 'frontend', 'figma', 'react' ],
-  type: 'link' | 'article' | 'video' | 'document' | 'audio'; // 'link',
+  type: "link" | "article" | "video" | "document" | "audio"; // 'link',
   cover: string; // 'https://rdl.ink/render/https%3A%2F%2Ffigma-to-react.vercel.app%2F',
 };

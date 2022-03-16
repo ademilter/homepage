@@ -21,7 +21,7 @@ export default function MyApp({ Component, pageProps }) {
         </Head>
 
         <Header />
-        <main className="py-14">
+        <main className="pt-14 pb-20">
           <Component {...pageProps} />
         </main>
         <Footer />

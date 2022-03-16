@@ -1,4 +1,4 @@
-function IconPlay({ size = 22, ...props }) {
+export default function IconPlay({ size = 22, ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,5 +12,3 @@ function IconPlay({ size = 22, ...props }) {
     </svg>
   );
 }
-
-export default IconPlay;
