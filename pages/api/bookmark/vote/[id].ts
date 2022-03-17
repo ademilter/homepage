@@ -1,6 +1,10 @@
 import redis from "lib/redis";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const method = req.method;
   const { id } = req.query;
 
@@ -10,6 +14,19 @@ export default async function handler(req, res) {
   }
 
   if (method === "PATCH") {
+    const ip =
+      req.headers["x-real-ip"] ||
+      req.headers["x-forwarded-for"] ||
+      req.headers["Remote_Addr"] ||
+      "NA";
+
+    const response =
+      ip === "NA" ? 1 : await redis.sadd(`bookmark:${id.toString()}`, ip);
+
+    if (response === 0) {
+      return res.status(200).json({ message: "Already voted" });
+    }
+
     const count = await redis.incr(`bookmark:${id}`);
     return res.status(200).json({ count });
   }
