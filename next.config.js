@@ -1,4 +1,4 @@
-const withPWA = require("next-pwa");
+// const withPWA = require("next-pwa");
 const { PHASE_DEVELOPMENT_SERVER } = require("next/constants");
 
 const nextConfig = (phase) => {
@@ -12,11 +12,11 @@ const nextConfig = (phase) => {
     images: {
       domains: ["dl.airtable.com", "images.unsplash.com"],
     },
-    pwa: {
-      dest: "public",
-      disable: isDev,
-    },
+    // pwa: {
+    //   dest: "public",
+    //   disable: isDev,
+    // },
   };
 };
 
-module.exports = (phase) => withPWA(nextConfig(phase));
+module.exports = (phase) => nextConfig(phase);
