@@ -27,12 +27,13 @@ function BookmarkCard({
   };
 
   return (
-    <article className="flex items-center space-x-6">
+    <article className="flex items-center py-4 space-x-6">
       {vote && (
         <button
           className="
-        flex-shrink-0 flex flex-col items-center justify-center border border-gray-300 w-10 h-12 rounded hover:bg-gray-100
-        dark:border-gray-700 dark:hover:bg-gray-800"
+        flex-shrink-0 flex flex-col items-center justify-center border border-gray-200 w-10 h-12 rounded
+        dark:border-gray-700
+        transition duration-100 hover:shadow-md hover:-translate-y-0.5"
           onClick={onVote}
         >
           <IconUp />
@@ -41,7 +42,7 @@ function BookmarkCard({
       )}
 
       <div>
-        <h3 className="text-lg leading-6 font-bold text-highlight">
+        <h3 className="font-semibold text-highlight">
           <A href={bookmark.link} blank>
             {bookmark.title}
           </A>

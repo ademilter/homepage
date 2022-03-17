@@ -32,7 +32,7 @@ export default function BookmarkLayout({
             >
               {date}. Hafta, {year}
             </h4>
-            <div className="mt-6 space-y-6">
+            <div className="mt-6 divide-y divide-gray-100 dark:divide-gray-800">
               {data[date].map((item) => {
                 return (
                   <BookmarkCard

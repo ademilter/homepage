@@ -3,6 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
+  darkMode: "class",
   purge: {
     content: [
       "./pages/**/*.{js,ts,jsx,tsx}",
@@ -12,7 +13,6 @@ module.exports = {
       keyframes: false,
     },
   },
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
@@ -24,7 +24,6 @@ module.exports = {
     },
   },
   variants: {
-    typography: ["dark"],
     extend: {
       opacity: ["disabled"],
     },
