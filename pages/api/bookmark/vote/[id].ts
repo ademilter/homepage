@@ -21,8 +21,8 @@ export default async function handler(
         req.headers["Remote_Addr"] ||
         "NA";
 
-      const response =
-        ip === "NA" ? 1 : await redis.sadd(`bookmark:${id.toString()}`, ip);
+      const key = `bookmark:${id}`;
+      const response = ip === "NA" ? 1 : await redis.sadd(key, ip.toString());
 
       if (response === 0) {
         return res.status(200).json({ message: "Already voted" });

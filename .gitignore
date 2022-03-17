@@ -9,3 +9,4 @@ out/
 .env
 .env.local
 public/feed.xml
+.vercel
