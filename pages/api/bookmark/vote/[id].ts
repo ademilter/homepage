@@ -16,14 +16,15 @@ export default async function handler(
 
     if (method === "PATCH") {
       const ip =
-        req.headers["x-real-ip"] || req.headers["x-forwarded-for"] || "NA";
+        req.headers["x-real-ip"] ||
+        req.headers["x-forwarded-for"] ||
+        req.headers["Remote_Addr"] ||
+        "NA";
 
-      let response = 1;
-
-      if (ip !== "NA") {
-        const key = `bookmark:${id}`;
-        response = await redis.sadd(key, ip);
-      }
+      const response =
+        ip === "NA"
+          ? 1
+          : await redis.sadd(`vote:bookmark:${id}`, ip.toString());
 
       if (response === 0) {
         return res.status(200).json({ message: "Already voted" });
