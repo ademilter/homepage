@@ -23,9 +23,9 @@ specifiers:
   prettier: ^2.5.1
   react: ^17.0.2
   react-dom: ^17.0.2
-  swr: ^1.2.2
   tailwindcss: ^2.2.19
   typescript: ^4.6.2
+  use-http: ^1.0.26
 
 dependencies:
   '@sindresorhus/slugify': 2.1.0
@@ -44,8 +44,8 @@ dependencies:
   next-themes: 0.1.1_caa633a00319350dbda42996613fe26c
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  swr: 1.2.2_react@17.0.2
   tailwindcss: 2.2.19_081650f2f4dba35b17265937ab2a2ec0
+  use-http: 1.0.26_react-dom@17.0.2+react@17.0.2
 
 devDependencies:
   '@types/node': 17.0.21
@@ -1507,14 +1507,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /swr/1.2.2_react@17.0.2:
-    resolution: {integrity: sha512-ky0BskS/V47GpW8d6RU7CPsr6J8cr7mQD6+do5eky3bM0IyJaoi3vO8UhvrzJaObuTlGhPl2szodeB2dUd76Xw==}
-    peerDependencies:
-      react: ^16.11.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 17.0.2
-    dev: false
-
   /tailwindcss/2.2.19_081650f2f4dba35b17265937ab2a2ec0:
     resolution: {integrity: sha512-6Ui7JSVtXadtTUo2NtkBBacobzWiQYVjYW0ZnKaP9S1ZCKQ0w7KVNz+YSDI/j7O7KCMHbOkz94ZMQhbT9pOqjw==}
     engines: {node: '>=12.13.0'}
@@ -1598,6 +1590,39 @@ packages:
     resolution: {integrity: sha1-/FZaPMy/93MMd19WQflVV5FDnyE=}
     dev: false
 
+  /urs/0.0.8_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-LaSSPpr91XrVA3vW2zPupw4K6DSQEDKdL4yQZX1mO2fpljIMpB5zctrjRvxLurelWSgKsHsCmfHNCImscryirQ==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.0
+      react-dom: ^16.13.1 || ^17.0.0
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /use-http/1.0.26_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-yB0dXX2S0Doyiti/kHqMsvlShL3tlI8YkoEARao1OVFKrGvyXejmWvrYkEI+oVTPvUqGzOsHbNROY0qKDC88Pg==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.0
+      react-dom: ^16.13.1 || ^17.0.0
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      urs: 0.0.8_react-dom@17.0.2+react@17.0.2
+      use-ssr: 1.0.24_react-dom@17.0.2+react@17.0.2
+      utility-types: 3.10.0
+    dev: false
+
+  /use-ssr/1.0.24_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-0MFps7ezL57/3o0yl4CvrHLlp9z20n1rQZV/lSRz7if+TUoM6POU1XdOvEjIgjgKeIhTEye1U0khrIYWCTWw4g==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.0
+      react-dom: ^16.13.1 || ^17.0.0
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /use-subscription/1.5.1_react@17.0.2:
     resolution: {integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==}
     peerDependencies:
@@ -1609,6 +1634,11 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
+    dev: false
+
+  /utility-types/3.10.0:
+    resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
+    engines: {node: '>= 4'}
     dev: false
 
   /uuid/8.3.2:

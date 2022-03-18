@@ -3,7 +3,8 @@ import IconUp from "components/icons/up";
 import type { Bookmark } from "types/Bookmark";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
-import useSWR, { useSWRConfig } from "swr";
+import useFetch from "use-http";
+import { useEffect } from "react";
 
 function BookmarkCard({
   bookmark,
@@ -12,18 +13,13 @@ function BookmarkCard({
   bookmark: Bookmark;
   vote: boolean;
 }) {
-  const path = `/api/bookmark/vote/${bookmark._id}`;
-  const { mutate } = useSWRConfig();
-  const { data = { count: 0 } } = useSWR(vote ? path : null);
+  const { data = { count: 0 }, patch } = useFetch(
+    `bookmark/vote/${bookmark._id}`,
+    vote ? [] : null
+  );
 
   const onVote = async () => {
-    await fetch(path, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    await mutate(path);
+    await patch();
   };
 
   return (
@@ -37,7 +33,7 @@ function BookmarkCard({
           onClick={onVote}
         >
           <IconUp />
-          <span className="-mt-1 font-bold text-sm">{data?.count || 0}</span>
+          <span className="-mt-1 font-bold text-sm">{data?.count}</span>
         </button>
       )}
 
