@@ -11,7 +11,7 @@ export default async function handler(
   try {
     if (method === "GET") {
       const count = await redis.get(`bookmark:${id}`);
-      return res.status(200).json({ count });
+      return res.status(200).json({ count: count || 0 });
     }
 
     if (method === "PATCH") {
