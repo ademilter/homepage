@@ -7,9 +7,9 @@ export default function FaqCard(props: Issue) {
   return (
     <div className="">
       <div className="">
-        <h3 className="">{title}</h3>
+        <h3 className="font-semibold text-highlight">{title}</h3>
       </div>
-      <div className="">
+      <div className="mt-1">
         <p>{body}</p>
       </div>
     </div>

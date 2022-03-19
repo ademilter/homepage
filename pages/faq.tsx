@@ -1,11 +1,10 @@
 import PageTransition from "components/page-transition";
 import PageTitle from "components/page-title";
-import FaqCard from "components/faq-card";
 import Head from "next/head";
-import type { Issue } from "types/GithubIssue";
+import type { Faq } from "types/Faq";
 import github from "lib/github";
 
-function FaqPage({ issues }: { issues: Issue[] }) {
+function AmaPage({ discussions }: { discussions: Faq[] }) {
   return (
     <PageTransition>
       <Head>
@@ -17,22 +16,27 @@ function FaqPage({ issues }: { issues: Issue[] }) {
       </div>
 
       <div className="c-small mt-20">
-        {issues.map((issue) => (
-          <FaqCard key={issue.id} {...issue} />
-        ))}
+        {discussions.map(({ cursor, node }: Faq) => {
+          return (
+            <div key={node.id}>
+              <div dangerouslySetInnerHTML={{ __html: node.bodyHTML }} />
+              <div dangerouslySetInnerHTML={{ __html: node.answer.bodyHTML }} />
+            </div>
+          );
+        })}
       </div>
     </PageTransition>
   );
 }
 
 export async function getStaticProps() {
-  const issues = await github();
+  const discussions = await github();
 
   return {
     props: {
-      issues,
+      discussions,
     },
   };
 }
 
-export default FaqPage;
+export default AmaPage;
