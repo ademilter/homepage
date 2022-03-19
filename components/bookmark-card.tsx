@@ -4,7 +4,6 @@ import type { Bookmark } from "types/Bookmark";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
 import useFetch from "use-http";
-import { useEffect } from "react";
 
 function BookmarkCard({
   bookmark,
@@ -13,11 +12,9 @@ function BookmarkCard({
   bookmark: Bookmark;
   vote: boolean;
 }) {
-  const {
-    data = { count: 0 },
-    patch,
-    response,
-  } = useFetch(`bookmark/vote/${bookmark._id}`, vote ? [] : null);
+  const apiPath = `bookmark/vote/${bookmark._id}`;
+  const { data = { count: 0 } } = useFetch(apiPath, vote ? [] : null);
+  const { patch, response } = useFetch(apiPath);
 
   const onVote = async () => {
     await patch();
