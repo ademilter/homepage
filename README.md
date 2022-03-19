@@ -6,12 +6,14 @@
 
 1. Öncelikle terminalden proje dizinin gidin
 
-2. `.env.example` dosyasının adını `.env` olarak değiştirip, Airtable ve Raindrop hesaplarından gerekli kodları alıp aşağıdaki bölümlere ekleyin
+2. `.env.example` dosyasının adını `.env` olarak değiştirip, Airtable, Raindrop ve Upstash hesaplarından gerekli anahtarları alıp aşağıdaki bölümlere ekleyin
 
 ```bash
 AIRTABLE_API_KEY=
 AIRTABLE_BASE_ID=
 RAINDROP_ACCESS_TOKEN=
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
 ```
 
 3. Bağımlılıkları yükleyin
