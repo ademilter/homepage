@@ -1,33 +1,42 @@
-## Gereklilikler
-- Nodejs
-- npm veya yarn (ben yarn üzerinden anlatıyorum)
+Bu web sitesi Nextjs üzerine inşa edilmiştir. Her sayfa içeriği farklı platformlarla haberleşerek ve beslenerek güncelliğini korumaktdır.
+Performans konusu öncelikli olduğu için next'in statik sayfa üretme özelliği kullanılmıştır. Ziyaretçi sayfaya erişmek istediğinde, daha önceden statik olarak üretilmiş dosyaya kendisine en yakın bölgedeki CDN'den çeker ve görüntüler.
 
-## Kendi bilgisayarımda nasıl çalıştırırım?
 
-1. Öncelikle terminalden proje dizinin gidin
+## Kullanmak için
 
-2. `.env.example` dosyasının adını `.env` olarak değiştirip, Airtable, Raindrop ve Upstash hesaplarından gerekli anahtarları alıp aşağıdaki bölümlere ekleyin
+1. `.env.example` dosyasının adını `.env` olarak değiştirin.
 
-```bash
-AIRTABLE_API_KEY=
-AIRTABLE_BASE_ID=
-RAINDROP_ACCESS_TOKEN=
-UPSTASH_REDIS_REST_URL=
-UPSTASH_REDIS_REST_TOKEN=
-```
+> Burada beklenilen tüm değerleri karşılamaz zorundasınız.
 
-3. Bağımlılıkları yükleyin
+2. Bağımlılıkları yükleyin ve çalıştırın
 
 ```bash
 yarn
 ```
 
-4. Development server'ı ayağa kaldırın
-
 ```bash
 yarn dev
 ```
 
-5. Artık hazır
+3. Tarayıcınızdan [http://localhost:3000](http://localhost:3000)'e girin
 
-Tarayıcınızdan [http://localhost:3000](http://localhost:3000)'e girin
+## İçerikler ve Bağımlılıklar
+
+### Ana sayfa
+
+Dışarı bağımlılığı yoktur.
+
+### Eğitimler
+
+Bu sayfanın içerikleri statik olarak eklenmiştir.
+
+[Youtube](https://github.com/ademilter/homepage/blob/master/lib/youtube.js) ve [Gumroad](https://github.com/ademilter/homepage/blob/master/lib/gumroad.ts) istatistiklerini okumak için dışarı bağımlılıkları vardır.
+
+### Fotoğraflar
+
+Bu sayfanın içerikleri Unsplash hesabımdan geliyor.
+
+### Yer İmleri
+İçerikler Raindrop hesabımdan geliyor. Upstash database ile basit bir oylama özelliği ekledim.
+
+
