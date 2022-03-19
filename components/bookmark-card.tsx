@@ -13,13 +13,15 @@ function BookmarkCard({
   bookmark: Bookmark;
   vote: boolean;
 }) {
-  const { data = { count: 0 }, patch } = useFetch(
-    `bookmark/vote/${bookmark._id}`,
-    vote ? [] : null
-  );
+  const {
+    data = { count: 0 },
+    patch,
+    response,
+  } = useFetch(`bookmark/vote/${bookmark._id}`, vote ? [] : null);
 
   const onVote = async () => {
     await patch();
+    if (!response.ok) alert(response.data.message);
   };
 
   return (
@@ -33,7 +35,7 @@ function BookmarkCard({
           onClick={onVote}
         >
           <IconUp />
-          <span className="-mt-1 font-bold text-sm">{data?.count}</span>
+          <span className="-mt-1 font-bold text-sm">{data?.count || 0}</span>
         </button>
       )}
 
