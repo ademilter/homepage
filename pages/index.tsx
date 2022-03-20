@@ -1,7 +1,6 @@
 import NextImage from "next/image";
 import PageTransition from "components/page-transition";
 import Social from "components/social";
-import A from "components/a";
 
 function HomePage() {
   return (
