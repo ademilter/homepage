@@ -4,7 +4,6 @@ import { format, startOfYear } from "date-fns";
 import BookmarkLayout from "components/bookmark-layout";
 
 function BookmarkPage({ data, year }) {
-  // console.log(data);
   return <BookmarkLayout data={data} year={year} />;
 }
 
@@ -26,10 +25,10 @@ export async function getStaticProps({ params }) {
   const date = format(dateStartOfYear, "yyyy-MM-dd");
 
   const raindrop = new Raindrop(date);
-  const { data, year } = await raindrop.getBookmarksGroupByWeek();
+  const data = await raindrop.getBookmarksGroupByWeek();
 
   return {
-    props: { data, year },
+    props: { data, year: params.year },
     revalidate: ms("1h") / 1000,
   };
 }

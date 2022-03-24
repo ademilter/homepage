@@ -46,17 +46,12 @@ export default class Raindrop {
   }> {
     const bookmarks: IBookmark[] = await this.getBookmarks();
 
-    const data = groupBy(bookmarks, (bookmark: IBookmark) => {
+    return groupBy(bookmarks, (bookmark: IBookmark) => {
       const dateISO = parseISO(bookmark.created);
       const week = format(dateISO, "I"); // ISO Week of Year (1-53)
       const month = format(dateISO, "M"); // Month (1-12)
       if (month === "1" && ["52", "53"].includes(week)) return 0;
       return week;
     });
-
-    return {
-      data,
-      year: getYear(parseISO(this.created)).toString(),
-    };
   }
 }
