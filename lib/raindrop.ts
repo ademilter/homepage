@@ -40,7 +40,7 @@ export default class Raindrop {
     }
   }
 
-  public async getGroupedBookmarks(): Promise<{
+  public async getBookmarksGroupByWeek(): Promise<{
     data: IBookmark[];
     year: string;
   }> {
