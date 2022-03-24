@@ -1,51 +1,62 @@
-import { Bookmark } from "types/Bookmark";
+import type { IBookmark } from "types/Bookmark";
 import { format, getYear, parseISO } from "date-fns";
 import groupBy from "lodash.groupby";
 
-export const getBookmark = async (page = 0, year) => {
-  const query = [
-    `https://api.raindrop.io/rest/v1/raindrops/0`,
-    `?perpage=50`,
-    `&page=${page}`,
-    `&search=[{ "key": "tag", "val": "history"}, { "key": "created", "val": "${year}" }]`,
-    `&sort=-created`,
-  ].join("");
+export default class Raindrop {
+  public collectionId: number = 15611214;
+  public perPage: number = 50;
+  public created: string; // ISO date
 
-  const res = await fetch(query, {
-    method: "get",
-    headers: {
-      Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`,
-    },
-  });
-  const data = await res.json();
-  let bookmarks: [Bookmark] = data.items;
-
-  if (bookmarks.length > 0) {
-    return bookmarks.concat(await getBookmark(page + 1, year));
-  } else {
-    return bookmarks;
+  constructor(created) {
+    this.created = created;
   }
-};
 
-export async function getBookmarkGroup(year = getYear(new Date())) {
-  const data: [Bookmark] = await getBookmark(0, year);
+  private getGeneratePath(page: number): string {
+    return [
+      `https://api.raindrop.io/rest/v1/raindrops/0`,
+      `?perpage=${this.perPage}`,
+      `&page=${page}`,
+      `&collectionId=${this.collectionId}`,
+      `&search=created:>${this.created}`,
+      `&sort=-created`,
+    ].join("");
+  }
 
-  const dataGroupByDay = groupBy(data, (item: Bookmark) => {
-    const dateISO = parseISO(item.created);
-    const week = format(dateISO, "I");
-    const month = format(dateISO, "M");
+  public async getBookmarks(page: number = 0): Promise<IBookmark[]> {
+    console.log(this.getGeneratePath(page));
+    const res = await fetch(this.getGeneratePath(page), {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`,
+      },
+    });
 
-    if (month === "1" && ["52", "53"].includes(week)) return 0;
-    return week;
-  });
+    const data = await res.json();
 
-  const weeks = Object.keys(dataGroupByDay)
-    .map((o) => parseInt(o))
-    .reverse();
+    if (data.items.length === this.perPage) {
+      return data.items.concat(await this.getBookmarks(page + 1));
+    } else {
+      return data.items;
+    }
+  }
 
-  return {
-    data: dataGroupByDay,
-    weeks,
-    year,
-  };
+  public async getGroupedBookmarks(): Promise<{
+    data: IBookmark[];
+    year: string;
+  }> {
+    const bookmarks: IBookmark[] = await this.getBookmarks();
+
+    const data = groupBy(bookmarks, (bookmark: IBookmark) => {
+      const dateISO = parseISO(bookmark.created);
+      const week = format(dateISO, "I"); // ISO Week of Year (1-53)
+      const month = format(dateISO, "M"); // Month (1-12)
+      if (month === "1" && ["52", "53"].includes(week)) return 0;
+      return week;
+    });
+
+    return {
+      data,
+      year: getYear(parseISO(this.created)).toString(),
+    };
+  }
 }

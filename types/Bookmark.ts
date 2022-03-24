@@ -1,4 +1,4 @@
-export type Bookmark = {
+export type IBookmark = {
   collectionId: number; // 15611214
   _id: number; // 254677638,
   title: string; // 'Figma to React – Convert Figma designs to React code',

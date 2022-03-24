@@ -1,9 +1,11 @@
-import { getBookmarkGroup } from "lib/raindrop";
+import Raindrop from "lib/raindrop";
 import ms from "ms";
+import { format, startOfYear } from "date-fns";
 import BookmarkLayout from "components/bookmark-layout";
 
-function BookmarkPage({ data, weeks, year }) {
-  return <BookmarkLayout data={data} weeks={weeks} year={year} />;
+function BookmarkPage({ data, year }) {
+  // console.log(data);
+  return <BookmarkLayout data={data} year={year} />;
 }
 
 export async function getStaticPaths() {
@@ -20,10 +22,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { data, weeks, year } = await getBookmarkGroup(params.year);
+  const dateStartOfYear = startOfYear(new Date(params.year));
+  const date = format(dateStartOfYear, "yyyy-MM-dd");
+
+  const raindrop = new Raindrop(date);
+  const { data, year } = await raindrop.getGroupedBookmarks();
 
   return {
-    props: { data, weeks, year },
+    props: { data, year },
     revalidate: ms("1h") / 1000,
   };
 }

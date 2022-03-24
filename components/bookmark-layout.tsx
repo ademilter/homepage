@@ -5,12 +5,9 @@ import Head from "next/head";
 import Link from "next/link";
 import { getYear } from "date-fns";
 
-export default function BookmarkLayout({
-  data,
-  weeks,
-  year,
-  onlyThisWeek = false,
-}) {
+export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
+  const weeks = Object.keys(data).sort((a, b) => parseInt(a) - parseInt(b));
+
   return (
     <PageTransition>
       <Head>

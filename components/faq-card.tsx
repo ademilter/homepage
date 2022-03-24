@@ -1,16 +1,13 @@
-import cx from "classnames";
-import type { Issue } from "types/GithubIssue";
+import type { Faq } from "types/Faq";
 
-export default function FaqCard(props: Issue) {
-  const { title, body } = props;
-
+export default function FaqCard(props: Faq) {
   return (
     <div className="">
       <div className="">
-        <h3 className="font-semibold text-highlight">{title}</h3>
+        <h3 className="font-semibold text-highlight">{props.bodyHTML}</h3>
       </div>
       <div className="mt-1">
-        <p>{body}</p>
+        <p>{props.answer.bodyHTML}</p>
       </div>
     </div>
   );

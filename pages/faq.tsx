@@ -4,7 +4,12 @@ import Head from "next/head";
 import type { Faq } from "types/Faq";
 import github from "lib/github";
 
-function AmaPage({ discussions }: { discussions: Faq[] }) {
+function AmaPage({
+  discussions,
+}: {
+  discussions: [{ cursor: string; node: Faq }];
+}) {
+  console.log(discussions);
   return (
     <PageTransition>
       <Head>
@@ -16,7 +21,7 @@ function AmaPage({ discussions }: { discussions: Faq[] }) {
       </div>
 
       <div className="c-small mt-20">
-        {discussions.map(({ cursor, node }: Faq) => {
+        {discussions.map(({ cursor, node }) => {
           return (
             <div key={node.id}>
               <div dangerouslySetInnerHTML={{ __html: node.bodyHTML }} />

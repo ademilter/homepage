@@ -9,7 +9,7 @@ class Unsplash {
 
   async getData(url) {
     const res = await fetch(url, {
-      method: "get",
+      method: "GET",
     });
     return await res.json();
   }

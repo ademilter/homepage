@@ -1,6 +1,6 @@
 import A from "components/a";
 import IconUp from "components/icons/up";
-import type { Bookmark } from "types/Bookmark";
+import type { IBookmark } from "types/Bookmark";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
 import useFetch from "use-http";
@@ -9,7 +9,7 @@ function BookmarkCard({
   bookmark,
   vote,
 }: {
-  bookmark: Bookmark;
+  bookmark: IBookmark;
   vote: boolean;
 }) {
   const apiPath = `bookmark/vote/${bookmark._id}`;
