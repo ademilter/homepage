@@ -5,7 +5,6 @@ const MENU = {
   "/": "Giriş",
   "/videos": "Eğitimler",
   "/photos": "Fotoğraf",
-  // "/desk": "Masam",
   "/bookmarks": "Yer imleri",
 };
 
@@ -30,7 +29,7 @@ function Header() {
                 setTheme(resolvedTheme === "dark" ? "light" : "dark")
               }
             >
-              {resolvedTheme === "dark" ? "🌞" : "🌚"}
+              {resolvedTheme === "dark" ? "🌝" : "🌚"}
             </button>
           </nav>
         </div>

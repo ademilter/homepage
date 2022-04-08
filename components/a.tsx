@@ -4,11 +4,11 @@ import { ReactNode } from "react";
 export type Props = {
   children: ReactNode;
   href: string;
-  blank: boolean;
+  blank?: boolean;
   className?: string;
 };
 
-function A({ children, href, blank, className, ...props }: Props) {
+function A({ children, href, blank = true, className, ...props }: Props) {
   const isBlank = blank
     ? {
         rel: "noopener noreferrer",

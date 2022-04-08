@@ -24,20 +24,14 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
           <div key={date} className="mt-20">
             <h4
               className="
-              text-2xl text-gray-400
-              dark:text-gray-500"
+              text-2xl text-zinc-400
+              dark:text-zinc-500"
             >
               {date}. Hafta, {year}
             </h4>
-            <div className="mt-6 divide-y divide-gray-100 dark:divide-gray-800">
+            <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">
               {data[date].map((item) => {
-                return (
-                  <BookmarkCard
-                    key={item._id}
-                    bookmark={item}
-                    vote={onlyThisWeek}
-                  />
-                );
+                return <BookmarkCard key={item._id} bookmark={item} />;
               })}
             </div>
           </div>
@@ -47,8 +41,8 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
           <div className="mt-16">
             <Link href={`/bookmarks/${getYear(new Date())}`}>
               <a
-                className="py-3 px-4 bg-gray-50 border border-gray-200 rounded
-              dark:bg-gray-800 dark:border-gray-700"
+                className="py-3 px-4 bg-zinc-50 border border-zinc-200 rounded
+              dark:bg-zinc-800 dark:border-zinc-700"
               >
                 Tüm listeyi görüntüle →
               </a>

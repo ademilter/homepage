@@ -1,12 +1,12 @@
 import PageTransition from "components/page-transition";
 import { meta } from "../site.config";
 import MetricCard from "components/metric-card";
+import A from "components/a";
 import PageTitle from "components/page-title";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import youtube from "lib/youtube";
 import ms from "ms";
-import gumroad from "../lib/gumroad";
 
 const VideoRow = dynamic(() => import("components/video-card"), {
   ssr: false,
@@ -173,7 +173,7 @@ const videos = {
   ],
 };
 
-function VideosPage({ youtubeStats, gumroadStats }) {
+function VideosPage({ youtubeStats }) {
   return (
     <PageTransition>
       <Head>
@@ -188,27 +188,24 @@ function VideosPage({ youtubeStats, gumroadStats }) {
         </PageTitle>
 
         <div className="mt-10">
-          <a
-            className="gumroad-button"
-            data-gumroad-single-product="true"
-            href="https://ademilter.gumroad.com/l/icerikler-icin-tesekkurler"
+          <A
+            href="https://www.buymeacoffee.com/ademilter"
+            className="bg-zinc-900 text-white px-4 py-3 rounded
+            dark:bg-zinc-100 dark:text-zinc-900"
           >
-            Teşekkür -
-          </a>
+            ✨ Teşekkür
+          </A>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           <MetricCard
             href={meta.social.youtube}
             data={youtubeStats.subscriberCount}
           >
-            Subscribers
+            Youtube Abone
           </MetricCard>
           <MetricCard href={meta.social.youtube} data={youtubeStats.viewCount}>
-            Views
-          </MetricCard>
-          <MetricCard data={gumroadStats.sales_usd_cents / 100} prefix="$">
-            Thanks ({gumroadStats.sales_count})
+            Youtube Görüntüleme
           </MetricCard>
         </div>
       </div>
@@ -220,11 +217,11 @@ function VideosPage({ youtubeStats, gumroadStats }) {
             return (
               <div key={catKey}>
                 <header className="py-4">
-                  <h2 className="text-2xl text-gray-400 dark:text-gray-500">
+                  <h2 className="text-2xl text-zinc-400 dark:text-zinc-500">
                     {catKey}
                   </h2>
                 </header>
-                <div className="divide-y divide-gray-100 dark:divide-gray-800">
+                <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
                   {category.map((video) => {
                     return <VideoRow key={video.title} {...video} />;
                   })}
@@ -240,12 +237,10 @@ function VideosPage({ youtubeStats, gumroadStats }) {
 
 export async function getStaticProps() {
   const youtubeStats = await youtube();
-  const gumroadStats = await gumroad();
 
   return {
     props: {
       youtubeStats,
-      gumroadStats,
     },
     revalidate: ms("1d") / 1000,
   };

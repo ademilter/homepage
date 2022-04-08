@@ -24,7 +24,7 @@ function Photos({ data }) {
       {data.map((item) => {
         return (
           <div key={item.id} className="photos-item mb-8">
-            <A href={item.links.html} blank>
+            <A href={item.links.html}>
               <NextImage
                 src={item.urls.regular}
                 alt={item.description}

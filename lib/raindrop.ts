@@ -1,5 +1,5 @@
 import type { IBookmark } from "types/Bookmark";
-import { format, getYear, parseISO } from "date-fns";
+import { format, parseISO } from "date-fns";
 import groupBy from "lodash.groupby";
 
 export default class Raindrop {

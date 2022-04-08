@@ -12,7 +12,7 @@ function NavItem({ href, children }) {
         className={cx(
           "px-2 py-1 rounded",
           isActive &&
-            "text-gray-900 bg-gray-100 dark:text-white dark:bg-gray-800"
+            "text-zinc-900 bg-zinc-100 dark:text-white dark:bg-zinc-800"
         )}
       >
         {children}

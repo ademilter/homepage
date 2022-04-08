@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "components/header";
 import Footer from "components/footer";
 import { ThemeProvider } from "next-themes";
-import { Provider, CachePolicies } from "use-http";
+import { Provider } from "use-http";
 
 import "styles/globals.css";
 

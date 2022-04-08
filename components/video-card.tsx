@@ -13,7 +13,7 @@ export default function VideoCard({ title, url, itemsCount }) {
         check ? "opacity-50" : ""
       )}
     >
-      <label className="flex items-center justify-center w-5 h-5 border border-gray-300 rounded shadow-sm text-gray-900 dark:border-gray-600 dark:text-gray-200 cursor-pointer">
+      <label className="flex items-center justify-center w-5 h-5 border border-zinc-300 rounded shadow-sm text-zinc-900 dark:border-zinc-600 dark:text-zinc-200 cursor-pointer">
         <input
           className="absolute opacity-0 pointer-events-none"
           type="checkbox"
@@ -30,7 +30,7 @@ export default function VideoCard({ title, url, itemsCount }) {
       </a>
 
       {itemsCount > -1 && (
-        <span className="text-sm py-0.5 px-2 bg-gray-100 text-gray-500 rounded dark:bg-gray-800 dark:text-gray-500">
+        <span className="text-sm py-0.5 px-2 bg-zinc-100 text-zinc-500 rounded dark:bg-zinc-800 dark:text-zinc-500">
           {`${itemsCount} Videos`}
         </span>
       )}

@@ -14,10 +14,6 @@
   ],
   "redirects": [
     {
-      "source": "/my-desk",
-      "destination": "/desk"
-    },
-    {
       "source": "/live",
       "destination": "https://www.youtube.com/channel/UC1Z-a8i2Ce4oIEMV-S3iFrg/live"
     }

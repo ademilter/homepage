@@ -10,7 +10,9 @@
     font-style: normal;
     src: url('/fonts/Inter-roman.var.woff2?v=3.15') format('woff2');
   }
+
   html {
+    font-family: "Inter", system-ui, sans-serif;
     scroll-behavior: smooth;
   }
 }
@@ -19,11 +21,13 @@
   .c-small {
     @apply max-w-screen-sm mx-auto px-4;
   }
+
   .c-large {
     @apply max-w-screen-xl mx-auto px-4;
   }
+
   .text-highlight {
-    @apply text-gray-900
-    dark:text-gray-50;
+    @apply text-zinc-900
+    dark:text-zinc-50;
   }
 }
