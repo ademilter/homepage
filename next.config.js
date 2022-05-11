@@ -1,9 +1,15 @@
-const nextConfig = (_) => {
-  return {
-    images: {
-      domains: ["images.unsplash.com"],
-    },
-  };
-};
+const { withContentlayer } = require("next-contentlayer");
 
-module.exports = (phase) => nextConfig(phase);
+/**
+ * @type {import("next").NextConfig}
+ */
+
+module.exports = withContentlayer(
+  {
+    swcMinify: true,
+    reactStrictMode: true,
+    images: {
+      domains: ["images.unsplash.com"]
+    }
+  }
+);

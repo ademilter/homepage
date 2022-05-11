@@ -1,0 +1,55 @@
+---
+date: '2017-07-15'
+title: 'The Future of the Web'
+tags: ['web', 'javascript', 'html', 'css']
+---
+
+## test title h2
+
+> test quote
+
+```jsx
+<div className="c-small">
+  <PageTitle>{note.title}</PageTitle>
+
+  <time dateTime={note.date}>
+    {format(parseISO(note.date), "LLLL d, yyyy")}
+  </time>
+  <span>·</span>
+  <span>{note.readingTime.text}</span>
+</div>
+```
+
+```css
+.token.property,
+.token.keyword,
+.token.tag {
+  color: #eee;
+}
+
+.token.class-name {
+  color: #ffffb6;
+  text-decoration: underline;
+}
+```
+
+```javascript
+export async function getStaticProps({ params }) {
+  const note: Note = allNotes.find((note: Note) => note.slug === params.slug);
+
+  // deneme comment for testing
+  if (!note) {
+    return {
+      redirect: {
+        destination: "/404",
+      },
+    };
+  }
+
+  return {
+    props: {
+      note,
+    },
+  };
+}
+```

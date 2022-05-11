@@ -5,6 +5,7 @@ const MENU = {
   "/": "Giriş",
   "/videos": "Eğitimler",
   "/photos": "Fotoğraf",
+  // "/notes": "Notes",
   "/bookmarks": "Yer imleri",
 };
 

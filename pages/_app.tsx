@@ -1,10 +1,11 @@
+import "styles/globals.css";
+import "styles/prism.css";
+
 import Head from "next/head";
 import Header from "components/header";
 import Footer from "components/footer";
 import { ThemeProvider } from "next-themes";
 import { Provider } from "use-http";
-
-import "styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {
   const options = {
