@@ -97,12 +97,11 @@ export default function NotePage({ note }: { note: Note }) {
 
         <style global jsx>{`
           .post-body > * {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
           }
 
           .post-body a.anchor:after {
             content: "#";
-            // color: rgb(255 255 255 / 50%);
           }
 
           .post-body a.anchor {
@@ -119,8 +118,12 @@ export default function NotePage({ note }: { note: Note }) {
             visibility: visible;
           }
 
-          .post-body :where(h2, h3, h4, h5) {
+          .post-body :where(h2, h3, h4) {
             scroll-margin-top: 2rem;
+          }
+
+          .post-body .sp-cm {
+            padding: 0;
           }
 
           .post-body .cm-editor {

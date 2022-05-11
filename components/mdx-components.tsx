@@ -12,8 +12,6 @@ export function CodeBlock({ children }: { children: React.ReactElement }) {
 
   const extension = children.props.className.split("-")[1];
 
-  console.log(extension);
-
   return (
     <div className="group relative">
       {/* @ts-ignore */}
