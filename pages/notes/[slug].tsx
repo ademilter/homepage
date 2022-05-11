@@ -3,6 +3,7 @@ import PageTransition from "components/page-transition";
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import MDXComponents from "components/mdx-components";
 
 export async function getStaticPaths() {
   const paths = allNotes.map((note: Note) => ({ params: { slug: note.slug } }));
@@ -59,6 +60,7 @@ export default function NotePage({ note }: { note: Note }) {
           <div className="post-body leading-relaxed mt-10">
             <Component
               components={{
+                ...MDXComponents,
                 h2: (props) => {
                   return (
                     <h2
@@ -119,6 +121,20 @@ export default function NotePage({ note }: { note: Note }) {
 
           .post-body :where(h2, h3, h4, h5) {
             scroll-margin-top: 2rem;
+          }
+
+          .post-body .cm-editor {
+            font-family: "JetBrains Mono", "JetBrainsMono", monospace;
+            border-radius: 1rem;
+          }
+
+          .post-body .cm-editor .cm-scroller {
+            padding: 1rem 0.2rem;
+            font-family: inherit;
+          }
+
+          .post-body .cm-editor .cm-scroller::-webkit-scrollbar {
+            display: none;
           }
         `}</style>
       </PageTransition>

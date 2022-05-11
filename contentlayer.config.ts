@@ -1,5 +1,4 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import rehypePrism from "rehype-prism-plus";
 import readingTime from "reading-time";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -43,12 +42,6 @@ export default makeSource({
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
-      [
-        rehypePrism,
-        {
-          // showLineNumbers: true,
-        },
-      ],
       [
         rehypeAutolinkHeadings,
         {

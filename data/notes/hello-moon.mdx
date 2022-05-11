@@ -27,32 +27,19 @@ If you need to use a one-off line-height value that doesn’t make sense to incl
   Peek a boo!
 </details>
 
-```jsx
-<div className="c-small">
-  <PageTitle>{note.title}</PageTitle>
-
-  <time dateTime={note.date}>
-    {format(parseISO(note.date), "LLLL d, yyyy")}
-  </time>
-  <span>·</span>
-  <span>{note.readingTime.text}</span>
-</div>
-```
-
-```css
-.token.property,
-.token.keyword,
-.token.tag {
+```scss
+.token.property {
   color: #eee;
 }
 
 .token.class-name {
   color: #ffffb6;
   text-decoration: underline;
+  content: "class";
 }
 ```
 
-```javascript
+```js
 export async function getStaticProps({ params }) {
   const note: Note = allNotes.find((note: Note) => note.slug === params.slug);
 

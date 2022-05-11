@@ -12,7 +12,14 @@ export default class MyDocument extends NextDocument {
         <Head>
           <link
             rel="preload"
-            href="/fonts/Inter-roman.var.woff2?v=3.15"
+            href="/fonts/Inter-roman.var.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/JetBrainsMono-Regular.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
