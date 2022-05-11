@@ -22,6 +22,21 @@ pre[class*=language-]::-webkit-scrollbar {
 }
 
 
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.2em 0.3em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
+
 /**
  * One Dark theme for prism.js
  * Based on Atom's One Dark theme: https://github.com/atom/atom/tree/master/packages/one-dark-syntax
@@ -68,7 +83,6 @@ pre[class*=language-]::-webkit-scrollbar {
 .dark pre[class*="language-"] *::-moz-selection {
   background: hsl(220, 13%, 28%);
   color: inherit;
-  text-shadow: none;
 }
 
 .dark code[class*="language-"]::selection,
@@ -76,23 +90,8 @@ pre[class*=language-]::-webkit-scrollbar {
 .dark pre[class*="language-"] *::selection {
   background: hsl(220, 13%, 28%);
   color: inherit;
-  text-shadow: none;
 }
 
-/* Code blocks */
-.dark pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-  border-radius: 0.3em;
-}
-
-/* Inline code */
-.dark :not(pre) > code[class*="language-"] {
-  padding: 0.2em 0.3em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
 
 .dark .token.comment,
 .dark .token.prolog,
@@ -300,30 +299,14 @@ code[class*="language-"]::-moz-selection,
 code[class*="language-"] *::-moz-selection,
 pre[class*="language-"] *::-moz-selection {
   background: hsl(230, 1%, 90%);
-  color: inherit;
 }
 
 code[class*="language-"]::selection,
 code[class*="language-"] *::selection,
 pre[class*="language-"] *::selection {
   background: hsl(230, 1%, 90%);
-  color: inherit;
 }
 
-/* Code blocks */
-pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-  border-radius: 0.3em;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: 0.2em 0.3em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
 
 .token.comment,
 .token.prolog,
@@ -465,22 +448,4 @@ pre[class*="language-"] {
 .language-markdown .token.list.punctuation,
 .language-markdown .token.title.important > .token.punctuation {
   color: hsl(5, 74%, 59%);
-}
-
-/* General */
-.token.bold {
-  font-weight: bold;
-}
-
-.token.comment,
-.token.italic {
-  font-style: italic;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.namespace {
-  opacity: 0.8;
 }

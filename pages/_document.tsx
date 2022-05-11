@@ -21,21 +21,6 @@ export default class MyDocument extends NextDocument {
           {/* base */}
           <meta charSet="utf-8" />
           <meta name="robots" content="follow, index" />
-          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta name="description" content={meta.description} />
-          <link rel="canonical" href={meta.url} />
-
-          {/* facebook */}
-          <meta property="og:url" content={meta.url} />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={meta.title} />
-          <meta property="og:description" content={meta.description} />
-
-          {/* twitter */}
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content={meta.url} />
-          <meta name="twitter:title" content={meta.title} />
-          <meta name="twitter:description" content={meta.description} />
 
           {/* pwa */}
           <link href="/static/icons/site.webmanifest" rel="manifest" />
@@ -63,15 +48,6 @@ export default class MyDocument extends NextDocument {
           />
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
-
-          {/*<link*/}
-          {/*  rel="alternate"*/}
-          {/*  type="application/rss+xml"*/}
-          {/*  title="RSS Feed for feyz.li"*/}
-          {/*  href="/feed.xml"*/}
-          {/*/>*/}
-
-          <script async src="https://gumroad.com/js/gumroad.js" />
 
           {/* analytic */}
           {meta.ga && (
