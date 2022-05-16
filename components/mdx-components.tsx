@@ -6,10 +6,7 @@ import {
 } from "@codesandbox/sandpack-react";
 
 export function CodeBlock({ children }: { children: React.ReactElement }) {
-  const codeArray = children.props.children.split("\n");
-  codeArray.pop();
-  const code = codeArray.join("\n");
-
+  const code = children.props.children.trim();
   const extension = children.props.className.split("-")[1];
 
   return (
