@@ -1,5 +1,5 @@
 import "styles/globals.css";
-import "@codesandbox/sandpack-react/dist/index.css";
+import "prism-themes/themes/prism-atom-dark.css";
 
 import Head from "next/head";
 import Header from "components/header";

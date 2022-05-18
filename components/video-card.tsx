@@ -9,13 +9,13 @@ export default function VideoCard({ title, url, itemsCount }) {
   return (
     <div
       className={cx(
-        "group flex items-center gap-3 py-3 transition dark:text-white hover:text-red-600 dark:hover:text-red-400",
+        "group flex items-center gap-3 py-3 transition hover:text-red-600 dark:text-white dark:hover:text-red-400",
         check ? "opacity-50" : ""
       )}
     >
-      <label className="flex items-center justify-center w-5 h-5 border border-zinc-300 rounded shadow-sm text-zinc-900 dark:border-zinc-600 dark:text-zinc-200 cursor-pointer">
+      <label className="flex h-5 w-5 cursor-pointer items-center justify-center rounded border border-zinc-300 text-zinc-900 shadow-sm dark:border-zinc-600 dark:text-zinc-200">
         <input
-          className="absolute opacity-0 pointer-events-none"
+          className="pointer-events-none absolute opacity-0"
           type="checkbox"
           checked={check}
           onChange={(e) => {
@@ -30,7 +30,7 @@ export default function VideoCard({ title, url, itemsCount }) {
       </a>
 
       {itemsCount > -1 && (
-        <span className="text-sm py-0.5 px-2 bg-zinc-100 text-zinc-500 rounded dark:bg-zinc-800 dark:text-zinc-500">
+        <span className="rounded bg-zinc-100 py-0.5 px-2 text-sm text-zinc-500 dark:bg-zinc-800 dark:text-zinc-500">
           {`${itemsCount} Videos`}
         </span>
       )}

@@ -6,11 +6,11 @@ function MetricCard({ children, href = "", data, prefix = "" }) {
   return (
     <div
       className="
-      border border-zinc-200 rounded-xl p-4
+      rounded-xl border border-zinc-200 p-4
       dark:border-zinc-700"
     >
       {href ? <A href={href}>{children}</A> : children}
-      <p className="mt-1 text-3xl font-bold spacing-sm text-highlight">
+      <p className="spacing-sm text-highlight mt-1 text-3xl font-bold">
         {prefix}
         {commaNumber(data)}
       </p>

@@ -1,21 +1,21 @@
-import { useTheme } from "next-themes";
+// import { useTheme } from "next-themes";
 import NavItem from "./nav-item";
 
 const MENU = {
   "/": "Giriş",
   "/videos": "Eğitimler",
   "/photos": "Fotoğraf",
-  // "/notes": "Notes",
+  "/notes": "Notes",
   "/bookmarks": "Yer imleri",
 };
 
 function Header() {
-  const { resolvedTheme, setTheme } = useTheme();
+  // const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <header>
       <div className="c-small">
-        <div className="py-6 space-x-1 border-b border-gray-100 dark:border-gray-800">
+        <div className="space-x-1 border-b border-gray-100 py-6 dark:border-gray-800">
           <nav>
             {Object.keys(MENU).map((path) => {
               return (
@@ -24,14 +24,14 @@ function Header() {
                 </NavItem>
               );
             })}
-            <button
+            {/*<button
               className="c-small"
               onClick={() =>
                 setTheme(resolvedTheme === "dark" ? "light" : "dark")
               }
             >
               {resolvedTheme === "dark" ? "🌝" : "🌚"}
-            </button>
+            </button>*/}
           </nav>
         </div>
       </div>

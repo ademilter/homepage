@@ -41,8 +41,8 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
           <div className="mt-16">
             <Link href={`/bookmarks/${getYear(new Date())}`}>
               <a
-                className="py-3 px-4 bg-zinc-50 border border-zinc-200 rounded
-              dark:bg-zinc-800 dark:border-zinc-700"
+                className="rounded border border-zinc-200 bg-zinc-50 py-3 px-4
+              dark:border-zinc-700 dark:bg-zinc-800"
               >
                 Tüm listeyi görüntüle →
               </a>

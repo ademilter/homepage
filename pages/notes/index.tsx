@@ -37,7 +37,7 @@ export default function NotesPage({ notes }: { notes: Note[] }) {
           {notes.map((note: Note) => {
             return (
               <article key={note._id}>
-                <h3 className="font-semibold text-highlight">
+                <h3 className="text-highlight font-semibold">
                   <NextLink href={`/notes/${note.slug}`}>
                     <a>{note.title}</a>
                   </NextLink>
@@ -48,7 +48,7 @@ export default function NotesPage({ notes }: { notes: Note[] }) {
                       locale: tr,
                     })}
                   </time>
-                  <span className="opacity-50">•</span>
+                  <span className="opacity-50">·</span>
                   <span>{note.readingTime.text}</span>
                 </footer>
               </article>

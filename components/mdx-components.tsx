@@ -1,27 +1,11 @@
 import React from "react";
-import {
-  SandpackProvider,
-  SandpackThemeProvider,
-  SandpackCodeViewer,
-} from "@codesandbox/sandpack-react";
 
-export function CodeBlock({ children }: { children: React.ReactElement }) {
+/*export function CodeBlock({ children }: { children: React.ReactElement }) {
   const code = children.props.children.trim();
   const extension = children.props.className.split("-")[1];
 
   return (
     <div className="group relative">
-      {/* @ts-ignore */}
-      <SandpackProvider
-        customSetup={{
-          entry: `index.${extension}`,
-          files: {
-            [`index.${extension}`]: code,
-          },
-        }}
-      >
-        {/* @ts-ignore */}
-        <SandpackThemeProvider>
           <button
             className="z-10 absolute right-1 top-1.5 w-10 h-10 cursor-pointer transition
              opacity-0 group-hover:opacity-100 group-focus:opacity-100"
@@ -47,15 +31,12 @@ export function CodeBlock({ children }: { children: React.ReactElement }) {
               </defs>
             </svg>
           </button>
-          <SandpackCodeViewer />
-        </SandpackThemeProvider>
-      </SandpackProvider>
     </div>
   );
-}
+}*/
 
 const MDXComponents = {
-  pre: CodeBlock,
+  // pre: CodeBlock,
 };
 
 export default MDXComponents;

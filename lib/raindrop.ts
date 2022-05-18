@@ -23,7 +23,6 @@ export default class Raindrop {
   }
 
   public async getBookmarks(page: number = 0): Promise<IBookmark[]> {
-    console.log(this.getGeneratePath(page));
     const res = await fetch(this.getGeneratePath(page), {
       method: "GET",
       headers: {

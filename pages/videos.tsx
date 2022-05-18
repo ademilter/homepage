@@ -190,7 +190,7 @@ function VideosPage({ youtubeStats }) {
         <div className="mt-10">
           <A
             href="https://www.buymeacoffee.com/ademilter"
-            className="bg-zinc-900 text-white px-4 py-3 rounded
+            className="rounded bg-zinc-900 px-4 py-3 text-white
             dark:bg-zinc-100 dark:text-zinc-900"
           >
             ✨ Teşekkür

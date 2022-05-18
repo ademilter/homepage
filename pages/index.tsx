@@ -7,7 +7,7 @@ export default function HomePage() {
     <PageTransition>
       <div className="c-small">
         <div className="space-y-6">
-          <h1 className="text-2xl font-bold text-highlight">
+          <h1 className="text-highlight text-2xl font-bold">
             Ben Adem ilter.
             <br />
             İstanbul'da yaşayan Dijital Ürün Tasarımcısıyım.

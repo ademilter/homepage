@@ -4,6 +4,7 @@ import Head from "next/head";
 import { format, parseISO } from "date-fns";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "components/mdx-components";
+import { tr } from "date-fns/locale";
 
 export async function getStaticPaths() {
   const paths = allNotes.map((note: Note) => ({ params: { slug: note.slug } }));
@@ -44,27 +45,29 @@ export default function NotePage({ note }: { note: Note }) {
 
         <article className="post c-small">
           <header>
-            <h1 className="text-3xl font-semibold text-highlight">
+            <h1 className="text-highlight text-3xl font-semibold">
               {note.title}
             </h1>
 
-            <div className="mt-2">
+            <div className="mt-2 flex items-center space-x-2 text-zinc-500">
               <time dateTime={note.date}>
-                {format(parseISO(note.date), "LLLL d, yyyy")}
+                {format(parseISO(note.date), "d LLLL yyyy", {
+                  locale: tr,
+                })}
               </time>
-              <span>·</span>
+              <span className="opacity-50">·</span>
               <span>{note.readingTime.text}</span>
             </div>
           </header>
 
-          <div className="post-body leading-relaxed mt-10">
+          <div className="post-body mt-10 leading-relaxed">
             <Component
               components={{
                 ...MDXComponents,
                 h2: (props) => {
                   return (
                     <h2
-                      className="text-2xl font-semibold leading-tight text-highlight"
+                      className="text-highlight text-2xl font-semibold leading-tight"
                       {...props}
                     />
                   );
@@ -72,7 +75,7 @@ export default function NotePage({ note }: { note: Note }) {
                 h3: (props) => {
                   return (
                     <h3
-                      className="text-xl font-semibold leading-tight text-highlight"
+                      className="text-highlight text-xl font-semibold leading-tight"
                       {...props}
                     />
                   );
@@ -80,14 +83,14 @@ export default function NotePage({ note }: { note: Note }) {
                 h4: (props) => {
                   return (
                     <h4
-                      className="text-lg font-semibold leading-snug text-highlight"
+                      className="text-highlight text-lg font-semibold leading-snug"
                       {...props}
                     />
                   );
                 },
                 h5: (props) => {
                   return (
-                    <h5 className="font-semibold text-highlight" {...props} />
+                    <h5 className="text-highlight font-semibold" {...props} />
                   );
                 },
               }}
@@ -97,46 +100,19 @@ export default function NotePage({ note }: { note: Note }) {
 
         <style global jsx>{`
           .post-body > * {
-            margin-bottom: 1.5rem;
-          }
-
-          .post-body a.anchor:after {
-            content: "#";
-          }
-
-          .post-body a.anchor {
-            visibility: hidden;
-            position: absolute;
-            -webkit-text-decoration-line: none;
-            text-decoration-line: none;
-            margin-left: -1em;
-            padding-right: 0.5em;
-            cursor: pointer;
-          }
-
-          .post-body :hover > .anchor {
-            visibility: visible;
+            margin-bottom: 2rem;
           }
 
           .post-body :where(h2, h3, h4) {
             scroll-margin-top: 2rem;
           }
 
-          .post-body .sp-cm {
-            padding: 0;
+          .post-body pre {
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
           }
 
-          .post-body .cm-editor {
-            font-family: "JetBrains Mono", "JetBrainsMono", monospace;
-            border-radius: 1rem;
-          }
-
-          .post-body .cm-editor .cm-scroller {
-            padding: 1rem 0.2rem;
-            font-family: inherit;
-          }
-
-          .post-body .cm-editor .cm-scroller::-webkit-scrollbar {
+          .post-body pre[class*="language-"]::-webkit-scrollbar {
             display: none;
           }
         `}</style>
