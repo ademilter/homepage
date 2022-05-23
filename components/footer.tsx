@@ -3,7 +3,7 @@ import A from "components/a";
 
 function Footer() {
   return (
-    <footer className="pb-14">
+    <footer className="mt-40 pb-14">
       <div className="c-small">
         <p>
           Bu web sitesinin kaynak kodlarına{" "}

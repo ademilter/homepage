@@ -46,11 +46,13 @@ export default function MyApp({ Component, pageProps }) {
           <meta name="twitter:description" content={meta.description} />
         </Head>
 
-        <Header />
-        <main className="pt-14 pb-20">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-grow pt-14">
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </div>
       </Provider>
     </ThemeProvider>
   );
