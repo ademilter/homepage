@@ -13,6 +13,7 @@ function NavItem({ href, children }) {
       <a
         className={cx(
           "rounded px-2 py-1",
+          "hover:bg-zinc-100 dark:hover:bg-zinc-800",
           isActive &&
             "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-white"
         )}

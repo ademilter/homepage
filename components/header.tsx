@@ -1,5 +1,6 @@
-// import { useTheme } from "next-themes";
+import { useTheme } from "next-themes";
 import NavItem from "./nav-item";
+import { useState, useEffect } from "react";
 
 const MENU = {
   "/": "Giriş",
@@ -10,12 +11,16 @@ const MENU = {
 };
 
 function Header() {
-  // const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   return (
     <header>
       <div className="c-small">
-        <div className="space-x-1 border-b border-gray-100 py-6 dark:border-gray-800">
+        <div className="space-x-1 border-b border-zinc-100 py-6 dark:border-zinc-800">
           <nav>
             {Object.keys(MENU).map((path) => {
               return (
@@ -24,14 +29,18 @@ function Header() {
                 </NavItem>
               );
             })}
-            {/*<button
+            <button
               className="c-small"
-              onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-              }
+              onClick={() => {
+                if (theme === "system") setTheme("light");
+                if (theme === "light") setTheme("dark");
+                if (theme === "dark") setTheme("system");
+              }}
             >
-              {resolvedTheme === "dark" ? "🌝" : "🌚"}
-            </button>*/}
+              {theme === "system" && "🌻"}
+              {theme === "light" && "🌚"}
+              {theme === "dark" && "🌝"}
+            </button>
           </nav>
         </div>
       </div>
