@@ -9,7 +9,6 @@ export const Note = defineDocumentType(() => ({
   fields: {
     date: { type: "date", required: true },
     title: { type: "string", required: true },
-    tags: { type: "json", required: true },
   },
   computedFields: {
     slug: {

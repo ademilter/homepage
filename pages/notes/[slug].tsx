@@ -101,15 +101,16 @@ export default function NotePage({ note }: { note: Note }) {
         <style global jsx>{`
           .post-body > * {
             margin-bottom: 2rem;
-          }
-
-          .post-body :where(h2, h3, h4) {
             scroll-margin-top: 2rem;
           }
 
           .post-body pre {
             font-size: 0.9rem;
             margin-bottom: 2rem;
+          }
+
+          .post-body a {
+            text-decoration: underline;
           }
 
           .post-body pre[class*="language-"]::-webkit-scrollbar {
