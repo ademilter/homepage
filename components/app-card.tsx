@@ -6,7 +6,7 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
       key={Id}
       href={`${url}?ref=ademilter`}
       target="_blank"
-      className="-mx-4 flex items-center gap-10 p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+      className="flex items-center gap-10 rounded py-6 transition-all hover:bg-zinc-100 hover:px-6 dark:hover:bg-zinc-800"
     >
       <div className="grow">
         <h4 className="text-highlight flex items-center gap-2 text-lg font-semibold">
