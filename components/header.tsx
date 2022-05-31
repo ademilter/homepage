@@ -1,28 +1,40 @@
 import { useTheme } from "next-themes";
 import NavItem from "./nav-item";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const MENU = {
   "/": "Giriş",
-  "/videos": "Eğitimler",
-  "/photos": "Fotoğraflar",
+  "/videos": "Eğitim",
+  "/photos": "Fotoğraf",
   // "/notes": "Notlar",
-  "/apps": "Uygulamalar",
-  "/bookmarks": "Yer İmleri",
+  "/apps": "Uygulama",
+  "/bookmarks": "Yer İmi",
 };
 
 function Header() {
-  const { theme, setTheme } = useTheme();
+  const [showNav, setShowMenu] = useState(false);
+
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
   return (
-    <header>
+    <header className="pt-10 pb-20">
       <div className="c-small">
-        <div className="space-x-1 border-b border-zinc-100 py-6 dark:border-zinc-800">
-          <nav>
+        <div className="flex items-center justify-between">
+          {/* nav-mobile-toggle */}
+          <button
+            className="sm:hidden"
+            type="button"
+            onClick={() => setShowMenu(!showNav)}
+          >
+            <span>{showNav ? "x" : "Menü"}</span>
+          </button>
+          {/* desktop nav */}
+          <nav className="hidden sm:block">
             {Object.keys(MENU).map((path) => {
               return (
                 <NavItem key={path} href={path}>
@@ -30,20 +42,29 @@ function Header() {
                 </NavItem>
               );
             })}
-            <button
-              className="c-small"
-              onClick={() => {
-                if (theme === "system") setTheme("light");
-                if (theme === "light") setTheme("dark");
-                if (theme === "dark") setTheme("system");
-              }}
-            >
-              {theme === "system" && "🌻"}
-              {theme === "light" && "🌚"}
-              {theme === "dark" && "🌝"}
-            </button>
           </nav>
+
+          <button
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+          >
+            {resolvedTheme === "dark" ? "🌝" : "🌚"}
+          </button>
         </div>
+
+        {/* nav-mobile */}
+        {showNav && (
+          <nav className="flex flex-col sm:hidden">
+            {Object.keys(MENU).map((path) => {
+              return (
+                <Link key={path} href={path}>
+                  <a className="">{MENU[path]}</a>
+                </Link>
+              );
+            })}
+          </nav>
+        )}
       </div>
     </header>
   );
