@@ -1,4 +1,3 @@
-const colors = require("tailwindcss/colors");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -19,4 +18,5 @@ module.exports = {
       opacity: ["disabled"],
     },
   },
+  plugins: [require("@tailwindcss/line-clamp")],
 };

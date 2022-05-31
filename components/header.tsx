@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 const MENU = {
   "/": "Giriş",
   "/videos": "Eğitimler",
-  "/photos": "Fotoğraf",
-  "/notes": "Notes",
-  "/bookmarks": "Yer imleri",
+  "/photos": "Fotoğraflar",
+  // "/notes": "Notlar",
+  "/apps": "Uygulamalar",
+  "/bookmarks": "Yer İmleri",
 };
 
 function Header() {
