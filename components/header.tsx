@@ -55,7 +55,7 @@ function Header() {
 
         {/* nav-mobile */}
         {showNav && (
-          <nav className="flex flex-col sm:hidden">
+          <nav className="mt-4 flex flex-col space-y-4 sm:hidden">
             {Object.keys(MENU).map((path) => {
               return (
                 <Link key={path} href={path}>

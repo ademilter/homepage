@@ -20,17 +20,37 @@ function PhotosPage({ data }) {
       </div>
 
       <div className="c-small mt-20">
-        <h4
-          className="
+        <div>
+          <h4
+            className="
               text-2xl text-zinc-400
               dark:text-zinc-500"
-        >
-          MacOS
-        </h4>
-        <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">
-          {data.map((item) => (
-            <AppCard key={item.Id} {...item} />
-          ))}
+          >
+            MacOS
+          </h4>
+          <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">
+            {data
+              .filter((item) => item.os.includes("macos"))
+              .map((item) => (
+                <AppCard key={item.Id} {...item} />
+              ))}
+          </div>
+        </div>
+        <div className="mt-20">
+          <h4
+            className="
+              text-2xl text-zinc-400
+              dark:text-zinc-500"
+          >
+            iOS
+          </h4>
+          <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">
+            {data
+              .filter((item) => item.os.includes("ios"))
+              .map((item) => (
+                <AppCard key={item.Id} {...item} />
+              ))}
+          </div>
         </div>
       </div>
     </PageTransition>
