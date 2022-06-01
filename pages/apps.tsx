@@ -41,7 +41,7 @@ function PhotosPage({ data }) {
                 className={cx(
                   "flex h-10 grow items-center justify-center",
                   isActive
-                    ? "bg-white text-zinc-50 dark:bg-zinc-600"
+                    ? "bg-white text-zinc-900 dark:bg-zinc-600 dark:text-zinc-50"
                     : "bg-zinc-200 dark:bg-zinc-800"
                 )}
                 key={osType}
