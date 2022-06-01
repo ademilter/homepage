@@ -5,8 +5,7 @@ import Head from "next/head";
 import { getTable } from "lib/airtables";
 
 function PhotosPage({ data }) {
-  console.log(data);
-
+  
   return (
     <PageTransition>
       <Head>
