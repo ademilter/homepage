@@ -1,4 +1,5 @@
 import Image from "next/image";
+import cx from "classnames";
 
 export default function AppCard({ Id, name, description, url, free, icon }) {
   return (
@@ -6,8 +7,21 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
       key={Id}
       href={`${url}?ref=ademilter`}
       target="_blank"
-      className="flex items-center gap-10 rounded py-6 transition-all hover:bg-zinc-100 hover:px-6 dark:hover:bg-zinc-800"
+      className={cx(
+        "flex items-center gap-6 from-gray-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
+      )}
     >
+      <div
+        className={cx("flex h-16 w-16 shrink-0 items-center justify-center")}
+      >
+        <Image
+          src={icon[0].thumbnails.large.url}
+          alt={name}
+          width={128}
+          height={128}
+          quality={100}
+        />
+      </div>
       <div className="grow">
         <h4 className="text-highlight flex items-center gap-2 text-lg font-semibold">
           <span>{name}</span>
@@ -17,21 +31,8 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
             </span>
           )}
         </h4>
-        <p className="mt-2">{description}</p>
-        {/*<div className="mt-2">
-                  <a href={`${url}?ref=ademilter`} target="_blank">
-                    → {url}
-                  </a>
-                </div>*/}
-      </div>
-      <div className="flex h-24 w-24 shrink-0 items-center justify-center">
-        <Image
-          src={icon[0].thumbnails.large.url}
-          alt={name}
-          width={128}
-          height={128}
-          quality={100}
-        />
+
+        <p>{description}</p>
       </div>
     </a>
   );
