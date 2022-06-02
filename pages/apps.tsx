@@ -39,7 +39,7 @@ function PhotosPage({ data }) {
             return (
               <div
                 className={cx(
-                  "flex h-10 grow items-center justify-center",
+                  "cursor-pointer flex h-10 grow items-center justify-center",
                   isActive
                     ? "bg-white text-zinc-900 dark:bg-zinc-600 dark:text-zinc-50"
                     : "bg-zinc-200 dark:bg-zinc-800"
