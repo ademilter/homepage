@@ -1,8 +1,14 @@
-import NextImage from "next/image";
 import PageTransition from "components/page-transition";
 import Social from "components/social";
+import dynamic from "next/dynamic";
+import unsplash from "lib/unsplash";
+import ms from "ms";
 
-export default function HomePage() {
+const Photos = dynamic(() => import("components/photos"), {
+  ssr: false,
+});
+
+export default function HomePage({ photos }) {
   return (
     <PageTransition>
       <div className="c-small">
@@ -29,15 +35,27 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="c-large mt-20">
-        <NextImage
+      <div className="c-large mt-40">
+        <Photos data={photos} />
+        {/*<NextImage
           src="/photos/i-am.jpg"
           alt="Adem ilter"
           width={1433}
           height={1018}
           layout="responsive"
-        />
+        />*/}
       </div>
     </PageTransition>
   );
+}
+
+export async function getStaticProps() {
+  const photos = await unsplash.getPhotos(6);
+
+  return {
+    props: {
+      photos,
+    },
+    revalidate: ms("1d") / 1000,
+  };
 }

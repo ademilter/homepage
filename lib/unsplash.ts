@@ -19,10 +19,12 @@ class Unsplash {
     return this.getData(url);
   }
 
-  getPhotos() {
-    const url = [this.base_url, "/photos?per_page=50&", this.client_id].join(
-      ""
-    );
+  getPhotos(per_page = 50) {
+    const url = [
+      this.base_url,
+      `/photos?per_page=${per_page}&`,
+      this.client_id,
+    ].join("");
     return this.getData(url);
   }
 }
