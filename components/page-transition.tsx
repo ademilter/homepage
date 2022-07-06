@@ -1,12 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PageTransition = (props) => (
-  <motion.div
-    initial={{ y: 5, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    transition={{ duration: 0.4 }}
-    {...props}
-  />
+  <AnimatePresence exitBeforeEnter>
+    <motion.div
+      initial={{ y: 5, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -5, opacity: 0 }}
+      transition={{ duration: 0.4 }}
+      {...props}
+    />
+  </AnimatePresence>
 );
 
 export default PageTransition;

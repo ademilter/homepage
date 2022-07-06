@@ -19,11 +19,11 @@
 
 @layer components {
   .c-small {
-    @apply max-w-screen-sm mx-auto px-4;
+    @apply max-w-screen-sm mx-auto px-6;
   }
 
   .c-large {
-    @apply max-w-screen-xl mx-auto px-4;
+    @apply max-w-screen-xl mx-auto px-6;
   }
 
   .text-highlight {

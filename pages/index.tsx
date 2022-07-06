@@ -50,7 +50,7 @@ export default function HomePage({ photos }) {
 }
 
 export async function getStaticProps() {
-  const photos = await unsplash.getPhotos(9);
+  const photos = await unsplash.getPhotos(12);
 
   return {
     props: {
