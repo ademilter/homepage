@@ -6,7 +6,9 @@ import Link from "next/link";
 import { getYear } from "date-fns";
 
 export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
-  const weeks = Object.keys(data).sort((a, b) => parseInt(b) - parseInt(a));
+  const sortedData = Object.keys(data).sort(
+    (a, b) => parseInt(b) - parseInt(a)
+  );
 
   return (
     <PageTransition>
@@ -20,7 +22,7 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
           beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
         </PageTitle>
 
-        {weeks.map((date) => (
+        {sortedData.map((date) => (
           <div key={date} className="mt-20">
             <h4
               className="
