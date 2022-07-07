@@ -187,15 +187,19 @@ function VideosPage({ youtubeStats }) {
           düzenli olarak takip edebilirsiniz.
         </PageTitle>
 
-        <div className="mt-10">
+        <p className="mt-10">
           <A
             href="https://www.buymeacoffee.com/ademilter"
-            className="rounded bg-zinc-900 px-4 py-3 text-white
-            dark:bg-zinc-100 dark:text-zinc-900"
+            className="flex items-center rounded-md bg-indigo-50 py-5 px-6
+            text-indigo-900 transition-colors
+      hover:bg-indigo-100 hover:no-underline
+      dark:bg-indigo-900 dark:text-indigo-100
+      dark:hover:bg-indigo-800 dark:hover:text-indigo-50"
           >
-            ✨ Teşekkür
+            Ücretsiz olarak yayınladığım eğitimler için teşekkür etmek istersen
+            kahve ısmarlayabilirsin 🙏
           </A>
-        </div>
+        </p>
 
         <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
           <MetricCard

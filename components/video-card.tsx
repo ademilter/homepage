@@ -8,7 +8,7 @@ export default function VideoCard({ title, url, itemsCount }) {
   return (
     <div
       className={cx(
-        "group flex items-start gap-3 py-3 transition hover:text-red-600 dark:text-white dark:hover:text-red-400",
+        "group flex items-start gap-3 py-3 transition hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400",
         check ? "opacity-50" : ""
       )}
     >
