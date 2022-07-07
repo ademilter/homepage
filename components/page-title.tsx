@@ -8,7 +8,10 @@ type Props = {
 
 function PageTitle({ children, className, ...props }: Props) {
   return (
-    <p className={cn("text-highlight text-2xl", className)} {...props}>
+    <p
+      className={cn("text-highlight text-2xl leading-snug", className)}
+      {...props}
+    >
       {children}
     </p>
   );

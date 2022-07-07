@@ -1,7 +1,6 @@
-import { useTheme } from "next-themes";
 import NavItem from "./nav-item";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const MENU = {
   "/": "Giriş",
@@ -15,12 +14,6 @@ const MENU = {
 function Header() {
   const [showNav, setShowMenu] = useState(false);
 
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
-
   return (
     <header className="pt-10 pb-20">
       <div className="c-small">
@@ -33,8 +26,9 @@ function Header() {
           >
             <span>{showNav ? "x" : "Menü"}</span>
           </button>
+
           {/* desktop nav */}
-          <nav className="hidden sm:block">
+          <nav className="-ml-3 hidden sm:block">
             {Object.keys(MENU).map((path) => {
               return (
                 <NavItem key={path} href={path}>
@@ -43,19 +37,11 @@ function Header() {
               );
             })}
           </nav>
-
-          <button
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
-          >
-            {resolvedTheme === "dark" ? "🌝" : "🌚"}
-          </button>
         </div>
 
         {/* nav-mobile */}
         {showNav && (
-          <nav className="mt-4 flex flex-col space-y-4 sm:hidden">
+          <nav className="mt-4 flex flex-col space-y-4 text-xl sm:hidden">
             {Object.keys(MENU).map((path) => {
               return (
                 <Link key={path} href={path}>
