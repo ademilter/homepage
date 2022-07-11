@@ -16,7 +16,7 @@ const OS_LABEL = {
   [OS_TYPES.MACOS]: "macOS",
 };
 
-function PhotosPage({ data }) {
+export default function AppsPage({ data }) {
   const [os, setOs] = useState(OS_TYPES.IOS);
 
   return (
@@ -39,7 +39,7 @@ function PhotosPage({ data }) {
             return (
               <div
                 className={cx(
-                  "cursor-pointer flex h-10 grow items-center justify-center",
+                  "flex h-10 grow cursor-pointer items-center justify-center",
                   isActive
                     ? "bg-white text-zinc-900 dark:bg-zinc-600 dark:text-zinc-50"
                     : "bg-zinc-200 dark:bg-zinc-800"
@@ -75,5 +75,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default PhotosPage;
