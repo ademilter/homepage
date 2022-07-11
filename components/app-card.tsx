@@ -8,7 +8,7 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
       href={`${url}?ref=ademilter`}
       target="_blank"
       className={cx(
-        "flex items-center gap-6 from-gray-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
+        "flex items-center gap-6 from-zinc-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
       )}
     >
       <div
