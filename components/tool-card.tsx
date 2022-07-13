@@ -10,9 +10,6 @@ export default function VideoCard({ tool }: { tool: ITool }) {
   const animations = {
     layout: true,
     initial: "out",
-    style: {
-      position: isPresent ? "static" : "absolute",
-    },
     animate: isPresent ? "in" : "out",
     variants: {
       in: {
@@ -34,6 +31,9 @@ export default function VideoCard({ tool }: { tool: ITool }) {
     <motion.article
       {...animations}
       className="rounded bg-zinc-100 p-4 dark:bg-white dark:bg-opacity-10"
+      style={{
+        position: isPresent ? "static" : "absolute",
+      }}
     >
       <div className="aspect-square overflow-hidden rounded bg-zinc-100">
         {photo && (
@@ -51,6 +51,7 @@ export default function VideoCard({ tool }: { tool: ITool }) {
       </header>
 
       <div className="mt-6 rounded bg-white p-3 text-sm dark:bg-zinc-800">
+        {/* TODO: change rating */}
         <span className="flex items-center gap-0.5">
           <span>{rating}</span>
           <span className="opacity-50">/</span>
