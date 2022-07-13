@@ -6,7 +6,8 @@ const MENU = {
   "/": "Giriş",
   "/videos": "Eğitim",
   "/photos": "Fotoğraf",
-  // "/notes": "Notlar",
+  // "/notes": "Not",
+  "/tools": "Ekipman",
   "/apps": "Uygulama",
   "/bookmarks": "Yer İmi",
 };
