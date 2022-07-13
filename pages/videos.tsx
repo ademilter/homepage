@@ -201,7 +201,7 @@ function VideosPage({ youtubeStats }) {
           </A>
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           <MetricCard
             href={meta.social.youtube}
             data={youtubeStats.subscriberCount}

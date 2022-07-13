@@ -1,8 +1,10 @@
 import { IAirtableImages, ITool } from "types/Tool";
 import { motion, usePresence } from "framer-motion";
+import IconLike from "./icons/like";
+import cx from "classnames";
 
 export default function VideoCard({ tool }: { tool: ITool }) {
-  const { images, brand, name, rating, comment } = tool;
+  const { images, brand, name, wtf, rating, comment } = tool;
   const photo: IAirtableImages = images && images[0];
 
   const [isPresent, safeToRemove] = usePresence();
@@ -23,42 +25,52 @@ export default function VideoCard({ tool }: { tool: ITool }) {
         transition: { duration: 0 },
       },
     },
+    transition: { type: "spring", stiffness: 500, damping: 50, mass: 2 },
     onAnimationComplete: () => !isPresent && safeToRemove(),
-    transition: { type: "spring", stiffness: 800, damping: 50, mass: 1 },
   };
 
   return (
     <motion.article
       {...animations}
-      className="rounded bg-zinc-100 p-4 dark:bg-white dark:bg-opacity-10"
+      className="rounded-lg bg-zinc-100 p-4 dark:bg-white dark:bg-opacity-10"
       style={{
         position: isPresent ? "static" : "absolute",
       }}
     >
-      <div className="aspect-square overflow-hidden rounded bg-zinc-100">
+      <div className="aspect-square overflow-hidden rounded-md">
         {photo && (
           <img
             src={photo.thumbnails.large.url}
-            className="h-full w-full bg-white object-contain"
+            className="h-full w-full object-contain"
             alt=""
           />
         )}
       </div>
 
-      <header className="mt-6">
+      <header className="mt-6 text-center">
         <h5 className="text-sm opacity-60">{brand ? brand : "-"}</h5>
         <h3 className="font-semibold dark:text-white">{name}</h3>
+        <span className="text-sm opacity-60">{wtf}</span>
       </header>
 
-      <div className="mt-6 rounded bg-white p-3 text-sm dark:bg-zinc-800">
-        {/* TODO: change rating */}
-        <span className="flex items-center gap-0.5">
-          <span>{rating}</span>
-          <span className="opacity-50">/</span>
-          <span className="opacity-50">5</span>
-        </span>
+      <div className="mt-6 rounded-md bg-white p-4 text-sm dark:bg-zinc-800">
+        <div className="flex items-center gap-1">
+          {[...Array(5).keys()].map((rate) => {
+            return (
+              <IconLike
+                key={rate}
+                size={10}
+                className={cx(
+                  rate < rating
+                    ? "fill-red-400 text-red-400 dark:fill-red-500 dark:text-red-500 dark:opacity-50"
+                    : "fill-black text-black opacity-20 dark:fill-white dark:text-white"
+                )}
+              />
+            );
+          })}
+        </div>
 
-        <p className="mt-1">{comment}</p>
+        <p className="mt-2 dark:opacity-80">{comment}</p>
       </div>
     </motion.article>
   );

@@ -39,7 +39,7 @@ function Photos({ data }) {
       }}
       initial="hidden"
       animate="visible"
-      className="grid items-end gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      className="grid items-end gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8 lg:grid-cols-4"
     >
       {data.map((item) => {
         return <Photo key={item.id} {...item} />;

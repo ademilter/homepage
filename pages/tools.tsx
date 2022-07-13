@@ -52,7 +52,7 @@ export default function ToolsPage({ data }) {
       </div>
 
       <div className="c-large mt-20">
-        <div className="grid items-start gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-10 lg:grid-cols-4">
+        <div className="grid items-start gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
           <AnimatePresence>
             {data
               .filter((tool: ITool) => {
