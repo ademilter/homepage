@@ -23,8 +23,8 @@ export default function ToolsPage({ data }) {
 
       <div className="c-small">
         <PageTitle>
-          Gün içinde ve çalışma hayatımda sürekli kullandığım araçlarların
-          listesi. Bana yaşattıkları deneyim üzerinden puan ve yorumumu ekledim.
+          Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesi.
+          Bana yaşattıkları deneyim üzerinden puan ve yorumumu ekledim.
         </PageTitle>
 
         <div className="b mt-10 inline-flex items-center rounded-full bg-zinc-100 p-1 dark:bg-zinc-800">
