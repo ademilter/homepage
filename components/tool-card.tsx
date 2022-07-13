@@ -56,7 +56,6 @@ export default function VideoCard({ tool }: { tool: ITool }) {
       <div className="mt-6 rounded-md bg-white p-4 text-sm dark:bg-zinc-800">
         <div className="flex items-center gap-1">
           {[...Array(5).keys()].map((rate) => {
-            console.log(rate, rating);
             return (
               <IconLike
                 key={rate}
