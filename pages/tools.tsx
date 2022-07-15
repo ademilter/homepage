@@ -2,7 +2,7 @@ import PageTransition from "components/page-transition";
 import PageTitle from "components/page-title";
 import Tool from "components/tool-card";
 import Head from "next/head";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { getTable } from "lib/airtables";
 import { ITool } from "types/Tool";
 import { useState } from "react";
@@ -29,22 +29,31 @@ export default function ToolsPage({ data }) {
           Bana yaşattıkları deneyim üzerinden puan ve yorumumu ekledim.
         </PageTitle>
 
-        <div className="b mt-10 inline-flex items-center rounded-full bg-zinc-100 p-1 dark:bg-zinc-800">
+        <div className="mt-10 flex items-center rounded-full bg-zinc-100 p-1 dark:bg-zinc-800">
           {["all", ...categories].map((category) => {
+            const isActive = category === selectedCategory;
             return (
               <button
                 key={category}
-                className={cx(
-                  "rounded-full py-1 px-4 capitalize transition",
-                  category === selectedCategory
-                    ? "bg-white dark:bg-zinc-900 dark:text-zinc-100 "
-                    : "dark:hover:bg-zinc-800"
-                )}
+                className="relative grow rounded-full bg-transparent py-1 px-4 capitalize"
                 onClick={() => {
                   setSelectedCategory(category);
                 }}
               >
-                {category}
+                {isActive && (
+                  <motion.span
+                    layoutId="bg"
+                    className="absolute left-0 top-0 h-full w-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 50,
+                      mass: 2,
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{category}</span>
               </button>
             );
           })}

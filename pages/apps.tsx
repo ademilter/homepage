@@ -5,6 +5,7 @@ import Head from "next/head";
 import { getTable } from "lib/airtables";
 import { useState } from "react";
 import cx from "classnames";
+import { motion } from "framer-motion";
 
 enum OS_TYPES {
   IOS = "ios",
@@ -29,27 +30,32 @@ export default function AppsPage({ data }) {
         <PageTitle>
           Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi.
         </PageTitle>
-      </div>
 
-      <div className="c-small mt-20">
-        <div className="flex items-center overflow-hidden rounded-full border border-zinc-200 dark:border-zinc-800">
+        <div className="mt-10 flex items-center rounded-full bg-zinc-100 p-1 dark:bg-zinc-800">
           {Object.keys(OS_TYPES).map((key) => {
             const osType = OS_TYPES[key];
             const isActive = osType === os;
             return (
-              <div
-                className={cx(
-                  "flex h-10 grow cursor-pointer items-center justify-center",
-                  isActive
-                    ? "bg-white text-zinc-900 dark:bg-zinc-600 dark:text-zinc-50"
-                    : "bg-zinc-200 dark:bg-zinc-800"
-                )}
+              <button
                 key={osType}
                 onClick={() => setOs(osType)}
+                className="relative grow rounded-full bg-transparent py-1 px-4"
               >
-                {OS_LABEL[osType]}
-                {isActive && " ✓"}
-              </div>
+                {isActive && (
+                  <motion.span
+                    layoutId="bg"
+                    className="absolute left-0 top-0 h-full w-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"
+                    initial={false}
+                    transition={{
+                      type: "spring",
+                      stiffness: 500,
+                      damping: 50,
+                      mass: 2,
+                    }}
+                  />
+                )}
+                <span className="relative z-10">{OS_LABEL[osType]}</span>
+              </button>
             );
           })}
         </div>
