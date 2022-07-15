@@ -12,7 +12,7 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
         "flex items-center gap-6 from-zinc-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
       )}
     >
-      <div
+      <figure
         className={cx("flex h-16 w-16 shrink-0 items-center justify-center")}
       >
         <Image
@@ -22,7 +22,8 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
           height={128}
           quality={100}
         />
-      </div>
+      </figure>
+
       <div className="grow">
         <Text as="h4" className="flex items-center gap-2 font-semibold">
           <Text>{name}</Text>

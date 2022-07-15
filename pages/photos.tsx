@@ -25,7 +25,7 @@ function PhotosPage({ photos, stats }) {
           yakalabilmeyi öğretiyor.
         </Text>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard href={meta.social.unsplash} data={stats.views.total}>
             Unsplash Views
           </MetricCard>

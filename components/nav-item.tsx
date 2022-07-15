@@ -13,7 +13,7 @@ function NavItem({ href, children }) {
     <Link href={href}>
       <a
         className={cx(
-          "rounded px-3 py-2 underline-offset-1",
+          "rounded-lg px-3 py-2 underline-offset-1",
           "hover:bg-zinc-100 dark:hover:bg-zinc-800",
           isActive
             ? "underline decoration-zinc-300 dark:decoration-zinc-600"

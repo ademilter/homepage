@@ -37,15 +37,15 @@ export default function VideoCard({ tool }: { tool: ITool }) {
         position: isPresent ? "static" : "absolute",
       }}
     >
-      <div className="aspect-square overflow-hidden rounded-md">
+      <figure className="aspect-square overflow-hidden rounded-md">
         {photo && (
           <img
             src={photo.thumbnails.large.url}
             className="h-full w-full object-contain"
-            alt=""
+            alt={`${brand} ${name}`}
           />
         )}
-      </div>
+      </figure>
 
       <header className="mt-6 text-center">
         <Text as="h5" size="small" dim={2}>

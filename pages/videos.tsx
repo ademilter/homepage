@@ -190,7 +190,7 @@ function VideosPage({ youtubeStats }) {
         <p className="mt-10">
           <A
             href="https://www.buymeacoffee.com/ademilter"
-            className="flex items-center rounded-md bg-indigo-50 py-5 px-6
+            className="flex items-center rounded-lg bg-indigo-50 py-5 px-6
             text-indigo-900 transition-colors
       hover:bg-indigo-100 hover:no-underline
       dark:bg-indigo-900 dark:text-indigo-100
@@ -201,7 +201,7 @@ function VideosPage({ youtubeStats }) {
           </A>
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard
             href={meta.social.youtube}
             data={youtubeStats.subscriberCount}
