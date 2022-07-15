@@ -25,9 +25,4 @@
   .c-large {
     @apply max-w-screen-xl mx-auto px-6;
   }
-
-  .text-highlight {
-    @apply text-zinc-900
-    dark:text-zinc-50;
-  }
 }

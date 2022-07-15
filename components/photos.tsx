@@ -19,7 +19,7 @@ function Photo({ links, urls, description, width, height }) {
           height={height}
           layout="responsive"
           quality={100}
-          className="rounded saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
+          className="rounded-lg saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
         />
       </A>
     </motion.div>

@@ -1,12 +1,12 @@
 import NavItem from "./nav-item";
 import Link from "next/link";
 import { useState } from "react";
+import Text from "./text";
 
 const MENU = {
   "/": "Giriş",
   "/videos": "Eğitim",
   "/photos": "Fotoğraf",
-  // "/notes": "Not",
   "/tools": "Ekipman",
   "/apps": "Uygulama",
   "/bookmarks": "Yer İmi",
@@ -25,7 +25,7 @@ function Header() {
             type="button"
             onClick={() => setShowMenu(!showNav)}
           >
-            <span>{showNav ? "x" : "Menü"}</span>
+            <Text dim={1}>{showNav ? "x" : "Menu"}</Text>
           </button>
 
           {/* desktop nav */}
@@ -46,7 +46,9 @@ function Header() {
             {Object.keys(MENU).map((path) => {
               return (
                 <Link key={path} href={path}>
-                  <a className="">{MENU[path]}</a>
+                  <a className="">
+                    <Text dim={1}>{MENU[path]}</Text>
+                  </a>
                 </Link>
               );
             })}

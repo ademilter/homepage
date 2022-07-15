@@ -1,8 +1,8 @@
 import PageTransition from "components/page-transition";
 import { meta } from "../site.config";
 import MetricCard from "components/metric-card";
+import Text from "components/text";
 import A from "components/a";
-import PageTitle from "components/page-title";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import youtube from "lib/youtube";
@@ -181,11 +181,11 @@ function VideosPage({ youtubeStats }) {
       </Head>
 
       <div className="c-small">
-        <PageTitle>
+        <Text as="h2" size="pageTitle">
           Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
           listesi. Youtube üzerinden izledikten sonra buradan işaretleyebilir ve
           düzenli olarak takip edebilirsiniz.
-        </PageTitle>
+        </Text>
 
         <p className="mt-10">
           <A
@@ -220,11 +220,9 @@ function VideosPage({ youtubeStats }) {
             const category = videos[catKey];
             return (
               <div key={catKey}>
-                <header className="py-4">
-                  <h2 className="text-2xl text-zinc-400 dark:text-zinc-500">
-                    {catKey}
-                  </h2>
-                </header>
+                <Text as="h3" dim={2} size="sectionTitle" className="py-4">
+                  {catKey}
+                </Text>
                 <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
                   {category.map((video) => {
                     return <VideoRow key={video.title} {...video} />;

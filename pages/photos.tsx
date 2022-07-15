@@ -3,8 +3,8 @@ import PageTransition from "components/page-transition";
 import dynamic from "next/dynamic";
 import { meta } from "../site.config";
 import MetricCard from "components/metric-card";
-import PageTitle from "components/page-title";
 import Head from "next/head";
+import Text from "components/text";
 import ms from "ms";
 
 const Photos = dynamic(() => import("components/photos"), {
@@ -19,11 +19,11 @@ function PhotosPage({ photos, stats }) {
       </Head>
 
       <div className="c-small">
-        <PageTitle>
+        <Text as="h2" size="pageTitle">
           Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
           hakkında farkındalığı, detayları görebilmemi ve doğru anı
           yakalabilmeyi öğretiyor.
-        </PageTitle>
+        </Text>
 
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           <MetricCard href={meta.social.unsplash} data={stats.views.total}>

@@ -1,10 +1,10 @@
 import { IAirtableImages, ITool } from "types/Tool";
 import { motion, usePresence } from "framer-motion";
-import IconLike from "./icons/like";
-import cx from "classnames";
+import Text from "./text";
+import Rating from "./rating";
 
 export default function VideoCard({ tool }: { tool: ITool }) {
-  const { images, brand, name, wtf, rating, comment } = tool;
+  const { images, brand, name, rating, comment } = tool;
   const photo: IAirtableImages = images && images[0];
 
   const [isPresent, safeToRemove] = usePresence();
@@ -48,29 +48,24 @@ export default function VideoCard({ tool }: { tool: ITool }) {
       </div>
 
       <header className="mt-6 text-center">
-        <h5 className="text-sm opacity-60">{brand ? brand : "-"}</h5>
-        <h3 className="font-semibold dark:text-white">{name}</h3>
-        <span className="text-sm opacity-60">{wtf}</span>
+        <Text as="h5" size="small" dim={2}>
+          {brand ? brand : "-"}
+        </Text>
+        <Text as="h3" className="font-semibold">
+          {name}
+        </Text>
       </header>
 
-      <div className="mt-6 rounded-md bg-white p-4 text-sm dark:bg-zinc-800">
-        <div className="flex items-center gap-1">
+      <div className="mt-6 rounded-md bg-white p-4 text-center dark:bg-zinc-800">
+        <div className="flex items-center justify-center gap-1">
           {[1, 2, 3, 4, 5].map((rate) => {
-            return (
-              <IconLike
-                key={rate}
-                size={10}
-                className={cx(
-                  rate <= rating
-                    ? "fill-red-400 text-red-400 dark:fill-red-500 dark:text-red-500 dark:opacity-50"
-                    : "fill-black text-black opacity-20 dark:fill-white dark:text-white"
-                )}
-              />
-            );
+            return <Rating key={rate} rate={rate} rating={rating} />;
           })}
         </div>
 
-        <p className="mt-2 dark:opacity-80">{comment}</p>
+        <Text as="p" size="small" className="mt-2" dim={2}>
+          {comment}
+        </Text>
       </div>
     </motion.article>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import cx from "classnames";
+import Text from "./text";
 
 export default function AppCard({ Id, name, description, url, free, icon }) {
   return (
@@ -23,16 +24,18 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
         />
       </div>
       <div className="grow">
-        <h4 className="text-highlight flex items-center gap-2 text-lg font-semibold">
-          <span>{name}</span>
+        <Text as="h4" className="flex items-center gap-2 font-semibold">
+          <Text>{name}</Text>
           {free && (
-            <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium leading-none text-emerald-600 dark:bg-emerald-900 dark:bg-opacity-20 dark:text-emerald-700">
+            <Text className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium leading-none text-emerald-600 dark:bg-emerald-900 dark:bg-opacity-20 dark:text-emerald-700">
               Ücretsiz
-            </span>
+            </Text>
           )}
-        </h4>
+        </Text>
 
-        <p>{description}</p>
+        <Text as="p" dim={1} className="mt-1">
+          {description}
+        </Text>
       </div>
     </a>
   );

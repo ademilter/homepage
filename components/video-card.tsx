@@ -1,6 +1,7 @@
 import useLocalStorage from "../hooks/useLocalStorage";
 import slugify from "@sindresorhus/slugify";
 import cx from "classnames";
+import Text from "./text";
 
 export default function VideoCard({ title, url, itemsCount }) {
   const [check, setCheck] = useLocalStorage(slugify(title), false);
@@ -25,13 +26,16 @@ export default function VideoCard({ title, url, itemsCount }) {
       </label>
 
       <a href={url} className="flex-grow">
-        <span className={cx("font-semibold")}>{title}</span>
+        <Text className="font-semibold">{title}</Text>
       </a>
 
       {itemsCount > -1 && (
-        <span className="shrink-0 whitespace-nowrap rounded bg-zinc-100 py-0.5 px-2 text-sm text-zinc-500 dark:bg-zinc-800 dark:text-zinc-500">
+        <Text
+          size="small"
+          className="shrink-0 whitespace-nowrap rounded bg-zinc-100 py-0.5 px-2 text-zinc-500 dark:bg-zinc-800 dark:text-zinc-500"
+        >
           {`${itemsCount} videos`}
-        </span>
+        </Text>
       )}
     </div>
   );

@@ -1,5 +1,6 @@
 import PageTransition from "components/page-transition";
 import Social from "components/social";
+import Text from "components/text";
 import dynamic from "next/dynamic";
 import unsplash from "lib/unsplash";
 import ms from "ms";
@@ -13,21 +14,21 @@ export default function HomePage({ photos }) {
     <PageTransition>
       <div className="c-small">
         <div className="space-y-6">
-          <h1 className="text-highlight text-2xl font-bold">
+          <Text as="h1" size="pageTitle" className="font-semibold">
             Ben Adem ilter.
             <br />
             İstanbul'da yaşayan Dijital Ürün Tasarımcısıyım.
-          </h1>
+          </Text>
 
-          <p className="text-xl">
+          <Text as="p" size="large" dim={1}>
             Tasarım araçları, front-end teknolojileri, sokak fotoğrafçılığı ve
             tipografi gibi konularla yakından ilgileniyorum.
-          </p>
+          </Text>
 
-          <p className="text-xl">
+          <Text as="p" size="large" dim={1}>
             Sektördeki eski teknoloji ve alışkanlıkları yenilerle değiştirmek
             için youtube kanalımda modern türkçe içerikler üretiyorum.
-          </p>
+          </Text>
         </div>
 
         <div className="mt-10">
@@ -35,15 +36,8 @@ export default function HomePage({ photos }) {
         </div>
       </div>
 
-      <div className="c-large mt-40">
+      <div className="c-large mt-20">
         <Photos data={photos} />
-        {/*<NextImage
-          src="/photos/i-am.jpg"
-          alt="Adem ilter"
-          width={1433}
-          height={1018}
-          layout="responsive"
-        />*/}
       </div>
     </PageTransition>
   );

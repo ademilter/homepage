@@ -1,15 +1,21 @@
 import React from "react";
 import A from "components/a";
+import Text from "./text";
 
 function Footer() {
   return (
     <footer className="mt-40 pb-14">
       <div className="c-small">
-        <p>
+        <Text dim={2}>
           Bu web sitesinin kaynak kodlarına{" "}
-          <A href="https://github.com/ademilter/homepage">Github üzerinden</A>{" "}
+          <A
+            href="https://github.com/ademilter/homepage"
+            className="underline underline-offset-1"
+          >
+            Github üzerinden
+          </A>{" "}
           ulaşabilirsiniz.
-        </p>
+        </Text>
       </div>
     </footer>
   );

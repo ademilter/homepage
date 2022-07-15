@@ -1,19 +1,27 @@
 import React from "react";
 import A from "components/a";
+import Text from "components/text";
 import commaNumber from "comma-number";
 
 function MetricCard({ children, href = "", data, prefix = "" }) {
+  const Title = () => <Text dim={2}>{children}</Text>;
+
   return (
     <div
       className="
-      rounded-xl border border-zinc-200 p-4
-      dark:border-zinc-700"
+      rounded-lg border border-zinc-200 p-4 dark:border-zinc-700"
     >
-      {href ? <A href={href}>{children}</A> : children}
-      <p className="spacing-sm text-highlight mt-1 text-3xl font-bold">
+      {href ? (
+        <A href={href}>
+          <Title />
+        </A>
+      ) : (
+        <Title />
+      )}
+      <Text as="p" className="spacing-sm mt-1 text-3xl font-bold">
         {prefix}
         {commaNumber(data)}
-      </p>
+      </Text>
     </div>
   );
 }

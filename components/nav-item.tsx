@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import cx from "classnames";
+import Text from "./text";
 
 function NavItem({ href, children }) {
   const { pathname } = useRouter();
@@ -12,12 +13,14 @@ function NavItem({ href, children }) {
     <Link href={href}>
       <a
         className={cx(
-          "rounded px-3 py-1",
+          "rounded px-3 py-2 underline-offset-1",
           "hover:bg-zinc-100 dark:hover:bg-zinc-800",
-          isActive && "text-zinc-900 dark:text-white"
+          isActive
+            ? "underline decoration-zinc-300 dark:decoration-zinc-600"
+            : ""
         )}
       >
-        {children}
+        <Text dim={isActive ? null : 2}>{children}</Text>
       </a>
     </Link>
   );

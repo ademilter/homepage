@@ -2,9 +2,9 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allNotes, Note } from "contentlayer/generated";
 import PageTransition from "components/page-transition";
 import Head from "next/head";
-import PageTitle from "components/page-title";
 import NextLink from "next/link";
 import { tr } from "date-fns/locale";
+import Text from "components/text";
 
 export async function getStaticProps() {
   const notes: Note[] = allNotes.sort((a, b) => {
@@ -30,7 +30,9 @@ export default function NotesPage({ notes }: { notes: Note[] }) {
         </Head>
 
         <div className="c-small">
-          <PageTitle>Notlarım</PageTitle>
+          <Text as="h2" size="pageTitle">
+            Notlarım
+          </Text>
         </div>
 
         <div className="c-small mt-20">

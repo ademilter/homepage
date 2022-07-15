@@ -2,23 +2,24 @@ import A from "components/a";
 import type { IBookmark } from "types/Bookmark";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
+import Text from "components/text";
 
 function BookmarkCard({ bookmark }: { bookmark: IBookmark }) {
   return (
     <article className="py-4">
-      <h3 className="text-highlight font-semibold">
+      <Text as="h3" className="font-semibold">
         <A href={bookmark.link}>{bookmark.title}</A>
-      </h3>
+      </Text>
 
-      <div className="mt-1 flex items-center space-x-2 text-zinc-500">
-        <span>{bookmark.domain}</span>
-        <span className="opacity-50">•</span>
-        <span>
+      <div className="mt-1 flex items-center space-x-2">
+        <Text dim={2}>{bookmark.domain}</Text>
+        <Text dim={2}>•</Text>
+        <Text dim={2}>
           {formatDistanceToNowStrict(parseISO(bookmark.created), {
             addSuffix: true,
             locale: tr,
           })}
-        </span>
+        </Text>
       </div>
     </article>
   );
