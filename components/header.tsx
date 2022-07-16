@@ -1,10 +1,11 @@
 import NavItem from "./nav-item";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Text from "./text";
 import { useRouter } from "next/router";
-import { AnimateSharedLayout, motion, usePresence } from "framer-motion";
+import { AnimateSharedLayout, motion, useCycle } from "framer-motion";
 import cx from "classnames";
+import MenuToggle from "./mobile-nav-toggle";
 
 const MENU = {
   "/": "Home",
@@ -16,12 +17,12 @@ const MENU = {
 };
 
 function Header() {
-  const [showNav, setShowMenu] = useState(false);
+  const [isOpen, toggleOpen] = useCycle(false, true);
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChangeStart = () => {
-      setShowMenu(false);
+      toggleOpen();
     };
 
     router.events.on("routeChangeComplete", handleRouteChangeStart);
@@ -35,19 +36,13 @@ function Header() {
       <header
         className={cx(
           "pt-10 pb-10 sm:mb-0 sm:bg-transparent sm:pb-20",
-          showNav ? "mb-10 bg-gray-50" : ""
+          isOpen ? "mb-10 bg-gray-50" : ""
         )}
       >
         <div className="c-small">
           <div className="flex items-center justify-between">
             {/* nav-mobile-toggle */}
-            <button
-              className="flex items-center justify-center sm:hidden"
-              type="button"
-              onClick={() => setShowMenu(!showNav)}
-            >
-              <Text dim={2}>{showNav ? "x" : "Navigation"}</Text>
-            </button>
+            <MenuToggle isOpen={isOpen} toggle={() => toggleOpen()} />
 
             {/* desktop nav */}
             <nav className="-ml-3 hidden sm:block">
@@ -65,7 +60,7 @@ function Header() {
           <motion.nav
             layout
             initial="hidden"
-            animate={showNav ? "visible" : "hidden"}
+            animate={isOpen ? "visible" : "hidden"}
             variants={{
               visible: {
                 height: "auto",
