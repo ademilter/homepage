@@ -22,7 +22,7 @@ function PhotosPage({ photos, stats }) {
         <Text as="h2" size="pageTitle">
           Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
           hakkında farkındalığı, detayları görebilmemi ve doğru anı
-          yakalabilmeyi öğretiyor.
+          yakalayabilmeyi öğretiyor.
         </Text>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
