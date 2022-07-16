@@ -36,7 +36,7 @@ function Header() {
       <header
         className={cx(
           "pt-10 pb-10 sm:mb-0 sm:bg-transparent sm:pb-20",
-          isOpen ? "mb-10 bg-gray-50" : ""
+          isOpen ? "mb-10 bg-zinc-50 dark:bg-zinc-800" : ""
         )}
       >
         <div className="c-small">
@@ -83,7 +83,7 @@ function Header() {
                   variants={{
                     hidden: {
                       opacity: 0,
-                      x: 20,
+                      x: 10,
                       transition: { duration: 0 },
                     },
                     visible: {
