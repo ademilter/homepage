@@ -27,6 +27,7 @@ const Text: React.FC<ITextProps> = ({
   const dims = {
     1: "opacity-70 dark:opacity-60",
     2: "opacity-60 dark:opacity-50",
+    3: "opacity-50 dark:opacity-40",
   };
 
   return React.createElement(

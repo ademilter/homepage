@@ -220,7 +220,7 @@ function VideosPage({ youtubeStats }) {
             const category = videos[catKey];
             return (
               <div key={catKey}>
-                <Text as="h3" dim={2} size="sectionTitle" className="py-4">
+                <Text as="h3" dim={3} size="sectionTitle" className="py-4">
                   {catKey}
                 </Text>
                 <div className="divide-y divide-zinc-100 dark:divide-zinc-800">

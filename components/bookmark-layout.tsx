@@ -24,7 +24,7 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
 
         {sortedData.map((date) => (
           <div key={date} className="mt-20">
-            <Text as="h3" size="sectionTitle" dim={2}>
+            <Text as="h3" size="sectionTitle" dim={3}>
               {date}. Hafta, {year}
             </Text>
             <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">

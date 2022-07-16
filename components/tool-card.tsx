@@ -48,7 +48,7 @@ export default function VideoCard({ tool }: { tool: ITool }) {
       </figure>
 
       <header className="mt-6 text-center">
-        <Text as="h5" size="small" dim={2}>
+        <Text as="h5" size="small" dim={3}>
           {brand ? brand : "-"}
         </Text>
         <Text as="h3" className="font-semibold">

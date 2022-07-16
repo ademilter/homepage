@@ -4,7 +4,7 @@ import Text from "components/text";
 import commaNumber from "comma-number";
 
 function MetricCard({ children, href = "", data, prefix = "" }) {
-  const Title = () => <Text dim={2}>{children}</Text>;
+  const Title = () => <Text dim={3}>{children}</Text>;
 
   return (
     <div
