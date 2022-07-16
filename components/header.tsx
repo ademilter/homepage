@@ -1,9 +1,9 @@
 import NavItem from "./nav-item";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Text from "./text";
 import { useRouter } from "next/router";
-import { AnimateSharedLayout, motion, useCycle } from "framer-motion";
+import { AnimateSharedLayout, motion } from "framer-motion";
 import cx from "classnames";
 import MenuToggle from "./mobile-nav-toggle";
 
@@ -17,12 +17,12 @@ const MENU = {
 };
 
 function Header() {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChangeStart = () => {
-      toggleOpen();
+      setIsNavOpen(false);
     };
 
     router.events.on("routeChangeComplete", handleRouteChangeStart);
@@ -36,13 +36,16 @@ function Header() {
       <header
         className={cx(
           "pt-10 pb-10 sm:mb-0 sm:bg-transparent sm:pb-20",
-          isOpen ? "mb-10 bg-zinc-50 dark:bg-zinc-800" : ""
+          isNavOpen ? "mb-10 bg-zinc-50 dark:bg-zinc-800" : ""
         )}
       >
         <div className="c-small">
           <div className="flex items-center justify-between">
             {/* nav-mobile-toggle */}
-            <MenuToggle isOpen={isOpen} toggle={() => toggleOpen()} />
+            <MenuToggle
+              isOpen={isNavOpen}
+              onClick={() => setIsNavOpen(!isNavOpen)}
+            />
 
             {/* desktop nav */}
             <nav className="-ml-3 hidden sm:block">
@@ -60,7 +63,7 @@ function Header() {
           <motion.nav
             layout
             initial="hidden"
-            animate={isOpen ? "visible" : "hidden"}
+            animate={isNavOpen ? "visible" : "hidden"}
             variants={{
               visible: {
                 height: "auto",

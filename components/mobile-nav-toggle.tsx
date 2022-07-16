@@ -12,10 +12,10 @@ const Path = (props) => (
   />
 );
 
-export default function MenuToggle({ toggle, isOpen }) {
+export default function MenuToggle({ onClick = () => {}, isOpen }) {
   return (
     <motion.button
-      onClick={toggle}
+      onClick={onClick}
       initial={false}
       animate={isOpen ? "open" : "closed"}
       className="flex items-center justify-center opacity-50 sm:hidden"
