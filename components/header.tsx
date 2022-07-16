@@ -17,7 +17,6 @@ const MENU = {
 
 function Header() {
   const [showNav, setShowMenu] = useState(false);
-  const [isPresent, safeToRemove] = usePresence();
   const router = useRouter();
 
   useEffect(() => {
@@ -35,7 +34,7 @@ function Header() {
     <AnimateSharedLayout>
       <header
         className={cx(
-          "pt-10 pb-10 sm:pb-20",
+          "pt-10 pb-10 sm:mb-0 sm:bg-transparent sm:pb-20",
           showNav ? "mb-10 bg-gray-50" : ""
         )}
       >
@@ -43,11 +42,11 @@ function Header() {
           <div className="flex items-center justify-between">
             {/* nav-mobile-toggle */}
             <button
-              className="sm:hidden"
+              className="flex items-center justify-center sm:hidden"
               type="button"
               onClick={() => setShowMenu(!showNav)}
             >
-              <Text dim={1}>{showNav ? "x" : "Menu"}</Text>
+              <Text dim={2}>{showNav ? "x" : "Navigation"}</Text>
             </button>
 
             {/* desktop nav */}
@@ -70,6 +69,7 @@ function Header() {
             variants={{
               visible: {
                 height: "auto",
+                marginTop: 20,
                 transition: {
                   delayChildren: 0.1,
                   staggerChildren: 0.05,
@@ -77,13 +77,10 @@ function Header() {
               },
               hidden: {
                 height: 0,
+                marginTop: 0,
               },
             }}
-            onAnimationComplete={() => !isPresent && safeToRemove()}
-            className={cx(
-              "mt-4 flex flex-col space-y-4 text-xl sm:hidden",
-              isPresent ? "flex" : "hidden"
-            )}
+            className={cx("flex flex-col space-y-4 text-xl sm:hidden")}
           >
             {Object.keys(MENU).map((path) => {
               return (
@@ -103,7 +100,7 @@ function Header() {
                 >
                   <Link href={path}>
                     <a className="">
-                      <Text dim={1}>{MENU[path]}</Text>
+                      <Text dim={2}>{MENU[path]}</Text>
                     </a>
                   </Link>
                 </motion.span>
