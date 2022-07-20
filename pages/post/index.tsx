@@ -31,7 +31,7 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
 
         <div className="c-small">
           <Text as="h2" size="pageTitle">
-            Yazılar
+            Blog yazıları ve kısa notlar
           </Text>
         </div>
 

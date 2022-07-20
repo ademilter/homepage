@@ -41,7 +41,7 @@ export default function PostPage({ post }: { post: Post }) {
     <>
       <PageTransition>
         <Head>
-          <title>Yazılar - Adem ilter</title>
+          <title>{post.title} - Adem ilter</title>
         </Head>
 
         <article className="post c-small">

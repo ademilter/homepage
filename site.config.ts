@@ -1,6 +1,6 @@
 export const meta = {
   title: "Adem ilter",
-  description: "Developer and Designer",
+  description: "Crafting interfaces",
   url: "https://ademilter.com",
   ga: "UA-17768654-1",
   author: {
