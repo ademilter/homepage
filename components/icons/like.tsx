@@ -1,4 +1,6 @@
-export default function IconLike({ size = 24, ...props }) {
+import type { ISVGProps } from "types/index";
+
+export default function IconLike({ size = 24, ...props }: ISVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

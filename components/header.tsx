@@ -1,24 +1,28 @@
-import NavItem from "./nav-item";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Text from "./text";
 import { useRouter } from "next/router";
 import { AnimateSharedLayout, motion } from "framer-motion";
 import cx from "classnames";
-import MenuToggle from "./mobile-nav-toggle";
+import IconArrowDropDown from "./icons/arrow-drop-down";
 
 const MENU = {
-  "/": "Home",
-  "/videos": "Videos",
-  "/photos": "Photos",
-  "/tools": "Tools",
-  "/apps": "Apps",
-  "/bookmarks": "Bookmarks",
+  "/": "Anasayfa",
+  "/videos": "Eğitimler",
+  "/posts": "Yazılar",
+  "/photos": "Fotoğraflar",
+  "/tools": "Ekipmanlar",
+  "/apps": "Uygulamalar",
+  "/bookmarks": "Yer İmleri",
 };
 
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const router = useRouter();
+
+  const { pathname } = useRouter();
+  const clearSlash = pathname.split("/")[1];
+  const pathName = clearSlash ? `/${clearSlash}` : "/";
 
   useEffect(() => {
     const handleRouteChangeStart = () => {
@@ -33,33 +37,13 @@ function Header() {
 
   return (
     <AnimateSharedLayout>
-      <header
+      <motion.header
         className={cx(
-          "pt-10 pb-10 sm:mb-0 sm:bg-transparent sm:pb-20",
-          isNavOpen ? "mb-10 bg-zinc-50 dark:bg-zinc-800" : ""
+          isNavOpen ? "-mt-10 bg-zinc-50 py-10 dark:bg-zinc-800" : ""
         )}
       >
         <div className="c-small">
-          <div className="flex items-center justify-between">
-            {/* nav-mobile-toggle */}
-            <MenuToggle
-              isOpen={isNavOpen}
-              onClick={() => setIsNavOpen(!isNavOpen)}
-            />
-
-            {/* desktop nav */}
-            <nav className="-ml-3 hidden sm:block">
-              {Object.keys(MENU).map((path) => {
-                return (
-                  <NavItem key={path} href={path}>
-                    {MENU[path]}
-                  </NavItem>
-                );
-              })}
-            </nav>
-          </div>
-
-          {/* nav-mobile */}
+          {/* Navigation */}
           <motion.nav
             layout
             initial="hidden"
@@ -67,20 +51,25 @@ function Header() {
             variants={{
               visible: {
                 height: "auto",
-                marginTop: 20,
+
                 transition: {
                   delayChildren: 0.1,
                   staggerChildren: 0.05,
+                  duration: 0.4,
                 },
               },
               hidden: {
                 height: 0,
-                marginTop: 0,
               },
             }}
-            className={cx("flex flex-col space-y-4 text-xl sm:hidden")}
+            className={cx(
+              "flex flex-col space-y-4 text-xl",
+              isNavOpen ? "pointer-events-auto" : "pointer-events-none"
+            )}
           >
             {Object.keys(MENU).map((path) => {
+              const isActive = path === pathName;
+
               return (
                 <motion.span
                   variants={{
@@ -98,15 +87,34 @@ function Header() {
                 >
                   <Link href={path}>
                     <a className="">
-                      <Text dim={2}>{MENU[path]}</Text>
+                      <Text dim={isActive ? 2 : undefined}>
+                        {MENU[path]}{" "}
+                        {isActive && <Text size="small">(mevcut sayfa)</Text>}
+                      </Text>
                     </a>
                   </Link>
                 </motion.span>
               );
             })}
           </motion.nav>
+
+          {/* Active page */}
+          {!isNavOpen && (
+            <button
+              type="button"
+              className="flex select-none items-center"
+              onClick={() => {
+                setIsNavOpen(true);
+              }}
+            >
+              <Text dim={2} className="">
+                {MENU[pathName]}
+              </Text>
+              <IconArrowDropDown className="opacity-50" />
+            </button>
+          )}
         </div>
-      </header>
+      </motion.header>
     </AnimateSharedLayout>
   );
 }

@@ -4,7 +4,7 @@ import Text from "./text";
 
 function Footer() {
   return (
-    <footer className="mt-40 pb-14">
+    <footer className="mt-40">
       <div className="c-small">
         <Text dim={2}>
           Bu web sitesinin kaynak kodlarına{" "}
