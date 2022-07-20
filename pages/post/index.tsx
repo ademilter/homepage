@@ -40,7 +40,7 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
             return (
               <article key={post._id}>
                 <h3 className="font-semibold">
-                  <NextLink href={`/posts/${post.slug}`}>
+                  <NextLink href={`/post/${post.slug}`}>
                     <a>{post.title}</a>
                   </NextLink>
                 </h3>

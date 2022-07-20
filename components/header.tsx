@@ -9,7 +9,7 @@ import IconArrowDropDown from "./icons/arrow-drop-down";
 const MENU = {
   "/": "Anasayfa",
   "/videos": "Eğitimler",
-  "/posts": "Yazılar",
+  "/post": "Yazılar",
   "/photos": "Fotoğraflar",
   "/tools": "Ekipmanlar",
   "/apps": "Uygulamalar",
