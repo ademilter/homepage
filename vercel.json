@@ -3,16 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/fonts/Inter-roman.var.woff2",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/fonts/JetBrainsMono-Regular.woff2",
+      "source": "/fonts/Inter.var.woff2",
       "headers": [
         {
           "key": "Cache-Control",

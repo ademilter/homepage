@@ -14,7 +14,7 @@ export default function HomePage({ photos }) {
     <PageTransition>
       <div className="c-small">
         <div className="space-y-6">
-          <Text as="h1" size="pageTitle" className="font-semibold">
+          <Text as="h1" size="pageTitle">
             Ben Adem ilter.
             <br />
             İstanbul'da yaşayan Dijital Ürün Tasarımcısıyım.

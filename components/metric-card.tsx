@@ -18,7 +18,10 @@ function MetricCard({ children, href = "", data, prefix = "" }) {
       ) : (
         <Title />
       )}
-      <Text as="p" className="spacing-sm mt-1 text-3xl font-bold">
+      <Text
+        as="p"
+        className="spacing-sm mt-1 text-3xl font-semibold slashed-zero"
+      >
         {prefix}
         {commaNumber(data)}
       </Text>

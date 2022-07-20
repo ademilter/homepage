@@ -27,7 +27,7 @@ function Social() {
   return (
     <div className="flex items-center space-x-3">
       <SocialButton href={"mailto:" + meta.author.email}>
-        <span className="mx-2 font-semibold">Email</span>
+        <span className="mx-2 font-medium">Email</span>
       </SocialButton>
 
       <SocialButton href={instagram}>

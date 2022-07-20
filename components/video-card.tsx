@@ -26,7 +26,7 @@ export default function VideoCard({ title, url, itemsCount }) {
       </label>
 
       <a href={url} className="flex-grow">
-        <Text className="font-semibold">{title}</Text>
+        <Text className="font-medium">{title}</Text>
       </a>
 
       {itemsCount > -1 && (
