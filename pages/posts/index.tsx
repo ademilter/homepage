@@ -39,7 +39,7 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
           {posts.map((post: Post) => {
             return (
               <article key={post._id}>
-                <h3 className="text-highlight font-semibold">
+                <h3 className="font-semibold">
                   <NextLink href={`/posts/${post.slug}`}>
                     <a>{post.title}</a>
                   </NextLink>

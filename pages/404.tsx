@@ -9,7 +9,7 @@ function Error() {
       </Head>
 
       <div className="c-small">
-        <p className="text-highlight text-4xl">404</p>
+        <p className="text-4xl">404</p>
       </div>
     </PageTransition>
   );

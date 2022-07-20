@@ -5,6 +5,7 @@ import { format, parseISO } from "date-fns";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "components/mdx-components";
 import { tr } from "date-fns/locale";
+import cx from "classnames";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
@@ -45,17 +46,16 @@ export default function PostPage({ post }: { post: Post }) {
 
         <article className="post c-small">
           <header>
-            <h1 className="text-highlight text-3xl font-semibold">
-              {post.title}
-            </h1>
+            <h1 className="text-3xl font-semibold">{post.title}</h1>
+            <h2 className="mt-2 text-xl opacity-70">{post.subtitle}</h2>
 
-            <div className="mt-2 flex items-center space-x-2 text-zinc-500">
+            <div className="mt-10 flex items-center space-x-2 opacity-50">
               <time dateTime={post.date}>
                 {format(parseISO(post.date), "d LLLL yyyy", {
                   locale: tr,
                 })}
               </time>
-              <span className="opacity-50">·</span>
+              <span>·</span>
               <span>{post.readingTime.text}</span>
             </div>
           </header>
@@ -64,10 +64,41 @@ export default function PostPage({ post }: { post: Post }) {
             <Component
               components={{
                 ...MDXComponents,
+                a: (props) => {
+                  return (
+                    <a
+                      className="underline decoration-zinc-500 decoration-2 underline-offset-1 dark:decoration-zinc-500"
+                      {...props}
+                    />
+                  );
+                },
+                hr: () => {
+                  return (
+                    <hr className="my-14 border-0 border-b border-white opacity-10" />
+                  );
+                },
+                blockquote: (props) => {
+                  return (
+                    <blockquote
+                      className="rounded-lg border-l-4 border-l-zinc-300 bg-zinc-100 px-4 py-3 italic dark:border-l-zinc-600 dark:bg-zinc-800"
+                      {...props}
+                    />
+                  );
+                },
+                Figure: ({ src, title, full }) => {
+                  return (
+                    <figure className={cx("text-center", full && "md:-mx-20")}>
+                      <img className="inline-flex" src={src} />
+                      <figcaption className="mx-10 mt-4 text-sm opacity-50">
+                        {title}
+                      </figcaption>
+                    </figure>
+                  );
+                },
                 h2: (props) => {
                   return (
                     <h2
-                      className="text-highlight text-2xl font-semibold leading-tight"
+                      className="text-2xl font-semibold leading-tight"
                       {...props}
                     />
                   );
@@ -75,7 +106,7 @@ export default function PostPage({ post }: { post: Post }) {
                 h3: (props) => {
                   return (
                     <h3
-                      className="text-highlight text-xl font-semibold leading-tight"
+                      className="text-xl font-semibold leading-tight"
                       {...props}
                     />
                   );
@@ -83,15 +114,13 @@ export default function PostPage({ post }: { post: Post }) {
                 h4: (props) => {
                   return (
                     <h4
-                      className="text-highlight text-lg font-semibold leading-snug"
+                      className="text-lg font-semibold leading-snug"
                       {...props}
                     />
                   );
                 },
                 h5: (props) => {
-                  return (
-                    <h5 className="text-highlight font-semibold" {...props} />
-                  );
+                  return <h5 className="font-semibold" {...props} />;
                 },
               }}
             />

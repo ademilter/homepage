@@ -26,10 +26,6 @@
     margin-bottom: 2rem;
   }
 
-  .post-body a {
-    text-decoration: underline;
-  }
-
   .post-body pre[class*="language-"]::-webkit-scrollbar {
     display: none;
   }

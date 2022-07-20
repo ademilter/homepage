@@ -9,6 +9,7 @@ export const Post = defineDocumentType(() => ({
   fields: {
     date: { type: "date", required: true },
     title: { type: "string", required: true },
+    subtitle: { type: "string", required: false },
   },
   computedFields: {
     slug: {
