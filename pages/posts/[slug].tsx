@@ -97,26 +97,6 @@ export default function PostPage({ post }: { post: Post }) {
             />
           </div>
         </article>
-
-        <style global jsx>{`
-          .post-body > * {
-            margin-bottom: 2rem;
-            scroll-margin-top: 2rem;
-          }
-
-          .post-body pre {
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-          }
-
-          .post-body a {
-            text-decoration: underline;
-          }
-
-          .post-body pre[class*="language-"]::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
       </PageTransition>
     </>
   );
