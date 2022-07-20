@@ -1,4 +1,4 @@
-import { IAirtableImages, ITool } from "types/Tool";
+import type { IAirtableImages, ITool } from "types/index";
 import { motion, usePresence } from "framer-motion";
 import Text from "./text";
 import Rating from "./rating";

@@ -3,7 +3,7 @@ import Tool from "components/tool-card";
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 import { getTable } from "lib/airtables";
-import { ITool } from "types/Tool";
+import type { ITool } from "types/index";
 import { useState } from "react";
 import Text from "components/text";
 import Segmented from "components/segmented";

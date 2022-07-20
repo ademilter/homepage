@@ -1,4 +1,4 @@
-import { allNotes, Note } from "contentlayer/generated";
+import { allPosts, Post } from "contentlayer/generated";
 import PageTransition from "components/page-transition";
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
@@ -7,7 +7,7 @@ import MDXComponents from "components/mdx-components";
 import { tr } from "date-fns/locale";
 
 export async function getStaticPaths() {
-  const paths = allNotes.map((note: Note) => ({ params: { slug: note.slug } }));
+  const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
 
   return {
     paths,
@@ -16,9 +16,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const note: Note = allNotes.find((note: Note) => note.slug === params.slug);
+  const post: Post = allPosts.find((post: Post) => post.slug === params.slug);
 
-  if (!note) {
+  if (!post) {
     return {
       redirect: {
         destination: "/404",
@@ -28,35 +28,35 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      note,
+      post,
     },
   };
 }
 
-export default function NotePage({ note }: { note: Note }) {
-  const Component = useMDXComponent(note.body.code);
+export default function PostPage({ post }: { post: Post }) {
+  const Component = useMDXComponent(post.body.code);
 
   return (
     <>
       <PageTransition>
         <Head>
-          <title>Notes - Adem ilter</title>
+          <title>Yazılar - Adem ilter</title>
         </Head>
 
         <article className="post c-small">
           <header>
             <h1 className="text-highlight text-3xl font-semibold">
-              {note.title}
+              {post.title}
             </h1>
 
             <div className="mt-2 flex items-center space-x-2 text-zinc-500">
-              <time dateTime={note.date}>
-                {format(parseISO(note.date), "d LLLL yyyy", {
+              <time dateTime={post.date}>
+                {format(parseISO(post.date), "d LLLL yyyy", {
                   locale: tr,
                 })}
               </time>
               <span className="opacity-50">·</span>
-              <span>{note.readingTime.text}</span>
+              <span>{post.readingTime.text}</span>
             </div>
           </header>
 

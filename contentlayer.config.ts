@@ -2,10 +2,10 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import readingTime from "reading-time";
 import rehypePrism from "rehype-prism-plus";
 
-export const Note = defineDocumentType(() => ({
-  name: "Note",
+export const Post = defineDocumentType(() => ({
+  name: "Post",
   contentType: "mdx",
-  filePathPattern: `notes/*.mdx`,
+  filePathPattern: `posts/*.mdx`,
   fields: {
     date: { type: "date", required: true },
     title: { type: "string", required: true },
@@ -32,7 +32,7 @@ export const Note = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "data",
-  documentTypes: [Note],
+  documentTypes: [Post],
   mdx: {
     rehypePlugins: [rehypePrism],
   },

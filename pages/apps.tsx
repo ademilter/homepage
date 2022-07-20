@@ -5,7 +5,7 @@ import Head from "next/head";
 import { getTable } from "lib/airtables";
 import { useState } from "react";
 import Segmented from "components/segmented";
-import { IApp } from "../types/App";
+import type { IApp } from "../types/index";
 
 export default function AppsPage({ data }) {
   const [selectedTab, setSelectedTab] = useState("iOS");

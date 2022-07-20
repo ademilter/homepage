@@ -1,4 +1,4 @@
-import type { IBookmark } from "types/Bookmark";
+import type { IBookmark } from "types/index";
 import { format, parseISO } from "date-fns";
 import groupBy from "lodash.groupby";
 

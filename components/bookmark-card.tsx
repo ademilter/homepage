@@ -1,5 +1,5 @@
 import A from "components/a";
-import type { IBookmark } from "types/Bookmark";
+import type { IBookmark } from "types/index";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
 import Text from "components/text";
