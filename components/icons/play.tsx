@@ -1,4 +1,7 @@
-export default function IconPlay({ size = 22, ...props }) {
+import React from "react";
+import type { ISVGProps } from "types/index";
+
+export default function IconPlay({ size = 22, ...props }: ISVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -64,10 +64,13 @@ export default function PostPage({ post }: { post: Post }) {
             <Component
               components={{
                 ...MDXComponents,
+                strong: (props) => {
+                  return <strong className="font-semibold" {...props} />;
+                },
                 a: (props) => {
                   return (
                     <a
-                      className="underline decoration-zinc-500 decoration-2 underline-offset-1 dark:decoration-zinc-500"
+                      className="underline decoration-zinc-400 decoration-2 underline-offset-1 dark:decoration-zinc-500"
                       {...props}
                     />
                   );
@@ -98,7 +101,7 @@ export default function PostPage({ post }: { post: Post }) {
                 h2: (props) => {
                   return (
                     <h2
-                      className="text-2xl font-semibold leading-tight"
+                      className="text-2xl font-bold leading-tight"
                       {...props}
                     />
                   );

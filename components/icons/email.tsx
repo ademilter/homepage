@@ -1,11 +1,15 @@
-function IconEmail({ size = 22 }) {
+import React from "react";
+import type { ISVGProps } from "types/index";
+
+function IconEmail({ size = 22, ...props }: ISVGProps) {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       role="img"
       viewBox="0 0 24 24"
       width={size}
       height={size}
-      xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <title>Email icon</title>
       <path

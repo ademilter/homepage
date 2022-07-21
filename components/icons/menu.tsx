@@ -1,4 +1,7 @@
-function IconMenu({ size = 28 }) {
+import React from "react";
+import type { ISVGProps } from "types/index";
+
+function IconMenu({ size = 28, ...props }: ISVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -7,6 +10,7 @@ function IconMenu({ size = 28 }) {
       height={size}
       viewBox="0 0 24 24"
       stroke="currentColor"
+      {...props}
     >
       <path
         strokeLinecap="round"

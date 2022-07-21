@@ -1,4 +1,7 @@
-function IconGithub({ size = 22 }) {
+import React from "react";
+import type { ISVGProps } from "types/index";
+
+function IconGithub({ size = 22, ...props }: ISVGProps) {
   return (
     <svg
       role="img"
@@ -6,6 +9,7 @@ function IconGithub({ size = 22 }) {
       viewBox="0 0 24 24"
       width={size}
       height={size}
+      {...props}
     >
       <title>GitHub icon</title>
       <path
