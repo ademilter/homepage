@@ -88,11 +88,26 @@ export default function PostPage({ post }: { post: Post }) {
                     />
                   );
                 },
-                Figure: ({ src, title, full }) => {
+                Figure: ({ src, title, full = true, width }) => {
+                  const imageStyle = {};
+                  if (width) {
+                    imageStyle["width"] = "100%";
+                    imageStyle["maxWidth"] = width;
+                  }
+
                   return (
-                    <figure className={cx("text-center", full && "md:-mx-20")}>
-                      <img className="inline-flex" src={src} />
-                      <figcaption className="mx-10 mt-4 text-sm opacity-50">
+                    <figure
+                      className={cx(
+                        "text-center",
+                        full && "md:-mx-24 lg:-mx-40"
+                      )}
+                    >
+                      <img
+                        className="inline-flex rounded-lg"
+                        src={src}
+                        style={imageStyle}
+                      />
+                      <figcaption className="mx-16 mt-4 text-sm opacity-50">
                         {title}
                       </figcaption>
                     </figure>
