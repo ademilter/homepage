@@ -1,5 +1,6 @@
 import "styles/globals.css";
 import "prism-themes/themes/prism-atom-dark.css";
+import "@upstash/claps/style.css";
 
 import Head from "next/head";
 import Header from "components/header";

@@ -29,6 +29,10 @@
   .post-body pre[class*="language-"]::-webkit-scrollbar {
     display: none;
   }
+
+  .claps-fixed .claps-body {
+    filter: drop-shadow(0 4px 8px rgb(0 0 0 / 14%)) drop-shadow(0 1px 2px rgb(0 0 0 / 6%));
+  }
 }
 
 @layer components {

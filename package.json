@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.1.0",
+    "@upstash/claps": "^0.1.6",
     "airtable": "^0.11.4",
     "classnames": "^2.3.1",
     "comma-number": "^2.1.0",

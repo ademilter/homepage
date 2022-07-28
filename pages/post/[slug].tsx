@@ -6,6 +6,7 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "components/mdx-components";
 import { tr } from "date-fns/locale";
 import cx from "classnames";
+import Claps from "@upstash/claps";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
@@ -144,6 +145,8 @@ export default function PostPage({ post }: { post: Post }) {
             />
           </div>
         </article>
+
+        <Claps fixed="center" replyUrl={post.tweetUrl} />
       </PageTransition>
     </>
   );
