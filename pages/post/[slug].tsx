@@ -100,7 +100,7 @@ export default function PostPage({ post }: { post: Post }) {
                 blockquote: (props) => {
                   return (
                     <blockquote
-                      className="border-l-4 border-l-zinc-300 px-4 py-2 italic dark:border-l-zinc-600"
+                      className="border-l-4 border-l-zinc-300 bg-gradient-to-r from-zinc-100 to-transparent px-4 py-3 font-serif italic dark:border-l-zinc-600 dark:from-zinc-800"
                       {...props}
                     />
                   );
@@ -108,11 +108,11 @@ export default function PostPage({ post }: { post: Post }) {
                 Quote: ({ caption, cite, children, ...props }) => {
                   return (
                     <figure
-                      className="-mx-6 bg-indigo-50 p-6 italic text-indigo-900 shadow dark:bg-indigo-900 dark:bg-opacity-60 dark:text-indigo-200 sm:rounded-lg"
+                      className="-mx-6 bg-indigo-50 p-6 text-indigo-900 shadow-sm dark:bg-indigo-900 dark:bg-opacity-60 dark:text-indigo-200 sm:rounded-lg"
                       {...props}
                     >
-                      <blockquote>{children}</blockquote>
-                      <figcaption className="mt-4 text-sm opacity-60">
+                      <blockquote className="opacity-90">{children}</blockquote>
+                      <figcaption className="mt-2 font-serif opacity-70">
                         {`— ${caption}, `} <cite>{cite}</cite>
                       </figcaption>
                     </figure>
