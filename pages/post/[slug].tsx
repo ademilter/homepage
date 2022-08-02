@@ -78,15 +78,44 @@ export default function PostPage({ post }: { post: Post }) {
                 },
                 hr: () => {
                   return (
-                    <hr className="my-14 border-0 border-b border-white opacity-10" />
+                    <hr className="my-14 border-0 border-b border-black opacity-10 dark:border-white" />
+                  );
+                },
+                ul: (props) => {
+                  return (
+                    <ul
+                      className="list-inside list-disc space-y-2 marker:text-zinc-400 dark:marker:text-zinc-600"
+                      {...props}
+                    />
+                  );
+                },
+                ol: (props) => {
+                  return (
+                    <ol
+                      className="list-inside list-decimal space-y-2"
+                      {...props}
+                    />
                   );
                 },
                 blockquote: (props) => {
                   return (
                     <blockquote
-                      className="rounded-lg border-l-4 border-l-zinc-300 bg-zinc-100 px-4 py-3 italic dark:border-l-zinc-600 dark:bg-zinc-800"
+                      className="border-l-4 border-l-zinc-300 px-4 py-2 italic dark:border-l-zinc-600"
                       {...props}
                     />
+                  );
+                },
+                Quote: ({ caption, cite, children, ...props }) => {
+                  return (
+                    <figure
+                      className="-mx-6 rounded-lg bg-indigo-50 p-6 italic dark:bg-indigo-900"
+                      {...props}
+                    >
+                      <blockquote>{children}</blockquote>
+                      <figcaption className="mt-3 text-sm opacity-60">
+                        {`—${caption}, `} <cite>{cite}</cite>
+                      </figcaption>
+                    </figure>
                   );
                 },
                 Figure: ({ src, title, full = true, width }) => {
@@ -100,7 +129,7 @@ export default function PostPage({ post }: { post: Post }) {
                     <figure
                       className={cx(
                         "text-center",
-                        full && "md:-mx-24 lg:-mx-40"
+                        full && "md:-mx-24 lg:-mx-40 xl:-mx-44"
                       )}
                     >
                       <img
@@ -125,7 +154,7 @@ export default function PostPage({ post }: { post: Post }) {
                 h3: (props) => {
                   return (
                     <h3
-                      className="text-xl font-semibold leading-tight"
+                      className="!mb-2 text-xl font-semibold leading-tight"
                       {...props}
                     />
                   );
@@ -133,7 +162,7 @@ export default function PostPage({ post }: { post: Post }) {
                 h4: (props) => {
                   return (
                     <h4
-                      className="text-lg font-semibold leading-snug"
+                      className="!mb-1 text-lg font-semibold leading-snug"
                       {...props}
                     />
                   );

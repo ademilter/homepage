@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.1.0",
-    "@upstash/claps": "^0.1.6",
+    "@upstash/claps": "^0.1.9",
     "airtable": "^0.11.4",
     "classnames": "^2.3.1",
     "comma-number": "^2.1.0",
@@ -21,7 +21,7 @@
     "googleapis": "^105.0.0",
     "lodash.groupby": "^4.6.0",
     "ms": "^2.1.3",
-    "next": "^12.2.3-canary.15",
+    "next": "^12.2.3-canary.17",
     "next-contentlayer": "^0.2.6",
     "prism-themes": "^1.9.0",
     "react": "^18.2.0",

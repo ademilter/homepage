@@ -36,26 +36,28 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
         </div>
 
         <div className="c-small mt-20">
-          {posts.map((post: Post) => {
-            return (
-              <article key={post._id}>
-                <h3 className="font-semibold">
-                  <NextLink href={`/post/${post.slug}`}>
-                    <a>{post.title}</a>
-                  </NextLink>
-                </h3>
-                <footer className="flex items-center space-x-2 text-zinc-500">
-                  <time dateTime={post.date}>
-                    {format(parseISO(post.date), "d LLLL yyyy", {
-                      locale: tr,
-                    })}
-                  </time>
-                  <span className="opacity-50">·</span>
-                  <span>{post.readingTime.text}</span>
-                </footer>
-              </article>
-            );
-          })}
+          <div className="space-y-6">
+            {posts.map((post: Post) => {
+              return (
+                <article key={post._id}>
+                  <h3 className="font-semibold">
+                    <NextLink href={`/post/${post.slug}`}>
+                      <a>{post.title}</a>
+                    </NextLink>
+                  </h3>
+                  <footer className="flex items-center space-x-2 text-zinc-500">
+                    <time dateTime={post.date}>
+                      {format(parseISO(post.date), "d LLLL yyyy", {
+                        locale: tr,
+                      })}
+                    </time>
+                    <span className="opacity-50">·</span>
+                    <span>{post.readingTime.text}</span>
+                  </footer>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </PageTransition>
     </>
