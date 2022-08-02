@@ -66,7 +66,7 @@ export default class MyDocument extends NextDocument {
           )}
         </Head>
 
-        <body className="bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-50">
+        <body className="bg-white text-zinc-900 antialiased dark:bg-zinc-900 dark:text-zinc-100">
           <Main />
           <NextScript />
         </body>

@@ -108,18 +108,19 @@ export default function PostPage({ post }: { post: Post }) {
                 Quote: ({ caption, cite, children, ...props }) => {
                   return (
                     <figure
-                      className="-mx-6 rounded-lg bg-indigo-50 p-6 italic dark:bg-indigo-900"
+                      className="-mx-6 bg-indigo-50 p-6 italic text-indigo-900 shadow dark:bg-indigo-900 dark:bg-opacity-60 dark:text-indigo-200 sm:rounded-lg"
                       {...props}
                     >
                       <blockquote>{children}</blockquote>
-                      <figcaption className="mt-3 text-sm opacity-60">
-                        {`—${caption}, `} <cite>{cite}</cite>
+                      <figcaption className="mt-4 text-sm opacity-60">
+                        {`— ${caption}, `} <cite>{cite}</cite>
                       </figcaption>
                     </figure>
                   );
                 },
                 Figure: ({ src, title, full = true, width }) => {
                   const imageStyle = {};
+
                   if (width) {
                     imageStyle["width"] = "100%";
                     imageStyle["maxWidth"] = width;
@@ -129,7 +130,7 @@ export default function PostPage({ post }: { post: Post }) {
                     <figure
                       className={cx(
                         "text-center",
-                        full && "md:-mx-24 lg:-mx-40 xl:-mx-44"
+                        full && "md:-mx-24 lg:-mx-40 xl:-mx-60"
                       )}
                     >
                       <img
