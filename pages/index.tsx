@@ -1,3 +1,4 @@
+import NextImage from "next/image";
 import PageTransition from "components/page-transition";
 import Social from "components/social";
 import Text from "components/text";
@@ -50,19 +51,16 @@ export default function HomePage({ photos }) {
       </div>
 
       <div className="c-large mt-20">
-        <Photos data={photos} />
+        <NextImage
+          src="/photos/we.jpg"
+          alt="Adem ilter ve çocukları"
+          quality={100}
+          width={3609}
+          height={2404}
+          layout="responsive"
+          className="rounded-lg saturate-0 transition-all duration-700 hover:saturate-100"
+        />
       </div>
     </PageTransition>
   );
-}
-
-export async function getStaticProps() {
-  const photos = await unsplash.getPhotos(12);
-
-  return {
-    props: {
-      photos,
-    },
-    revalidate: ms("1d") / 1000,
-  };
 }
