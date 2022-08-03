@@ -639,10 +639,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
 
-"@upstash/claps@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/@upstash/claps/-/claps-0.1.9.tgz#6a4bf8b3c3f3770bc854118f6f834fc9a7b07dc1"
-  integrity sha512-tgNBZfc2mDfPrPeZh1vfTYTLlmYl0kc1VwCPEGSrXgm86hN/R/Rln+bGwG1qs6W/qVP7SEt0qZsXoCMp1LbKfw==
+"@upstash/claps@^1.0.0-beta.4":
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@upstash/claps/-/claps-1.0.0-beta.4.tgz#59b7761526d9ab2369a74c69f8c38bbd7f21f78e"
+  integrity sha512-H1oLfcAwtMfml1pwU6eNd/5mahjlTjTDJyIzrvSf9z9MpeLFDYkn38obhIy3u38KKLgThuXK6yQzKoAMd6E+5Q==
   dependencies:
     "@upstash/redis" "^1.7.0"
     classnames "^2.3.1"
