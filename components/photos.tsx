@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import A from "components/a";
+import Link from "@/components/link";
 import { motion } from "framer-motion";
 
 function Photo({ links, urls, description, width, height }) {
@@ -10,7 +10,7 @@ function Photo({ links, urls, description, width, height }) {
         visible: { opacity: 1 },
       }}
     >
-      <A href={links.html}>
+      <Link href={links.html}>
         <NextImage
           src={urls.regular}
           alt={description}
@@ -20,7 +20,7 @@ function Photo({ links, urls, description, width, height }) {
           quality={100}
           className="rounded-lg saturate-50 transition-all duration-700 hover:scale-105 hover:saturate-100"
         />
-      </A>
+      </Link>
     </motion.figure>
   );
 }

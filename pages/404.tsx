@@ -1,5 +1,6 @@
 import Head from "next/head";
-import PageTransition from "components/page-transition";
+import PageTransition from "@/components/page-transition";
+import Container from "@/components/container";
 
 function Error() {
   return (
@@ -8,9 +9,9 @@ function Error() {
         <title>404</title>
       </Head>
 
-      <div className="c-small">
+      <Container>
         <p className="text-4xl">404</p>
-      </div>
+      </Container>
     </PageTransition>
   );
 }

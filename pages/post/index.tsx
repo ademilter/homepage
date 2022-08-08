@@ -1,10 +1,11 @@
-import { compareDesc, format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
-import PageTransition from "components/page-transition";
 import Head from "next/head";
 import NextLink from "next/link";
 import { tr } from "date-fns/locale";
-import Text from "components/text";
+import { compareDesc, format, parseISO } from "date-fns";
+import { allPosts, Post } from "contentlayer/generated";
+import PageTransition from "@/components/page-transition";
+import Title from "@/components/title";
+import Container from "@/components/container";
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -29,23 +30,25 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
           <title>Yazılar - Adem ilter</title>
         </Head>
 
-        <div className="c-small">
-          <Text as="h2" size="pageTitle">
-            Blog yazıları ve kısa notlar
-          </Text>
-        </div>
+        <Container>
+          <Title>Blog yazıları ve kısa notlar</Title>
+        </Container>
 
-        <div className="c-small mt-20">
-          <div className="space-y-6">
+        <Container className="mt-20">
+          <div className="space-y-8">
             {posts.map((post: Post) => {
               return (
                 <article key={post._id}>
-                  <h3 className="font-semibold">
-                    <NextLink href={`/post/${post.slug}`}>
-                      <a>{post.title}</a>
-                    </NextLink>
-                  </h3>
-                  <footer className="flex items-center space-x-2 text-zinc-500">
+                  <header>
+                    <h3 className="shine font-semibold">
+                      <NextLink href={`/post/${post.slug}`}>
+                        <a>{post.title}</a>
+                      </NextLink>
+                    </h3>
+                    <p className="mt-1">{post.subtitle}</p>
+                  </header>
+
+                  <footer className="mt-1 flex items-center space-x-2">
                     <time dateTime={post.date}>
                       {format(parseISO(post.date), "d LLLL yyyy", {
                         locale: tr,
@@ -58,7 +61,7 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
               );
             })}
           </div>
-        </div>
+        </Container>
       </PageTransition>
     </>
   );

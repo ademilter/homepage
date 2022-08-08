@@ -1,13 +1,14 @@
-import unsplash from "lib/unsplash";
-import PageTransition from "components/page-transition";
-import dynamic from "next/dynamic";
-import { meta } from "../site.config";
-import MetricCard from "components/metric-card";
 import Head from "next/head";
-import Text from "components/text";
 import ms from "ms";
+import unsplash from "@/lib/unsplash";
+import PageTransition from "@/components/page-transition";
+import dynamic from "next/dynamic";
+import MetricCard from "@/components/metric-card";
+import Title from "@/components/title";
+import Container from "@/components/container";
+import { meta } from "../site.config";
 
-const Photos = dynamic(() => import("components/photos"), {
+const Photos = dynamic(() => import("@/components/photos"), {
   ssr: false,
 });
 
@@ -18,12 +19,12 @@ function PhotosPage({ photos, stats }) {
         <title>Photos - Adem ilter</title>
       </Head>
 
-      <div className="c-small">
-        <Text as="h2" size="pageTitle">
+      <Container>
+        <Title>
           Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
           hakkında farkındalığı, detayları görebilmemi ve doğru anı
           yakalayabilmeyi öğretiyor.
-        </Text>
+        </Title>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard href={meta.social.unsplash} data={stats.views.total}>
@@ -33,11 +34,11 @@ function PhotosPage({ photos, stats }) {
             Unsplash Downloads
           </MetricCard>
         </div>
-      </div>
+      </Container>
 
-      <div className="c-large mt-20">
+      <Container size="large" className="mt-20">
         <Photos data={photos} />
-      </div>
+      </Container>
     </PageTransition>
   );
 }

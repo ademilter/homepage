@@ -1,13 +1,12 @@
 import Image from "next/image";
 import cx from "classnames";
-import Text from "./text";
+import BaseLink from "@/components/link";
 
 export default function AppCard({ Id, name, description, url, free, icon }) {
   return (
-    <a
+    <BaseLink
       key={Id}
       href={`${url}?ref=ademilter`}
-      target="_blank"
       className={cx(
         "flex items-center gap-6 from-zinc-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
       )}
@@ -25,19 +24,17 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
       </figure>
 
       <div className="grow">
-        <Text as="h4" className="flex items-center gap-2 font-semibold">
-          <Text>{name}</Text>
+        <h4 className="shine flex items-center gap-2 font-semibold">
+          <span>{name}</span>
           {free && (
-            <Text className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium leading-none text-emerald-600 dark:bg-emerald-900 dark:bg-opacity-20 dark:text-emerald-700">
+            <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium leading-none text-emerald-600 dark:bg-emerald-900 dark:bg-opacity-20 dark:text-emerald-700">
               Ücretsiz
-            </Text>
+            </span>
           )}
-        </Text>
+        </h4>
 
-        <Text as="p" dim={1} className="mt-1">
-          {description}
-        </Text>
+        <p className="mt-1">{description}</p>
       </div>
-    </a>
+    </BaseLink>
   );
 }

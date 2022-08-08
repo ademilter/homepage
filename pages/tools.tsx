@@ -1,12 +1,13 @@
-import PageTransition from "components/page-transition";
-import Tool from "components/tool-card";
+import PageTransition from "@/components/page-transition";
+import Tool from "@/components/tool-card";
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
-import { getTable } from "lib/airtables";
-import type { ITool } from "types/index";
+import { getTable } from "@/lib/airtables";
+import type { ITool } from "@/types/index";
 import { useState } from "react";
-import Text from "components/text";
-import Segmented from "components/segmented";
+import Segmented from "@/components/segmented";
+import Container from "@/components/container";
+import Title from "@/components/title";
 
 export default function ToolsPage({ data }) {
   const defaultFilter: string = "all";
@@ -22,11 +23,11 @@ export default function ToolsPage({ data }) {
         <title>Araçlar - Adem ilter</title>
       </Head>
 
-      <div className="c-small">
-        <Text as="h2" size="pageTitle">
+      <Container>
+        <Title>
           Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesi.
           Bana yaşattıkları deneyim üzerinden puan ve yorumumu ekledim.
-        </Text>
+        </Title>
 
         <Segmented
           className="mt-10"
@@ -38,9 +39,9 @@ export default function ToolsPage({ data }) {
             className: "capitalize",
           }}
         />
-      </div>
+      </Container>
 
-      <div className="c-large mt-20">
+      <Container size="large" className="mt-20">
         <div className="grid items-start gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-8 lg:grid-cols-4">
           <AnimatePresence>
             {data
@@ -53,7 +54,7 @@ export default function ToolsPage({ data }) {
               })}
           </AnimatePresence>
         </div>
-      </div>
+      </Container>
     </PageTransition>
   );
 }

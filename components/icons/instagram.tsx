@@ -1,5 +1,5 @@
 import React from "react";
-import type { ISVGProps } from "types/index";
+import type { ISVGProps } from "@/types/index";
 
 function IconInstagram({ size = 22, ...props }: ISVGProps) {
   return (

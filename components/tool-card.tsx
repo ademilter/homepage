@@ -1,6 +1,5 @@
-import type { IAirtableImages, ITool } from "types/index";
+import type { IAirtableImages, ITool } from "@/types/index";
 import { motion, usePresence } from "framer-motion";
-import Text from "./text";
 import Rating from "./rating";
 
 export default function VideoCard({ tool }: { tool: ITool }) {
@@ -48,12 +47,8 @@ export default function VideoCard({ tool }: { tool: ITool }) {
       </figure>
 
       <header className="mt-6 text-center">
-        <Text as="h5" size="small" dim={3}>
-          {brand ? brand : "-"}
-        </Text>
-        <Text as="h3" className="font-semibold">
-          {name}
-        </Text>
+        <h5 className="text-sm">{brand ? brand : "-"}</h5>
+        <h3 className="shine font-semibold">{name}</h3>
       </header>
 
       <div className="mt-6 rounded-md bg-white p-4 text-center dark:bg-zinc-800">
@@ -63,9 +58,7 @@ export default function VideoCard({ tool }: { tool: ITool }) {
           })}
         </div>
 
-        <Text as="p" size="small" className="mt-2" dim={2}>
-          {comment}
-        </Text>
+        <p className="mt-2 text-sm">{comment}</p>
       </div>
     </motion.article>
   );

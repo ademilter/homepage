@@ -1,11 +1,12 @@
-import PageTransition from "components/page-transition";
-import AppCard from "components/app-card";
-import Text from "components/text";
+import PageTransition from "@/components/page-transition";
+import AppCard from "@/components/app-card";
 import Head from "next/head";
-import { getTable } from "lib/airtables";
+import { getTable } from "@/lib/airtables";
 import { useState } from "react";
-import Segmented from "components/segmented";
-import type { IApp } from "../types/index";
+import Segmented from "@/components/segmented";
+import type { IApp } from "@/types/index";
+import Container from "@/components/container";
+import Title from "@/components/title";
 
 export default function AppsPage({ data }) {
   const [selectedTab, setSelectedTab] = useState("iOS");
@@ -18,10 +19,10 @@ export default function AppsPage({ data }) {
         <title>Uygulamalar - Adem ilter</title>
       </Head>
 
-      <div className="c-small">
-        <Text as="h2" size="pageTitle">
+      <Container>
+        <Title>
           Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi.
-        </Text>
+        </Title>
 
         <Segmented
           className="mt-10"
@@ -38,7 +39,7 @@ export default function AppsPage({ data }) {
               <AppCard key={item.Id} {...item} />
             ))}
         </div>
-      </div>
+      </Container>
     </PageTransition>
   );
 }

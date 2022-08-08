@@ -1,14 +1,16 @@
-import PageTransition from "components/page-transition";
+import PageTransition from "@/components/page-transition";
 import { meta } from "../site.config";
-import MetricCard from "components/metric-card";
-import Text from "components/text";
-import A from "components/a";
+import MetricCard from "@/components/metric-card";
+import BaseLink from "@/components/link";
+import Container from "@/components/container";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import youtube from "lib/youtube";
+import youtube from "@/lib/youtube";
 import ms from "ms";
+import Title from "@/components/title";
+import SubTitle from "@/components/subtitle";
 
-const VideoRow = dynamic(() => import("components/video-card"), {
+const VideoRow = dynamic(() => import("@/components/video-card"), {
   ssr: false,
 });
 
@@ -180,15 +182,15 @@ function VideosPage({ youtubeStats }) {
         <title>Videos - Adem ilter</title>
       </Head>
 
-      <div className="c-small">
-        <Text as="h2" size="pageTitle">
+      <Container>
+        <Title>
           Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
           listesi. Youtube üzerinden izledikten sonra buradan işaretleyebilir ve
           düzenli olarak takip edebilirsiniz.
-        </Text>
+        </Title>
 
         <p className="mt-10">
-          <A
+          <BaseLink
             href="https://www.buymeacoffee.com/ademilter"
             className="flex items-center rounded-lg bg-indigo-50 py-5 px-6
             text-indigo-900 transition-colors
@@ -198,7 +200,7 @@ function VideosPage({ youtubeStats }) {
           >
             Ücretsiz olarak yayınladığım eğitimler için teşekkür etmek istersen
             kahve ısmarlayabilirsin 🙏
-          </A>
+          </BaseLink>
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
@@ -212,17 +214,16 @@ function VideosPage({ youtubeStats }) {
             Youtube Görüntüleme
           </MetricCard>
         </div>
-      </div>
+      </Container>
 
-      <div className="c-small mt-20">
+      <Container className="mt-20">
         <div className="space-y-10">
           {Object.keys(videos).map((catKey) => {
             const category = videos[catKey];
             return (
               <div key={catKey}>
-                <Text as="h3" dim={3} size="sectionTitle" className="py-4">
-                  {catKey}
-                </Text>
+                <SubTitle className="py-4">{catKey}</SubTitle>
+
                 <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
                   {category.map((video) => {
                     return <VideoRow key={video.title} {...video} />;
@@ -232,7 +233,7 @@ function VideosPage({ youtubeStats }) {
             );
           })}
         </div>
-      </div>
+      </Container>
     </PageTransition>
   );
 }

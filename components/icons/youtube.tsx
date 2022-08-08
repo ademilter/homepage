@@ -1,5 +1,5 @@
 import React from "react";
-import type { ISVGProps } from "types/index";
+import type { ISVGProps } from "@/types/index";
 
 function IconYoutube({ size = 22 }: ISVGProps) {
   return (

@@ -1,12 +1,12 @@
-import "styles/globals.css";
-import "prism-themes/themes/prism-atom-dark.css";
+import "@/styles/globals.css";
 import "@upstash/claps/style.css";
+import "prism-themes/themes/prism-atom-dark.css";
 
-import Head from "next/head";
-import Header from "components/header";
-import Footer from "components/footer";
-import { Provider } from "use-http";
 import { meta } from "../site.config";
+import Head from "next/head";
+import { Provider } from "use-http";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 
 export default function MyApp({ Component, pageProps }) {
   const options = {

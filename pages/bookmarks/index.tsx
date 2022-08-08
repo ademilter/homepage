@@ -1,7 +1,7 @@
-import Raindrop from "lib/raindrop";
+import Raindrop from "@/lib/raindrop";
 import ms from "ms";
 import { startOfWeek, format } from "date-fns";
-import BookmarkLayout from "components/bookmark-layout";
+import BookmarkLayout from "@/components/bookmark-layout";
 
 function BookmarkPage({ data, year }) {
   return <BookmarkLayout data={data} year={year} onlyThisWeek />;

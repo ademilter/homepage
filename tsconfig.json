@@ -22,6 +22,21 @@
     "paths": {
       "contentlayer/generated": [
         "./.contentlayer/generated"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/types/*": [
+        "types/*"
       ]
     }
   },

@@ -1,56 +1,44 @@
 import NextImage from "next/image";
-import PageTransition from "components/page-transition";
-import Social from "components/social";
-import Text from "components/text";
-import A from "components/a";
-import dynamic from "next/dynamic";
-import unsplash from "lib/unsplash";
-import ms from "ms";
+import PageTransition from "@/components/page-transition";
+import Social from "@/components/social";
+import { StyleLink } from "@/components/link";
+import Title from "@/components/title";
+import Container from "@/components/container";
 
-const Photos = dynamic(() => import("components/photos"), {
-  ssr: false,
-});
-
-export default function HomePage({ photos }) {
+export default function HomePage() {
   return (
     <PageTransition>
-      <div className="c-small">
+      <Container>
         <div className="space-y-6">
-          <Text as="h1" size="pageTitle">
-            Merhaba, Ben Adem 👋
+          <Title>
+            <b className="font-semibold">Merhaba, Ben Adem 👋</b>
             <br />
             İstanbul'da yaşayan bir Tasarımcıyım.
-          </Text>
+          </Title>
 
-          <Text as="p" size="large" dim={1}>
-            Şu anda{" "}
-            <A
-              className="underline decoration-zinc-500"
-              href="https://upstash.com"
-            >
-              Upstash
-            </A>{" "}
+          <p className="text-xl">
+            Şu anda <StyleLink href="https://upstash.com">Upstash</StyleLink>{" "}
             şirketinde serverless ürünler inşa ediyorum.
-          </Text>
+          </p>
 
-          <Text as="p" size="large" dim={1}>
+          <p className="text-xl">
             Fotoğraf çekmeyi, kaykay sürmeyi ve doğa yürüyüşlerini çok
             seviyorum. Akıllıca tasarlanmış ürünler kullanmaktan keyif alıyorum.
             Son zamanlarda ahşap ürünler yapımına ilgim var 🪑
-          </Text>
+          </p>
 
-          <Text as="p" size="large" dim={1}>
+          <p className="text-xl">
             Youtube kanalımda tasarım, frontend ve tecrübelerimi paylaştığım
             içerikler üretiyorum.
-          </Text>
+          </p>
         </div>
 
         <div className="mt-10">
           <Social />
         </div>
-      </div>
+      </Container>
 
-      <div className="c-large mt-20">
+      <Container size="large" className="mt-20">
         <NextImage
           src="/photos/we.jpg"
           alt="Adem ilter ve çocukları"
@@ -60,7 +48,7 @@ export default function HomePage({ photos }) {
           layout="responsive"
           className="rounded-lg saturate-0 transition-all duration-700 hover:saturate-100"
         />
-      </div>
+      </Container>
     </PageTransition>
   );
 }

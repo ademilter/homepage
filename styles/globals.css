@@ -27,30 +27,28 @@
 
   html {
     font-family: "Inter", system-ui, sans-serif;
-    scroll-behavior: smooth;
+    @apply scroll-smooth
+  }
+
+  a, button {
+    @apply transition;
   }
 
   .post-body > * {
-    margin-bottom: 2rem;
-    scroll-margin-top: 2rem;
+    @apply mb-8 scroll-mt-8
   }
 
   .post-body pre {
-    font-size: 0.9rem;
-    margin-bottom: 2rem;
+    @apply text-sm mb-8;
   }
 
   .post-body pre[class*="language-"]::-webkit-scrollbar {
-    display: none;
+    @apply hidden
   }
 }
 
 @layer components {
-  .c-small {
-    @apply max-w-screen-sm mx-auto px-6;
-  }
-
-  .c-large {
-    @apply max-w-screen-xl mx-auto px-6;
+  .shine {
+    @apply text-zinc-900 dark:text-zinc-50;
   }
 }

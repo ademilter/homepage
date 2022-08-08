@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Text from "./text";
 import cx from "classnames";
 import React from "react";
 
@@ -55,9 +54,9 @@ export default function Segmented({
               />
             )}
 
-            <Text dim={isActive ? null : 2} className="relative z-10">
+            <span className={cx("relative z-10", isActive ? "shine" : "")}>
               {item}
-            </Text>
+            </span>
           </button>
         );
       })}
