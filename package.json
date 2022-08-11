@@ -32,6 +32,7 @@
     "use-http": "^1.0.26"
   },
   "devDependencies": {
+    "@builder.io/partytown": "^0.6.4",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@types/node": "^18.0.6",
     "@types/react": "^18.0.15",

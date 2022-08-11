@@ -73,7 +73,7 @@ export default function PostPage({ post }: { post: Post }) {
 
             <div
               className={cx(
-                "pointer-events-none sticky left-0 right-0 bottom-0 z-10 h-40 md:-mx-24 lg:-mx-40 xl:-mx-60",
+                "pointer-events-none sticky left-0 right-0 bottom-0 z-10 h-32 md:-mx-24 lg:-mx-40 xl:-mx-60",
                 "bg-gradient-to-t from-white to-transparent dark:from-zinc-900"
               )}
             />

@@ -1,4 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 import { meta } from "../site.config";
 
 export default class MyDocument extends NextDocument {
@@ -66,16 +67,18 @@ export default class MyDocument extends NextDocument {
           {/* analytic */}
           {meta.ga && (
             <>
-              <script
-                async
+              <Script
+                strategy="worker"
                 src={`https://www.googletagmanager.com/gtag/js?id=${meta.ga}`}
               />
-              <script
-                type="text/javascript"
-                dangerouslySetInnerHTML={{
-                  __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${meta.ga}');`,
-                }}
-              />
+              <Script strategy="lazyOnload" type="text/javascript">
+                {`
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){ dataLayer.push(arguments); }
+                  gtag('js', new Date());
+                  gtag('config', '${meta.ga}');
+                `}
+              </Script>
             </>
           )}
         </Head>
