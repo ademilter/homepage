@@ -1,6 +1,5 @@
 import PageTransition from "@/components/page-transition";
 import Tool from "@/components/tool-card";
-import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 import { getTable } from "@/lib/airtables";
 import type { ITool } from "@/types/index";
@@ -18,11 +17,10 @@ export default function ToolsPage({ data }) {
   ];
 
   return (
-    <PageTransition>
-      <Head>
-        <title>Araçlar - Adem ilter</title>
-      </Head>
-
+    <PageTransition
+      title="Araçlar"
+      description="Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesi."
+    >
       <Container>
         <Title>
           Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesi.

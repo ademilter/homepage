@@ -1,14 +1,13 @@
 import PageTransition from "@/components/page-transition";
-import { meta } from "../site.config";
 import MetricCard from "@/components/metric-card";
 import BaseLink from "@/components/link";
 import Container from "@/components/container";
-import Head from "next/head";
 import dynamic from "next/dynamic";
 import youtube from "@/lib/youtube";
 import ms from "ms";
 import Title from "@/components/title";
 import SubTitle from "@/components/subtitle";
+import { META } from "@/lib/helper";
 
 const VideoRow = dynamic(() => import("@/components/video-card"), {
   ssr: false,
@@ -177,11 +176,11 @@ const videos = {
 
 function VideosPage({ youtubeStats }) {
   return (
-    <PageTransition>
-      <Head>
-        <title>Videos - Adem ilter</title>
-      </Head>
-
+    <PageTransition
+      title="Eğitimler"
+      description="Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
+          listesi."
+    >
       <Container>
         <Title>
           Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
@@ -205,12 +204,12 @@ function VideosPage({ youtubeStats }) {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard
-            href={meta.social.youtube}
+            href={META.social.youtube}
             data={youtubeStats.subscriberCount}
           >
             Youtube Abone
           </MetricCard>
-          <MetricCard href={meta.social.youtube} data={youtubeStats.viewCount}>
+          <MetricCard href={META.social.youtube} data={youtubeStats.viewCount}>
             Youtube Görüntüleme
           </MetricCard>
         </div>

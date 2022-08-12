@@ -1,6 +1,5 @@
 import PageTransition from "@/components/page-transition";
 import AppCard from "@/components/app-card";
-import Head from "next/head";
 import { getTable } from "@/lib/airtables";
 import { useState } from "react";
 import Segmented from "@/components/segmented";
@@ -14,11 +13,10 @@ export default function AppsPage({ data }) {
   const os = [...new Set(data.flatMap((tool: IApp) => tool.os) as string[])];
 
   return (
-    <PageTransition>
-      <Head>
-        <title>Uygulamalar - Adem ilter</title>
-      </Head>
-
+    <PageTransition
+      title="Uygulamalar"
+      description="Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi."
+    >
       <Container>
         <Title>
           Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi.

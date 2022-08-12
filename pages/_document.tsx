@@ -1,6 +1,6 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
-import { meta } from "../site.config";
+import { GA_ID } from "@/lib/helper";
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
@@ -33,11 +33,9 @@ export default class MyDocument extends NextDocument {
             crossOrigin="anonymous"
           />
 
-          {/* base */}
           <meta charSet="utf-8" />
           <meta name="robots" content="follow, index" />
 
-          {/* pwa */}
           <link href="/static/icons/site.webmanifest" rel="manifest" />
           <link
             href="/static/icons/icon-apple-touch-icon.png"
@@ -64,19 +62,18 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
 
-          {/* analytic */}
-          {meta.ga && (
+          {process.env.NODE_ENV === "production" && (
             <>
               <Script
                 strategy="worker"
-                src={`https://www.googletagmanager.com/gtag/js?id=${meta.ga}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               />
               <Script strategy="lazyOnload" type="text/javascript">
                 {`
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){ dataLayer.push(arguments); }
                   gtag('js', new Date());
-                  gtag('config', '${meta.ga}');
+                  gtag('config', '${GA_ID}');
                 `}
               </Script>
             </>

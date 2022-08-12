@@ -1,12 +1,9 @@
-export const meta = {
+export const META = {
   title: "Adem ilter",
-  description: "Crafting interfaces",
+  description: "Designer, developer, creator and photographer",
   url: "https://ademilter.com",
-  ga: "UA-17768654-1",
-  author: {
-    email: "ademilter@gmail.com",
-    name: "Adem ilter",
-  },
+  email: "ademilter@gmail.com",
+  name: "Adem ilter",
   social: {
     unsplash: "https://unsplash.com/@ademilter",
     vsco: "https://vsco.co/adem/gallery",
@@ -18,3 +15,5 @@ export const meta = {
     superpeer: "https://superpeer.com/adem",
   },
 };
+
+export const GA_ID = "UA-17768654-1";

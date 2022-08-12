@@ -1,12 +1,7 @@
 import "@/styles/globals.css";
 import "@upstash/claps/style.css";
 import "prism-themes/themes/prism-atom-dark.css";
-
-import { meta } from "../site.config";
-import Head from "next/head";
 import { Provider } from "use-http";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
 
 export default function MyApp({ Component, pageProps }) {
   const options = {
@@ -22,34 +17,7 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider url={process.env.NEXT_PUBLIC_API_URL} options={options}>
-      <Head>
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <title>Adem ilter</title>
-        <meta name="description" content={meta.description} />
-        <link rel="canonical" href={meta.url} />
-
-        {/* facebook */}
-        <meta property="og:url" content={meta.url} />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.description} />
-
-        {/* twitter */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content={meta.url} />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
-      </Head>
-
-      <div className="flex min-h-screen flex-col pt-10 pb-14">
-        <Header />
-        <main className="mt-10 flex-grow sm:mt-20">
-          <Component {...pageProps} />
-        </main>
-        <Footer />
-      </div>
+      <Component {...pageProps} />
     </Provider>
   );
 }

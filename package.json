@@ -2,7 +2,11 @@
   "name": "ademilter-website",
   "description": "my personal website",
   "version": "1.3.0",
-  "author": "Adem ilter <ademilter@gmail.com>",
+  "author": {
+    "name": "Adem ilter",
+    "email": "ademilter@gmail.com",
+    "url": "https://ademilter.com"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "next dev",

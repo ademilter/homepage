@@ -1,7 +1,6 @@
 import BookmarkCard from "@/components/bookmark-card";
 import PageTransition from "@/components/page-transition";
 import Container from "@/components/container";
-import Head from "next/head";
 import Link from "next/link";
 import { getYear } from "date-fns";
 import Title from "./title";
@@ -13,11 +12,11 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
   );
 
   return (
-    <PageTransition>
-      <Head>
-        <title>Bookmark - Adem ilter</title>
-      </Head>
-
+    <PageTransition
+      title="Bookmarks"
+      description="İnternette gezinirken beğendiğim ve beni takip edenlerin de
+          beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler."
+    >
       <Container>
         <Title>
           İnternette gezinirken beğendiğim ve beni takip edenlerin de

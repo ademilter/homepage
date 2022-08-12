@@ -3,10 +3,6 @@ import ms from "ms";
 import { startOfWeek, format } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 
-function BookmarkPage({ data, year }) {
-  return <BookmarkLayout data={data} year={year} onlyThisWeek />;
-}
-
 export async function getStaticProps() {
   const dateStartOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const date = format(dateStartOfWeek, "yyyy-MM-dd");
@@ -18,6 +14,10 @@ export async function getStaticProps() {
     props: { data, year: format(dateStartOfWeek, "yyyy") },
     revalidate: ms("1h") / 1000,
   };
+}
+
+function BookmarkPage({ data, year }) {
+  return <BookmarkLayout data={data} year={year} onlyThisWeek />;
 }
 
 export default BookmarkPage;

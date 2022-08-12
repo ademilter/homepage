@@ -3,10 +3,6 @@ import ms from "ms";
 import { format, startOfYear } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 
-function BookmarkPage({ data, year }) {
-  return <BookmarkLayout data={data} year={year} />;
-}
-
 export async function getStaticPaths() {
   return {
     paths: ["2021", "2022"].map((year) => {
@@ -31,6 +27,10 @@ export async function getStaticProps({ params }) {
     props: { data, year: params.year },
     revalidate: ms("1h") / 1000,
   };
+}
+
+function BookmarkPage({ data, year }) {
+  return <BookmarkLayout data={data} year={year} />;
 }
 
 export default BookmarkPage;

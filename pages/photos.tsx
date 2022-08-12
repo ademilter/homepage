@@ -1,4 +1,3 @@
-import Head from "next/head";
 import ms from "ms";
 import unsplash from "@/lib/unsplash";
 import PageTransition from "@/components/page-transition";
@@ -6,7 +5,7 @@ import dynamic from "next/dynamic";
 import MetricCard from "@/components/metric-card";
 import Title from "@/components/title";
 import Container from "@/components/container";
-import { meta } from "../site.config";
+import { META } from "@/lib/helper";
 
 const Photos = dynamic(() => import("@/components/photos"), {
   ssr: false,
@@ -14,11 +13,12 @@ const Photos = dynamic(() => import("@/components/photos"), {
 
 function PhotosPage({ photos, stats }) {
   return (
-    <PageTransition>
-      <Head>
-        <title>Photos - Adem ilter</title>
-      </Head>
-
+    <PageTransition
+      title="Fotoğraflar"
+      description="Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
+          hakkında farkındalığı, detayları görebilmemi ve doğru anı
+          yakalayabilmeyi öğretiyor."
+    >
       <Container>
         <Title>
           Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
@@ -27,10 +27,10 @@ function PhotosPage({ photos, stats }) {
         </Title>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard href={meta.social.unsplash} data={stats.views.total}>
+          <MetricCard href={META.social.unsplash} data={stats.views.total}>
             Unsplash Views
           </MetricCard>
-          <MetricCard href={meta.social.unsplash} data={stats.downloads.total}>
+          <MetricCard href={META.social.unsplash} data={stats.downloads.total}>
             Unsplash Downloads
           </MetricCard>
         </div>

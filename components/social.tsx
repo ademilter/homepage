@@ -1,4 +1,4 @@
-import { meta } from "../site.config";
+import { META } from "@/lib/helper";
 import Link from "@/components/link";
 import IconTwitter from "@/components/icons/twitter";
 import IconYoutube from "@/components/icons/youtube";
@@ -22,11 +22,11 @@ function SocialButton({ href, children }) {
 }
 
 function Social() {
-  const { twitter, youtube, github, instagram } = meta.social;
+  const { twitter, youtube, github, instagram } = META.social;
 
   return (
     <div className="flex items-center space-x-3">
-      <SocialButton href={"mailto:" + meta.author.email}>
+      <SocialButton href={`mailto:${META.email}`}>
         <span className="mx-2 font-medium">Email</span>
       </SocialButton>
 
