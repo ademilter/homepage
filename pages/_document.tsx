@@ -1,5 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
+import { Partytown } from "@builder.io/partytown/react";
 import { GA_ID } from "@/lib/helper";
 
 export default class MyDocument extends NextDocument {
@@ -62,22 +62,26 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
 
-          {process.env.NODE_ENV === "production" && (
-            <>
-              <Script
-                strategy="worker"
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              />
-              <Script strategy="lazyOnload" type="text/javascript">
-                {`
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){ dataLayer.push(arguments); }
-                  gtag('js', new Date());
-                  gtag('config', '${GA_ID}');
-                `}
-              </Script>
-            </>
-          )}
+          <Partytown
+            debug={process.env.NODE_ENV !== "production"}
+            forward={["dataLayer.push"]}
+          />
+
+          <script
+            type="text/partytown"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          />
+
+          <script
+            type="text/partytown"
+            dangerouslySetInnerHTML={{
+              __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', '${GA_ID}');`,
+            }}
+          />
         </Head>
 
         <body className="bg-white text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400">
