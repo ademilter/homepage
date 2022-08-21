@@ -9,7 +9,7 @@ görüntüler (powered by vercel).
 
 1. `.env.example` dosyasının adını `.env` olarak değiştirin.
 
-> Burada beklenilen tüm değerleri karşılamaz zorundasınız.
+> Burada beklenilen tüm değerleri karşılamak zorundasınız.
 
 2. Bağımlılıkları yükleyin ve çalıştırın
 
