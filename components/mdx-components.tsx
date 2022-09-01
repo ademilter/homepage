@@ -172,6 +172,7 @@ function Figure2({ children, col, ...props }) {
                 alt={title}
                 width={width}
                 height={height}
+                quality={100}
               />
             ) : (
               <img className="rounded" src={src} {...props} />
