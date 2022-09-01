@@ -6,7 +6,6 @@ import MDXComponents from "@/components/mdx-components";
 import { tr } from "date-fns/locale";
 import Claps from "@upstash/claps";
 import Container from "@/components/container";
-import cx from "classnames";
 
 export async function getStaticPaths() {
   const paths = allPosts.map((post: Post) => ({ params: { slug: post.slug } }));
@@ -65,15 +64,8 @@ export default function PostPage({ post }: { post: Post }) {
             />
           </div>
 
-          <div
-            className={cx(
-              "pointer-events-none sticky left-0 right-0 bottom-0 z-10 h-32 md:-mx-24 lg:-mx-40 xl:-mx-60",
-              "bg-gradient-to-t from-white to-transparent dark:from-zinc-900"
-            )}
-          />
-
-          <div className="fixed z-50">
-            <Claps fixed="center" replyUrl={post.tweetUrl} />
+          <div className="mt-20 flex justify-center">
+            <Claps replyUrl={post.tweetUrl} />
           </div>
         </article>
       </Container>

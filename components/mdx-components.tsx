@@ -1,5 +1,6 @@
 import React from "react";
 import cx from "classnames";
+import Image from "next/image";
 import { StyleLink } from "@/components/link";
 
 /*export function CodeBlock({ children }: { children: React.ReactElement }) {
@@ -99,7 +100,12 @@ function Figure({ src, title, full = true, width }) {
     <figure
       className={cx("text-center", full && "md:-mx-24 lg:-mx-40 xl:-mx-60")}
     >
-      <img className="inline-flex rounded-lg" src={src} style={imageStyle} />
+      <img
+        loading="lazy"
+        className="inline-flex rounded-lg"
+        src={src}
+        style={imageStyle}
+      />
       <figcaption className="mx-16 mt-4 text-sm opacity-50">{title}</figcaption>
     </figure>
   );
@@ -123,6 +129,61 @@ function h5(props) {
   return <h5 className="font-semibold" {...props} />;
 }
 
+function img({ src, alt, ...props }) {
+  console.log("image");
+  console.log(props);
+  return (
+    <figure>
+      <Image src={src} alt={alt} {...props} />
+      <figcaption>{alt}</figcaption>
+    </figure>
+  );
+}
+
+function Figure2({ children, col, ...props }) {
+  const childs: React.ReactNode[] = React.Children.map(
+    children,
+    (child: React.ReactElement) => {
+      return React.cloneElement(child, {
+        ...child.props,
+      });
+    }
+  );
+
+  if (!children) return null;
+
+  return (
+    <div
+      className={cx(
+        "text-center",
+        "md:-mx-20 lg:-mx-48 xl:-mx-80",
+        "grid gap-8",
+        col
+      )}
+    >
+      {childs.map((child: React.ReactElement) => {
+        const { src, title, width, height } = child.props;
+        return (
+          <figure key={child.key}>
+            {width ? (
+              <Image
+                className="rounded-lg"
+                src={src}
+                alt={title}
+                width={width}
+                height={height}
+              />
+            ) : (
+              <img className="rounded" src={src} {...props} />
+            )}
+            {title && <figcaption>{title}</figcaption>}
+          </figure>
+        );
+      })}
+    </div>
+  );
+}
+
 const MDXComponents = {
   strong,
   a,
@@ -136,6 +197,7 @@ const MDXComponents = {
   h5,
   Quote,
   Figure,
+  Figure2,
 };
 
 export default MDXComponents;
