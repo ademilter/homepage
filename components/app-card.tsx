@@ -1,17 +1,17 @@
 import Image from "next/image";
 import cx from "classnames";
+import BaseLink from "@/components/link";
 
 export default function AppCard({ Id, name, description, url, free, icon }) {
   return (
-    <a
+    <BaseLink
       key={Id}
       href={`${url}?ref=ademilter`}
-      target="_blank"
       className={cx(
-        "flex items-center gap-6 from-gray-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
+        "flex items-center gap-6 from-zinc-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
       )}
     >
-      <div
+      <figure
         className={cx("flex h-16 w-16 shrink-0 items-center justify-center")}
       >
         <Image
@@ -21,9 +21,10 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
           height={128}
           quality={100}
         />
-      </div>
+      </figure>
+
       <div className="grow">
-        <h4 className="text-highlight flex items-center gap-2 text-lg font-semibold">
+        <h4 className="shine flex items-center gap-2 font-semibold">
           <span>{name}</span>
           {free && (
             <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium leading-none text-emerald-600 dark:bg-emerald-900 dark:bg-opacity-20 dark:text-emerald-700">
@@ -32,8 +33,8 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
           )}
         </h4>
 
-        <p>{description}</p>
+        <p className="mt-1">{description}</p>
       </div>
-    </a>
+    </BaseLink>
   );
 }

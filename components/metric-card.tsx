@@ -1,19 +1,35 @@
 import React from "react";
-import A from "components/a";
-import commaNumber from "comma-number";
+import BaseLink from "@/components/link";
 
-function MetricCard({ children, href = "", data, prefix = "" }) {
+function MetricCard({
+  children,
+  href = "",
+  data,
+  prefix = "",
+}: {
+  children: React.ReactNode;
+  href?: string;
+  data: string | number;
+  prefix?: string;
+}) {
+  const Title = () => <span className="opacity-60">{children}</span>;
+
   return (
     <div
       className="
-      rounded-xl border border-zinc-200 p-4
-      dark:border-zinc-700"
+      rounded-lg border border-zinc-200 p-4 dark:border-zinc-700"
     >
-      {href ? <A href={href}>{children}</A> : children}
-      <p className="spacing-sm text-highlight mt-1 text-3xl font-bold">
+      {href ? (
+        <BaseLink href={href}>
+          <Title />
+        </BaseLink>
+      ) : (
+        <Title />
+      )}
+      <div className="shine spacing-sm mt-1 text-3xl font-semibold opacity-90">
         {prefix}
-        {commaNumber(data)}
-      </p>
+        {Number(data).toLocaleString()}
+      </div>
     </div>
   );
 }

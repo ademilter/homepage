@@ -1,14 +1,15 @@
-import PageTransition from "components/page-transition";
-import { meta } from "../site.config";
-import MetricCard from "components/metric-card";
-import A from "components/a";
-import PageTitle from "components/page-title";
-import Head from "next/head";
+import PageTransition from "@/components/page-transition";
+import MetricCard from "@/components/metric-card";
+import BaseLink from "@/components/link";
+import Container from "@/components/container";
 import dynamic from "next/dynamic";
-import youtube from "lib/youtube";
+import youtube from "@/lib/youtube";
 import ms from "ms";
+import Title from "@/components/title";
+import SubTitle from "@/components/subtitle";
+import { META } from "@/lib/helper";
 
-const VideoRow = dynamic(() => import("components/video-card"), {
+const VideoRow = dynamic(() => import("@/components/video-card"), {
   ssr: false,
 });
 
@@ -175,52 +176,53 @@ const videos = {
 
 function VideosPage({ youtubeStats }) {
   return (
-    <PageTransition>
-      <Head>
-        <title>Videos - Adem ilter</title>
-      </Head>
-
-      <div className="c-small">
-        <PageTitle>
+    <PageTransition
+      title="Eğitimler"
+      description="Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
+          listesi."
+    >
+      <Container>
+        <Title>
           Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
           listesi. Youtube üzerinden izledikten sonra buradan işaretleyebilir ve
           düzenli olarak takip edebilirsiniz.
-        </PageTitle>
+        </Title>
 
-        <div className="mt-10">
-          <A
+        <p className="mt-10">
+          <BaseLink
             href="https://www.buymeacoffee.com/ademilter"
-            className="rounded bg-zinc-900 px-4 py-3 text-white
-            dark:bg-zinc-100 dark:text-zinc-900"
+            className="flex items-center rounded-lg bg-indigo-50 py-5 px-6
+            text-indigo-900 transition-colors
+      hover:bg-indigo-100 hover:no-underline
+      dark:bg-indigo-900 dark:text-indigo-100
+      dark:hover:bg-indigo-800 dark:hover:text-indigo-50"
           >
-            ✨ Teşekkür
-          </A>
-        </div>
+            Ücretsiz olarak yayınladığım eğitimler için teşekkür etmek istersen
+            kahve ısmarlayabilirsin 🙏
+          </BaseLink>
+        </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard
-            href={meta.social.youtube}
+            href={META.social.youtube}
             data={youtubeStats.subscriberCount}
           >
             Youtube Abone
           </MetricCard>
-          <MetricCard href={meta.social.youtube} data={youtubeStats.viewCount}>
+          <MetricCard href={META.social.youtube} data={youtubeStats.viewCount}>
             Youtube Görüntüleme
           </MetricCard>
         </div>
-      </div>
+      </Container>
 
-      <div className="c-small mt-20">
+      <Container className="mt-20">
         <div className="space-y-10">
           {Object.keys(videos).map((catKey) => {
             const category = videos[catKey];
             return (
               <div key={catKey}>
-                <header className="py-4">
-                  <h2 className="text-2xl text-zinc-400 dark:text-zinc-500">
-                    {catKey}
-                  </h2>
-                </header>
+                <SubTitle className="py-4">{catKey}</SubTitle>
+
                 <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
                   {category.map((video) => {
                     return <VideoRow key={video.title} {...video} />;
@@ -230,7 +232,7 @@ function VideosPage({ youtubeStats }) {
             );
           })}
         </div>
-      </div>
+      </Container>
     </PageTransition>
   );
 }

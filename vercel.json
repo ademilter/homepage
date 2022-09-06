@@ -1,9 +1,10 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/fonts/Inter-roman.var.woff2",
+      "source": "/fonts/Inter.var.woff2",
       "headers": [
         {
           "key": "Cache-Control",
@@ -12,7 +13,16 @@
       ]
     },
     {
-      "source": "/fonts/JetBrainsMono-Regular.woff2",
+      "source": "/fonts/TiemposTextWeb-Regular.woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/TiemposTextWeb-RegularItalic.woff2",
       "headers": [
         {
           "key": "Cache-Control",

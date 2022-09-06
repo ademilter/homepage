@@ -1,6 +1,9 @@
-Bu web sitesi Nextjs üzerine inşa edilmiştir. Her sayfa içeriği farklı platformlarla haberleşerek ve beslenerek güncelliğini korumaktdır.
-Performans konusu öncelikli olduğu için next'in statik sayfa üretme özelliği kullanılmıştır. Ziyaretçi sayfaya erişmek istediğinde, daha önceden statik olarak üretilmiş dosyaya kendisine en yakın bölgedeki CDN'den çeker ve görüntüler.
-
+Bu web sitesi Nextjs üzerine inşa edilmiştir. Her sayfa içeriği farklı
+platformlardan beslenerek güncelliğini korumaktdır.
+Performans konusu öncelikli olduğu için next'in statik sayfa üretme özelliği
+kullanılmıştır. Ziyaretçi sayfaya erişmek istediğinde, daha önceden statik
+olarak üretilmiş dosyaya kendisine en yakın bölgedeki CDN'den çeker ve
+görüntüler (powered by vercel).
 
 ## Kullanmak için
 
@@ -22,21 +25,28 @@ yarn dev
 
 ## İçerikler ve Bağımlılıklar
 
-### Ana sayfa
+### Giriş
 
-Dışarı bağımlılığı yoktur.
+Fotoğraflar sayfası ile aynıdır.
 
-### Eğitimler
+### Eğitim
 
 Bu sayfanın içerikleri statik olarak eklenmiştir.
 
-[Youtube](https://github.com/ademilter/homepage/blob/master/lib/youtube.js) ve [Gumroad](https://github.com/ademilter/homepage/blob/master/lib/gumroad.ts) istatistiklerini okumak için dışarı bağımlılıkları vardır.
+[Youtube](https://github.com/ademilter/homepage/blob/master/lib/youtube.js)
+istatistiklerini okumak için Google API kullanır.
 
-### Fotoğraflar
+### Fotoğraf
 
-Bu sayfanın içerikleri Unsplash hesabımdan geliyor.
+Bu sayfanın içerikleri Unsplash hesabımdan geliyor. Fotoğraf yayınlamak
+istediğimde Unsplash hesabımda paylaşmam yeterli oluyor.
 
-### Yer İmleri
-İçerikler Raindrop hesabımdan geliyor. Upstash database ile basit bir oylama özelliği ekledim.
+### Ekipman & Uygulama
+
+Bu sayfanın içerikleri Airtable hesabımdan geliyor.
+
+### Yer İmi
+
+İçerikler Raindrop hesabımdan geliyor.
 
 

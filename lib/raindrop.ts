@@ -1,4 +1,4 @@
-import type { IBookmark } from "types/Bookmark";
+import type { IBookmark } from "@/types/index";
 import { format, parseISO } from "date-fns";
 import groupBy from "lodash.groupby";
 
@@ -13,10 +13,9 @@ export default class Raindrop {
 
   private getGeneratePath(page: number): string {
     return [
-      `https://api.raindrop.io/rest/v1/raindrops/0`,
+      `https://api.raindrop.io/rest/v1/raindrops/${this.collectionId}`,
       `?perpage=${this.perPage}`,
       `&page=${page}`,
-      `&collectionId=${this.collectionId}`,
       `&search=created:>${this.created}`,
       `&sort=-created`,
     ].join("");

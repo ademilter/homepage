@@ -1,15 +1,19 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  darkMode: "class",
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+  darkMode: "media", // "class",
+  content: ["./pages/**/*.tsx", "./components/**/*.tsx", "./layouts/**/*.tsx"],
+  safelist: [
+    {
+      pattern: /grid-cols-(2|3|4|5|6)/,
+      variants: ["sm", "md", "lg", "xl"],
+    },
   ],
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        serif: ["Tiempos", ...defaultTheme.fontFamily.serif],
       },
     },
   },

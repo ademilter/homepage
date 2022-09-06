@@ -10,4 +10,9 @@ module.exports = withContentlayer({
   images: {
     domains: ["images.unsplash.com", "dl.airtable.com"],
   },
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+    nextScriptWorkers: true,
+  },
 });

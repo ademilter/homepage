@@ -6,28 +6,49 @@
   @font-face {
     font-family: 'Inter';
     font-weight: 100 900;
-    font-display: swap;
     font-style: normal;
-    src: url('/fonts/Inter-roman.var.woff2?v=3.15') format('woff2');
+    font-display: swap;
+    src: url('/fonts/Inter.var.woff2?v=3.19') format('woff2');
+  }
+  @font-face {
+    font-family: 'Tiempos';
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/TiemposTextWeb-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Tiempos';
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+    src: url('/fonts/TiemposTextWeb-RegularItalic.woff2') format('woff2');
   }
 
   html {
     font-family: "Inter", system-ui, sans-serif;
-    scroll-behavior: smooth;
+    @apply scroll-smooth
+  }
+
+  a, button {
+    @apply transition;
+  }
+
+  .post-body > * {
+    @apply mb-8 scroll-mt-8
+  }
+
+  .post-body pre {
+    @apply text-sm mb-8;
+  }
+
+  .post-body pre[class*="language-"]::-webkit-scrollbar {
+    @apply hidden
   }
 }
 
 @layer components {
-  .c-small {
-    @apply max-w-screen-sm mx-auto px-4;
-  }
-
-  .c-large {
-    @apply max-w-screen-xl mx-auto px-4;
-  }
-
-  .text-highlight {
-    @apply text-zinc-900
-    dark:text-zinc-50;
+  .shine {
+    @apply text-zinc-900 dark:text-zinc-50;
   }
 }

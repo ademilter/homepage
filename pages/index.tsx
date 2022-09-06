@@ -1,43 +1,55 @@
 import NextImage from "next/image";
-import PageTransition from "components/page-transition";
-import Social from "components/social";
+import PageTransition from "@/components/page-transition";
+import Social from "@/components/social";
+import { StyleLink } from "@/components/link";
+import Title from "@/components/title";
+import Container from "@/components/container";
 
 export default function HomePage() {
   return (
     <PageTransition>
-      <div className="c-small">
+      <Container>
         <div className="space-y-6">
-          <h1 className="text-highlight text-2xl font-bold">
-            Ben Adem ilter.
+          <Title>
+            <b className="font-semibold">Merhaba, Ben Adem 👋</b>
             <br />
-            İstanbul'da yaşayan Dijital Ürün Tasarımcısıyım.
-          </h1>
+            İstanbul'da yaşayan bir Tasarımcıyım.
+          </Title>
 
           <p className="text-xl">
-            Tasarım araçları, front-end teknolojileri, sokak fotoğrafçılığı ve
-            tipografi gibi konularla yakından ilgileniyorum.
+            Şu anda <StyleLink href="https://upstash.com">Upstash</StyleLink>{" "}
+            şirketinde serverless ürünler inşa ediyorum.
           </p>
 
           <p className="text-xl">
-            Sektördeki eski teknoloji ve alışkanlıkları yenilerle değiştirmek
-            için youtube kanalımda modern türkçe içerikler üretiyorum.
+            Fotoğraf çekmeyi, kaykay sürmeyi ve doğa yürüyüşlerini çok
+            seviyorum. Akıllıca tasarlanmış ürünler kullanmaktan keyif alıyorum.
+            Son zamanlarda ahşap ürünler yapımına ilgim var 🪑
+          </p>
+
+          <p className="text-xl">
+            Youtube kanalımda tasarım, frontend ve tecrübelerimi paylaştığım
+            içerikler üretiyorum.
           </p>
         </div>
 
         <div className="mt-10">
           <Social />
         </div>
-      </div>
+      </Container>
 
-      <div className="c-large mt-20">
+      <Container size="large" className="mt-20">
         <NextImage
-          src="/photos/i-am.jpg"
-          alt="Adem ilter"
-          width={1433}
-          height={1018}
+          src="/photos/we.jpg"
+          alt="Adem ilter ve çocukları"
+          priority
+          quality={100}
+          width={3609}
+          height={2404}
           layout="responsive"
+          className="rounded-lg saturate-0 transition-all duration-700 hover:saturate-100"
         />
-      </div>
+      </Container>
     </PageTransition>
   );
 }

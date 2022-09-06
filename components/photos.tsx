@@ -1,40 +1,36 @@
-import { useLayoutEffect } from "react";
 import NextImage from "next/image";
-import Colcade from "colcade";
-import A from "components/a";
+import Link from "@/components/link";
+import cx from "classnames";
+
+function Photo({ alt_description, links, urls, description, width, height }) {
+  return (
+    <figure>
+      <Link
+        href={links.html}
+        className={cx(
+          "block overflow-hidden rounded-lg",
+          "saturate-50 transition-all duration-700",
+          "hover:scale-105 hover:saturate-100"
+        )}
+      >
+        <NextImage
+          src={`${urls.raw}&q=90&w=800`}
+          alt={alt_description || description}
+          width={width}
+          height={height}
+          layout="responsive"
+          quality={100}
+        />
+      </Link>
+    </figure>
+  );
+}
 
 function Photos({ data }) {
-  useLayoutEffect(() => {
-    const colc = new Colcade(`.photos`, {
-      columns: `.photos-col`,
-      items: `.photos-item`,
-    });
-
-    return () => {
-      colc.destroy();
-    };
-  }, []);
-
   return (
-    <div className="photos grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <div className="photos-col photos-col--1" />
-      <div className="photos-col photos-col--2" />
-      <div className="photos-col photos-col--3" />
-
+    <div className="grid items-end gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-20 lg:grid-cols-4">
       {data.map((item) => {
-        return (
-          <div key={item.id} className="photos-item mb-8">
-            <A href={item.links.html}>
-              <NextImage
-                src={item.urls.regular}
-                alt={item.description}
-                width={item.width}
-                height={item.height}
-                layout="responsive"
-              />
-            </A>
-          </div>
-        );
+        return <Photo key={item.id} {...item} />;
       })}
     </div>
   );

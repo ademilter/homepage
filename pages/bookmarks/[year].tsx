@@ -1,11 +1,7 @@
-import Raindrop from "lib/raindrop";
+import Raindrop from "@/lib/raindrop";
 import ms from "ms";
 import { format, startOfYear } from "date-fns";
-import BookmarkLayout from "components/bookmark-layout";
-
-function BookmarkPage({ data, year }) {
-  return <BookmarkLayout data={data} year={year} />;
-}
+import BookmarkLayout from "@/components/bookmark-layout";
 
 export async function getStaticPaths() {
   return {
@@ -31,6 +27,10 @@ export async function getStaticProps({ params }) {
     props: { data, year: params.year },
     revalidate: ms("1h") / 1000,
   };
+}
+
+function BookmarkPage({ data, year }) {
+  return <BookmarkLayout data={data} year={year} />;
 }
 
 export default BookmarkPage;

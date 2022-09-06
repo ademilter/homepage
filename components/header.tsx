@@ -1,71 +1,71 @@
-import { useTheme } from "next-themes";
-import NavItem from "./nav-item";
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import NextLink from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import IconArrowDropDown from "./icons/arrow-drop-down";
+import cx from "classnames";
+import Container from "./container";
 
 const MENU = {
-  "/": "Giriş",
-  "/videos": "Eğitim",
-  "/photos": "Fotoğraf",
-  // "/notes": "Notlar",
-  "/apps": "Uygulama",
-  "/bookmarks": "Yer İmi",
+  "/": "Hakkımda",
+  "/videos": "Eğitimler",
+  "/photos": "Fotoğraflar",
+  "/post": "Yazılar",
+  "/bookmarks": "Yer İmleri",
 };
 
 function Header() {
-  const [showNav, setShowMenu] = useState(false);
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const router = useRouter();
 
-  const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { pathname } = useRouter();
+  const clearSlash = pathname.split("/")[1];
+  const pathName = clearSlash ? `/${clearSlash}` : "/";
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  useEffect(() => {
+    const handleRouteChangeStart = () => {
+      setIsNavOpen(false);
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChangeStart);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChangeStart);
+    };
+  }, []);
 
   return (
-    <header className="pt-10 pb-20">
-      <div className="c-small">
-        <div className="flex items-center justify-between">
-          {/* nav-mobile-toggle */}
+    <header className="">
+      <Container>
+        <nav
+          className={cx(
+            isNavOpen ? "flex" : "hidden",
+            "flex-col gap-3 sm:!flex sm:flex-row"
+          )}
+        >
+          {Object.keys(MENU).map((path) => {
+            const isActive = path === pathName;
+            return (
+              <span key={path}>
+                <NextLink href={path}>
+                  <a className={cx(isActive ? "shine" : "")}>{MENU[path]}</a>
+                </NextLink>
+              </span>
+            );
+          })}
+        </nav>
+
+        {!isNavOpen && (
           <button
-            className="sm:hidden"
             type="button"
-            onClick={() => setShowMenu(!showNav)}
+            className="flex select-none items-center sm:hidden"
+            onClick={() => {
+              setIsNavOpen(true);
+            }}
           >
-            <span>{showNav ? "x" : "Menü"}</span>
+            <span>{MENU[pathName]}</span>
+            <IconArrowDropDown className="opacity-50" />
           </button>
-          {/* desktop nav */}
-          <nav className="hidden sm:block">
-            {Object.keys(MENU).map((path) => {
-              return (
-                <NavItem key={path} href={path}>
-                  {MENU[path]}
-                </NavItem>
-              );
-            })}
-          </nav>
-
-          <button
-            onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
-            }
-          >
-            {resolvedTheme === "dark" ? "🌝" : "🌚"}
-          </button>
-        </div>
-
-        {/* nav-mobile */}
-        {showNav && (
-          <nav className="mt-4 flex flex-col space-y-4 sm:hidden">
-            {Object.keys(MENU).map((path) => {
-              return (
-                <Link key={path} href={path}>
-                  <a className="">{MENU[path]}</a>
-                </Link>
-              );
-            })}
-          </nav>
         )}
-      </div>
+      </Container>
     </header>
   );
 }
