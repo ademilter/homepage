@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Raindrop from "@/lib/raindrop";
 import ms from "ms";
 import { format, startOfYear } from "date-fns";
@@ -30,7 +31,19 @@ export async function getStaticProps({ params }) {
 }
 
 function BookmarkPage({ data, year }) {
-  return <BookmarkLayout data={data} year={year} />;
+  return (
+    <>
+      <Head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS"
+          href="/bookmarks/rss.xml"
+        />
+      </Head>
+      <BookmarkLayout data={data} year={year} />;
+    </>
+  );
 }
 
 export default BookmarkPage;

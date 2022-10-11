@@ -1,6 +1,7 @@
+import Head from "next/head";
 import Raindrop from "@/lib/raindrop";
 import ms from "ms";
-import { startOfWeek, format } from "date-fns";
+import { format, startOfWeek } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 
 export async function getStaticProps() {
@@ -17,7 +18,19 @@ export async function getStaticProps() {
 }
 
 function BookmarkPage({ data, year }) {
-  return <BookmarkLayout data={data} year={year} onlyThisWeek />;
+  return (
+    <>
+      <Head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS"
+          href="/bookmarks/rss.xml"
+        />
+      </Head>
+      <BookmarkLayout data={data} year={year} onlyThisWeek />;
+    </>
+  );
 }
 
 export default BookmarkPage;
