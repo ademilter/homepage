@@ -46,7 +46,6 @@ export default function HomePage() {
           quality={100}
           width={3609}
           height={2404}
-          layout="responsive"
           className="rounded-lg saturate-0 transition-all duration-700 hover:saturate-100"
         />
       </Container>

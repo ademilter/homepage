@@ -18,7 +18,6 @@ function Photo({ alt_description, links, urls, description, width, height }) {
           alt={alt_description || description}
           width={width}
           height={height}
-          layout="responsive"
           quality={100}
         />
       </Link>

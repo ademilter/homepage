@@ -32,24 +32,25 @@ export type IAirtableImages = {
 };
 
 export type IApp = {
-  Id: string;
+  id: string;
   name: string;
   description: string;
+  icon: IAirtableImages;
+  url: string;
   os: string[]; // ["iOS", "macOS"]
   free: boolean;
-  icon: IAirtableImages;
 };
 
 export type ITool = {
-  Id: string; // "recFoyzP7v567KhqU"
+  id: string; // "recFoyzP7v567KhqU"
   name: string; // "BeoPlay H9"
   brand: string; // "Bang&Olufsen"
-  category: string[]; // ["workspace", "living"]
+  wtf: string; // "Kulaklık"
   rating: 1 | 2 | 3 | 4 | 5; // 4
+  category: string[]; // ["workspace", "living"]
+  images?: IAirtableImages;
   comment?: string; // lorem ipsum
   url?: string; // "https://www.bang-olufsen.com/en/us/headphones/beoplay-h9?variant=beoplay-h9-3-matte-black"
-  wtf?: string; // "Kulaklık"
-  images?: IAirtableImages;
 };
 
 export type IBookmark = {

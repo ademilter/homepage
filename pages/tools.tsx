@@ -1,7 +1,6 @@
 import PageTransition from "@/components/page-transition";
 import Tool from "@/components/tool-card";
 import { AnimatePresence } from "framer-motion";
-import { getTable } from "@/lib/airtables";
 import type { ITool } from "@/types/index";
 import { useState } from "react";
 import Segmented from "@/components/segmented";
@@ -48,7 +47,7 @@ export default function ToolsPage({ data }) {
                 return tool.category.includes(selectedTab);
               })
               .map((tool: ITool) => {
-                return <Tool key={tool.Id} tool={tool} />;
+                return <Tool key={tool.id} tool={tool} />;
               })}
           </AnimatePresence>
         </div>
@@ -58,7 +57,19 @@ export default function ToolsPage({ data }) {
 }
 
 export async function getStaticProps() {
-  const data = await getTable("Tools");
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Tools`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
+    }
+  );
+  const tools = await res.json();
+
+  const data: ITool[] = tools.records.map((r) => {
+    return { id: r.id, createdTime: r.createdTime, ...r.fields };
+  });
 
   return {
     props: {

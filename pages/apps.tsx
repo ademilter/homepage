@@ -1,6 +1,5 @@
 import PageTransition from "@/components/page-transition";
 import AppCard from "@/components/app-card";
-import { getTable } from "@/lib/airtables";
 import { useState } from "react";
 import Segmented from "@/components/segmented";
 import type { IApp } from "@/types/index";
@@ -34,7 +33,7 @@ export default function AppsPage({ data }) {
           {data
             .filter((item) => item.os.includes(selectedTab))
             .map((item) => (
-              <AppCard key={item.Id} {...item} />
+              <AppCard key={item.id} {...item} />
             ))}
         </div>
       </Container>
@@ -43,7 +42,19 @@ export default function AppsPage({ data }) {
 }
 
 export async function getStaticProps() {
-  const data = await getTable("Apps");
+  const res = await fetch(
+    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Apps`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
+    }
+  );
+  const apps = await res.json();
+
+  const data: IApp[] = apps.records.map((r) => {
+    return { id: r.id, createdTime: r.createdTime, ...r.fields };
+  });
 
   return {
     props: {
