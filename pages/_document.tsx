@@ -1,6 +1,9 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
-import { Partytown } from "@builder.io/partytown/react";
-import { GA_ID } from "@/lib/helper";
+import { Inter } from "@next/font/google";
+
+const inter = Inter({
+  variable: "--font-inter",
+});
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
@@ -9,15 +12,8 @@ export default class MyDocument extends NextDocument {
 
   render() {
     return (
-      <Html lang="tr">
+      <Html lang="tr" className={inter.variable}>
         <Head>
-          <link
-            rel="preload"
-            href="/fonts/Inter.var.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
           <link
             rel="preload"
             href="/fonts/TiemposTextWeb-Regular.woff2"
@@ -61,31 +57,11 @@ export default class MyDocument extends NextDocument {
           />
           <meta content="#ffffff" name="theme-color" />
           <meta content="#ffffff" name="msapplication-TileColor" />
-
-          <Partytown
-            debug={process.env.NODE_ENV !== "production"}
-            forward={["dataLayer.push"]}
-          />
-
-          <script
-            type="text/partytown"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          />
-
-          <script
-            type="text/partytown"
-            dangerouslySetInnerHTML={{
-              __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', '${GA_ID}');`,
-            }}
-          />
         </Head>
 
         <body className="bg-white text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400">
           <Main />
+
           <NextScript />
         </body>
       </Html>
