@@ -5,14 +5,14 @@ module.exports = {
   content: ["./pages/**/*.tsx", "./components/**/*.tsx", "./layouts/**/*.tsx"],
   safelist: [
     {
-      pattern: /grid-cols-(2|3|4|5|6)/,
+      pattern: /grid-cols-(2|3|4|5|6)/, // this config for blog post photo grid
       variants: ["sm", "md", "lg", "xl"],
     },
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
         serif: ["Tiempos", ...defaultTheme.fontFamily.serif],
       },
     },

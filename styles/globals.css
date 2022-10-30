@@ -4,13 +4,6 @@
 
 @layer base {
   @font-face {
-    font-family: 'Inter';
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-    src: url('/fonts/Inter.var.woff2?v=3.19') format('woff2');
-  }
-  @font-face {
     font-family: 'Tiempos';
     font-weight: normal;
     font-style: normal;
@@ -26,7 +19,6 @@
   }
 
   html {
-    font-family: "Inter", system-ui, sans-serif;
     @apply scroll-smooth
   }
 
