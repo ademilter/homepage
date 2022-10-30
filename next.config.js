@@ -10,8 +10,9 @@ module.exports = withContentlayer({
     domains: ["images.unsplash.com", "dl.airtable.com"],
   },
   experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true,
     nextScriptWorkers: true,
+    fontLoaders: [
+      { loader: "@next/font/google", options: { subsets: ["latin"] } },
+    ],
   },
 });
