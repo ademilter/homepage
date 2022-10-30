@@ -45,8 +45,8 @@ function Header() {
             const isActive = path === pathName;
             return (
               <span key={path}>
-                <NextLink href={path}>
-                  <a className={cx(isActive ? "shine" : "")}>{MENU[path]}</a>
+                <NextLink href={path} className={cx(isActive ? "shine" : "")}>
+                  {MENU[path]}
                 </NextLink>
               </span>
             );

@@ -39,13 +39,13 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
 
         {onlyThisWeek && (
           <div className="mt-16">
-            <Link href={`/bookmarks/${getYear(new Date())}`}>
-              <a
-                className="rounded-lg bg-zinc-50 py-3 px-4 hover:bg-zinc-100
-              dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-              >
+            <Link
+              href={`/bookmarks/${getYear(new Date())}`}
+              className="rounded-lg bg-zinc-50 py-3 px-4 hover:bg-zinc-100
+            dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700">
+              
                 Tüm listeyi görüntüle →
-              </a>
+              
             </Link>
           </div>
         )}
