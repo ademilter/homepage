@@ -10,7 +10,7 @@ module.exports = withContentlayer({
     domains: ["images.unsplash.com", "dl.airtable.com"],
   },
   experimental: {
-    nextScriptWorkers: true,
+    appDir: false,
     fontLoaders: [
       { loader: "@next/font/google", options: { subsets: ["latin"] } },
     ],
