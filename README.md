@@ -41,6 +41,9 @@ istatistiklerini okumak için Google API kullanır.
 Bu sayfanın içerikleri Unsplash hesabımdan geliyor. Fotoğraf yayınlamak
 istediğimde Unsplash hesabımda paylaşmam yeterli oluyor.
 
+### Blog
+Yazıları markdown olarak yazıyorum (yazılar /data klasörü içinde). [Contentlayer](https://www.contentlayer.dev) ile API haline getirip kullanıyorum.
+
 ### Ekipman & Uygulama
 
 Bu sayfanın içerikleri Airtable hesabımdan geliyor.
