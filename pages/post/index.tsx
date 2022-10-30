@@ -42,7 +42,7 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
                 <header>
                   <h3 className="shine font-semibold">
                     <NextLink href={`/post/${post.slug}`}>
-                      <a>{post.title}</a>
+                      {post.title}
                     </NextLink>
                   </h3>
                   <p className="mt-1">{post.subtitle}</p>
