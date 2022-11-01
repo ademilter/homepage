@@ -1,4 +1,5 @@
 import NextDocument, { Html, Head, Main, NextScript } from "next/document";
+import cx from "classnames";
 
 export default class MyDocument extends NextDocument {
   static getInitialProps(ctx) {
@@ -54,8 +55,14 @@ export default class MyDocument extends NextDocument {
           <meta content="#ffffff" name="msapplication-TileColor" />
         </Head>
 
-        <Main />
-        <NextScript />
+        <body
+          className={cx(
+            "bg-white text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400"
+          )}
+        >
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     );
   }

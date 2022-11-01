@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        sans: [...defaultTheme.fontFamily.sans],
         serif: ["Tiempos", ...defaultTheme.fontFamily.serif],
       },
     },

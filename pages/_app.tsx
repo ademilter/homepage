@@ -4,10 +4,12 @@ import "prism-themes/themes/prism-atom-dark.css";
 import { Provider } from "use-http";
 import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "@next/font/google";
-import cx from "classnames";
 
 const inter = Inter({
-  variable: "--font-inter",
+  // variable: "--font-sans",
+  subsets: ["latin-ext"],
+  weight: ["400", "600"],
+  style: "normal",
 });
 
 export default function MyApp({ Component, pageProps }) {
@@ -24,14 +26,9 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider url={process.env.NEXT_PUBLIC_API_URL} options={options}>
-      <body
-        className={cx(
-          "bg-white text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400",
-          inter.variable
-        )}
-      >
+      <div className={inter.className}>
         <Component {...pageProps} />
-      </body>
+      </div>
       <Analytics />
     </Provider>
   );
