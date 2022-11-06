@@ -1,11 +1,6 @@
 class Unsplash {
-  private base_url: string;
-  private client_id: string;
-
-  constructor() {
-    this.base_url = "https://api.unsplash.com/users/ademilter";
-    this.client_id = `client_id=${process.env.UNSPLASH_ACCESS_KEY}`;
-  }
+  private base_url: string = "https://api.unsplash.com/users/ademilter";
+  private client_id: string = `client_id=${process.env.UNSPLASH_ACCESS_KEY}`;
 
   async getData(url) {
     const res = await fetch(url, {

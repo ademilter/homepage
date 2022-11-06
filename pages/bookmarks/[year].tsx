@@ -21,8 +21,8 @@ export async function getStaticProps({ params }) {
   const dateStartOfYear = startOfYear(new Date(params.year));
   const date = format(dateStartOfYear, "yyyy-MM-dd");
 
-  const raindrop = new Raindrop(date);
-  const data = await raindrop.getBookmarksGroupByWeek();
+  const raindrop = new Raindrop({ createdAt: date });
+  const data = await raindrop.getBookmarksGroupByWeekNumber();
 
   return {
     props: { data, year: params.year },

@@ -12,7 +12,7 @@ export async function getServerSideProps({ res }) {
   };
 
   const firstPostDate = format(startOfYear(2021), "yyyy-MM-dd");
-  const raindrop = new Raindrop(firstPostDate);
+  const raindrop = new Raindrop({ createdAt: firstPostDate });
   const _data = await raindrop.getBookmarks();
 
   const data = _data.map(
