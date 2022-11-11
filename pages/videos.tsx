@@ -4,7 +4,6 @@ import BaseLink from "@/components/link";
 import Container from "@/components/container";
 import dynamic from "next/dynamic";
 import youtube from "@/lib/youtube";
-import ms from "ms";
 import Title from "@/components/title";
 import SubTitle from "@/components/subtitle";
 import { META } from "@/lib/helper";
@@ -244,7 +243,7 @@ export async function getStaticProps() {
     props: {
       youtubeStats,
     },
-    revalidate: ms("1d") / 1000,
+    revalidate: 60 * 60 * 24, // 1 day
   };
 }
 

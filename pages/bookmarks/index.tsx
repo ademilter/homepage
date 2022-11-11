@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Raindrop from "@/lib/raindrop";
-import ms from "ms";
 import { format, startOfWeek } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 
@@ -13,7 +12,7 @@ export async function getStaticProps() {
 
   return {
     props: { data, year: format(dateStartOfWeek, "yyyy") },
-    revalidate: ms("1h") / 1000,
+    revalidate: 60 * 60 * 2, // 2 hours
   };
 }
 

@@ -2,7 +2,6 @@ import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
 import { META } from "@/lib/helper";
 import { Feed } from "feed";
-import ms from "ms";
 
 export async function getServerSideProps({ res }) {
   const siteURL = process.env.VERCEL_URL ?? META.url;
@@ -47,7 +46,7 @@ export async function getServerSideProps({ res }) {
     });
   });
 
-  const revalidate = ms("1h") / 1000;
+  const revalidate = 60 * 60 * 2; // 2 hours
 
   res.setHeader("Content-Type", "text/xml");
   res.setHeader(

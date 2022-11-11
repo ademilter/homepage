@@ -1,4 +1,3 @@
-import ms from "ms";
 import unsplash from "@/lib/unsplash";
 import PageTransition from "@/components/page-transition";
 import dynamic from "next/dynamic";
@@ -52,7 +51,7 @@ export async function getStaticProps() {
       photos,
       stats,
     },
-    revalidate: ms("1d") / 1000,
+    revalidate: 60 * 60 * 24, // 1 day
   };
 }
 
