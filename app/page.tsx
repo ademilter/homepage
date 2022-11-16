@@ -1,13 +1,12 @@
 import NextImage from "next/image";
-import PageTransition from "@/components/page-transition";
 import Social from "@/components/social";
 import { StyleLink } from "@/components/link";
 import Title from "@/components/title";
 import Container from "@/components/container";
 
-export default function HomePage() {
+export default function Index() {
   return (
-    <PageTransition>
+    <>
       <Container>
         <div className="space-y-6">
           <Title>
@@ -49,6 +48,6 @@ export default function HomePage() {
           className="rounded-lg saturate-0 transition-all duration-700 hover:saturate-100"
         />
       </Container>
-    </PageTransition>
+    </>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import useLocalStorage from "@/hooks/useLocalStorage";
 import slugify from "@sindresorhus/slugify";
 import cx from "classnames";

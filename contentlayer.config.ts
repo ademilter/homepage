@@ -1,6 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import readingTime from "reading-time";
-import rehypePrism from "rehype-prism-plus";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -35,7 +34,4 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "data",
   documentTypes: [Post],
-  mdx: {
-    rehypePlugins: [rehypePrism],
-  },
 });

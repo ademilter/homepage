@@ -3,25 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Tiempos';
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    src: url('/fonts/TiemposTextWeb-Regular.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Tiempos';
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-    src: url('/fonts/TiemposTextWeb-RegularItalic.woff2') format('woff2');
-  }
-
-  html {
-    @apply scroll-smooth
-  }
-
   a, button {
     @apply transition;
   }
@@ -37,9 +18,7 @@
   .post-body pre[class*="language-"]::-webkit-scrollbar {
     @apply hidden
   }
-}
 
-@layer components {
   .shine {
     @apply text-zinc-900 dark:text-zinc-50;
   }

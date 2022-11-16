@@ -1,6 +1,6 @@
 import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
-import { META } from "@/lib/helper";
+import { META } from "@/data/meta";
 import { Feed } from "feed";
 
 export async function getServerSideProps({ res }) {
@@ -46,7 +46,7 @@ export async function getServerSideProps({ res }) {
     });
   });
 
-  const revalidate = 60 * 60 * 2; // 2 hours
+  const revalidate = 60 * 60 * 2;
 
   res.setHeader("Content-Type", "text/xml");
   res.setHeader(

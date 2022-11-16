@@ -1,6 +1,6 @@
 import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
-import { META } from "@/lib/helper";
+import { META } from "@/data/meta";
 
 export async function getServerSideProps({ res }) {
   const date = new Date();
@@ -30,7 +30,7 @@ export async function getServerSideProps({ res }) {
     }
   );
 
-  const revalidate = 60 * 60 * 2; // 2 hours
+  const revalidate = 60 * 60 * 2;
 
   res.setHeader("Content-Type", "text/json");
   res.setHeader(

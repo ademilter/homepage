@@ -101,9 +101,9 @@ function Figure({ src, title, full = true, width }) {
       className={cx("text-center", full && "md:-mx-24 lg:-mx-40 xl:-mx-60")}
     >
       <img
-        loading="lazy"
-        className="inline-flex rounded-lg"
         src={src}
+        alt={title}
+        className="inline-flex rounded-lg"
         style={imageStyle}
       />
       <figcaption className="mx-16 mt-4 text-sm opacity-50">{title}</figcaption>
@@ -134,7 +134,7 @@ function img({ src, alt, ...props }) {
   console.log(props);
   return (
     <figure>
-      <Image src={src} alt={alt} {...props} />
+      <img src={src} alt={alt} {...props} />
       <figcaption>{alt}</figcaption>
     </figure>
   );
@@ -166,16 +166,15 @@ function Figure2({ children, col, ...props }) {
         return (
           <figure key={child.key}>
             {width ? (
-              <Image
+              <img
                 className="rounded-lg"
                 src={src}
                 alt={title}
                 width={width}
                 height={height}
-                quality={100}
               />
             ) : (
-              <img className="rounded" src={src} {...props} />
+              <img className="rounded" src={src} alt={title} {...props} />
             )}
             {title && <figcaption>{title}</figcaption>}
           </figure>
