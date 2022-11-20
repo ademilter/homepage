@@ -130,8 +130,6 @@ function h5(props) {
 }
 
 function img({ src, alt, ...props }) {
-  console.log("image");
-  console.log(props);
   return (
     <figure>
       <img src={src} alt={alt} {...props} />

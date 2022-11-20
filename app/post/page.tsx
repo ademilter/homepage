@@ -17,10 +17,7 @@ function getData() {
 }
 
 export default function PostsPage() {
-  const posts: Pick<
-    Post,
-    "_id" | "title" | "date" | "slug" | "subtitle" | "readingTime"
-  >[] = getData();
+  const posts: Partial<Post>[] = getData();
 
   return (
     <>
