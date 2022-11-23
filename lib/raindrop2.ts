@@ -2,6 +2,13 @@ import { IBookmark } from "@/types/index";
 
 type InitData = { token?: string };
 
+type Result = {
+  result: boolean;
+  count: number;
+  collectionId: number;
+  items: Link[];
+};
+
 // https://stackoverflow.com/a/39495173
 type Enumerate<
   N extends number,
@@ -91,12 +98,7 @@ export default class Raindrop2 {
       | "-domain"
       | "domain";
     search?: string;
-  }): Promise<{
-    result: boolean;
-    count: number;
-    collectionId: number;
-    items: Link[];
-  }> {
+  }): Promise<Link[]> {
     let url = new URL(`/rest/v1/raindrops/${id}`, this.url);
     this.mergeParams(url, {
       perpage: perPage?.toString(),
@@ -108,7 +110,21 @@ export default class Raindrop2 {
     console.log(url.toString());
 
     const response = await this.fetch({ url });
-    return await response.json();
+    const data: Result = await response.json();
+
+    if (data.items.length === perPage) {
+      return data.items.concat(
+        await this.multipleRaindrops({
+          id,
+          page: page + 1,
+          perPage,
+          sort,
+          search,
+        })
+      );
+    } else {
+      return data.items;
+    }
   }
 }
 

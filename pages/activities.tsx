@@ -29,8 +29,8 @@ export async function getStaticProps() {
   const raindrop = new Raindrop2();
 
   const collection = await raindrop.multipleRaindrops({
-    id: 15611214,
-    perPage: 1,
+    id: 29255874,
+    perPage: 2,
   });
 
   return {

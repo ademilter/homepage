@@ -35,7 +35,7 @@ export async function getServerSideProps({ res }) {
   res.setHeader("Content-Type", "text/json");
   res.setHeader(
     "Cache-Control",
-    `public, s-maxage=1200, stale-while-revalidate=${revalidate}`
+    `public, s-maxage=${revalidate * 2}, stale-while-revalidate=${revalidate}`
   );
 
   res.write(
