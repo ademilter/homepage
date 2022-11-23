@@ -41,6 +41,14 @@ export type IApp = {
   free: boolean;
 };
 
+export type IActivity = {
+  id: string;
+  title: string;
+  url: string;
+  note: string;
+  image: IAirtableImages;
+};
+
 export type ITool = {
   id: string; // "recFoyzP7v567KhqU"
   name: string; // "BeoPlay H9"
@@ -61,7 +69,17 @@ export type IBookmark = {
   link: string; // 'https://figma-to-react.vercel.app/'
   domain: string; // 'figma-to-react.vercel.app',
   created: string; // '2021-03-28T01:37:53.050Z'
-  tags: [string]; // [ 'history', 'frontend', 'figma', 'react' ],
+  tags: string[]; // [ 'history', 'frontend', 'figma', 'react' ],
   type: "link" | "article" | "video" | "document" | "audio"; // 'link',
   cover: string; // 'https://rdl.ink/render/https%3A%2F%2Ffigma-to-react.vercel.app%2F',
+  note: string; // "";
+  removed: boolean; // false;
+  lastUpdate: string; // "2022-11-22T19:21:12.043Z";
+  important: boolean; // false;
+  sort: number; // 475927149;
+  // collection: [Object];
+  // creatorRef: [Object];
+  // user: [Object];
+  // media: [Array];
+  // highlights: [];
 };
