@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function PageTransition({ children }) {
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       <motion.div
         initial={{ y: 5, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

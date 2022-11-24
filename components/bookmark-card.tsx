@@ -1,9 +1,9 @@
 import Link from "@/components/link";
-import type { IBookmark } from "@/types/index";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
+import { ILink } from "@/types/index";
 
-function BookmarkCard({ bookmark }: { bookmark: IBookmark }) {
+function BookmarkCard({ bookmark }: { bookmark: ILink }) {
   return (
     <article className="py-4">
       <h3 className="shine font-semibold">

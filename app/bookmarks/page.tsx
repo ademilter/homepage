@@ -1,6 +1,8 @@
-import Raindrop from "@/lib/raindrop";
 import { format, startOfWeek } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
+import Raindrop from "@/lib/raindrop";
+import bookmarkGroupByWeekNumber from "@/lib/bookmarkGroupByWeekNumber";
+import { ILink } from "@/types/index";
 
 export const revalidate = 7200; // 60*60*2
 
@@ -8,8 +10,13 @@ async function fetchData() {
   const dateStartOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const date = format(dateStartOfWeek, "yyyy-MM-dd");
 
-  const raindrop = new Raindrop({ createdAt: date });
-  const data = await raindrop.getBookmarksGroupByWeekNumber();
+  const raindrop = new Raindrop();
+  const collections: ILink[] = await raindrop.multipleRaindrops({
+    id: 15611214,
+    search: `created:>${date}`,
+  });
+
+  const data = bookmarkGroupByWeekNumber(collections);
 
   return {
     data,

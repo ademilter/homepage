@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getYear } from "date-fns";
 import Title from "./title";
 import SubTitle from "./subtitle";
+import { ILink } from "@/types/index";
 
 export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
   const sortedData = Object.keys(data).sort(
@@ -24,7 +25,7 @@ export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
           </SubTitle>
 
           <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">
-            {data[date].map((item) => {
+            {data[date].map((item: ILink) => {
               return <BookmarkCard key={item._id} bookmark={item} />;
             })}
           </div>

@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface ISVGProps extends React.SVGProps<SVGSVGElement> {
   size?: number;
 }
@@ -61,25 +59,25 @@ export type ITool = {
   url?: string; // "https://www.bang-olufsen.com/en/us/headphones/beoplay-h9?variant=beoplay-h9-3-matte-black"
 };
 
-export type IBookmark = {
-  collectionId: number; // 15611214
+export type ILink = {
   _id: number; // 254677638,
-  title: string; // 'Figma to React – Convert Figma designs to React code',
-  excerpt: string; // 'Convert Figma designs to React code (React Native and Next.js)',
-  link: string; // 'https://figma-to-react.vercel.app/'
-  domain: string; // 'figma-to-react.vercel.app',
-  created: string; // '2021-03-28T01:37:53.050Z'
-  tags: string[]; // [ 'history', 'frontend', 'figma', 'react' ],
   type: "link" | "article" | "video" | "document" | "audio"; // 'link',
+  created: string; // '2021-03-28T01:37:53.050Z'
+  title: string; // 'Figma to React – Convert Figma designs to React code',
+  link: string; // 'https://figma-to-react.vercel.app/'
+  excerpt: string; // 'Convert Figma designs to React code (React Native and Next.js)',
+  domain: string; // 'figma-to-react.vercel.app',
+  tags: string[]; // [ 'history', 'frontend', 'figma', 'react' ],
   cover: string; // 'https://rdl.ink/render/https%3A%2F%2Ffigma-to-react.vercel.app%2F',
-  note: string; // "";
-  removed: boolean; // false;
-  lastUpdate: string; // "2022-11-22T19:21:12.043Z";
-  important: boolean; // false;
-  sort: number; // 475927149;
+  // media: any; // [Array];
+  // collectionId: number; // 15611214
+  // note: string; // "";
+  // removed: boolean; // false;
+  // lastUpdate: string; // "2022-11-22T19:21:12.043Z";
+  // important: boolean; // false;
+  // sort: number; // 475927149;
   // collection: [Object];
   // creatorRef: [Object];
   // user: [Object];
-  // media: [Array];
   // highlights: [];
 };

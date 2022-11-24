@@ -4,7 +4,6 @@ import "@upstash/claps/style.css";
 import AnalyticsWrapper from "./analytics";
 import { Inter } from "@next/font/google";
 import Header from "@/components/header";
-import PageTransition from "@/components/page-transition";
 import Footer from "@/components/footer";
 
 const inter = Inter({
@@ -20,9 +19,7 @@ export default async function Layout({ children }) {
       <body className="bg-white text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400">
         <div className="flex min-h-screen flex-col pt-10 pb-14">
           <Header />
-          <main className="mt-10 flex-grow sm:mt-20">
-            <PageTransition>{children}</PageTransition>
-          </main>
+          <main className="mt-10 flex-grow sm:mt-20">{children}</main>
           <Footer />
         </div>
 
