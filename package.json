@@ -10,12 +10,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "@next/font": "^13.0.4",
+    "@next/font": "^13.0.5-canary.6",
     "@sindresorhus/slugify": "^2.1.1",
     "@upstash/claps": "^1.0.0-beta.4",
     "@vercel/analytics": "^0.1.5",
@@ -32,7 +31,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
-    "sharp": "^0.31.2"
+    "sharp": "^0.31.2",
+    "tailwind-merge": "^1.8.0"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
