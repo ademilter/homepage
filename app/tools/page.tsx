@@ -3,7 +3,7 @@ import Container from "@/components/container";
 import Title from "@/components/title";
 import Tools from "@/components/tools";
 
-export const revalidate = 86400; // 60*60*24 = 86400
+export const revalidate = 86400; // 60*60*24
 
 async function fetchData() {
   const response = await fetch(

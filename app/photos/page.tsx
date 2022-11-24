@@ -5,7 +5,7 @@ import Container from "@/components/container";
 import Photos from "@/components/photos";
 import { META } from "@/data/meta";
 
-export const revalidate = 86400; // 60*60*24 = 86400
+export const revalidate = 86400; // 60*60*24
 
 export default async function PhotosPage() {
   const photos = await unsplash.getPhotos();

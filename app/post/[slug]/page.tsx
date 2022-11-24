@@ -6,8 +6,6 @@ import { tr } from "date-fns/locale";
 import Claps from "@upstash/claps";
 import Container from "@/components/container";
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return allPosts.map((post: Post) => ({ slug: post.slug }));
 }

@@ -3,7 +3,6 @@ import { format, startOfYear } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 
 export const revalidate = 7200; // 60*60*2
-export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return ["2021", "2022"].map((year) => ({

@@ -3,7 +3,7 @@ import Container from "@/components/container";
 import Title from "@/components/title";
 import Apps from "@/components/apps";
 
-export const revalidate = 86400; // 60*60*24 = 86400
+export const revalidate = 86400; // 60*60*24
 
 async function fetchData() {
   const res = await fetch(
@@ -14,7 +14,7 @@ async function fetchData() {
       },
     }
   );
-  return res.json();
+  return await res.json();
 }
 
 export default async function AppsPage() {
