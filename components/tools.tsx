@@ -1,13 +1,13 @@
-import PageTransition from "@/components/page-transition";
+"use client";
+
+import Segmented from "@/components/segmented";
+import { useState } from "react";
+import { ITool } from "@/types/index";
 import Tool from "@/components/tool-card";
 import { AnimatePresence } from "framer-motion";
-import type { ITool } from "@/types/index";
-import { useState } from "react";
-import Segmented from "@/components/segmented";
 import Container from "@/components/container";
-import Title from "@/components/title";
 
-export default function ToolsPage({ data }) {
+export default function Tools({ data }: { data: ITool[] }) {
   const defaultFilter: string = "all";
   const [selectedTab, setSelectedTab] = useState<string>(defaultFilter);
 
@@ -16,18 +16,9 @@ export default function ToolsPage({ data }) {
   ];
 
   return (
-    <PageTransition
-      title="Araçlar"
-      description="Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesi."
-    >
-      <Container>
-        <Title>
-          Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesi.
-          Bana yaşattıkları deneyim üzerinden puan ve yorumumu ekledim.
-        </Title>
-
+    <>
+      <Container className="mt-10">
         <Segmented
-          className="mt-10"
           fullWidth
           data={[defaultFilter, ...categories]}
           onChange={setSelectedTab}
@@ -52,28 +43,6 @@ export default function ToolsPage({ data }) {
           </AnimatePresence>
         </div>
       </Container>
-    </PageTransition>
+    </>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Tools`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
-      },
-    }
-  );
-  const tools = await res.json();
-
-  const data: ITool[] = tools.records.map((r) => {
-    return { id: r.id, createdTime: r.createdTime, ...r.fields };
-  });
-
-  return {
-    props: {
-      data,
-    },
-  };
 }

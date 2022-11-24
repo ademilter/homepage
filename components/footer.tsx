@@ -2,7 +2,7 @@ import React from "react";
 import { StyleLink } from "@/components/link";
 import Container from "@/components/container";
 
-function Footer() {
+export default function Footer() {
   return (
     <footer className="mt-40">
       <Container>
@@ -17,5 +17,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

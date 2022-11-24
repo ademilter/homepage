@@ -1,11 +1,15 @@
 import Image from "next/image";
 import cx from "classnames";
 import BaseLink from "@/components/link";
+import { IAirtableImages, IApp } from "@/types/index";
 
-export default function AppCard({ Id, name, description, url, free, icon }) {
+export default function AppCard({ app }: { app: IApp }) {
+  const { id, name, description, icon, url, free } = app;
+  const photo: IAirtableImages = icon && icon[0];
+
   return (
     <BaseLink
-      key={Id}
+      key={id}
       href={`${url}?ref=ademilter`}
       className={cx(
         "flex items-center gap-6 from-zinc-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
@@ -17,9 +21,8 @@ export default function AppCard({ Id, name, description, url, free, icon }) {
         <Image
           src={icon[0].thumbnails.large.url}
           alt={name}
-          width={128}
-          height={128}
-          quality={100}
+          width={photo.thumbnails.large.width}
+          height={photo.thumbnails.large.height}
         />
       </figure>
 

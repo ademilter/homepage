@@ -1,23 +1,18 @@
 import unsplash from "@/lib/unsplash";
-import PageTransition from "@/components/page-transition";
-import dynamic from "next/dynamic";
 import MetricCard from "@/components/metric-card";
 import Title from "@/components/title";
 import Container from "@/components/container";
-import { META } from "@/lib/helper";
+import Photos from "@/components/photos";
+import { META } from "@/data/meta";
 
-const Photos = dynamic(() => import("@/components/photos"), {
-  ssr: false,
-});
+export const revalidate = 86400; // 60*60*24
 
-function PhotosPage({ photos, stats }) {
+export default async function PhotosPage() {
+  const photos = await unsplash.getPhotos();
+  const stats = await unsplash.getStats();
+
   return (
-    <PageTransition
-      title="Fotoğraflar"
-      description="Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
-          hakkında farkındalığı, detayları görebilmemi ve doğru anı
-          yakalayabilmeyi öğretiyor."
-    >
+    <>
       <Container>
         <Title>
           Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
@@ -38,21 +33,6 @@ function PhotosPage({ photos, stats }) {
       <Container size="large" className="mt-20">
         <Photos data={photos} />
       </Container>
-    </PageTransition>
+    </>
   );
 }
-
-export async function getStaticProps() {
-  const photos = await unsplash.getPhotos();
-  const stats = await unsplash.getStats();
-
-  return {
-    props: {
-      photos,
-      stats,
-    },
-    revalidate: 60 * 60 * 24, // 1 day
-  };
-}
-
-export default PhotosPage;

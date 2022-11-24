@@ -1,7 +1,7 @@
 import React from "react";
 import type { ISVGProps } from "@/types/index";
 
-function IconMenu({ size = 28, ...props }: ISVGProps) {
+export default function IconMenu({ size = 28, ...props }: ISVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -21,5 +21,3 @@ function IconMenu({ size = 28, ...props }: ISVGProps) {
     </svg>
   );
 }
-
-export default IconMenu;

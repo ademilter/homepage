@@ -6,11 +6,11 @@ import { tr } from "date-fns/locale";
 function BookmarkCard({ bookmark }: { bookmark: IBookmark }) {
   return (
     <article className="py-4">
-      <h3 className="shine">
+      <h3 className="shine font-semibold">
         <Link href={bookmark.link}>{bookmark.title}</Link>
       </h3>
 
-      <div className="mt-1 flex items-center space-x-2 opacity-60">
+      <div className="mt-1 flex items-center space-x-2">
         <span>{bookmark.domain}</span>
         <span>•</span>
         <span>

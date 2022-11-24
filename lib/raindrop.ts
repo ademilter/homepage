@@ -45,13 +45,19 @@ export default class Raindrop {
     return this.fetchData();
   }
 
+  // response : { [key: string]: IBookmark[] }
   public async getBookmarksGroupByWeekNumber(): Promise<{
-    data: IBookmark[];
-    year: string;
+    [key: string]: IBookmark[];
   }> {
     const bookmarks: IBookmark[] = await this.fetchData();
 
-    return groupBy(bookmarks, (bookmark: IBookmark) => {
+    const data = bookmarks.map((bookmark: IBookmark) => {
+      const { domain, excerpt, link, title, _id, type, created, ...rest } =
+        bookmark;
+      return { domain, excerpt, link, title, _id, type, created };
+    });
+
+    return groupBy(data, (bookmark: IBookmark) => {
       const dateISO = parseISO(bookmark.created);
       const week = format(dateISO, "I"); // ISO Week of Year (1-53)
       const month = format(dateISO, "M"); // Month (1-12)

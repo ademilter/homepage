@@ -1,6 +1,8 @@
+"use client";
+
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import IconArrowDropDown from "./icons/arrow-drop-down";
 import cx from "classnames";
 import Container from "./container";
@@ -13,24 +15,16 @@ const MENU = {
   "/bookmarks": "Yer İmleri",
 };
 
-function Header() {
+export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const router = useRouter();
 
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const clearSlash = pathname.split("/")[1];
-  const pathName = clearSlash ? `/${clearSlash}` : "/";
+  const path = clearSlash ? `/${clearSlash}` : "/";
 
   useEffect(() => {
-    const handleRouteChangeStart = () => {
-      setIsNavOpen(false);
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChangeStart);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChangeStart);
-    };
-  }, []);
+    setIsNavOpen(false);
+  }, [pathname]);
 
   return (
     <header className="">
@@ -42,7 +36,7 @@ function Header() {
           )}
         >
           {Object.keys(MENU).map((path) => {
-            const isActive = path === pathName;
+            const isActive = path === path;
             return (
               <span key={path}>
                 <NextLink href={path} className={cx(isActive ? "shine" : "")}>
@@ -61,7 +55,7 @@ function Header() {
               setIsNavOpen(true);
             }}
           >
-            <span>{MENU[pathName]}</span>
+            <span>{MENU[path]}</span>
             <IconArrowDropDown className="opacity-50" />
           </button>
         )}
@@ -69,5 +63,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;

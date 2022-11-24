@@ -1,8 +1,11 @@
+"use client";
+
 import type { IAirtableImages, ITool } from "@/types/index";
 import { motion, usePresence } from "framer-motion";
-import Rating from "./rating";
+import Image from "next/image";
+import Rating from "@/components/rating";
 
-export default function VideoCard({ tool }: { tool: ITool }) {
+export default function ToolCard({ tool }: { tool: ITool }) {
   const { images, brand, name, rating, comment } = tool;
   const photo: IAirtableImages = images && images[0];
 
@@ -38,10 +41,12 @@ export default function VideoCard({ tool }: { tool: ITool }) {
     >
       <figure className="aspect-square overflow-hidden rounded-md">
         {photo && (
-          <img
+          <Image
             src={photo.thumbnails.large.url}
             className="h-full w-full object-contain"
             alt={`${brand} ${name}`}
+            width={photo.thumbnails.large.width}
+            height={photo.thumbnails.large.height}
           />
         )}
       </figure>

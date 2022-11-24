@@ -1,7 +1,7 @@
 import React from "react";
 import type { ISVGProps } from "@/types/index";
 
-function IconYoutube({ size = 22 }: ISVGProps) {
+export default function IconYoutube({ size = 22 }: ISVGProps) {
   return (
     <svg
       role="img"
@@ -10,7 +10,6 @@ function IconYoutube({ size = 22 }: ISVGProps) {
       width={size}
       height={size}
     >
-      <title>YouTube icon</title>
       <path
         fill="currentColor"
         d="M23.499 6.203a3.008 3.008 0 00-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 00-2.088 2.09A31.258 31.26 0 000 12.01a31.258 31.26 0 00.523 5.785 3.008 3.008 0 002.088 2.089c1.869.502 9.4.502 9.4.502s7.508 0 9.399-.502a3.008 3.008 0 002.089-2.09 31.258 31.26 0 00.5-5.784 31.258 31.26 0 00-.5-5.808zm-13.891 9.4V8.407l6.266 3.604z"
@@ -18,5 +17,3 @@ function IconYoutube({ size = 22 }: ISVGProps) {
     </svg>
   );
 }
-
-export default IconYoutube;

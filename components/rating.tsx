@@ -1,4 +1,4 @@
-import IconLike from "./icons/like";
+import IconLike from "@/components/icons/like";
 import cx from "classnames";
 
 export default function Rating({

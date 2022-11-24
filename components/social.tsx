@@ -1,4 +1,4 @@
-import { META } from "@/lib/helper";
+import { META } from "@/data/meta";
 import Link from "@/components/link";
 import IconTwitter from "@/components/icons/twitter";
 import IconYoutube from "@/components/icons/youtube";
@@ -21,32 +21,28 @@ function SocialButton({ href, children }) {
   );
 }
 
-function Social() {
-  const { twitter, youtube, github, instagram } = META.social;
-
+export default function Social() {
   return (
     <div className="flex items-center space-x-3">
       <SocialButton href={`mailto:${META.email}`}>
         <span className="mx-2 font-medium">Email</span>
       </SocialButton>
 
-      <SocialButton href={instagram}>
+      <SocialButton href={META.social.instagram}>
         <IconInstagram />
       </SocialButton>
 
-      <SocialButton href={twitter}>
+      <SocialButton href={META.social.twitter}>
         <IconTwitter />
       </SocialButton>
 
-      <SocialButton href={youtube}>
+      <SocialButton href={META.social.youtube}>
         <IconYoutube />
       </SocialButton>
 
-      <SocialButton href={github}>
+      <SocialButton href={META.social.github}>
         <IconGithub />
       </SocialButton>
     </div>
   );
 }
-
-export default Social;

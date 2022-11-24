@@ -1,6 +1,10 @@
+import type { NextApiRequest, NextApiResponse } from "next";
 import { google } from "googleapis";
 
-export default async () => {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const googleAuth = new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -26,8 +30,13 @@ export default async () => {
   const channel = response.data.items[0];
   const { subscriberCount, viewCount } = channel.statistics;
 
-  return {
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=14400, stale-while-revalidate=7200"
+  );
+
+  return res.status(200).json({
     subscriberCount,
     viewCount,
-  };
-};
+  });
+}
