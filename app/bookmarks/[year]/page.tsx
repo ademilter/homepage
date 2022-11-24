@@ -1,6 +1,7 @@
 import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
+import { notFound } from "next/navigation";
 
 export const revalidate = 7200; // 60*60*2
 
@@ -25,6 +26,10 @@ async function fetchData(params) {
 
 export default async function BookmarkByYear({ params }) {
   const { data, year } = await fetchData(params);
+
+  if (!Object.keys(data).length) {
+    notFound();
+  }
 
   return <BookmarkLayout data={data} year={year} />;
 }

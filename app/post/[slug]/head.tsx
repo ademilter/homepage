@@ -1,4 +1,5 @@
 import { allPosts, Post } from "contentlayer/generated";
+import { notFound } from "next/navigation";
 
 function getPost(params) {
   return allPosts.find((post: Post) => post.slug === params.slug);
@@ -6,6 +7,10 @@ function getPost(params) {
 
 export default async function Head({ params }) {
   const post: Post = getPost(params);
+
+  if (!post) {
+    return null;
+  }
 
   return (
     <>

@@ -3,19 +3,20 @@ import { format, parseISO } from "date-fns";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MDXComponents from "@/components/mdx-components";
 import { tr } from "date-fns/locale";
-import Claps from "@upstash/claps";
 import Container from "@/components/container";
+import { notFound } from "next/navigation";
+import ClapsButton from "@/components/claps";
 
 export async function generateStaticParams() {
   return allPosts.map((post: Post) => ({ slug: post.slug }));
 }
 
-function getPost(params) {
-  return allPosts.find((post: Post) => post.slug === params.slug);
-}
-
 export default function PostPage({ params }) {
-  const post: Post = getPost(params);
+  const post: Post = allPosts.find((post: Post) => post.slug === params.slug);
+
+  if (!post) {
+    notFound();
+  }
 
   const Component = useMDXComponent(post.body.code);
 
@@ -45,9 +46,9 @@ export default function PostPage({ params }) {
           />
         </div>
 
-        {/*<div className="mt-20 flex justify-center">*/}
-        {/*  <Claps replyUrl={post.tweetUrl} />*/}
-        {/*</div>*/}
+        <div className="mt-20 flex justify-center">
+          <ClapsButton url={post.tweetUrl} />
+        </div>
       </article>
     </Container>
   );
