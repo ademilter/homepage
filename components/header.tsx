@@ -35,12 +35,12 @@ export default function Header() {
             "flex-col gap-3 sm:!flex sm:flex-row"
           )}
         >
-          {Object.keys(MENU).map((path) => {
-            const isActive = path === path;
+          {Object.entries(MENU).map(([key, value]) => {
+            const isActive = key === path;
             return (
-              <span key={path}>
-                <NextLink href={path} className={cx(isActive ? "shine" : "")}>
-                  {MENU[path]}
+              <span key={key}>
+                <NextLink href={key} className={cx(isActive ? "shine" : "")}>
+                  {value}
                 </NextLink>
               </span>
             );
