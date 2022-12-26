@@ -9,18 +9,6 @@ type Result = {
   items: ILink[];
 };
 
-// https://stackoverflow.com/a/39495173
-type Enumerate<
-  N extends number,
-  Acc extends number[] = []
-> = Acc["length"] extends N
-  ? Acc[number]
-  : Enumerate<N, [...Acc, Acc["length"]]>;
-type IntRange<F extends number, T extends number> = Exclude<
-  Enumerate<T>,
-  Enumerate<F>
->;
-
 export default class Raindrop {
   private readonly token: string = process.env.RAINDROP_ACCESS_TOKEN;
   private url = "https://api.raindrop.io";
@@ -73,7 +61,7 @@ export default class Raindrop {
     allData = false,
   }: {
     id: number;
-    perPage?: IntRange<0, 51>;
+    perPage?: number;
     page?: number;
     sort?:
       | "-created"
