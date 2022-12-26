@@ -1,4 +1,4 @@
-import { format, startOfYear } from "date-fns";
+import { addYears, format, startOfYear } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 import { notFound } from "next/navigation";
 import Raindrop from "@/lib/raindrop";
@@ -8,19 +8,22 @@ import { ILink } from "@/types/index";
 export const revalidate = 7200; // 60*60*2
 
 export async function generateStaticParams() {
-  return ["2021", "2022"].map((year) => ({
+  return ["2021", "2022", "2023"].map((year) => ({
     year: year.toString(),
   }));
 }
 
 async function fetchData(params) {
   const dateStartOfYear = startOfYear(new Date(params.year));
-  const date = format(dateStartOfYear, "yyyy-MM-dd");
+  const dateEndOfYear = addYears(dateStartOfYear, 1);
+
+  const startDateByFormat = format(dateStartOfYear, "yyyy-MM-dd");
+  const endDateByFormat = format(dateEndOfYear, "yyyy-MM-dd");
 
   const raindrop = new Raindrop();
   const collections: ILink[] = await raindrop.multipleRaindrops({
     id: 15611214,
-    search: `created:>${date}`,
+    search: `created:>${startDateByFormat} created:<${endDateByFormat}`,
     allData: true,
   });
 
