@@ -10,7 +10,7 @@ export default async function handler(req: NextRequest) {
   //   {
   //     method: "GET",
   //     headers: {
-  //       Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`,
+  //       Authorization: `Bearer ${process.env.RAINDROP_CLIENT_SECRET}`,
   //     },
   //   }
   // );

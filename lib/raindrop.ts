@@ -10,11 +10,11 @@ type Result = {
 };
 
 export default class Raindrop {
-  private readonly token: string = process.env.RAINDROP_ACCESS_TOKEN;
+  private readonly token: string;
   private url = "https://api.raindrop.io";
 
   constructor(initData?: InitData) {
-    this.token = initData?.token;
+    this.token = initData?.token || process.env.RAINDROP_CLIENT_SECRET;
   }
 
   async fetch({
@@ -29,7 +29,7 @@ export default class Raindrop {
       ...options,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.RAINDROP_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${this.token}`,
         ...options?.headers,
       },
     });
@@ -75,6 +75,7 @@ export default class Raindrop {
     allData?: boolean;
   }): Promise<ILink[]> {
     let url = new URL(`/rest/v1/raindrops/${id}`, this.url);
+
     this.mergeParams(url, {
       perpage: perPage?.toString(),
       page: page?.toString(),

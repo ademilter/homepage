@@ -7,7 +7,7 @@ import { ILink } from "@/types/index";
 export const revalidate = 7200; // 60*60*2
 
 async function fetchData() {
-  const dateStartOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
+  const dateStartOfWeek = startOfWeek(new Date());
   const date = format(dateStartOfWeek, "yyyy-MM-dd");
 
   const raindrop = new Raindrop();
