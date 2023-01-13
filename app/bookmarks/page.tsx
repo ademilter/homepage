@@ -1,7 +1,7 @@
 import { format, startOfWeek } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 import Raindrop from "@/lib/raindrop";
-import bookmarkGroupByWeekNumber from "@/lib/bookmarkGroupByWeekNumber";
+import bookmarkGroupByWeekNumber from "@/lib/helper";
 import { ILink } from "@/types/index";
 
 export const revalidate = 7200; // 60*60*2
