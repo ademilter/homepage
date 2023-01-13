@@ -15,10 +15,8 @@ async function fetchData() {
     }
   );
   const data = await response.json();
-
-  return data.records.map((r) => {
-    return { id: r.id, createdTime: r.createdTime, ...r.fields };
-  });
+  const dataFilterByStatus = data.records.filter((r: ITool) => !r.fields.draft);
+  return dataFilterByStatus;
 }
 
 export default async function ToolsPage() {

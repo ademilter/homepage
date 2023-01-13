@@ -4,7 +4,7 @@ export interface ISVGProps extends React.SVGProps<SVGSVGElement> {
 
 export type IAirtableImages = {
   id: string;
-  filename: string; // "compare_airpods_pro__e9uzt0mzviem_large_2x.png"
+  filename: string;
   url: string;
   width: number;
   height: number;
@@ -31,12 +31,16 @@ export type IAirtableImages = {
 
 export type IApp = {
   id: string;
-  name: string;
-  description: string;
-  icon: IAirtableImages;
-  url: string;
-  os: string[]; // ["iOS", "macOS"]
-  free: boolean;
+  createdTime: string;
+  fields: {
+    name: string;
+    description: string;
+    icon: IAirtableImages;
+    url: string;
+    free: boolean;
+    os: string[];
+    draft: boolean;
+  };
 };
 
 export type IActivity = {
@@ -48,15 +52,19 @@ export type IActivity = {
 };
 
 export type ITool = {
-  id: string; // "recFoyzP7v567KhqU"
-  name: string; // "BeoPlay H9"
-  brand: string; // "Bang&Olufsen"
-  wtf: string; // "Kulaklık"
-  rating: 1 | 2 | 3 | 4 | 5; // 4
-  category: string[]; // ["workspace", "living"]
-  images?: IAirtableImages;
-  comment?: string; // lorem ipsum
-  url?: string; // "https://www.bang-olufsen.com/en/us/headphones/beoplay-h9?variant=beoplay-h9-3-matte-black"
+  id: string;
+  createdTime: string;
+  fields: {
+    name: string;
+    comment: string;
+    images: IAirtableImages;
+    url: string;
+    wtf: string;
+    rating: number;
+    category: string;
+    brand: string;
+    draft: boolean;
+  };
 };
 
 export type ILink = {

@@ -12,7 +12,7 @@ export default function Tools({ data }: { data: ITool[] }) {
   const [selectedTab, setSelectedTab] = useState<string>(defaultFilter);
 
   const categories = [
-    ...new Set(data.flatMap((tool: ITool) => tool.category) as string[]),
+    ...new Set(data.flatMap((tool: ITool) => tool.fields.category) as string[]),
   ];
 
   return (
@@ -35,7 +35,7 @@ export default function Tools({ data }: { data: ITool[] }) {
             {data
               .filter((tool: ITool) => {
                 if (selectedTab === defaultFilter) return true;
-                return tool.category.includes(selectedTab);
+                return tool.fields.category.includes(selectedTab);
               })
               .map((tool: ITool) => {
                 return <Tool key={tool.id} tool={tool} />;

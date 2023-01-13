@@ -2,11 +2,12 @@ import type { IApp } from "@/types/index";
 import Container from "@/components/container";
 import Title from "@/components/title";
 import Apps from "@/components/apps";
+import { ITool } from "@/types/index";
 
 export const revalidate = 86400; // 60*60*24
 
 async function fetchData() {
-  const res = await fetch(
+  const response = await fetch(
     `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Apps`,
     {
       headers: {
@@ -14,15 +15,13 @@ async function fetchData() {
       },
     }
   );
-  return await res.json();
+  const data = await response.json();
+  const dataFilterByStatus = data.records.filter((r: IApp) => !r.fields.draft);
+  return dataFilterByStatus;
 }
 
 export default async function AppsPage() {
   const data = await fetchData();
-
-  const apps: IApp[] = data.records.map((r) => {
-    return { id: r.id, createdTime: r.createdTime, ...r.fields };
-  });
 
   return (
     <Container>
@@ -30,7 +29,7 @@ export default async function AppsPage() {
         Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi.
       </Title>
 
-      <Apps data={apps} />
+      <Apps data={data} />
     </Container>
   );
 }
