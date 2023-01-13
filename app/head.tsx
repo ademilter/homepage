@@ -9,21 +9,6 @@ export default function Head() {
 
   return (
     <>
-      <link
-        rel="preload"
-        href="/fonts/TiemposTextWeb-Regular.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
-        href="/fonts/TiemposTextWeb-RegularItalic.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-
       <meta charSet="utf-8" />
       <meta name="robots" content="follow, index" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
