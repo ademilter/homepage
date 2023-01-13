@@ -25,7 +25,7 @@
     "feed": "^4.2.2",
     "framer-motion": "^7.6.12",
     "googleapis": "^109.0.1",
-    "lodash.groupby": "^4.6.0",
+    "lodash-es": "^4.17.21",
     "next": "^13.0.5",
     "next-contentlayer": "^0.2.9",
     "react": "^18.2.0",

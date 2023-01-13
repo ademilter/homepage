@@ -19,7 +19,7 @@ specifiers:
   feed: ^4.2.2
   framer-motion: ^7.6.12
   googleapis: ^109.0.1
-  lodash.groupby: ^4.6.0
+  lodash-es: ^4.17.21
   next: ^13.0.5
   next-contentlayer: ^0.2.9
   postcss: ^8.4.19
@@ -45,7 +45,7 @@ dependencies:
   feed: 4.2.2
   framer-motion: 7.6.12_biqbaboplfbrettd7655fr4n2y
   googleapis: 109.0.1
-  lodash.groupby: 4.6.0
+  lodash-es: 4.17.21
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-contentlayer: 0.2.9_7iuvftg57tblwyxclfkwku5xo4
   react: 18.2.0
@@ -3204,16 +3204,16 @@ packages:
       p-locate: 5.0.0
     dev: true
 
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: false
 
   /lodash.deburr/4.1.0:
     resolution: {integrity: sha512-m/M1U1f3ddMCs6Hq2tAsYThTBDaAKFDX3dwDo97GEYzamXi9SqUpjWi/Rrj/gf3X2n8ktwgZrlP1z6E3v/IExQ==}
-    dev: false
-
-  /lodash.groupby/4.6.0:
-    resolution: {integrity: sha512-5dcWxm23+VAoz+awKmBaiBvzox8+RqMgFhi7UvX9DHZr2HdxHXM/Wrf8cfKpsW37RNrvtPn6hSwNqurSILbmJw==}
     dev: false
 
   /lodash.merge/4.6.2:

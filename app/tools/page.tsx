@@ -15,6 +15,7 @@ async function fetchData() {
     }
   );
   const data = await response.json();
+
   return data.records.map((r) => {
     return { id: r.id, createdTime: r.createdTime, ...r.fields };
   });
