@@ -1,5 +1,5 @@
 class Unsplash {
-  private base_url: string = "https://api.unsplash.com/users/ademilter";
+  private base_url: string = "https://api.unsplash.com/users/kamilklkn";
   private client_id: string = `client_id=${process.env.UNSPLASH_ACCESS_KEY}`;
 
   async getData(url) {
