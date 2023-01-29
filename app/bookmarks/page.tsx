@@ -12,7 +12,7 @@ async function fetchData() {
 
   const raindrop = new Raindrop();
   const collections: ILink[] = await raindrop.multipleRaindrops({
-    id: 15611214,
+    id: 19849065,
     search: `created:>${date}`,
   });
 
