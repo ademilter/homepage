@@ -6,17 +6,19 @@ import Title from "./title";
 import SubTitle from "./subtitle";
 import { ILink } from "@/types/index";
 
-export default function BookmarkLayout({ data, year, onlyThisWeek = false }) {
+export default function BookmarkLayout({
+  title,
+  data,
+  year,
+  onlyThisWeek = false,
+}) {
   const sortedData = Object.keys(data).sort(
     (a, b) => parseInt(b) - parseInt(a)
   );
 
   return (
     <Container>
-      <Title>
-        İnternette gezinirken beğendiğim ve beni takip edenlerin de beğeneceğini
-        düşündüğüm, belli bir kategorisi olmayan karışık şeyler.
-      </Title>
+      <Title>{title}</Title>
 
       {sortedData.map((date) => (
         <div key={date} className="mt-20">

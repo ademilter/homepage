@@ -4,19 +4,26 @@ import Title from "@/components/title";
 import SubTitle from "@/components/subtitle";
 import Videos from "@/data/videos";
 import VideoRow from "@/components/video-card";
-import YoutubeStats from "@/components/youtube-stats";
+import youtubeStats from "@/lib/youtube";
+import MetricCard from "@/components/metric-card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Eğitimler",
+  description: `Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam listesi. 
+  Youtube üzerinden izledikten sonra buradan işaretleyebilir ve düzenli olarak takip edebilirsiniz.`,
+};
 
 export const revalidate = 86400; // 60*60*24
 
 export default async function VideosPage() {
+  const stats = await youtubeStats();
+  console.log(stats);
+
   return (
     <>
       <Container>
-        <Title>
-          Frontend ve Tasarım alanında ürettiğim eğitim videolarının tam
-          listesi. Youtube üzerinden izledikten sonra buradan işaretleyebilir ve
-          düzenli olarak takip edebilirsiniz.
-        </Title>
+        <Title>{metadata.description}</Title>
 
         <p className="mt-10">
           <BaseLink
@@ -32,8 +39,13 @@ export default async function VideosPage() {
           </BaseLink>
         </p>
 
-        <div className="mt-10">
-          <YoutubeStats />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
+          <MetricCard href={"youtube"} data={stats.subscriberCount}>
+            Youtube Subscribers
+          </MetricCard>
+          <MetricCard href={"youtube"} data={stats.viewCount}>
+            Youtube Views
+          </MetricCard>
         </div>
       </Container>
 

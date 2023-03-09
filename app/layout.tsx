@@ -2,7 +2,8 @@ import "@/styles/globals.css";
 import "@upstash/claps/style.css";
 
 import AnalyticsWrapper from "./analytics";
-import { Inter } from "@next/font/google";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
@@ -12,6 +13,43 @@ const inter = Inter({
   style: "normal",
   subsets: ["latin-ext"],
 });
+
+const title = "Adem ilter";
+const description = "Designer, developer, creator and photographer.";
+const url = "https://ademilter.com";
+const locale = "tr-TR";
+
+export const metadata: Metadata = {
+  title: {
+    default: title,
+    template: `%s | ${title}`,
+  },
+  description,
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName: title,
+    locale,
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+    site: "@ademilter",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  themeColor: "#ffffff",
+  icons: {
+    icon: "/icons/icon-android-chrome-192x192.png",
+    apple: "/icons/icon-apple-touch-icon.png",
+  },
+  manifest: `${url}/manifest.json`,
+};
 
 export default async function Layout({ children }) {
   return (

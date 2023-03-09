@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 import Raindrop from "@/lib/raindrop";
 import bookmarkGroupByWeekNumber from "@/lib/helper";
 import { ILink } from "@/types/index";
+import { metadata as copy } from "../page";
+import { Metadata } from "next";
+
+export const metadata: Metadata = copy;
 
 export const revalidate = 7200; // 60*60*2
 
@@ -42,5 +46,7 @@ export default async function BookmarkByYear({ params }) {
     notFound();
   }
 
-  return <BookmarkLayout data={data} year={year} />;
+  return (
+    <BookmarkLayout title={metadata.description} data={data} year={year} />
+  );
 }

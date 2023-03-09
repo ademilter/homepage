@@ -19,7 +19,10 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const pathname = usePathname();
-  const clearSlash = pathname.split("/")[1];
+
+  console.log("pathname", pathname);
+
+  const clearSlash = (pathname ?? "/").split("/")[1];
   const path = clearSlash ? `/${clearSlash}` : "/";
 
   useEffect(() => {

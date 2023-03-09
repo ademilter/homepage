@@ -4,6 +4,12 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import Title from "@/components/title";
 import Container from "@/components/container";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Yazılar",
+  description: "Blog yazıları ve kısa notlar",
+};
 
 function getData() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -22,7 +28,7 @@ export default function PostsPage() {
   return (
     <>
       <Container>
-        <Title>Blog yazıları ve kısa notlar</Title>
+        <Title>{metadata.description}</Title>
       </Container>
 
       <Container className="mt-20">
@@ -41,7 +47,7 @@ export default function PostsPage() {
 
                 <footer className="mt-1 flex items-center space-x-2">
                   <time dateTime={post.date}>
-                    {format(parseISO(post.date), "d LLLL yyyy", {
+                    {format(parseISO(post.date!), "d LLLL yyyy", {
                       locale: tr,
                     })}
                   </time>

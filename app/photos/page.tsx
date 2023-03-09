@@ -3,7 +3,14 @@ import MetricCard from "@/components/metric-card";
 import Title from "@/components/title";
 import Container from "@/components/container";
 import Photos from "@/components/photos";
-import { META } from "@/data/meta";
+import { SOCIAL } from "@/lib/const";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Fotoğraflar",
+  description:
+    "Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem hakkında farkındalığı, detayları görebilmemi ve doğru anı yakalayabilmeyi öğretiyor.",
+};
 
 export const revalidate = 86400; // 60*60*24
 
@@ -14,17 +21,13 @@ export default async function PhotosPage() {
   return (
     <>
       <Container>
-        <Title>
-          Fotoğraf çekmek etrafımdaki şeyleri daha iyi görmemi sağlıyor. Çevrem
-          hakkında farkındalığı, detayları görebilmemi ve doğru anı
-          yakalayabilmeyi öğretiyor.
-        </Title>
+        <Title>{metadata.description}</Title>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard href={META.social.unsplash} data={stats.views.total}>
+          <MetricCard href={SOCIAL.unsplash} data={stats.views.total}>
             Unsplash Views
           </MetricCard>
-          <MetricCard href={META.social.unsplash} data={stats.downloads.total}>
+          <MetricCard href={SOCIAL.unsplash} data={stats.downloads.total}>
             Unsplash Downloads
           </MetricCard>
         </div>

@@ -3,6 +3,13 @@ import BookmarkLayout from "@/components/bookmark-layout";
 import Raindrop from "@/lib/raindrop";
 import bookmarkGroupByWeekNumber from "@/lib/helper";
 import { ILink } from "@/types/index";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bookmarks",
+  description:
+    "İnternette gezinirken beğendiğim ve beni takip edenlerin de beğeneceğini düşündüğüm, belli bir kategorisi olmayan karışık şeyler.",
+};
 
 export const revalidate = 7200; // 60*60*2
 
@@ -27,5 +34,12 @@ async function fetchData() {
 export default async function Bookmark() {
   const { data, year } = await fetchData();
 
-  return <BookmarkLayout data={data} year={year} onlyThisWeek />;
+  return (
+    <BookmarkLayout
+      title={metadata.description}
+      data={data}
+      year={year}
+      onlyThisWeek
+    />
+  );
 }

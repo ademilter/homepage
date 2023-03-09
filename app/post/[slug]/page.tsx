@@ -7,12 +7,19 @@ import Container from "@/components/container";
 import { notFound } from "next/navigation";
 import ClapsButton from "@/components/claps";
 
+export async function generateMetadata({ params, searchParams }) {
+  const post = allPosts.find((post: Post) => post.slug === params.slug) as Post;
+  return { title: post.title, description: post.subtitle };
+}
+
 export async function generateStaticParams() {
   return allPosts.map((post: Post) => ({ slug: post.slug }));
 }
 
 export default function PostPage({ params }) {
-  const post: Post = allPosts.find((post: Post) => post.slug === params.slug);
+  const post: Post = allPosts.find(
+    (post: Post) => post.slug === params.slug
+  ) as Post;
 
   if (!post) {
     notFound();

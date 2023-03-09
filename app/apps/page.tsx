@@ -2,7 +2,13 @@ import type { IApp } from "@/types/index";
 import Container from "@/components/container";
 import Title from "@/components/title";
 import Apps from "@/components/apps";
-import { ITool } from "@/types/index";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Uygulamalar",
+  description:
+    "Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi.",
+};
 
 export const revalidate = 86400; // 60*60*24
 
@@ -12,6 +18,9 @@ async function fetchData() {
     {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
+      next: {
+        revalidate: 86400,
       },
     }
   );
@@ -25,9 +34,7 @@ export default async function AppsPage() {
 
   return (
     <Container>
-      <Title>
-        Uzun süredir kullandığım ve memnun kaldığım uygulamaların listesi.
-      </Title>
+      <Title>{metadata.description}</Title>
 
       <Apps data={data} />
     </Container>

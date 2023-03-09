@@ -14,7 +14,7 @@ export default class Raindrop {
   private url = "https://api.raindrop.io";
 
   constructor(initData?: InitData) {
-    this.token = initData?.token || process.env.RAINDROP_CLIENT_SECRET;
+    this.token = initData?.token || process.env.RAINDROP_CLIENT_SECRET!;
   }
 
   async fetch({
@@ -31,6 +31,9 @@ export default class Raindrop {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.token}`,
         ...options?.headers,
+      },
+      next: {
+        revalidate: 7200,
       },
     });
   }
@@ -57,7 +60,7 @@ export default class Raindrop {
     perPage = 50,
     page = 0,
     sort = "-created",
-    search,
+    search = "",
     allData = false,
   }: {
     id: number;

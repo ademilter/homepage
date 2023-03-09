@@ -1,9 +1,9 @@
-import { META } from "@/data/meta";
 import Link from "@/components/link";
 import IconTwitter from "@/components/icons/twitter";
 import IconYoutube from "@/components/icons/youtube";
 import IconGithub from "@/components/icons/github";
 import IconInstagram from "@/components/icons/instagram";
+import { SOCIAL } from "@/lib/const";
 
 function SocialButton({ href, children }) {
   return (
@@ -24,23 +24,23 @@ function SocialButton({ href, children }) {
 export default function Social() {
   return (
     <div className="flex items-center space-x-3">
-      <SocialButton href={`mailto:${META.email}`}>
+      <SocialButton href={`mailto:${SOCIAL.email}`}>
         <span className="mx-2 font-medium">Email</span>
       </SocialButton>
 
-      <SocialButton href={META.social.instagram}>
+      <SocialButton href={SOCIAL.instagram}>
         <IconInstagram />
       </SocialButton>
 
-      <SocialButton href={META.social.twitter}>
+      <SocialButton href={SOCIAL.twitter}>
         <IconTwitter />
       </SocialButton>
 
-      <SocialButton href={META.social.youtube}>
+      <SocialButton href={SOCIAL.youtube}>
         <IconYoutube />
       </SocialButton>
 
-      <SocialButton href={META.social.github}>
+      <SocialButton href={SOCIAL.github}>
         <IconGithub />
       </SocialButton>
     </div>
