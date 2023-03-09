@@ -22,7 +22,7 @@ export default function Header() {
 
   console.log("pathname", pathname);
 
-  const clearSlash = (pathname ?? "/").split("/")[1];
+  const clearSlash = pathname?.split("/")[1];
   const path = clearSlash ? `/${clearSlash}` : "/";
 
   useEffect(() => {
