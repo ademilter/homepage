@@ -35,9 +35,9 @@ export async function GET(request: Request) {
     },
   });
 
-  collections.forEach((bookmark) => {
+  collections.forEach((bookmark: ILink) => {
     feed.addItem({
-      id: String(bookmark._id),
+      guid: bookmark.link,
       date: new Date(bookmark.created),
       title: bookmark.title,
       link: bookmark.link,
