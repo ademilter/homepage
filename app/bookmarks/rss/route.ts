@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const siteURL = "https://ademilter.com";
   const date = new Date();
   const author = {
-    name: "Adem İlter",
+    name: "Adem ilter",
     email: "ademikter@gmail.com",
     link: siteURL,
   };
@@ -21,7 +21,7 @@ export async function GET(request: Request) {
   });
 
   const feed = new Feed({
-    title: "Feyz",
+    title: "Adem ilter",
     description: "Adem ilter'in yerimleri",
     author: author,
     id: siteURL,
