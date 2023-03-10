@@ -1,4 +1,3 @@
-import BaseLink from "@/components/link";
 import Container from "@/components/container";
 import Title from "@/components/title";
 import SubTitle from "@/components/subtitle";
@@ -7,6 +6,7 @@ import VideoRow from "@/components/video-card";
 import youtubeStats from "@/lib/youtube";
 import MetricCard from "@/components/metric-card";
 import { Metadata } from "next";
+import ThankYou from "@/components/thank-you";
 
 export const metadata: Metadata = {
   title: "Eğitimler",
@@ -26,17 +26,7 @@ export default async function VideosPage() {
         <Title>{metadata.description}</Title>
 
         <p className="mt-10">
-          <BaseLink
-            href="https://www.buymeacoffee.com/ademilter"
-            className="flex items-center rounded-lg bg-indigo-50 py-5 px-6
-            text-indigo-900 transition-colors
-      hover:bg-indigo-100 hover:no-underline
-      dark:bg-indigo-900 dark:text-indigo-100
-      dark:hover:bg-indigo-800 dark:hover:text-indigo-50"
-          >
-            Ücretsiz olarak yayınladığım eğitimler için teşekkür etmek istersen
-            kahve ısmarlayabilirsin 🙏
-          </BaseLink>
+          <ThankYou />
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">

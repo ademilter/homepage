@@ -3,7 +3,7 @@ import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
 import { Feed } from "feed";
 
-export async function GET(request: Request) {
+export async function GET() {
   const siteURL = "https://ademilter.com";
   const date = new Date();
   const author = {

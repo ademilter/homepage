@@ -5,6 +5,7 @@ import { getYear } from "date-fns";
 import Title from "./title";
 import SubTitle from "./subtitle";
 import { ILink } from "@/types/index";
+import ThankYou from "@/components/thank-you";
 
 export default function BookmarkLayout({
   title,
@@ -19,6 +20,10 @@ export default function BookmarkLayout({
   return (
     <Container>
       <Title>{title}</Title>
+
+      <div className="mt-10">
+        <ThankYou />
+      </div>
 
       {sortedData.map((date) => (
         <div key={date} className="mt-20">
