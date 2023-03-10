@@ -18,7 +18,6 @@ export const revalidate = 86400; // 60*60*24
 
 export default async function VideosPage() {
   const stats = await youtubeStats();
-  console.log(stats);
 
   return (
     <>
