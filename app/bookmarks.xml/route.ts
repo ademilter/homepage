@@ -3,6 +3,8 @@ import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
 import { Feed } from "feed";
 
+export const revalidate = 86400;
+
 export async function GET() {
   const siteURL = "https://ademilter.com";
   const date = new Date();
@@ -51,7 +53,7 @@ export async function GET() {
   return new Response(feed.rss2(), {
     headers: {
       "Content-Type": "application/rss+xml",
-      "Cache-Control": "s-maxage=86400, stale-while-revalidate=86400", // 1 days
+      "Cache-Control": "s-maxage=86400", // 1 days
     },
   });
 }

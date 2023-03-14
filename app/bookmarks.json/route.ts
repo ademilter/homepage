@@ -2,6 +2,8 @@ import { ILink } from "@/types/index";
 import Raindrop from "@/lib/raindrop";
 import { format, startOfYear } from "date-fns";
 
+export const revalidate = 86400;
+
 export async function GET() {
   const firstPostDate = format(startOfYear(new Date()), "yyyy-MM-dd");
   const raindrop = new Raindrop();
@@ -14,7 +16,7 @@ export async function GET() {
   return new Response(JSON.stringify(collections), {
     headers: {
       "Content-Type": "application/json;charset=UTF-8",
-      "Cache-Control": "s-maxage=86400, stale-while-revalidate=86400", // 1 days
+      "Cache-Control": "s-maxage=86400", // 1 days
     },
   });
 }
