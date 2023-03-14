@@ -2,7 +2,7 @@
 
 import Segmented from "@/components/segmented";
 import { useState } from "react";
-import { IApp } from "@/types/index";
+import { IApp } from "@/types";
 import AppCard from "@/components/app-card";
 
 export default function Apps({ data }: { data: IApp[] }) {

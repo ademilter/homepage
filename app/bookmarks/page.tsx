@@ -2,7 +2,7 @@ import { format, startOfWeek } from "date-fns";
 import BookmarkLayout from "@/components/bookmark-layout";
 import Raindrop from "@/lib/raindrop";
 import bookmarkGroupByWeekNumber from "@/lib/helper";
-import { ILink } from "@/types/index";
+import { ILink } from "@/types";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,8 +18,7 @@ async function fetchData() {
   const date = format(dateStartOfWeek, "yyyy-MM-dd");
 
   const raindrop = new Raindrop();
-  const collections: ILink[] = await raindrop.multipleRaindrops({
-    id: 15611214,
+  const collections: ILink[] = await raindrop.getBookmark({
     search: `created:>${date}`,
   });
 

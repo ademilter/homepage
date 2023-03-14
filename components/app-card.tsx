@@ -1,7 +1,7 @@
 import Image from "next/image";
 import cx from "classnames";
 import BaseLink from "@/components/link";
-import { IAirtableImages, IApp } from "@/types/index";
+import { IAirtableImages, IApp } from "@/types";
 
 export default function AppCard({ app }: { app: IApp }) {
   const { name, description, icon, url, free } = app.fields;

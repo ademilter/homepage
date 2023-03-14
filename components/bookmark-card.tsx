@@ -1,7 +1,7 @@
 import Link from "@/components/link";
 import { parseISO, formatDistanceToNowStrict } from "date-fns";
 import { tr } from "date-fns/locale";
-import { ILink } from "@/types/index";
+import { ILink } from "@/types";
 
 function BookmarkCard({ bookmark }: { bookmark: ILink }) {
   return (

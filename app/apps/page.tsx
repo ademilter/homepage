@@ -1,4 +1,4 @@
-import type { IApp } from "@/types/index";
+import type { IApp } from "@/types";
 import Container from "@/components/container";
 import Title from "@/components/title";
 import Apps from "@/components/apps";

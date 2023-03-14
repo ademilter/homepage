@@ -1,5 +1,5 @@
 import React from "react";
-import type { ISVGProps } from "@/types/index";
+import type { ISVGProps } from "@/types";
 
 export default function IconArrowDropDown({ size = 24, ...props }: ISVGProps) {
   return (

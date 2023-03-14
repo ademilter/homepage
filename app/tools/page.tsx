@@ -1,4 +1,4 @@
-import type { ITool } from "@/types/index";
+import type { ITool } from "@/types";
 import Container from "@/components/container";
 import Title from "@/components/title";
 import Tools from "@/components/tools";

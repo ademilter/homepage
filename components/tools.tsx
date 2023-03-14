@@ -2,7 +2,7 @@
 
 import Segmented from "@/components/segmented";
 import { useState } from "react";
-import { ITool } from "@/types/index";
+import { ITool } from "@/types";
 import Tool from "@/components/tool-card";
 import { AnimatePresence } from "framer-motion";
 import Container from "@/components/container";

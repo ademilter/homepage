@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import groupBy from "lodash-es/groupBy";
-import { ILink } from "@/types/index";
+import { ILink } from "@/types";
 
 const bookmarkGroupByWeekNumber = (data) => {
   return groupBy(data, (bookmark: ILink) =>

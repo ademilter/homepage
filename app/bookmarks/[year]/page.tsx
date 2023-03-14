@@ -3,7 +3,7 @@ import BookmarkLayout from "@/components/bookmark-layout";
 import { notFound } from "next/navigation";
 import Raindrop from "@/lib/raindrop";
 import bookmarkGroupByWeekNumber from "@/lib/helper";
-import { ILink } from "@/types/index";
+import { ILink } from "@/types";
 import { metadata as copy } from "../page";
 import { Metadata } from "next";
 
@@ -25,10 +25,8 @@ async function fetchData(params) {
   const endDateByFormat = format(dateEndOfYear, "yyyy-MM-dd");
 
   const raindrop = new Raindrop();
-  const collections: ILink[] = await raindrop.multipleRaindrops({
-    id: 15611214,
+  const collections: ILink[] = await raindrop.getBookmark({
     search: `created:>${startDateByFormat} created:<${endDateByFormat}`,
-    allData: true,
   });
 
   const data = bookmarkGroupByWeekNumber(collections);

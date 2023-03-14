@@ -1,6 +1,6 @@
 "use client";
 
-import type { IAirtableImages, ITool } from "@/types/index";
+import type { IAirtableImages, ITool } from "@/types";
 import { motion, usePresence } from "framer-motion";
 import Image from "next/image";
 import Rating from "@/components/rating";

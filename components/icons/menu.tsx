@@ -1,5 +1,5 @@
 import React from "react";
-import type { ISVGProps } from "@/types/index";
+import type { ISVGProps } from "@/types";
 
 export default function IconMenu({ size = 28, ...props }: ISVGProps) {
   return (
