@@ -49,7 +49,7 @@ export async function GET() {
   return new Response(feed.rss2(), {
     headers: {
       "Content-Type": "application/rss+xml",
-      "Cache-Control": "s-maxage=86400", // 1 days
+      "Cache-Control": "s-maxage=86400, stale-while-revalidate=21600", // cache 1 days, revalidate 6 hours
     },
   });
 }

@@ -12,7 +12,7 @@ export async function GET() {
   return new Response(JSON.stringify(collections), {
     headers: {
       "Content-Type": "application/json;charset=UTF-8",
-      "Cache-Control": "s-maxage=86400", // 1 days
+      "Cache-Control": "s-maxage=86400, stale-while-revalidate=21600", // cache 1 days, revalidate 6 hours
     },
   });
 }
