@@ -16,14 +16,11 @@ function getData() {
     return compareDesc(new Date(a.date), new Date(b.date));
   });
 
-  return posts.map((post: Post) => {
-    const { body, type, _raw, ...rest } = post;
-    return rest;
-  });
+  return posts.map((post: Post) => post);
 }
 
 export default function PostsPage() {
-  const posts: Partial<Post>[] = getData();
+  const posts: Post[] = getData();
 
   return (
     <>

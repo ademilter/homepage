@@ -1,11 +1,12 @@
 import { allPosts, Post } from "contentlayer/generated";
-import { format, parseISO } from "date-fns";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import MDXComponents from "@/components/mdx-components";
+import { format, formatDistanceToNowStrict, parseISO } from "date-fns";
+import { Mdx } from "@/components/mdx";
 import { tr } from "date-fns/locale";
 import Container from "@/components/container";
 import { notFound } from "next/navigation";
 import ClapsButton from "@/components/claps";
+import BaseLink from "@/components/link";
+import { formatDistance } from "date-fns";
 
 export async function generateMetadata({ params, searchParams }) {
   const post = allPosts.find((post: Post) => post.slug === params.slug) as Post;
@@ -16,7 +17,27 @@ export async function generateStaticParams() {
   return allPosts.map((post: Post) => ({ slug: post.slug }));
 }
 
-export default function PostPage({ params }) {
+async function getPostCommits(slug: string) {
+  console.log("slug", slug);
+
+  const res = await fetch(
+    `https://api.github.com/repos/ademilter/homepage/commits?path=data/${slug}`,
+    {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKENS}`,
+      },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function BlogPost({ params }) {
   const post: Post = allPosts.find(
     (post: Post) => post.slug === params.slug
   ) as Post;
@@ -25,7 +46,7 @@ export default function PostPage({ params }) {
     notFound();
   }
 
-  const Component = useMDXComponent(post.body.code);
+  const data = await getPostCommits(post._raw.sourceFilePath);
 
   return (
     <Container>
@@ -45,16 +66,28 @@ export default function PostPage({ params }) {
           </div>
         </header>
 
-        <div className="post-body mt-10 leading-relaxed text-zinc-800 dark:text-zinc-200">
-          <Component
-            components={{
-              ...MDXComponents,
-            }}
-          />
-        </div>
+        <Mdx code={post.body.code} />
 
         <div className="mt-20 flex justify-center">
           <ClapsButton url={post.tweetUrl} />
+        </div>
+
+        <div className="mt-20 divide-y rounded border dark:divide-zinc-800 dark:border-zinc-800">
+          {data.map((c) => (
+            <BaseLink
+              key={c.node_id}
+              href={c.html_url}
+              className="flex px-2 py-3 text-sm"
+            >
+              <span className="grow">{c.commit.message}</span>
+              <span>
+                {formatDistanceToNowStrict(parseISO(c.commit.committer.date), {
+                  addSuffix: true,
+                  locale: tr,
+                })}
+              </span>
+            </BaseLink>
+          ))}
         </div>
       </article>
     </Container>

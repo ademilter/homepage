@@ -1,7 +1,8 @@
-import React from "react";
+import * as React from "react";
 import cx from "classnames";
 import Image from "next/image";
 import { StyleLink } from "@/components/link";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
 /*export function CodeBlock({ children }: { children: React.ReactElement }) {
   const code = children.props.children.trim();
@@ -77,7 +78,7 @@ function blockquote(props) {
 function Quote({ caption, cite, children, ...props }) {
   return (
     <figure
-      className="-mx-6 bg-indigo-50 p-6 text-indigo-900 shadow-sm dark:bg-indigo-900 dark:bg-opacity-60 dark:text-indigo-200 sm:rounded-lg"
+      className="bg-zinc-100 p-6 dark:bg-zinc-800 sm:rounded-xl"
       {...props}
     >
       <blockquote className="opacity-90">{children}</blockquote>
@@ -187,7 +188,7 @@ function Figure2({ children, col, ...props }) {
   );
 }
 
-const MDXComponents = {
+const components = {
   strong,
   a,
   hr,
@@ -203,4 +204,16 @@ const MDXComponents = {
   Figure2,
 };
 
-export default MDXComponents;
+interface MdxProps {
+  code: string;
+}
+
+export function Mdx({ code }: MdxProps) {
+  const Component = useMDXComponent(code);
+
+  return (
+    <div className="post-body mt-10 leading-relaxed text-zinc-800 dark:text-zinc-200">
+      <Component components={{ ...components }} />
+    </div>
+  );
+}

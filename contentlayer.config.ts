@@ -1,7 +1,30 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import {
+  defineComputedFields,
+  defineDocumentType,
+  makeSource,
+} from "contentlayer/source-files";
 import readingTime from "reading-time";
 
-export const Post = defineDocumentType(() => ({
+const computedFields = defineComputedFields<"Post">({
+  slug: {
+    type: "string",
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
+  },
+  url: {
+    type: "string",
+    resolve: (doc) => {
+      return `https://ademilter.com/post/${doc.slug}`;
+    },
+  },
+  readingTime: {
+    type: "json",
+    resolve: (doc) => {
+      return readingTime(doc.body.raw);
+    },
+  },
+});
+
+const Post = defineDocumentType(() => ({
   name: "Post",
   contentType: "mdx",
   filePathPattern: `posts/*.mdx`,
@@ -11,24 +34,7 @@ export const Post = defineDocumentType(() => ({
     subtitle: { type: "string", required: false },
     tweetUrl: { type: "string", required: false },
   },
-  computedFields: {
-    slug: {
-      type: "string",
-      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
-    },
-    url: {
-      type: "string",
-      resolve: (doc) => {
-        return `https://ademilter.com/post/${doc.slug}`;
-      },
-    },
-    readingTime: {
-      type: "json",
-      resolve: (doc) => {
-        return readingTime(doc.body.raw);
-      },
-    },
-  },
+  computedFields,
 }));
 
 export default makeSource({
