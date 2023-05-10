@@ -1,6 +1,6 @@
 import React from "react";
 import BaseLink from "@/components/link";
-import cx from "classnames";
+import cx from "@/lib/cx";
 import Buymeacoffee from "@/components/icons/buymeacoffee";
 
 interface ThankYouProps extends React.HTMLAttributes<HTMLAnchorElement> {
@@ -24,7 +24,7 @@ export default function ThankYou({ className }: ThankYouProps) {
         Ücretsiz yayınladığım içerikler için teşekkür etmek istersen kahve
         ısmarlayabilirsin
       </span>
-      <span className="shrink-0 w-14 h-14 rounded-full bg-white dark:bg-zinc-600 flex items-center justify-center">
+      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white dark:bg-zinc-600">
         <Buymeacoffee />
       </span>
     </BaseLink>

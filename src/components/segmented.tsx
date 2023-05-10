@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import cx from "classnames";
+import cx from "@/lib/cx";
 import React from "react";
 
 export default function Segmented({
@@ -36,7 +36,7 @@ export default function Segmented({
             onClick={() => onChange(item)}
             {...buttonProps}
             className={cx(
-              "relative grow rounded-full bg-transparent py-1 px-4",
+              "relative grow rounded-full bg-transparent px-4 py-1",
               buttonProps?.className
             )}
           >

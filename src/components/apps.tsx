@@ -4,13 +4,12 @@ import Segmented from "@/components/segmented";
 import { useState } from "react";
 import { IApp } from "@/types";
 import AppCard from "@/components/app-card";
+import { uniq } from "lodash";
 
 export default function Apps({ data }: { data: IApp[] }) {
   const [selectedTab, setSelectedTab] = useState("iOS");
 
-  const os = [
-    ...new Set(data.flatMap((tool: IApp) => tool.fields.os) as string[]),
-  ];
+  const os = uniq(data.flatMap((tool: IApp) => tool.fields.os) as string[]);
 
   return (
     <>

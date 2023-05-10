@@ -34,7 +34,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
   return (
     <motion.article
       {...animations}
-      className="rounded-lg bg-zinc-100 p-4 dark:bg-white dark:bg-opacity-10"
+      className="rounded-lg bg-zinc-100 p-4 dark:bg-white/10"
       style={{
         position: isPresent ? "static" : "absolute",
       }}

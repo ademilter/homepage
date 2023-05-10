@@ -6,14 +6,15 @@ import { ITool } from "@/types";
 import Tool from "@/components/tool-card";
 import { AnimatePresence } from "framer-motion";
 import Container from "@/components/container";
+import { uniq } from "lodash";
 
 export default function Tools({ data }: { data: ITool[] }) {
   const defaultFilter: string = "all";
   const [selectedTab, setSelectedTab] = useState<string>(defaultFilter);
 
-  const categories = [
-    ...new Set(data.flatMap((tool: ITool) => tool.fields.category) as string[]),
-  ];
+  const categories = uniq(
+    data.flatMap((tool: ITool) => tool.fields.category) as string[]
+  );
 
   return (
     <>

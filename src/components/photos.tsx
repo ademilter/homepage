@@ -1,6 +1,6 @@
 import NextImage from "next/image";
 import Link from "@/components/link";
-import cx from "classnames";
+import cx from "@/lib/cx";
 
 function Photo({ alt_description, links, urls, description, width, height }) {
   return (

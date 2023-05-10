@@ -1,5 +1,5 @@
 import Image from "next/image";
-import cx from "classnames";
+import cx from "@/lib/cx";
 import BaseLink from "@/components/link";
 import { IAirtableImages, IApp } from "@/types";
 
@@ -11,7 +11,8 @@ export default function AppCard({ app }: { app: IApp }) {
     <BaseLink
       href={`${url}?ref=ademilter`}
       className={cx(
-        "flex items-center gap-6 from-zinc-100 py-6 px-4 hover:bg-gradient-to-r dark:from-zinc-800"
+        "flex items-center gap-6 from-zinc-100 px-4 py-6",
+        "hover:bg-gradient-to-r dark:from-zinc-800"
       )}
     >
       <figure
@@ -29,7 +30,11 @@ export default function AppCard({ app }: { app: IApp }) {
         <h4 className="shine flex items-center gap-2 font-semibold">
           <span>{name}</span>
           {free && (
-            <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-medium leading-none text-emerald-600 dark:bg-emerald-900 dark:bg-opacity-20 dark:text-emerald-700">
+            <span
+              className="rounded-full bg-emerald-50 px-2 py-1
+            text-xs font-medium leading-none text-emerald-600
+            dark:bg-emerald-900/20  dark:text-emerald-700"
+            >
               Ücretsiz
             </span>
           )}

@@ -1,5 +1,5 @@
 import IconLike from "@/components/icons/like";
-import cx from "classnames";
+import cx from "@/lib/cx";
 
 export default function Rating({
   rate,

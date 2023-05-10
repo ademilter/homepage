@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import IconArrowDropDown from "./icons/arrow-drop-down";
-import cx from "classnames";
+import cx from "@/lib/cx";
 import Container from "./container";
 
 const MENU = {

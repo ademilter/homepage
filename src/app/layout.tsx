@@ -1,4 +1,4 @@
-import "@/styles/globals.css";
+import "./globals.css";
 import "@upstash/claps/style.css";
 
 import AnalyticsWrapper from "./analytics";
@@ -55,9 +55,9 @@ export default async function Layout({ children }) {
   return (
     <html lang="tr" className={`"scroll-smooth" ${inter.variable}`}>
       <body className="bg-white text-zinc-600 antialiased dark:bg-zinc-900 dark:text-zinc-400">
-        <div className="flex min-h-screen flex-col pt-10 pb-14">
+        <div className="flex min-h-screen flex-col pb-14 pt-10">
           <Header />
-          <main className="mt-10 flex-grow sm:mt-20">{children}</main>
+          <main className="mt-10 grow sm:mt-20">{children}</main>
           <Footer />
         </div>
 

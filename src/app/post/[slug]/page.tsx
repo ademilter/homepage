@@ -6,22 +6,35 @@ import Container from "@/components/container";
 import { notFound } from "next/navigation";
 import ClapsButton from "@/components/claps";
 import BaseLink from "@/components/link";
-import { formatDistance } from "date-fns";
 
-export async function generateMetadata({ params, searchParams }) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Props["params"];
+}) {
   const post = allPosts.find((post: Post) => post.slug === params.slug) as Post;
-  return { title: post.title, description: post.subtitle };
+
+  return {
+    title: post.title,
+    description: post.subtitle,
+  };
 }
 
-export async function generateStaticParams() {
-  return allPosts.map((post: Post) => ({ slug: post.slug }));
+export async function generateStaticParams(): Promise<Props["params"][]> {
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
-async function getPostCommits(slug: string) {
-  console.log("slug", slug);
-
+async function getPostCommits(filePath: string) {
   const res = await fetch(
-    `https://api.github.com/repos/ademilter/homepage/commits?path=data/${slug}`,
+    `https://api.github.com/repos/ademilter/homepage/commits?path=${filePath}`,
     {
       headers: {
         Accept: "application/vnd.github+json",

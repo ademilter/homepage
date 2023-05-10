@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "classnames";
+import cx from "@/lib/cx";
 
 export interface ITitleProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: string;

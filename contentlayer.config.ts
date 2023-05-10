@@ -4,17 +4,13 @@ import {
   makeSource,
 } from "contentlayer/source-files";
 import readingTime from "reading-time";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 
 const computedFields = defineComputedFields<"Post">({
   slug: {
     type: "string",
-    resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
-  },
-  url: {
-    type: "string",
-    resolve: (doc) => {
-      return `https://ademilter.com/post/${doc.slug}`;
-    },
+    resolve: (doc: any) => doc._raw.flattenedPath,
   },
   readingTime: {
     type: "json",
@@ -27,7 +23,7 @@ const computedFields = defineComputedFields<"Post">({
 const Post = defineDocumentType(() => ({
   name: "Post",
   contentType: "mdx",
-  filePathPattern: `posts/*.mdx`,
+  filePathPattern: `**/*.mdx`,
   fields: {
     date: { type: "date", required: true },
     title: { type: "string", required: true },
@@ -38,6 +34,20 @@ const Post = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: "data",
+  contentDirPath: "post",
   documentTypes: [Post],
+  mdx: {
+    rehypePlugins: [
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
+    ],
+  },
 });
