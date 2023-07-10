@@ -34,7 +34,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
   return (
     <motion.article
       {...animations}
-      className="rounded-lg bg-zinc-100 p-4 dark:bg-white/10"
+      className="flex h-full flex-col rounded-lg bg-zinc-100 p-4 dark:bg-white/10"
       style={{
         position: isPresent ? "static" : "absolute",
       }}
@@ -56,7 +56,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
         <h3 className="shine font-semibold">{name}</h3>
       </header>
 
-      <div className="mt-6 rounded-md bg-white p-4 text-center dark:bg-zinc-800">
+      <div className="mt-6 grow rounded-md bg-white p-4 text-center dark:bg-zinc-800">
         <div className="flex items-center justify-center gap-1">
           {[1, 2, 3, 4, 5].map((rate) => {
             return <Rating key={rate} rate={rate} rating={rating} />;
