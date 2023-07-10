@@ -29,6 +29,7 @@ const Post = defineDocumentType(() => ({
     title: { type: "string", required: true },
     subtitle: { type: "string", required: false },
     tweetUrl: { type: "string", required: false },
+    draft: { type: "boolean" },
   },
   computedFields,
 }));

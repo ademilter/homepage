@@ -12,9 +12,11 @@ export const metadata: Metadata = {
 };
 
 function getData() {
-  const posts: Post[] = allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date));
-  });
+  const posts: Post[] = allPosts
+    .filter((post) => !post.draft)
+    .sort((a, b) => {
+      return compareDesc(new Date(a.date), new Date(b.date));
+    });
 
   return posts.map((post: Post) => post);
 }
