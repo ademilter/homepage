@@ -45,6 +45,10 @@ istediğimde Unsplash hesabımda paylaşmam yeterli oluyor.
 
 Yazılar ve kısa notları markdown olarak yazıyorum (yazılar /post klasörü içinde). [Contentlayer](https://www.contentlayer.dev) ile API haline getirip kullanıyorum.
 
+### Ekipman
+
+Bu sayfanın içerikleri Airtable hesabımdan geliyor. Gün içinde ve çalışma hayatında sürekli kullandığım araçların listesini paylaşıyorum.
+
 ### Yer İmi
 
 İçerikler Raindrop hesabımdan geliyor.
