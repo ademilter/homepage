@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     template: `%s | ${title}`,
   },
   description,
+  metadataBase: new URL(url),
   openGraph: {
     title,
     description,
