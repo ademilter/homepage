@@ -16,14 +16,8 @@ export default function Index() {
           </Title>
 
           <p className="text-xl">
-            Şu anda <StyleLink href="https://upstash.com">Upstash</StyleLink>{" "}
-            şirketinde serverless ürünler inşa ediyorum.
-          </p>
-
-          <p className="text-xl">
             Fotoğraf çekmeyi, kaykay sürmeyi ve doğa yürüyüşlerini çok
             seviyorum. Akıllıca tasarlanmış ürünler kullanmaktan keyif alıyorum.
-            Son zamanlarda ahşap ürünler yapımına ilgim var 🪑
           </p>
 
           <p className="text-xl">
