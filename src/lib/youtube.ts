@@ -10,11 +10,9 @@ export default async function youtubeStats() {
       scopes: ["https://www.googleapis.com/auth/youtube.readonly"],
     });
 
-    const auth = await googleAuth.getClient();
-
     const youtube = google.youtube({
-      auth,
       version: "v3",
+      auth: googleAuth,
     });
 
     const response = await youtube.channels.list({

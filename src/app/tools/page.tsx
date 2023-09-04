@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     Bana yaşattıkları deneyim üzerinden puan ve yorumumu ekledim.`,
 };
 
-export const revalidate = 86400; // 60*60*24
+// export const revalidate = 86400; // 60*60*24
 
 async function fetchData() {
   const response = await fetch(
@@ -19,10 +19,10 @@ async function fetchData() {
       headers: {
         Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
       },
-      next: {
-        revalidate: 86400,
-      },
-    }
+      // next: {
+      //   revalidate: 86400,
+      // },
+    },
   );
   const data = await response.json();
   const dataFilterByStatus = data.records.filter((r: ITool) => !r.fields.draft);
