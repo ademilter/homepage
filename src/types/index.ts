@@ -57,7 +57,7 @@ export type ITool = {
   fields: {
     name: string;
     comment: string;
-    images: IAirtableImages;
+    images: IAirtableImages[];
     url: string;
     wtf: string;
     rating: number;

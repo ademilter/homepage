@@ -7,7 +7,7 @@ import Rating from "@/components/rating";
 
 export default function ToolCard({ tool }: { tool: ITool }) {
   const { images, brand, name, rating, comment } = tool.fields;
-  const photo: IAirtableImages = images && images[0];
+  const photo: IAirtableImages = images[0];
 
   const [isPresent, safeToRemove] = usePresence();
 
