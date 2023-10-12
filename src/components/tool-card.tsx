@@ -39,7 +39,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
         position: isPresent ? "static" : "absolute",
       }}
     >
-      <figure className="aspect-square overflow-hidden rounded-md">
+      <figure className="aspect-square bg-white p-6 overflow-hidden rounded-md">
         {photo && (
           <Image
             src={photo.thumbnails.large.url}

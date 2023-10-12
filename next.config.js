@@ -13,10 +13,6 @@ const nextConfig = {
       "v5.airtableusercontent.com",
     ],
   },
-  staticPageGenerationTimeout: 10,
-  experimental: {
-    appDir: true,
-  },
 };
 
 module.exports = withContentlayer(nextConfig);

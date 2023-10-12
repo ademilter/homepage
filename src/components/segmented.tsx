@@ -11,7 +11,7 @@ export default function Segmented({
   buttonProps = {},
 }: {
   data: string[];
-  selected: string;
+  selected: undefined | string;
   onChange: (value: string) => void;
   className?: string;
   fullWidth?: boolean;
@@ -24,7 +24,7 @@ export default function Segmented({
       className={cx(
         "items-center rounded-full bg-zinc-100 p-1 dark:bg-zinc-800",
         fullWidth ? "flex" : "inline-flex",
-        className
+        className,
       )}
     >
       {data.map((item) => {
@@ -37,7 +37,7 @@ export default function Segmented({
             {...buttonProps}
             className={cx(
               "relative grow rounded-full bg-transparent px-4 py-1",
-              buttonProps?.className
+              buttonProps?.className,
             )}
           >
             {isActive && (

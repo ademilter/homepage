@@ -12,8 +12,8 @@ const MENU = {
   "/videos": "Eğitimler",
   "/photos": "Fotoğraflar",
   "/post": "Yazılar",
-  "/tools": "Masaüstü",
-  "/bookmarks": "Yer İmleri",
+  "/tools": "Ekipman",
+  "/bookmarks": "Feyz ✨",
 };
 
 export default function Header() {
@@ -34,7 +34,7 @@ export default function Header() {
         <nav
           className={cx(
             isNavOpen ? "flex" : "hidden",
-            "flex-col gap-3 sm:!flex sm:flex-row",
+            "flex-col gap-4 sm:!flex sm:flex-row",
           )}
         >
           {Object.entries(MENU).map(([key, value]) => {

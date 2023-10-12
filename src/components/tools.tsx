@@ -1,7 +1,7 @@
 "use client";
 
 import Segmented from "@/components/segmented";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ITool } from "@/types";
 import Tool from "@/components/tool-card";
 import { AnimatePresence } from "framer-motion";
@@ -9,19 +9,23 @@ import Container from "@/components/container";
 import { uniq } from "lodash";
 
 export default function Tools({ data }: { data: ITool[] }) {
-  const defaultFilter: string = "all";
-  const [selectedTab, setSelectedTab] = useState<string>(defaultFilter);
+  const [selectedTab, setSelectedTab] = useState<string>();
 
   const categories = uniq(
-    data.flatMap((tool: ITool) => tool.fields.category) as string[]
+    data.flatMap((tool: ITool) => tool.fields.category) as string[],
   );
+
+  useEffect(() => {
+    if (selectedTab) return;
+    setSelectedTab(categories[0]);
+  }, [categories]);
 
   return (
     <>
       <Container className="mt-10">
         <Segmented
           fullWidth
-          data={[defaultFilter, ...categories]}
+          data={categories}
           onChange={setSelectedTab}
           selected={selectedTab}
           buttonProps={{
@@ -35,8 +39,7 @@ export default function Tools({ data }: { data: ITool[] }) {
           <AnimatePresence>
             {data
               .filter((tool: ITool) => {
-                if (selectedTab === defaultFilter) return true;
-                return tool.fields.category.includes(selectedTab);
+                return tool.fields.category.includes(selectedTab || "");
               })
               .map((tool: ITool) => {
                 return <Tool key={tool.id} tool={tool} />;
