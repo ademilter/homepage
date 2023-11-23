@@ -19,7 +19,7 @@ const MENU = {
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const segment = useSelectedLayoutSegment();
-  const path = `/${segment}`;
+  const path = segment ? `/${segment}` : "/";
 
   useEffect(() => {
     setIsNavOpen(false);
