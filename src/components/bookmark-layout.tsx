@@ -14,7 +14,7 @@ export default function BookmarkLayout({
   onlyThisWeek = false,
 }) {
   const sortedData = Object.keys(data).sort(
-    (a, b) => parseInt(b) - parseInt(a)
+    (a, b) => parseInt(b) - parseInt(a),
   );
 
   return (

@@ -131,7 +131,7 @@ function Figure2({ children, col, ...props }) {
       return React.cloneElement(child, {
         ...child.props,
       });
-    }
+    },
   );
 
   if (!children) return null;
@@ -142,7 +142,7 @@ function Figure2({ children, col, ...props }) {
         "text-center",
         "md:-mx-20 lg:-mx-48 xl:-mx-80",
         "grid gap-8",
-        col
+        col,
       )}
     >
       {childs.map((child: React.ReactElement) => {

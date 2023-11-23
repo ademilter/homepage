@@ -12,7 +12,7 @@ export default function VideoCard({ title, url, itemsCount }) {
       className={cx(
         "group flex items-start gap-3 py-3 transition",
         "hover:text-indigo-600 dark:text-white dark:hover:text-indigo-400",
-        check ? "opacity-50" : ""
+        check ? "opacity-50" : "",
       )}
     >
       <label className="mt-0.5 flex h-5 w-5 shrink-0 cursor-pointer items-center justify-center rounded border border-zinc-300 text-zinc-900 shadow-sm dark:border-zinc-600 dark:text-zinc-200">

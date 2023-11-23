@@ -40,7 +40,7 @@ async function getPostCommits(filePath: string) {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKENS}`,
       },
-    }
+    },
   );
 
   if (!res.ok) {
@@ -52,7 +52,7 @@ async function getPostCommits(filePath: string) {
 
 export default async function BlogPost({ params }) {
   const post: Post = allPosts.find(
-    (post: Post) => post.slug === params.slug
+    (post: Post) => post.slug === params.slug,
   ) as Post;
 
   if (!post) {

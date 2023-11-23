@@ -53,7 +53,7 @@ export default class Raindrop {
           perPage,
           sort,
           search,
-        })
+        }),
       );
     } else {
       return this.normalizeData(data.items);

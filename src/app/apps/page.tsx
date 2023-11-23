@@ -22,7 +22,7 @@ async function fetchData() {
       next: {
         revalidate: 86400,
       },
-    }
+    },
   );
   const data = await response.json();
   const dataFilterByStatus = data.records.filter((r: IApp) => !r.fields.draft);

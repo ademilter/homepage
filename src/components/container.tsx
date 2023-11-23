@@ -22,7 +22,7 @@ const Container: React.FC<IContainerProps> = ({
   return React.createElement(
     as,
     { className: cx(sizes[size], className), ...props },
-    children
+    children,
   );
 };
 

@@ -43,11 +43,11 @@ export default async function ToolsPage() {
             return (
               <details
                 key={category}
-                className="open:bg-zinc-50 open:border-transparent dark:open:bg-zinc-800
-                border border-zinc-200 dark:border-zinc-800 rounded-xl py-4 px-6"
+                className="rounded-xl border border-zinc-200
+                px-6 py-4 open:border-transparent open:bg-zinc-50 dark:border-zinc-800 dark:open:bg-zinc-800"
               >
-                <summary className="flex items-center gap-2 select-none cursor-pointer opacity-60">
-                  <h4 className="uppercase text-lg font-medium leading-none grow">
+                <summary className="flex cursor-pointer select-none items-center gap-2 opacity-60">
+                  <h4 className="grow text-lg font-medium uppercase leading-none">
                     {category}
                   </h4>
                   {CategoryIcons[category]}

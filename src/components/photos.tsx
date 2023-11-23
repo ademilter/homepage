@@ -10,7 +10,7 @@ function Photo({ alt_description, links, urls, description, width, height }) {
         className={cx(
           "block overflow-hidden rounded-lg",
           "saturate-50 transition-all duration-700",
-          "hover:scale-105 hover:saturate-100"
+          "hover:scale-105 hover:saturate-100",
         )}
       >
         <NextImage

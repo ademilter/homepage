@@ -12,7 +12,7 @@ export default function AppCard({ app }: { app: IApp }) {
       href={`${url}?ref=ademilter`}
       className={cx(
         "flex items-center gap-6 from-zinc-100 px-4 py-6",
-        "hover:bg-gradient-to-r dark:from-zinc-800"
+        "hover:bg-gradient-to-r dark:from-zinc-800",
       )}
     >
       <figure

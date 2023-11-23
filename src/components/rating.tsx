@@ -14,7 +14,7 @@ export default function Rating({
       className={cx(
         rate <= rating
           ? "fill-red-400 text-red-400 dark:fill-red-500 dark:text-red-500 dark:opacity-50"
-          : "fill-black text-black opacity-20 dark:fill-white dark:text-white"
+          : "fill-black text-black opacity-20 dark:fill-white dark:text-white",
       )}
     />
   );
