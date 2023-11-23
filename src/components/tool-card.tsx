@@ -5,7 +5,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
   const { brand, name, favorite, comment } = tool.fields;
 
   return (
-    <article className="relative grid gap-1 py-4 md:py-6">
+    <article className="relative grid gap-1 py-4 pr-10 md:py-6">
       <h3 className="shine text-base font-semibold">
         <span className="">{brand ? brand : "-"}</span>{" "}
         <span className="">{name}</span>
