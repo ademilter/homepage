@@ -5,10 +5,17 @@ export default function ToolCard({ tool }: { tool: ITool }) {
   const { brand, name, favorite, comment } = tool.fields;
 
   return (
-    <article className="relative grid gap-1 py-6 pl-8">
+    <article className="relative grid gap-1 py-4 md:py-6">
+      <h3 className="shine text-base font-semibold">
+        <span className="">{brand ? brand : "-"}</span>{" "}
+        <span className="">{name}</span>
+      </h3>
+
+      <p className="">{comment}</p>
+
       <span
         className={cx(
-          "absolute left-0 top-6 mt-1",
+          "absolute right-2 top-6",
           favorite ? "text-amber-300" : "opacity-20",
         )}
       >
@@ -29,13 +36,6 @@ export default function ToolCard({ tool }: { tool: ITool }) {
           />
         </svg>
       </span>
-
-      <h3 className="shine text-base font-semibold">
-        <span className="">{brand ? brand : "-"}</span>{" "}
-        <span className="">{name}</span>
-      </h3>
-
-      <p className="">{comment}</p>
     </article>
   );
 }

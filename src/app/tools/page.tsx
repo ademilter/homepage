@@ -43,19 +43,21 @@ export default async function ToolsPage() {
             return (
               <details
                 key={category}
-                className="rounded-xl bg-zinc-100 open:p-2 dark:bg-zinc-800"
+                className="rounded-xl bg-zinc-100 dark:bg-zinc-800 open:md:p-2"
               >
                 <summary
                   className="sticky top-0 z-10 flex cursor-pointer select-none items-center
-                gap-2 rounded-xl bg-zinc-100 px-8 py-4 dark:bg-zinc-800"
+                gap-2 rounded-xl bg-zinc-100 px-6 py-4 dark:bg-zinc-800 md:px-8"
                 >
                   <h4 className="grow font-medium uppercase leading-none tracking-wider">
                     {category}
                   </h4>
-                  <span className="text-3xl">{CategoryIcons[category]}</span>
+                  <span className="text-3xl opacity-40">
+                    {CategoryIcons[category]}
+                  </span>
                 </summary>
 
-                <div className="grid divide-y divide-dashed divide-black/5 px-8 dark:divide-white/5">
+                <div className="grid divide-y divide-dashed divide-black/5 px-6 dark:divide-white/5 md:px-8">
                   {groupByCategory[category].map((tool: ITool) => {
                     return <Tool key={tool.id} tool={tool} />;
                   })}
