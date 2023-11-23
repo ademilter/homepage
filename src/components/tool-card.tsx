@@ -1,70 +1,23 @@
-"use client";
-
-import type { IAirtableImages, ITool } from "@/types";
-import { motion, usePresence } from "framer-motion";
-import Image from "next/image";
+import type { ITool } from "@/types";
 import Rating from "@/components/rating";
 
 export default function ToolCard({ tool }: { tool: ITool }) {
-  const { images, brand, name, rating, comment } = tool.fields;
-  const photo: IAirtableImages = images[0];
-
-  const [isPresent, safeToRemove] = usePresence();
-
-  const animations = {
-    layout: true,
-    initial: "out",
-    animate: isPresent ? "in" : "out",
-    variants: {
-      in: {
-        scale: 1,
-        opacity: 1,
-      },
-      out: {
-        scale: 0.8,
-        opacity: 0,
-        zIndex: -1,
-        transition: { duration: 0 },
-      },
-    },
-    transition: { type: "spring", stiffness: 500, damping: 50, mass: 2 },
-    onAnimationComplete: () => !isPresent && safeToRemove(),
-  };
+  const { brand, name, rating, comment } = tool.fields;
 
   return (
-    <motion.article
-      {...animations}
-      className="flex h-full flex-col rounded-lg bg-zinc-100 p-4 dark:bg-white/10"
-      style={{
-        position: isPresent ? "static" : "absolute",
-      }}
-    >
-      <figure className="aspect-square bg-white p-6 overflow-hidden rounded-md">
-        {photo && (
-          <Image
-            src={photo.thumbnails.large.url}
-            className="h-full w-full object-contain"
-            alt={`${brand} ${name}`}
-            width={photo.thumbnails.large.width}
-            height={photo.thumbnails.large.height}
-          />
-        )}
-      </figure>
-
-      <header className="mt-6 text-center">
-        <h5 className="text-sm">{brand ? brand : "-"}</h5>
-        <h3 className="shine font-semibold">{name}</h3>
-      </header>
-
-      <div className="mt-6 grow rounded-md bg-white p-4 text-center dark:bg-zinc-800">
-        <div className="flex items-center justify-center gap-1">
-          {[1, 2, 3, 4, 5].map((rate) => {
-            return <Rating key={rate} rate={rate} rating={rating} />;
-          })}
-        </div>
-
-        <p className="mt-2 text-sm">{comment}</p>
+    <article className="border-t grid gap-2 border-black/5 dark:border-white/5 py-6">
+      <div className="flex items-center gap-1">
+        {[1, 2, 3].map((rate) => {
+          return <Rating key={rate} rate={rate} rating={rating} />;
+        })}
       </div>
-    </motion.article>
+
+      <h3 className="text-base shine font-semibold">
+        <span className="opacity-80">{brand ? brand : "-"}</span>{" "}
+        <span className="">{name}</span>
+      </h3>
+
+      <p className="text-sm">{comment}</p>
+    </article>
   );
 }

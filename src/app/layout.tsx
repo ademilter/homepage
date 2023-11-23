@@ -44,7 +44,6 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  themeColor: "#ffffff",
   icons: {
     icon: "/icons/icon-android-chrome-192x192.png",
     apple: "/icons/icon-apple-touch-icon.png",
