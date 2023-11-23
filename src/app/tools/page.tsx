@@ -37,23 +37,25 @@ export default async function ToolsPage() {
         <Title>{metadata.description}</Title>
       </Container>
 
-      <Container className="mt-10">
+      <Container className="mt-16">
         <div className="grid gap-4">
           {keys.map((category) => {
             return (
               <details
                 key={category}
-                className="rounded-xl border border-zinc-200
-                px-6 py-4 open:border-transparent open:bg-zinc-50 dark:border-zinc-800 dark:open:bg-zinc-800"
+                className="rounded-xl bg-zinc-100 open:p-2 dark:bg-zinc-800"
               >
-                <summary className="flex cursor-pointer select-none items-center gap-2 opacity-60">
-                  <h4 className="grow text-lg font-medium uppercase leading-none">
+                <summary
+                  className="sticky top-0 z-10 flex cursor-pointer select-none items-center
+                gap-2 rounded-xl bg-zinc-100 px-8 py-4 dark:bg-zinc-800"
+                >
+                  <h4 className="grow font-medium uppercase leading-none tracking-wider">
                     {category}
                   </h4>
-                  {CategoryIcons[category]}
+                  <span className="text-3xl">{CategoryIcons[category]}</span>
                 </summary>
 
-                <div className="mt-4 grid">
+                <div className="grid divide-y divide-dashed divide-black/5 px-8 dark:divide-white/5">
                   {groupByCategory[category].map((tool: ITool) => {
                     return <Tool key={tool.id} tool={tool} />;
                   })}
@@ -72,10 +74,9 @@ const CategoryIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-lamp-2"
-      width="24"
-      height="24"
+      width="1em"
       viewBox="0 0 24 24"
-      strokeWidth="1.4"
+      strokeWidth="1.2"
       stroke="currentColor"
       fill="none"
       strokeLinecap="round"
@@ -93,10 +94,9 @@ const CategoryIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-coffee"
-      width="24"
-      height="24"
+      width="1em"
       viewBox="0 0 24 24"
-      strokeWidth="1.4"
+      strokeWidth="1.2"
       stroke="currentColor"
       fill="none"
       strokeLinecap="round"
@@ -114,10 +114,9 @@ const CategoryIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-backpack"
-      width="24"
-      height="24"
+      width="1em"
       viewBox="0 0 24 24"
-      strokeWidth="1.4"
+      strokeWidth="1.2"
       stroke="currentColor"
       fill="none"
       strokeLinecap="round"
@@ -134,10 +133,9 @@ const CategoryIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-camera"
-      width="24"
-      height="24"
+      width="1em"
       viewBox="0 0 24 24"
-      strokeWidth="1.4"
+      strokeWidth="1.2"
       stroke="currentColor"
       fill="none"
       strokeLinecap="round"
@@ -152,10 +150,9 @@ const CategoryIcons = {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       className="icon icon-tabler icon-tabler-home"
-      width="24"
-      height="24"
+      width="1em"
       viewBox="0 0 24 24"
-      strokeWidth="1.4"
+      strokeWidth="1.2"
       stroke="currentColor"
       fill="none"
       strokeLinecap="round"

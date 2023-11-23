@@ -60,7 +60,7 @@ export type ITool = {
     images: IAirtableImages[];
     url: string;
     wtf: string;
-    rating: number;
+    favorite: boolean;
     category: string;
     brand: string;
     draft: boolean;

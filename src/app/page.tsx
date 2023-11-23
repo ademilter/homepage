@@ -1,6 +1,5 @@
 import NextImage from "next/image";
 import Social from "@/components/social";
-import { StyleLink } from "@/components/link";
 import Title from "@/components/title";
 import Container from "@/components/container";
 
