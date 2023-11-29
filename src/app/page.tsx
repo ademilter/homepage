@@ -2,6 +2,7 @@ import NextImage from "next/image";
 import Social from "@/components/social";
 import Title from "@/components/title";
 import Container from "@/components/container";
+import NextLink from "next/link";
 
 export default function Index() {
   return (
@@ -11,17 +12,24 @@ export default function Index() {
           <Title>
             <b className="font-semibold">Merhaba, Ben Adem 👋</b>
             <br />
-            İstanbul'da yaşayan bir Tasarımcıyım.
+            İstanbul'da yaşayan bir Ürün Tasarımcısıyım.
           </Title>
 
           <p className="text-xl">
-            Fotoğraf çekmeyi, kaykay sürmeyi ve doğa yürüyüşlerini çok
-            seviyorum. Akıllıca tasarlanmış ürünler kullanmaktan keyif alıyorum.
+            (Bence) en büyük özelliğim; üzerinde çalıştığım işin her noktasında
+            "NEDEN" sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp
+            kullanışlı ve sade ürünler tasarlamak.
           </p>
 
           <p className="text-xl">
-            Youtube kanalımda tasarım, frontend ve tecrübelerimi paylaştığım
-            içerikler üretiyorum.
+            Fotoğraf çekmeyi, kaykay sürmeyi ve doğada olmayı seviyorum.
+          </p>
+
+          <p className="text-xl">
+            Bu konularda soruların varsa veya ürünün hakkında konuşmak istersen{" "}
+            <NextLink href={`/meet`} className="underline">
+              müsait günlerime göz atabilirsin.
+            </NextLink>
           </p>
         </div>
 
