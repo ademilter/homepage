@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -61,6 +62,10 @@ export default async function Layout({ children }) {
           <Footer />
         </div>
 
+        <Script
+          src="https://widgets.superpeer.com/widget.js"
+          strategy="beforeInteractive"
+        />
         <AnalyticsWrapper />
       </body>
     </html>
