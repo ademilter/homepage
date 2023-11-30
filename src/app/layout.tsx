@@ -21,7 +21,7 @@ const displayFont = localFont({
   src: [
     { path: "./fonts/InterDisplay-Regular.woff2", weight: "400" },
     {
-      path: "./fonts/InterDisplay-Semibold.woff2",
+      path: "./fonts/InterDisplay-SemiBold.woff2",
       weight: "600",
     },
   ],
