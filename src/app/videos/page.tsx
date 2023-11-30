@@ -1,5 +1,4 @@
 import Container from "@/components/container";
-import Title from "@/components/title";
 import SubTitle from "@/components/subtitle";
 import Videos from "@/lib/videos";
 import VideoRow from "@/components/video-card";
@@ -22,7 +21,7 @@ export default async function VideosPage() {
   return (
     <>
       <Container>
-        <Title>{metadata.description}</Title>
+        <h1 className="text-2xl">{metadata.description}</h1>
 
         <p className="mt-10">
           <ThankYou />

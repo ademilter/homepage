@@ -1,6 +1,5 @@
 import unsplash from "@/lib/unsplash";
 import MetricCard from "@/components/metric-card";
-import Title from "@/components/title";
 import Container from "@/components/container";
 import Photos from "@/components/photos";
 import { SOCIAL } from "@/lib/const";
@@ -21,7 +20,7 @@ export default async function PhotosPage() {
   return (
     <>
       <Container>
-        <Title>{metadata.description}</Title>
+        <h1 className="text-2xl">{metadata.description}</h1>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard href={SOCIAL.unsplash} data={stats.views.total}>

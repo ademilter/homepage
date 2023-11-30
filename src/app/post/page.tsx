@@ -2,7 +2,6 @@ import NextLink from "next/link";
 import { tr } from "date-fns/locale";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
-import Title from "@/components/title";
 import Container from "@/components/container";
 import { Metadata } from "next";
 
@@ -27,7 +26,7 @@ export default function PostsPage() {
   return (
     <>
       <Container>
-        <Title>{metadata.description}</Title>
+        <h1 className="text-2xl">{metadata.description}</h1>
       </Container>
 
       <Container className="mt-20">

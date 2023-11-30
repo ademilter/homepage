@@ -1,6 +1,5 @@
 import type { IApp } from "@/types";
 import Container from "@/components/container";
-import Title from "@/components/title";
 import Apps from "@/components/apps";
 import { Metadata } from "next";
 
@@ -34,7 +33,7 @@ export default async function AppsPage() {
 
   return (
     <Container>
-      <Title>{metadata.description}</Title>
+      <h1 className="text-2xl">{metadata.description}</h1>
 
       <Apps data={data} />
     </Container>

@@ -8,19 +8,8 @@
         @apply transition;
     }
 
-    .post-body > * {
-        @apply mb-8 scroll-mt-8;
-    }
-
-    .post-body pre {
-        @apply mb-8 text-sm;
-    }
-
-    .post-body pre[class*="language-"]::-webkit-scrollbar {
-        @apply hidden;
-    }
-
-    .shine {
-        @apply text-zinc-900 dark:text-zinc-50;
+    strong,
+    b {
+        @apply font-semibold;
     }
 }

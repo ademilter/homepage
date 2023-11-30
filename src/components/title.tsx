@@ -14,7 +14,10 @@ const Title: React.FC<ITitleProps> = ({
 }: ITitleProps) => {
   return React.createElement(
     as,
-    { className: cx("shine text-2xl leading-snug", className), ...props },
+    {
+      className: cx("text-2xl leading-snug", className),
+      ...props,
+    },
     children,
   );
 };

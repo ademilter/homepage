@@ -1,6 +1,5 @@
 import NextImage from "next/image";
 import Social from "@/components/social";
-import Title from "@/components/title";
 import Container from "@/components/container";
 import NextLink from "next/link";
 
@@ -9,20 +8,21 @@ export default function Index() {
     <>
       <Container>
         <div className="space-y-6">
-          <Title>
-            <b className="font-semibold">Merhaba, Ben Adem 👋</b>
-            <br />
-            İstanbul'da yaşayan bir Ürün Tasarımcısıyım.
-          </Title>
+          <h1 className="font-display grid text-2xl">
+            <b>Adem İlter</b>
+            <span>Product Designer</span>
+            <span className="opacity-60">Istanbul, TURKEY</span>
+          </h1>
 
           <p className="text-xl">
-            (Bence) en büyük özelliğim; üzerinde çalıştığım işin her noktasında
-            "NEDEN" sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp
-            kullanışlı ve sade ürünler tasarlamak.
+            Bence en büyük özelliğim; üzerinde çalıştığım işin her noktasında{" "}
+            <b>NEDEN</b> sorusunu onlarca kez sorup, gereksiz kalabalıktan
+            soyutlayıp, kullanışlı ve sade ürünler tasarlamak.
           </p>
 
           <p className="text-xl">
-            Fotoğraf çekmeyi, kaykay sürmeyi ve doğada olmayı seviyorum.
+            İşim dışındaki zamanlarda; fotoğraf çekmeyi, kaykay sürmeyi ve
+            doğada olmayı seviyorum.
           </p>
 
           <p className="text-xl">
@@ -46,7 +46,7 @@ export default function Index() {
           quality={100}
           width={3609}
           height={2404}
-          className="rounded-lg saturate-0 transition-all duration-700 hover:saturate-100"
+          className="rounded-3xl"
         />
       </Container>
     </>

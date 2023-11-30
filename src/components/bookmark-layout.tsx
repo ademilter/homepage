@@ -2,7 +2,6 @@ import BookmarkCard from "@/components/bookmark-card";
 import Container from "@/components/container";
 import Link from "next/link";
 import { getYear } from "date-fns";
-import Title from "./title";
 import SubTitle from "./subtitle";
 import { ILink } from "@/types";
 import ThankYou from "@/components/thank-you";
@@ -19,7 +18,7 @@ export default function BookmarkLayout({
 
   return (
     <Container>
-      <Title>{title}</Title>
+      <h1 className="text-2xl">{title}</h1>
 
       <div className="mt-10">
         <ThankYou />

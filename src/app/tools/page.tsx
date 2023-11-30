@@ -1,6 +1,5 @@
 import type { ITool } from "@/types";
 import Container from "@/components/container";
-import Title from "@/components/title";
 import { Metadata } from "next";
 import Tool from "@/components/tool-card";
 import { groupBy } from "lodash";
@@ -34,11 +33,11 @@ export default async function ToolsPage() {
   return (
     <>
       <Container>
-        <Title>{metadata.description}</Title>
+        <h1 className="text-2xl">{metadata.description}</h1>
       </Container>
 
       <Container className="mt-16">
-        <div className="grid gap-4">
+        <div className="grid gap-2">
           {keys.map((category) => {
             return (
               <details
@@ -47,9 +46,9 @@ export default async function ToolsPage() {
               >
                 <summary
                   className="sticky top-0 z-10 flex cursor-pointer select-none items-center
-                gap-2 rounded-xl bg-zinc-100 px-6 py-4 dark:bg-zinc-800 md:px-8"
+                gap-2 rounded-xl bg-zinc-100 px-4 py-2 dark:bg-zinc-800 md:px-6"
                 >
-                  <h4 className="grow font-medium uppercase leading-none tracking-wider">
+                  <h4 className="font-display grow uppercase leading-none tracking-widest">
                     {category}
                   </h4>
                   <span className="text-3xl opacity-40">

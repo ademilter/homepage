@@ -13,7 +13,7 @@ const MENU = {
   "/photos": "Fotoğraflar",
   "/post": "Yazılar",
   "/tools": "Ekipman",
-  "/bookmarks": "Feyz ✨",
+  "/bookmarks": "Feyz",
 };
 
 export default function Header() {
@@ -40,7 +40,7 @@ export default function Header() {
               <span key={key}>
                 <NextLink
                   href={key}
-                  className={cx(isActive ? "shine font-semibold" : "")}
+                  className={cx(isActive ? "font-semibold" : "opacity-60")}
                 >
                   {value}
                 </NextLink>
