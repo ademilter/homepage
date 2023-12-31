@@ -12,7 +12,7 @@ export const metadata: Metadata = copy;
 export const revalidate = 7200; // 60*60*2
 
 export async function generateStaticParams() {
-  return ["2021", "2022", "2023"].map((year) => ({
+  return ["2021", "2022", "2023", "2024"].map((year) => ({
     year: year.toString(),
   }));
 }
