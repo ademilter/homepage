@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleLink } from "@/components/link";
 import Container from "@/components/container";
 
 export default function Footer() {
@@ -8,9 +7,7 @@ export default function Footer() {
       <Container>
         <p>
           Bu web sitesinin kaynak kodlarına{" "}
-          <StyleLink href="https://github.com/ademilter/homepage">
-            Github üzerinden
-          </StyleLink>{" "}
+          <a href="https://github.com/ademilter/homepage">Github üzerinden</a>{" "}
           ulaşabilirsiniz.
         </p>
       </Container>

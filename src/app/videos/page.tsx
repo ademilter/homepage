@@ -45,7 +45,7 @@ export default async function VideosPage() {
               <div key={catKey}>
                 <SubTitle className="py-4">{catKey}</SubTitle>
 
-                <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
+                <div className="">
                   {category.map((video) => {
                     return <VideoRow key={video.title} {...video} />;
                   })}

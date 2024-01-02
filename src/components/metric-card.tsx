@@ -12,15 +12,15 @@ function MetricCard({
   data: string | number;
   prefix?: string;
 }) {
-  const Title = () => <span className="opacity-60">{children}</span>;
+  const Title = () => <span className="opacity-50">{children}</span>;
 
   return (
     <div
       className="
-      rounded-lg border border-zinc-200 p-4 dark:border-zinc-700"
+      border-zinc-150 rounded-lg border bg-white p-4 shadow-sm dark:border-zinc-700"
     >
       {href ? (
-        <BaseLink href={href}>
+        <BaseLink className="no-underline" href={href}>
           <Title />
         </BaseLink>
       ) : (

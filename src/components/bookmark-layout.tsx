@@ -30,7 +30,7 @@ export default function BookmarkLayout({
             {date}. Hafta, {year}
           </SubTitle>
 
-          <div className="mt-6 divide-y divide-zinc-100 dark:divide-zinc-800">
+          <div className="mt-6">
             {data[date].map((item: ILink) => {
               return <BookmarkCard key={item._id} bookmark={item} />;
             })}
@@ -42,7 +42,7 @@ export default function BookmarkLayout({
         <div className="mt-16">
           <Link
             href={`/bookmarks/${getYear(new Date())}`}
-            className="rounded-lg bg-zinc-50 px-4 py-3 hover:bg-zinc-100
+            className="rounded-lg bg-zinc-200 px-4 py-3 no-underline hover:bg-zinc-300
               dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
           >
             Tüm listeyi görüntüle →

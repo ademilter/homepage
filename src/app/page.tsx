@@ -8,16 +8,17 @@ export default function Index() {
     <>
       <Container>
         <div className="space-y-6">
-          <h1 className="font-display grid text-2xl">
+          <h1 className="grid font-display text-xl">
             <b>Adem İlter</b>
-            <span>Product Designer</span>
+            <span className="opacity-60">Product Designer</span>
             <span className="opacity-60">Istanbul, TURKEY</span>
           </h1>
 
           <p className="text-xl">
-            Bence en büyük özelliğim; üzerinde çalıştığım işin her noktasında{" "}
-            <b>NEDEN</b> sorusunu onlarca kez sorup, gereksiz kalabalıktan
-            soyutlayıp, kullanışlı ve sade ürünler tasarlamak.
+            Bence en büyük özelliğim;
+            <br /> Üzerinde çalıştığım işlerin her noktasında <b>NEDEN</b>{" "}
+            sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp,
+            kullanışlı ve sade ürünler tasarlayabilmek.
           </p>
 
           <p className="text-xl">
@@ -28,7 +29,7 @@ export default function Index() {
           <p className="text-xl">
             Bu konularda soruların varsa veya ürünün hakkında konuşmak istersen{" "}
             <NextLink href={`/meet`} className="underline">
-              müsait günlerime göz atabilirsin.
+              müsait günlerime bakabilirsin.
             </NextLink>
           </p>
         </div>

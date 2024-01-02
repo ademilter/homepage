@@ -40,7 +40,10 @@ export default function Header() {
               <span key={key}>
                 <NextLink
                   href={key}
-                  className={cx(isActive ? "font-semibold" : "opacity-60")}
+                  className={cx(
+                    "no-underline hover:opacity-100",
+                    isActive ? "font-semibold" : "opacity-60",
+                  )}
                 >
                   {value}
                 </NextLink>

@@ -2,8 +2,6 @@
   "name": "Adem ilter",
   "short_name": "Ai",
   "description": "Product Designer",
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
   "display": "standalone",
   "dir": "ltr",
   "lang": "tr-TR",

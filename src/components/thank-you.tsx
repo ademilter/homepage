@@ -16,7 +16,7 @@ export default function ThankYou({ className }: ThankYouProps) {
         "text-amber-900 transition-all",
         "hover:bg-amber-200 hover:no-underline",
         "dark:bg-zinc-700 dark:text-zinc-200",
-        "dark:hover:bg-zinc-600",
+        "no-underline dark:hover:bg-zinc-600",
         className,
       )}
     >

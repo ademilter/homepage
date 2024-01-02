@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+    a {
+        @apply underline decoration-zinc-300 decoration-2 underline-offset-2
+        hover:text-blue-700 hover:decoration-blue-700
+        dark:decoration-zinc-600
+    }
+
     a,
     button {
         @apply transition;
