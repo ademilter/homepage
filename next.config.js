@@ -5,12 +5,12 @@ const { withContentlayer } = require("next-contentlayer");
  */
 
 const nextConfig = {
-  reactStrictMode: false,
   images: {
-    domains: [
-      "images.unsplash.com",
-      "dl.airtable.com",
-      "v5.airtableusercontent.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
