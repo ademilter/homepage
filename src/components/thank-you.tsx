@@ -12,11 +12,12 @@ export default function ThankYou({ className }: ThankYouProps) {
     <BaseLink
       href="https://www.buymeacoffee.com/ademilter"
       className={cx(
-        "flex items-center gap-6 rounded-lg bg-amber-100 px-6 py-5",
-        "text-amber-900 transition-all",
-        "hover:bg-amber-200 hover:no-underline",
-        "dark:bg-zinc-700 dark:text-zinc-200",
-        "no-underline dark:hover:bg-zinc-600",
+        "flex items-center gap-6 px-6 py-5",
+        "rounded-lg no-underline transition",
+        "rounded-lg bg-yellow-100 text-yellow-900 transition-all",
+        "hover:text-yellow-950",
+        "dark:bg-yellow-300/10 dark:text-yellow-200",
+        "dark:hover:text-yellow-50",
         className,
       )}
     >
@@ -24,7 +25,7 @@ export default function ThankYou({ className }: ThankYouProps) {
         Ücretsiz yayınladığım içerikler için teşekkür etmek istersen kahve
         ısmarlayabilirsin
       </span>
-      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white dark:bg-zinc-600">
+      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-black/10">
         <Buymeacoffee />
       </span>
     </BaseLink>

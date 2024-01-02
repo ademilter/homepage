@@ -6,7 +6,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
 
   return (
     <article className="relative grid gap-1 py-4 pr-10 md:py-6">
-      <h3 className="shine text-base font-semibold">
+      <h3 className="text-base font-semibold">
         <span className="">{brand ? brand : "-"}</span>{" "}
         <span className="">{name}</span>
       </h3>

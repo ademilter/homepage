@@ -6,7 +6,7 @@
     a {
         @apply underline decoration-zinc-300 decoration-2 underline-offset-2
         hover:text-blue-700 hover:decoration-blue-700
-        dark:decoration-zinc-600
+        dark:decoration-zinc-600 dark:hover:text-blue-500 dark:hover:decoration-blue-500
     }
 
     a,

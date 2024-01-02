@@ -54,7 +54,7 @@ export default function Segmented({
               />
             )}
 
-            <span className={cx("relative z-10", isActive ? "shine" : "")}>
+            <span className={cx("relative z-10", isActive ? "" : "")}>
               {item}
             </span>
           </button>

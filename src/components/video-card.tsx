@@ -28,7 +28,7 @@ export default function VideoCard({ title, url, itemsCount }) {
         {check ? "✓" : ""}
       </label>
 
-      <h5 className="shine grow font-medium">
+      <h5 className="grow font-medium">
         <a href={url}>{title}</a>
       </h5>
 

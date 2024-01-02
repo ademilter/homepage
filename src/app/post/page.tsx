@@ -35,7 +35,7 @@ export default function PostsPage() {
             return (
               <article key={post._id}>
                 <header>
-                  <h3 className="shine font-semibold">
+                  <h3 className="font-semibold">
                     <NextLink href={`/post/${post.slug}`}>
                       {post.title}
                     </NextLink>

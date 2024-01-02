@@ -11,10 +11,11 @@ function SocialButton({ href, children }) {
       href={href}
       blank
       className="
-      flex items-center rounded-full bg-zinc-200 p-3 text-zinc-600 no-underline transition-colors
-      hover:bg-indigo-100 hover:text-indigo-900
-      dark:bg-zinc-700 dark:text-zinc-200
-      dark:hover:bg-indigo-800 dark:hover:text-indigo-100"
+      flex items-center rounded-full bg-zinc-200 p-3
+      text-zinc-600 no-underline transition-colors
+      hover:bg-blue-700 hover:text-white
+      dark:bg-zinc-800 dark:text-zinc-400
+      dark:hover:bg-blue-500"
     >
       {children}
     </Link>

@@ -27,7 +27,7 @@ export default function AppCard({ app }: { app: IApp }) {
       </figure>
 
       <div className="grow">
-        <h4 className="shine flex items-center gap-2 font-semibold">
+        <h4 className="flex items-center gap-2 font-semibold">
           <span>{name}</span>
           {free && (
             <span
