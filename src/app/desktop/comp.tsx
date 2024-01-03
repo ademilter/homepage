@@ -9,20 +9,39 @@ export default async function MeetPage() {
 
   function onLoad(splineApp: any) {
     if (cube.current) return;
-    console.log("-1", splineApp.findObjectByName("Cube"));
     cube.current = splineApp;
   }
 
-  function moveObj() {
-    console.log(cube.current);
-    cube.current!.emitEvent("mouseHover");
+  function moveObj(name: string) {
+    // @ts-ignore
+    cube.current!.emitEvent("mouseDown", name);
   }
 
   return (
     <div className="grid place-items-center">
-      <button type="button" onClick={moveObj}>
-        Move Cube
-      </button>
+      <div className="flex items-center gap-4">
+        <button
+          className="border px-2 py-1"
+          type="button"
+          onClick={() => moveObj("Base")}
+        >
+          Desktop
+        </button>
+        <button
+          className="border px-2 py-1"
+          type="button"
+          onClick={() => moveObj("Kef")}
+        >
+          Speaker
+        </button>
+        <button
+          className="border px-2 py-1"
+          type="button"
+          onClick={() => moveObj("Keyboard")}
+        >
+          Keyboard
+        </button>
+      </div>
 
       <Spline
         onLoad={onLoad}

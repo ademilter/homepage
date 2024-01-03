@@ -37,17 +37,16 @@ export default function Header() {
           {Object.entries(MENU).map(([key, value]) => {
             const isActive = key === path;
             return (
-              <span key={key}>
-                <NextLink
-                  href={key}
-                  className={cx(
-                    "no-underline hover:opacity-100",
-                    isActive ? "font-semibold" : "opacity-60",
-                  )}
-                >
-                  {value}
-                </NextLink>
-              </span>
+              <NextLink
+                key={key}
+                href={key}
+                className={cx(
+                  "grow no-underline hover:opacity-100",
+                  isActive ? "font-semibold" : "opacity-60",
+                )}
+              >
+                {value}
+              </NextLink>
             );
           })}
         </nav>
