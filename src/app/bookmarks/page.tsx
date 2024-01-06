@@ -56,7 +56,7 @@ export default async function Bookmark() {
             Link ({year})
           </MetricCard>
           <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
-            Görüntülenme ({year})
+            Görüntülenme
           </MetricCard>
         </div>
       </Container>

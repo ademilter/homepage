@@ -1,7 +1,7 @@
 import { addYears, format, startOfYear } from "date-fns";
 import { notFound } from "next/navigation";
 import Raindrop from "@/lib/raindrop";
-import { bookmarkGroupByWeekNumber } from "@/lib/helper";
+import { bookmarkGroupByWeekNumber, formatter } from "@/lib/helper";
 import { ILink } from "@/types";
 import { metadata as copy } from "../page";
 import { Metadata } from "next";
@@ -77,12 +77,12 @@ export default async function BookmarkByYear({ params }) {
           <ThankYou />
         </div>*/}
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard data={Number(data.length).toLocaleString()}>
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
+          <MetricCard data={formatter.format(data.length)}>
             Link ({year})
           </MetricCard>
           <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
-            Görüntülenme ({year})
+            Görüntülenme
           </MetricCard>
         </div>
       </Container>
