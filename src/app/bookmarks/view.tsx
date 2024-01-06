@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
   const [value, setValue] = useState(0);

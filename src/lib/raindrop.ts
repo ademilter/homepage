@@ -11,14 +11,6 @@ export default class Raindrop {
   private readonly token: string = process.env.RAINDROP_CLIENT_SECRET!;
   private url = "https://api.raindrop.io";
 
-  private normalizeData(data: ILink[]) {
-    return data.map((bookmark) => {
-      const { _id, type, created, title, link, excerpt, domain, tags, cover } =
-        bookmark;
-      return { _id, type, created, title, link, excerpt, domain, tags, cover };
-    });
-  }
-
   public async getBookmark({
     perPage = 50,
     page = 0,
@@ -42,7 +34,7 @@ export default class Raindrop {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.token}`,
       },
-      next: { revalidate: 7200 },
+      next: { revalidate: 3600 },
     });
     const data: Result = await response.json();
 
@@ -58,5 +50,13 @@ export default class Raindrop {
     } else {
       return this.normalizeData(data.items);
     }
+  }
+
+  private normalizeData(data: ILink[]) {
+    return data.map((bookmark) => {
+      const { _id, type, created, title, link, excerpt, domain, tags, cover } =
+        bookmark;
+      return { _id, type, created, title, link, excerpt, domain, tags, cover };
+    });
   }
 }
