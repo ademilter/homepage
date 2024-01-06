@@ -17,7 +17,13 @@ dependencies:
   '@upstash/claps':
     specifier: ^1.0.0-beta.4
     version: 1.0.0-beta.4
+  '@upstash/redis':
+    specifier: ^1.28.0
+    version: 1.28.0
   '@vercel/analytics':
+    specifier: ^1.1.1
+    version: 1.1.1
+  '@vercel/edge':
     specifier: ^1.1.1
     version: 1.1.1
   clsx:
@@ -1366,7 +1372,7 @@ packages:
   /@upstash/claps@1.0.0-beta.4:
     resolution: {integrity: sha512-H1oLfcAwtMfml1pwU6eNd/5mahjlTjTDJyIzrvSf9z9MpeLFDYkn38obhIy3u38KKLgThuXK6yQzKoAMd6E+5Q==}
     dependencies:
-      '@upstash/redis': 1.25.1
+      '@upstash/redis': 1.28.0
       classnames: 2.3.2
       lodash: 4.17.21
       next: 12.3.4(react-dom@18.2.0)(react@18.2.0)
@@ -1380,8 +1386,8 @@ packages:
       - sass
     dev: false
 
-  /@upstash/redis@1.25.1:
-    resolution: {integrity: sha512-ACj0GhJ4qrQyBshwFgPod6XufVEfKX2wcaihsEvSdLYnY+m+pa13kGt1RXm/yTHKf4TQi/Dy2A8z/y6WUEOmlg==}
+  /@upstash/redis@1.28.0:
+    resolution: {integrity: sha512-vvFMUHGA5jUAXQHuAzFHNLD2TND/2aaf1BUPYBeg73CkQ9X+jorWVi7VGxZtRXPDEFJR9KvzuwCacbSproOKcw==}
     dependencies:
       crypto-js: 4.2.0
     dev: false
@@ -1390,6 +1396,10 @@ packages:
     resolution: {integrity: sha512-+NqgNmSabg3IFfxYhrWCfB/H+RCUOCR5ExRudNG2+pcRehq628DJB5e1u1xqwpLtn4pAYii4D98w7kofORAGQA==}
     dependencies:
       server-only: 0.0.1
+    dev: false
+
+  /@vercel/edge@1.1.1:
+    resolution: {integrity: sha512-NtKiIbn9Cq6HWGy+qRudz28mz5nxfOJWls5Pnckjw1yCfSX8rhXdvY/il3Sy3Zd5n/sKCM2h7VSCCpJF/oaDrQ==}
     dev: false
 
   /acorn-jsx@5.3.2(acorn@8.11.2):
