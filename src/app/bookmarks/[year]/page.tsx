@@ -10,6 +10,7 @@ import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import SubTitle from "@/components/subtitle";
 import BookmarkCard from "@/components/bookmark-card";
+import { ReportView } from "@/app/bookmarks/view";
 
 const redis = Redis.fromEnv();
 
@@ -77,8 +78,12 @@ export default async function BookmarkByYear({ params }) {
         </div>*/}
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard data={data.length}>Link ({year})</MetricCard>
-          <MetricCard data={data.length}>Görüntülenme ({year})</MetricCard>
+          <MetricCard data={Number(data.length).toLocaleString()}>
+            Link ({year})
+          </MetricCard>
+          <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
+            Görüntülenme ({year})
+          </MetricCard>
         </div>
       </Container>
 

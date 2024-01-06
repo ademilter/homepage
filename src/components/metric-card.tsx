@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import BaseLink from "@/components/link";
 
 function MetricCard({
@@ -7,9 +7,9 @@ function MetricCard({
   data,
   prefix = "",
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   href?: string;
-  data: string | number;
+  data: string | number | ReactNode;
   prefix?: string;
 }) {
   const Title = () => (
@@ -33,7 +33,7 @@ function MetricCard({
       )}
       <div className="text-xl font-semibold">
         {prefix}
-        {Number(data).toLocaleString()}
+        {data}
       </div>
     </div>
   );

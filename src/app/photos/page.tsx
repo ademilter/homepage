@@ -23,10 +23,16 @@ export default async function PhotosPage() {
         <h1 className="text-2xl">{metadata.description}</h1>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard href={SOCIAL.unsplash} data={stats.views.total}>
+          <MetricCard
+            href={SOCIAL.unsplash}
+            data={Number(stats.views.total).toLocaleString()}
+          >
             Görüntüleme
           </MetricCard>
-          <MetricCard href={SOCIAL.unsplash} data={stats.downloads.total}>
+          <MetricCard
+            href={SOCIAL.unsplash}
+            data={Number(stats.downloads.total).toLocaleString()}
+          >
             İndirme
           </MetricCard>
         </div>

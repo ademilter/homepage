@@ -8,6 +8,7 @@ import MetricCard from "@/components/metric-card";
 import SubTitle from "@/components/subtitle";
 import BookmarkCard from "@/components/bookmark-card";
 import Link from "next/link";
+import { ReportView } from "@/app/bookmarks/view";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -51,8 +52,12 @@ export default async function Bookmark() {
         </div>*/}
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard data={data.length}>Link ({year})</MetricCard>
-          <MetricCard data={data.length}>Görüntülenme ({year})</MetricCard>
+          <MetricCard data={Number(data.length).toLocaleString()}>
+            Link ({year})
+          </MetricCard>
+          <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
+            Görüntülenme ({year})
+          </MetricCard>
         </div>
       </Container>
 

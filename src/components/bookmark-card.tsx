@@ -22,7 +22,7 @@ function BookmarkCard({
   async function getScore() {
     try {
       setLoading(true);
-      const response = await fetch(`bookmarks/api?url=${bookmark.link}`);
+      const response = await fetch(`/api/bookmark?url=${bookmark.link}`);
       const data = await response.json();
       setS(data.score);
     } catch (e) {
@@ -37,7 +37,7 @@ function BookmarkCard({
 
     try {
       setLoading(true);
-      const response = await fetch("bookmarks/api/incr", {
+      const response = await fetch("/api/bookmark", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

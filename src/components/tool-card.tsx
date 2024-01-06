@@ -19,15 +19,14 @@ export default function ToolCard({ tool }: { tool: ITool }) {
       <span
         className={cx(
           "flex h-full min-h-10 w-10 shrink-0 items-center justify-center ",
-          "rounded-lg text-amber-500 dark:text-amber-600",
-          favorite ? "bg-amber-100" : "bg-zinc-100 dark:bg-zinc-800",
+          "rounded-lg bg-zinc-200 text-amber-500 opacity-60 dark:bg-zinc-800 dark:text-amber-300",
         )}
       >
         {favorite && (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
+            width="15"
+            height="15"
             viewBox="0 0 24 24"
             strokeWidth="1.4"
             stroke="currentColor"

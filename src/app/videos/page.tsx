@@ -28,10 +28,16 @@ export default async function VideosPage() {
         </p>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard href={"youtube"} data={stats.subscriberCount}>
+          <MetricCard
+            href={"youtube"}
+            data={Number(stats.subscriberCount).toLocaleString()}
+          >
             Abone
           </MetricCard>
-          <MetricCard href={"youtube"} data={stats.viewCount}>
+          <MetricCard
+            href={"youtube"}
+            data={Number(stats.viewCount).toLocaleString()}
+          >
             İzlenme
           </MetricCard>
         </div>
