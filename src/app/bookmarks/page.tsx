@@ -83,6 +83,15 @@ export default async function Bookmark() {
             Tüm listeyi görüntüle →
           </Link>
         </div>
+
+        <div className="mt-16 flex gap-2 opacity-50">
+          Önceki yıllara ait listeler;
+          {["2021", "2022", "2023", "2024"].reverse().map((year) => (
+            <Link href={`/bookmarks/${year}`} key={year} className="">
+              {year}
+            </Link>
+          ))}
+        </div>
       </Container>
     </>
   );
