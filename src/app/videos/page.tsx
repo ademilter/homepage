@@ -29,23 +29,23 @@ export default async function VideosPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard href={"youtube"} data={stats.subscriberCount}>
-            Youtube Subscribers
+            Abone
           </MetricCard>
           <MetricCard href={"youtube"} data={stats.viewCount}>
-            Youtube Views
+            İzlenme
           </MetricCard>
         </div>
       </Container>
 
       <Container className="mt-20">
-        <div className="space-y-10">
+        <div className="space-y-20">
           {Object.keys(Videos).map((catKey) => {
             const category = Videos[catKey];
             return (
               <div key={catKey}>
-                <SubTitle className="py-4">{catKey}</SubTitle>
+                <SubTitle className="">{catKey}</SubTitle>
 
-                <div className="">
+                <div className="mt-4">
                   {category.map((video) => {
                     return <VideoRow key={video.title} {...video} />;
                   })}

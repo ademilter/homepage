@@ -10,8 +10,8 @@ export default function VideoCard({ title, url, itemsCount }) {
   return (
     <article
       className={cx(
-        "group flex items-start gap-3 px-2 py-3 transition",
-        "border-b-zinc-150 border-b dark:border-b-zinc-800",
+        "group flex items-start gap-3 px-2 py-4 transition",
+        "border-b border-b-zinc-200 dark:border-b-zinc-800",
         "hover:bg-white dark:text-white dark:hover:bg-zinc-800",
         check ? "opacity-50" : "",
       )}

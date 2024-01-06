@@ -29,27 +29,32 @@ export default function PostsPage() {
         <h1 className="text-2xl">{metadata.description}</h1>
       </Container>
 
-      <Container className="mt-20">
-        <div className="space-y-8">
+      <Container className="mt-16 md:mt-12">
+        <div className="">
           {posts.map((post) => {
             return (
-              <article key={post._id}>
+              <article
+                key={post._id}
+                className="border-b border-b-zinc-200 py-4 md:py-8 dark:border-b-zinc-800"
+              >
                 <header>
                   <h3 className="font-semibold">
                     <NextLink href={`/post/${post.slug}`}>
                       {post.title}
                     </NextLink>
                   </h3>
-                  <p className="mt-1">{post.subtitle}</p>
+                  <p className="mt-1 opacity-70 dark:opacity-60">
+                    {post.subtitle}
+                  </p>
                 </header>
 
-                <footer className="mt-1 flex items-center space-x-2">
+                <footer className="mt-1 flex items-center space-x-2 font-mono text-sm uppercase tracking-wider opacity-50 dark:opacity-40">
                   <time dateTime={post.date}>
                     {format(parseISO(post.date!), "d LLLL yyyy", {
                       locale: tr,
                     })}
                   </time>
-                  <span className="opacity-50">·</span>
+                  <span>·</span>
                   <span>{post.readingTime.text}</span>
                 </footer>
               </article>

@@ -24,10 +24,10 @@ export default async function PhotosPage() {
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
           <MetricCard href={SOCIAL.unsplash} data={stats.views.total}>
-            Unsplash Views
+            Görüntüleme
           </MetricCard>
           <MetricCard href={SOCIAL.unsplash} data={stats.downloads.total}>
-            Unsplash Downloads
+            İndirme
           </MetricCard>
         </div>
       </Container>

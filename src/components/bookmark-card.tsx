@@ -6,7 +6,7 @@ import cx from "@/lib/cx";
 
 function BookmarkCard({ bookmark }: { bookmark: ILink }) {
   return (
-    <article className=" py-4">
+    <article className="border-b border-b-zinc-200 py-4 md:py-6 dark:border-b-zinc-800">
       <h3 className="font-semibold">
         <Link
           href={bookmark.link}
@@ -19,9 +19,9 @@ function BookmarkCard({ bookmark }: { bookmark: ILink }) {
         </Link>
       </h3>
 
-      <div className="mt-1 flex items-center space-x-2 opacity-50">
+      <div className="mt-1 flex items-center space-x-2 font-mono text-sm opacity-70 dark:opacity-60">
         <span>{bookmark.domain}</span>
-        <span>•</span>
+        <span>·</span>
         <span>
           {formatDistanceToNowStrict(parseISO(bookmark.created), {
             addSuffix: true,
