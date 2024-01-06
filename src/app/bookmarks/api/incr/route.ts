@@ -39,7 +39,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     });
 
     if (!isNew) {
-      new NextResponse(null, { status: 202 });
+      return new NextResponse(null, { status: 202 });
     }
   }
 
