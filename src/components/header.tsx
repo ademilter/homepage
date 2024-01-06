@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import IconArrowDropDown from "./icons/arrow-drop-down";
 import cx from "@/lib/cx";
 import Container from "./container";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 
 const MENU = {
   "/": "Hakkımda",
@@ -19,11 +19,12 @@ const MENU = {
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const segment = useSelectedLayoutSegment();
+  const pathname = usePathname();
   const path = segment ? `/${segment}` : "/";
 
   useEffect(() => {
     setIsNavOpen(false);
-  }, [segment]);
+  }, [pathname]);
 
   return (
     <header className="">
