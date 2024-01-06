@@ -6,6 +6,8 @@ import youtubeStats from "@/lib/youtube";
 import MetricCard from "@/components/metric-card";
 import { Metadata } from "next";
 import ThankYou from "@/components/thank-you";
+import { formatter } from "@/lib/helper";
+import { SOCIAL } from "@/lib/const";
 
 export const metadata: Metadata = {
   title: "Eğitimler",
@@ -27,24 +29,24 @@ export default async function VideosPage() {
           <ThankYou />
         </p>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
           <MetricCard
-            href={"youtube"}
-            data={Number(stats.subscriberCount).toLocaleString()}
+            href={SOCIAL.youtube}
+            data={formatter.format(stats.subscriberCount)}
           >
             Abone
           </MetricCard>
           <MetricCard
-            href={"youtube"}
-            data={Number(stats.viewCount).toLocaleString()}
+            href={SOCIAL.youtube}
+            data={formatter.format(stats.viewCount)}
           >
             İzlenme
           </MetricCard>
         </div>
       </Container>
 
-      <Container className="mt-20">
-        <div className="space-y-20">
+      <Container className="mt-12 sm:mt-20">
+        <div className="space-y-12 sm:space-y-20">
           {Object.keys(Videos).map((catKey) => {
             const category = Videos[catKey];
             return (

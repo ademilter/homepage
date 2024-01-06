@@ -2,7 +2,7 @@ import { addYears, format, getYear, startOfYear } from "date-fns";
 import Raindrop from "@/lib/raindrop";
 import { ILink } from "@/types";
 import { Metadata } from "next";
-import { bookmarkGroupByWeekNumber } from "@/lib/helper";
+import { bookmarkGroupByWeekNumber, formatter } from "@/lib/helper";
 import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import SubTitle from "@/components/subtitle";
@@ -40,7 +40,7 @@ export default async function Bookmark() {
   const { data, year } = await fetchData();
   const dataGroupByWeekNumber = bookmarkGroupByWeekNumber(data);
 
-  const week = format(new Date(), "w");
+  const week = format(new Date(), "w", { weekStartsOn: 1 });
 
   return (
     <>
@@ -51,8 +51,8 @@ export default async function Bookmark() {
           <ThankYou />
         </div>*/}
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
-          <MetricCard data={Number(data.length).toLocaleString()}>
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
+          <MetricCard data={formatter.format(data.length)}>
             Link ({year})
           </MetricCard>
           <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
@@ -84,12 +84,15 @@ export default async function Bookmark() {
           </Link>
         </div>
 
-        <div className="mt-16 flex gap-2 opacity-50">
+        <div className="mt-16 opacity-50 hover:opacity-100">
           Önceki yıllara ait listeler;
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
-            <Link href={`/bookmarks/${year}`} key={year} className="">
-              {year}
-            </Link>
+            <span key={year}>
+              {" "}
+              <Link href={`/bookmarks/${year}`} className="">
+                {year}
+              </Link>
+            </span>
           ))}
         </div>
       </Container>

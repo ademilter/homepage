@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import BaseLink from "@/components/link";
+import cx from "@/lib/cx";
 
 function MetricCard({
   children,
@@ -12,30 +12,26 @@ function MetricCard({
   data: string | number | ReactNode;
   prefix?: string;
 }) {
-  const Title = () => (
-    <span className="font-mono text-sm uppercase tracking-wider opacity-50 hover:opacity-100 dark:opacity-40">
-      {children}
-    </span>
-  );
-
   return (
-    <div
-      className="
-      rounded-lg border border-zinc-200 bg-white px-5 py-3 shadow-sm
-      dark:border-zinc-700 dark:bg-zinc-800"
-    >
-      {href ? (
-        <BaseLink className="no-underline" href={href}>
-          <Title />
-        </BaseLink>
-      ) : (
-        <Title />
+    <a
+      href={href}
+      className={cx(
+        "flex flex-col gap-1 px-5 py-3 no-underline",
+        "rounded-lg shadow-sm",
+        "border border-zinc-200 hover:border-0 dark:border-zinc-700",
+        "bg-white hover:bg-blue-600 dark:bg-zinc-800",
+        "hover:text-white dark:hover:text-zinc-50",
+        href ? "" : "pointer-events-none",
       )}
-      <div className="text-xl font-semibold">
+    >
+      <h5 className="font-mono text-sm uppercase tracking-wider opacity-50 dark:opacity-40">
+        {children}
+      </h5>
+      <div className="text-xl font-semibold leading-none">
         {prefix}
         {data}
       </div>
-    </div>
+    </a>
   );
 }
 

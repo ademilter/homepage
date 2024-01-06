@@ -13,9 +13,8 @@ function SocialButton({ href, children }) {
       className="
       flex items-center rounded-full bg-zinc-200 p-3
       text-zinc-600 no-underline transition-colors
-      hover:bg-blue-700 hover:text-white
-      dark:bg-zinc-800 dark:text-zinc-400
-      dark:hover:bg-blue-500"
+      hover:bg-blue-600 hover:text-white
+      dark:bg-zinc-800 dark:text-zinc-400"
     >
       {children}
     </Link>

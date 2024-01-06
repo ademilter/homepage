@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { formatter } from "@/lib/helper";
 
 export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
   const [value, setValue] = useState(0);
@@ -22,5 +23,5 @@ export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
     getData();
   }, [slug]);
 
-  return value;
+  return formatter.format(value);
 };

@@ -22,8 +22,8 @@ export default function Segmented({
   return (
     <div
       className={cx(
-        "items-center rounded-full bg-zinc-100 p-1 dark:bg-zinc-800",
-        fullWidth ? "flex" : "inline-flex",
+        "grid grid-cols-3 items-center rounded-3xl bg-zinc-100 p-1 sm:rounded-full dark:bg-zinc-800",
+        fullWidth ? "sm:flex" : "sm:inline-flex",
         className,
       )}
     >
@@ -36,7 +36,7 @@ export default function Segmented({
             onClick={() => onChange(item)}
             {...buttonProps}
             className={cx(
-              "relative grow rounded-full bg-transparent px-3 py-2",
+              "relative grow rounded-full bg-transparent px-4 py-2",
               "hover:bg-zinc-200 dark:hover:bg-zinc-900",
               buttonProps?.className,
             )}

@@ -4,6 +4,7 @@ import Container from "@/components/container";
 import Photos from "@/components/photos";
 import { SOCIAL } from "@/lib/const";
 import { Metadata } from "next";
+import { formatter } from "@/lib/helper";
 
 export const metadata: Metadata = {
   title: "Fotoğraflar",
@@ -22,23 +23,23 @@ export default async function PhotosPage() {
       <Container>
         <h1 className="text-2xl">{metadata.description}</h1>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8">
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
           <MetricCard
             href={SOCIAL.unsplash}
-            data={Number(stats.views.total).toLocaleString()}
+            data={formatter.format(stats.views.total)}
           >
             Görüntüleme
           </MetricCard>
           <MetricCard
             href={SOCIAL.unsplash}
-            data={Number(stats.downloads.total).toLocaleString()}
+            data={formatter.format(stats.downloads.total)}
           >
             İndirme
           </MetricCard>
         </div>
       </Container>
 
-      <Container size="large" className="mt-20">
+      <Container size="large" className="mt-14 sm:mt-20">
         <Photos data={photos} />
       </Container>
     </>
