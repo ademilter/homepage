@@ -19,19 +19,6 @@ function BookmarkCard({
   const [s, setS] = useState(score);
   const [loading, setLoading] = useState(week);
 
-  async function getScore() {
-    try {
-      setLoading(true);
-      const response = await fetch(`/api/bookmark?url=${bookmark.link}`);
-      const data = await response.json();
-      setS(data.score);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   async function onUp() {
     if (!week) return;
 
@@ -46,6 +33,19 @@ function BookmarkCard({
           url: bookmark.link,
         }),
       });
+      const data = await response.json();
+      setS(data.score);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function getScore() {
+    try {
+      setLoading(true);
+      const response = await fetch(`/api/bookmark?url=${bookmark.link}`);
       const data = await response.json();
       setS(data.score);
     } catch (e) {

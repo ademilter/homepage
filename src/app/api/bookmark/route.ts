@@ -14,7 +14,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     return new NextResponse("URL not found", { status: 400 });
   }
 
-  const score = await redis.get(["bookmark", "up", url].join(":"));
+  const score = await redis.get(["bookmark", "up", encodeURI(url)].join(":"));
   return NextResponse.json({ score }, { status: 202 });
 }
 
