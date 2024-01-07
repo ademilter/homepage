@@ -80,7 +80,7 @@ function BookmarkCard({
           </Link>
         </h3>
 
-        <div className="mt-1 flex items-center space-x-2 font-mono text-sm opacity-60 dark:opacity-50">
+        <div className="mt-1 flex items-center space-x-2 font-mono text-sm opacity-60 dark:opacity-40">
           <span>{bookmark.domain}</span>
           <span>·</span>
           <span>
@@ -100,7 +100,8 @@ function BookmarkCard({
           "flex h-10 shrink-0 items-center justify-center px-3",
           "rounded-lg bg-zinc-100 text-sm text-zinc-500 dark:bg-zinc-800",
           week && "hover:bg-zinc-200 dark:hover:bg-zinc-700",
-          s && "bg-pink-50 text-pink-600 opacity-100 hover:bg-pink-100",
+          s &&
+            "bg-pink-50 text-pink-600 opacity-100 hover:bg-pink-100 dark:bg-pink-200/10 dark:hover:bg-pink-200/20",
           loading && "opacity-60",
         )}
       >
