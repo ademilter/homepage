@@ -14,7 +14,7 @@ export default function Index() {
             <span className="opacity-60">Istanbul, TURKEY</span>
           </h1>
 
-          <p className="text-xl sm:text-2xl">
+          <p className="text-xl">
             Bence en büyük özelliğim;
             <br /> Üzerinde çalıştığım işlerin her noktasında <b>NEDEN</b>{" "}
             sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp,
