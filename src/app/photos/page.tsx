@@ -21,7 +21,7 @@ export default async function PhotosPage() {
   return (
     <>
       <Container>
-        <h1 className="text-2xl">{metadata.description}</h1>
+        <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
           <MetricCard

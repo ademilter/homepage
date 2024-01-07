@@ -65,8 +65,10 @@ export default async function BlogPost({ params }) {
     <Container>
       <article className="post">
         <header>
-          <h1 className="font-display text-3xl font-semibold">{post.title}</h1>
-          <h2 className="mt-2 text-xl">{post.subtitle}</h2>
+          <h1 className="font-display text-xl font-semibold sm:text-2xl">
+            {post.title}
+          </h1>
+          <h2 className="mt-2 text-lg sm:text-xl">{post.subtitle}</h2>
 
           <div className="mt-10 flex items-center space-x-2 opacity-60">
             <time dateTime={post.date}>

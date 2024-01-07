@@ -71,7 +71,7 @@ export default async function BookmarkByYear({ params }) {
   return (
     <>
       <Container>
-        <h1 className="text-2xl">{metadata.description}</h1>
+        <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
         {/*<div className="mt-10">
           <ThankYou />

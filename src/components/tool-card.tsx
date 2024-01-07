@@ -5,7 +5,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
   const { brand, name, wtf, favorite, comment } = tool.fields;
 
   return (
-    <article className="relative flex items-center gap-6 border-b border-b-zinc-200 py-4 md:py-8 dark:border-b-zinc-800">
+    <article className="relative flex items-center gap-6 border-b border-b-zinc-200 py-4 sm:py-8 dark:border-b-zinc-800">
       <div className="grow">
         <span className="mb-1 block font-mono text-sm uppercase tracking-wider opacity-50 dark:opacity-40">
           {wtf}
@@ -18,7 +18,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
 
       <span
         className={cx(
-          "flex h-full min-h-10 w-10 shrink-0 items-center justify-center ",
+          "flex h-full min-h-10 w-10 shrink-0 items-center justify-center",
           "rounded-lg bg-zinc-200 text-amber-500 opacity-60 dark:bg-zinc-800 dark:text-amber-300",
         )}
       >

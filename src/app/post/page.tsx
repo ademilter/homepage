@@ -26,16 +26,16 @@ export default function PostsPage() {
   return (
     <>
       <Container>
-        <h1 className="text-2xl">{metadata.description}</h1>
+        <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
       </Container>
 
-      <Container className="mt-16 md:mt-12">
+      <Container className="mt-16 sm:mt-12">
         <div className="">
           {posts.map((post) => {
             return (
               <article
                 key={post._id}
-                className="border-b border-b-zinc-200 py-4 md:py-8 dark:border-b-zinc-800"
+                className="border-b border-b-zinc-200 py-4 sm:py-8 dark:border-b-zinc-800"
               >
                 <header>
                   <h3 className="font-semibold">

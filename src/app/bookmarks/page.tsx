@@ -1,14 +1,14 @@
-import { addYears, format, getYear, startOfYear } from "date-fns";
+import { addYears, format, startOfYear } from "date-fns";
 import Raindrop from "@/lib/raindrop";
 import { ILink } from "@/types";
 import { Metadata } from "next";
 import { bookmarkGroupByWeekNumber, formatter } from "@/lib/helper";
 import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
-import SubTitle from "@/components/subtitle";
 import BookmarkCard from "@/components/bookmark-card";
 import Link from "next/link";
 import { ReportView } from "@/app/bookmarks/view";
+import SubTitle from "@/components/subtitle";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -45,11 +45,7 @@ export default async function Bookmark() {
   return (
     <>
       <Container>
-        <h1 className="text-2xl">{metadata.description}</h1>
-
-        {/*<div className="mt-10">
-          <ThankYou />
-        </div>*/}
+        <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
           <MetricCard data={formatter.format(data.length)}>
@@ -61,11 +57,9 @@ export default async function Bookmark() {
         </div>
       </Container>
 
-      <Container className="mt-16">
+      <Container className="mt-12 sm:mt-14">
         <div key={week}>
-          <SubTitle>
-            {week}. Hafta, {year}
-          </SubTitle>
+          <SubTitle>Son Eklenenler</SubTitle>
 
           <div className="mt-4">
             {dataGroupByWeekNumber[week].map((item: ILink) => {
@@ -75,23 +69,13 @@ export default async function Bookmark() {
         </div>
 
         <div className="mt-16">
-          <Link
-            href={`/bookmarks/${getYear(new Date())}`}
-            className="rounded-lg bg-zinc-200 px-4 py-3 no-underline hover:bg-zinc-300
-              dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
-          >
-            Tüm listeyi görüntüle →
-          </Link>
-        </div>
-
-        <div className="mt-16 opacity-50 hover:opacity-100">
-          Önceki yıllara ait listeler;
+          Önceki yıllara ait listeler;{" "}
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
             <span key={year}>
-              {" "}
-              <Link href={`/bookmarks/${year}`} className="">
+              <Link href={`/bookmarks/${year}`} className="font-medium">
                 {year}
               </Link>
+              {", "}
             </span>
           ))}
         </div>

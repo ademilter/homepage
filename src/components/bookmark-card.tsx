@@ -61,8 +61,13 @@ function BookmarkCard({
   }, [week]);
 
   return (
-    <article className="flex items-center gap-6 border-b border-b-zinc-200 py-4 md:py-6 dark:border-b-zinc-800">
-      <div className="grow">
+    <article
+      className={cx(
+        "flex items-center gap-6 py-4 sm:py-6",
+        "border-b border-b-zinc-200/60 dark:border-b-zinc-800",
+      )}
+    >
+      <div className="order-2 grow">
         <h3 className="font-semibold">
           <Link
             href={bookmark.link}
@@ -92,20 +97,18 @@ function BookmarkCard({
         onClick={onUp}
         disabled={!week || loading}
         className={cx(
-          "flex shrink-0 items-center justify-center",
-          "h-8 min-w-8 px-3",
-          "rounded-lg bg-zinc-200 opacity-40 dark:bg-zinc-800",
-          s && "opacity-100",
-          week && "hover:bg-zinc-300 hover:opacity-100 dark:hover:bg-zinc-700",
-          loading && "opacity-20",
+          "flex h-10 shrink-0 items-center justify-center px-3",
+          "rounded-lg bg-zinc-100 text-sm text-zinc-500 dark:bg-zinc-800",
+          week && "hover:bg-zinc-200 dark:hover:bg-zinc-700",
+          s && "bg-pink-50 text-pink-600 opacity-100 hover:bg-pink-100",
+          loading && "opacity-60",
         )}
       >
         <span className={cx("flex items-center gap-1 font-mono font-medium")}>
-          {Number(s)}
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
+            width="12"
+            height="12"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
@@ -119,6 +122,7 @@ function BookmarkCard({
               fill="currentColor"
             />
           </svg>
+          {Number(s)}
         </span>
       </button>
     </article>

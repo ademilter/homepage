@@ -8,13 +8,13 @@ export default function Index() {
     <>
       <Container>
         <div className="space-y-6">
-          <h1 className="grid font-display text-xl">
+          <h1 className="grid font-display text-xl sm:text-2xl">
             <b>Adem İlter</b>
             <span className="opacity-60">Product Designer</span>
             <span className="opacity-60">Istanbul, TURKEY</span>
           </h1>
 
-          <p className="text-xl">
+          <p className="text-xl sm:text-2xl">
             Bence en büyük özelliğim;
             <br /> Üzerinde çalıştığım işlerin her noktasında <b>NEDEN</b>{" "}
             sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp,

@@ -33,7 +33,7 @@ export default async function AppsPage() {
 
   return (
     <Container>
-      <h1 className="text-2xl">{metadata.description}</h1>
+      <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
       <Apps data={data} />
     </Container>
