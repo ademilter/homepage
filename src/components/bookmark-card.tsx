@@ -98,12 +98,12 @@ function BookmarkCard({
         onClick={onUp}
         disabled={!week || loading}
         className={cx(
-          "flex h-10 shrink-0 items-center justify-center px-3",
+          "flex h-10 shrink-0 cursor-n-resize items-center justify-center px-3",
           "rounded-lg bg-zinc-100 text-sm text-zinc-500 dark:bg-zinc-800",
           week && "hover:bg-zinc-200 dark:hover:bg-zinc-700",
           s &&
             "bg-pink-50 text-pink-600 hover:bg-pink-100 dark:bg-pink-200/10 dark:hover:bg-pink-200/20",
-          loading && "opacity-60",
+          loading && "cursor-progress opacity-60",
         )}
       >
         <span className={cx("flex items-center gap-1 font-mono font-medium")}>

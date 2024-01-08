@@ -14,8 +14,12 @@
         @apply transition;
     }
 
-    strong,
-    b {
+    [role="button"],
+    button {
+        @apply cursor-default
+    }
+
+    strong, b {
         @apply font-semibold;
     }
 }
