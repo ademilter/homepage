@@ -2,7 +2,7 @@ import { addYears, format, startOfYear } from "date-fns";
 import Raindrop from "@/lib/raindrop";
 import { ILink } from "@/types";
 import { Metadata } from "next";
-import { bookmarkGroupByWeekNumber, formatter } from "@/lib/helper";
+import { formatter } from "@/lib/helper";
 import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import BookmarkCard from "@/components/bookmark-card";
@@ -31,16 +31,13 @@ async function fetchData() {
   });
 
   return {
-    data: collections,
+    data: collections.slice(0, 8),
     year: format(new Date(), "yyyy"),
   };
 }
 
 export default async function Bookmark() {
   const { data, year } = await fetchData();
-  const dataGroupByWeekNumber = bookmarkGroupByWeekNumber(data);
-
-  const week = format(new Date(), "w", { weekStartsOn: 1 });
 
   return (
     <>
@@ -58,11 +55,11 @@ export default async function Bookmark() {
       </Container>
 
       <Container className="mt-12 sm:mt-14">
-        <div key={week}>
+        <div>
           <SubTitle>Son Eklenenler</SubTitle>
 
           <div className="mt-4">
-            {dataGroupByWeekNumber[week].map((item: ILink) => {
+            {data.map((item: ILink) => {
               return <BookmarkCard week key={item._id} bookmark={item} />;
             })}
           </div>

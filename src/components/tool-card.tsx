@@ -18,8 +18,10 @@ export default function ToolCard({ tool }: { tool: ITool }) {
 
       <span
         className={cx(
-          "flex h-full min-h-10 w-10 shrink-0 items-center justify-center",
-          "rounded-lg bg-zinc-200 text-amber-500 opacity-60 dark:bg-zinc-800 dark:text-amber-300",
+          "flex h-full w-10 shrink-0 items-center justify-center",
+          "rounded-lg bg-zinc-100 dark:bg-zinc-800/50",
+          favorite &&
+            "bg-amber-100/60 text-amber-500 dark:bg-amber-100/20 dark:text-amber-300",
         )}
       >
         {favorite && (
