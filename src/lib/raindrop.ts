@@ -54,9 +54,30 @@ export default class Raindrop {
 
   private normalizeData(data: ILink[]) {
     return data.map((bookmark) => {
-      const { _id, type, created, title, link, excerpt, domain, tags, cover } =
-        bookmark;
-      return { _id, type, created, title, link, excerpt, domain, tags, cover };
+      const {
+        _id,
+        type,
+        created,
+        media,
+        title,
+        link,
+        excerpt,
+        domain,
+        tags,
+        cover,
+      } = bookmark;
+      return {
+        _id,
+        type,
+        created,
+        media,
+        title,
+        link,
+        excerpt,
+        domain,
+        tags,
+        cover,
+      };
     });
   }
 }

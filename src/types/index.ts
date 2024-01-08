@@ -77,7 +77,7 @@ export type ILink = {
   domain: string; // 'figma-to-react.vercel.app',
   tags: string[]; // [ 'history', 'frontend', 'figma', 'react' ],
   cover: string; // 'https://rdl.ink/render/https%3A%2F%2Ffigma-to-react.vercel.app%2F',
-  // media: any; // [Array];
+  media: { link: string; type: string }[]; // [Array];
   // collectionId: number; // 15611214
   // note: string; // "";
   // removed: boolean; // false;
