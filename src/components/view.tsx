@@ -3,7 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { formatter } from "@/lib/helper";
 
-export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
+export const ReportView: React.FC<{ slug: string; incr?: boolean }> = ({
+  slug,
+  incr = false,
+}) => {
   const [value, setValue] = useState(0);
 
   async function getData() {
@@ -12,7 +15,7 @@ export const ReportView: React.FC<{ slug: string }> = ({ slug }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ slug }),
+      body: JSON.stringify({ slug, incr }),
     });
     const data = await response.json();
     setValue(data.view);

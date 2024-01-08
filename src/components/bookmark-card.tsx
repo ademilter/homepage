@@ -72,7 +72,8 @@ function BookmarkCard({
           <Link
             href={bookmark.link}
             className={cx(
-              "visited:text-zinc-500 visited:decoration-zinc-200",
+              "decoration-zinc-600",
+              "visited:decoration-zinc-200",
               "dark:visited:decoration-zinc-800",
             )}
           >
@@ -101,7 +102,7 @@ function BookmarkCard({
           "rounded-lg bg-zinc-100 text-sm text-zinc-500 dark:bg-zinc-800",
           week && "hover:bg-zinc-200 dark:hover:bg-zinc-700",
           s &&
-            "bg-pink-50 text-pink-600 opacity-100 hover:bg-pink-100 dark:bg-pink-200/10 dark:hover:bg-pink-200/20",
+            "bg-pink-50 text-pink-600 hover:bg-pink-100 dark:bg-pink-200/10 dark:hover:bg-pink-200/20",
           loading && "opacity-60",
         )}
       >

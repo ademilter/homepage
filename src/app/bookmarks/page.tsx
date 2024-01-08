@@ -7,7 +7,7 @@ import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import BookmarkCard from "@/components/bookmark-card";
 import Link from "next/link";
-import { ReportView } from "@/app/bookmarks/view";
+import { ReportView } from "@/components/view";
 import SubTitle from "@/components/subtitle";
 
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ export default async function Bookmark() {
           <MetricCard data={formatter.format(data.length)}>
             Link ({year})
           </MetricCard>
-          <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
+          <MetricCard data={<ReportView incr slug={`/bookmarks/${year}`} />}>
             Görüntülenme
           </MetricCard>
         </div>
@@ -65,7 +65,7 @@ export default async function Bookmark() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-16 opacity-60">
           Önceki yıllara ait listeler;{" "}
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
             <span key={year}>

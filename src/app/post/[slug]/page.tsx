@@ -6,6 +6,7 @@ import Container from "@/components/container";
 import { notFound } from "next/navigation";
 import ClapsButton from "@/components/claps";
 import BaseLink from "@/components/link";
+import { ReportView } from "@/components/view";
 
 type Props = {
   params: {
@@ -78,6 +79,10 @@ export default async function BlogPost({ params }) {
             </time>
             <span>·</span>
             <span>{post.readingTime.text}</span>
+            <span>·</span>
+            <span>
+              <ReportView incr slug={`/post/${post.slug}`} /> görüntüleme
+            </span>
           </div>
         </header>
 

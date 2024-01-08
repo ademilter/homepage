@@ -10,7 +10,7 @@ import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import SubTitle from "@/components/subtitle";
 import BookmarkCard from "@/components/bookmark-card";
-import { ReportView } from "@/app/bookmarks/view";
+import { ReportView } from "@/components/view";
 
 const redis = Redis.fromEnv();
 
@@ -73,15 +73,11 @@ export default async function BookmarkByYear({ params }) {
       <Container>
         <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
-        {/*<div className="mt-10">
-          <ThankYou />
-        </div>*/}
-
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
           <MetricCard data={formatter.format(data.length)}>
             Link ({year})
           </MetricCard>
-          <MetricCard data={<ReportView slug={`/bookmarks/${year}`} />}>
+          <MetricCard data={<ReportView incr slug={`/bookmarks/${year}`} />}>
             Görüntülenme
           </MetricCard>
         </div>

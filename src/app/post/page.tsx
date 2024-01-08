@@ -4,6 +4,7 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 import Container from "@/components/container";
 import { Metadata } from "next";
+import { ReportView } from "@/components/view";
 
 export const metadata: Metadata = {
   title: "Yazılar",
@@ -56,6 +57,10 @@ export default function PostsPage() {
                   </time>
                   <span>·</span>
                   <span>{post.readingTime.text}</span>
+                  <span>·</span>
+                  <span>
+                    <ReportView slug={`/post/${post.slug}`} /> görüntüleme
+                  </span>
                 </footer>
               </article>
             );
