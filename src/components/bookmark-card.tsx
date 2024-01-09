@@ -91,6 +91,8 @@ function BookmarkCard({
             </Link>
           </h3>
 
+          {bookmark.note && <p className="my-2 opacity-80">{bookmark.note}</p>}
+
           <div className="mt-1 flex items-center space-x-2 font-mono text-sm opacity-60 dark:opacity-40">
             <LinkTypeIcon type={bookmark.type} />
             <span>{bookmark.domain}</span>

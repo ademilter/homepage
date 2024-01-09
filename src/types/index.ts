@@ -79,7 +79,7 @@ export type ILink = {
   cover: string; // 'https://rdl.ink/render/https%3A%2F%2Ffigma-to-react.vercel.app%2F',
   media: { link: string; type: string }[]; // [Array];
   // collectionId: number; // 15611214
-  // note: string; // "";
+  note: string; // "";
   // removed: boolean; // false;
   // lastUpdate: string; // "2022-11-22T19:21:12.043Z";
   // important: boolean; // false;

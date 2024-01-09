@@ -63,6 +63,7 @@ export default class Raindrop {
         link,
         excerpt,
         domain,
+        note,
         tags,
         cover,
       } = bookmark;
@@ -75,6 +76,7 @@ export default class Raindrop {
         link,
         excerpt,
         domain,
+        note,
         tags,
         cover,
       };
