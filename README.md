@@ -38,7 +38,7 @@ istatistiklerini okumak için Google API kullanır.
 
 ### Fotoğraf
 
-Bu sayfanın içerikleri Unsplash hesabımdan geliyor. Fotoğraf yayınlamak
+Bu sayfanın içerikleri [Unsplash](https://upstash.com) hesabımdan geliyor. Fotoğraf yayınlamak
 istediğimde Unsplash hesabımda paylaşmam yeterli oluyor.
 
 ### Blog
@@ -47,8 +47,8 @@ Yazıları markdown olarak yazıyorum (yazılar /data klasörü içinde). [Conte
 
 ### Ekipman & Uygulama
 
-Bu sayfanın içerikleri Airtable hesabımdan geliyor.
+Bu sayfanın içerikleri [Airtable](https://www.airtable.com) hesabımdan geliyor.
 
 ### Yer İmi
 
-İçerikler Raindrop hesabımdan geliyor.
+İçerikler [Raindrop](https://raindrop.io) hesabımdan geliyor.
