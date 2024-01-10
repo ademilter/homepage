@@ -1,6 +1,7 @@
 import "./globals.css";
 import "@upstash/claps/style.css";
 
+import { ClerkProvider } from "@clerk/nextjs";
 import AnalyticsWrapper from "./analytics";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -49,29 +50,31 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html
-      lang="tr"
-      className={cx(
-        "scroll-smooth bg-zinc-50 text-zinc-800",
-        "dark:bg-zinc-900 dark:text-zinc-200",
-        displayFont.variable,
-        defaultFont.variable,
-      )}
-    >
-      <body className="antialiased ">
-        <div className="flex min-h-screen flex-col pb-14 pt-10">
-          <Header />
-          <main className="mt-10 grow sm:mt-20">{children}</main>
-          <Footer />
-        </div>
+    <ClerkProvider>
+      <html
+        lang="tr"
+        className={cx(
+          "scroll-smooth bg-zinc-50 text-zinc-800",
+          "dark:bg-zinc-900 dark:text-zinc-200",
+          displayFont.variable,
+          defaultFont.variable,
+        )}
+      >
+        <body className="antialiased ">
+          <div className="flex min-h-screen flex-col pb-14 pt-10">
+            <Header />
+            <main className="mt-10 grow sm:mt-20">{children}</main>
+            <Footer />
+          </div>
 
-        <Script
-          src="https://widgets.superpeer.com/widget.js"
-          strategy="beforeInteractive"
-        />
-        <AnalyticsWrapper />
-      </body>
-    </html>
+          <Script
+            src="https://widgets.superpeer.com/widget.js"
+            strategy="beforeInteractive"
+          />
+          <AnalyticsWrapper />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
 

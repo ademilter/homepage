@@ -1,5 +1,6 @@
 "use client";
 
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import IconArrowDropDown from "./icons/arrow-drop-down";
@@ -32,7 +33,7 @@ export default function Header() {
         <nav
           className={cx(
             isNavOpen ? "flex" : "hidden",
-            "flex-col gap-4 sm:!flex sm:flex-row",
+            "flex-col gap-4 sm:!flex sm:flex-row sm:items-center",
           )}
         >
           {Object.entries(MENU).map(([key, value]) => {
@@ -50,6 +51,13 @@ export default function Header() {
               </NextLink>
             );
           })}
+
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton />
+          </SignedOut>
         </nav>
 
         {!isNavOpen && (
