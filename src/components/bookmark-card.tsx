@@ -16,7 +16,7 @@ function BookmarkCard({
   score?: number;
   week?: boolean;
 }) {
-  const [s, setS] = useState(score);
+  const [data, setData] = useState({ score, voted: false });
   const [loading, setLoading] = useState(week);
   const image = bookmark.media[0]?.link;
 
@@ -35,7 +35,7 @@ function BookmarkCard({
         }),
       });
       const data = await response.json();
-      setS(data.score);
+      setData(data);
     } catch (e) {
       console.log(e);
     } finally {
@@ -43,12 +43,12 @@ function BookmarkCard({
     }
   }
 
-  async function getScore() {
+  async function getData() {
     try {
       setLoading(true);
       const response = await fetch(`/api/bookmark?url=${bookmark.link}`);
       const data = await response.json();
-      setS(data.score);
+      setData({ ...data, score: data.score });
     } catch (e) {
       console.log(e);
     } finally {
@@ -58,7 +58,7 @@ function BookmarkCard({
 
   useEffect(() => {
     if (!week) return;
-    getScore();
+    getData();
   }, [week]);
 
   return (
@@ -115,7 +115,7 @@ function BookmarkCard({
           "flex h-8 shrink-0 cursor-n-resize items-center justify-center px-3",
           "rounded-lg bg-zinc-100 text-sm text-zinc-500 dark:bg-zinc-800",
           week && "hover:bg-zinc-200 dark:hover:bg-zinc-700",
-          s &&
+          data.voted &&
             "bg-pink-50 text-pink-600 hover:bg-pink-100 dark:bg-pink-200/10 dark:hover:bg-pink-200/20",
           loading && "cursor-progress opacity-60",
         )}
@@ -138,7 +138,7 @@ function BookmarkCard({
               fill="currentColor"
             />
           </svg>
-          {Number(s)}
+          {Number(data.score)}
         </span>
       </button>
     </article>
