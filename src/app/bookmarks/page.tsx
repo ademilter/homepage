@@ -2,7 +2,6 @@ import { addYears, format, startOfYear } from "date-fns";
 import Raindrop from "@/lib/raindrop";
 import { ILink } from "@/types";
 import { Metadata } from "next";
-import { formatter } from "@/lib/helper";
 import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import BookmarkCard from "@/components/bookmark-card";
@@ -31,13 +30,14 @@ async function fetchData() {
   });
 
   return {
+    count: collections.length,
     data: collections.slice(0, 8),
     year: format(new Date(), "yyyy"),
   };
 }
 
 export default async function Bookmark() {
-  const { data, year } = await fetchData();
+  const { count, data, year } = await fetchData();
 
   return (
     <>
@@ -45,9 +45,7 @@ export default async function Bookmark() {
         <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
-          <MetricCard data={formatter.format(data.length)}>
-            Link ({year})
-          </MetricCard>
+          <MetricCard data={count}>Link ({year})</MetricCard>
           <MetricCard data={<ReportView incr slug={`/bookmarks/${year}`} />}>
             Görüntülenme
           </MetricCard>
