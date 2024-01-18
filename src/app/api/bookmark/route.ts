@@ -14,7 +14,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     return new NextResponse("URL not found", { status: 400 });
   }
 
-  const hashIP = getIPHash(req);
+  const hashIP = await getIPHash(req);
   let voted = null;
 
   if (Boolean(hashIP)) {
@@ -38,7 +38,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return new NextResponse("URL not found", { status: 400 });
   }
 
-  const hashIP = getIPHash(req);
+  const hashIP = await getIPHash(req);
 
   if (Boolean(hashIP)) {
     const isNew = await redis.set(
