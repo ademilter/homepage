@@ -64,7 +64,7 @@ function BookmarkCard({
   return (
     <article
       className={cx(
-        "flex items-center gap-6 py-4 sm:py-6",
+        "flex items-center gap-6 py-4 sm:py-6 md:gap-10",
         "border-b border-b-zinc-200/60 dark:border-b-zinc-800",
       )}
     >

@@ -16,10 +16,22 @@
 
     [role="button"],
     button {
-        @apply cursor-default
+        @apply cursor-default;
     }
 
-    strong, b {
+    strong,
+    b {
         @apply font-semibold;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply text-balance;
+    }
+
+    p {
+        @apply text-pretty;
     }
 }

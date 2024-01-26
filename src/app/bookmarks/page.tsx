@@ -8,6 +8,7 @@ import BookmarkCard from "@/components/bookmark-card";
 import Link from "next/link";
 import { ReportView } from "@/components/view";
 import SubTitle from "@/components/subtitle";
+import ThankYou from "@/components/thank-you";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -61,9 +62,13 @@ export default async function Bookmark() {
               return <BookmarkCard week key={item._id} bookmark={item} />;
             })}
           </div>
+
+          <div className="mt-10">
+            <ThankYou />
+          </div>
         </div>
 
-        <div className="mt-16 opacity-60">
+        <div className="mt-10 opacity-60">
           Önceki yıllara ait listeler;{" "}
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
             <span key={year}>
