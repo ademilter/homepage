@@ -25,10 +25,6 @@ export default async function VideosPage() {
       <Container>
         <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
 
-        <p className="mt-10">
-          <ThankYou />
-        </p>
-
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
           <MetricCard
             href={SOCIAL.youtube}
@@ -43,6 +39,10 @@ export default async function VideosPage() {
             İzlenme
           </MetricCard>
         </div>
+
+        <p className="mt-10">
+          <ThankYou />
+        </p>
       </Container>
 
       <Container className="mt-12 sm:mt-20">

@@ -36,7 +36,7 @@ export default function Segmented({
             onClick={() => onChange(item)}
             {...buttonProps}
             className={cx(
-              "relative grow rounded-full bg-transparent px-3 py-1",
+              "relative grow select-none rounded-full bg-transparent px-3 py-2",
               "hover:bg-zinc-200 dark:hover:bg-zinc-900",
               buttonProps?.className,
             )}
