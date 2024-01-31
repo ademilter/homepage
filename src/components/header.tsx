@@ -7,7 +7,7 @@ import cx from "@/lib/cx";
 import Container from "./container";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 
-const MENU = {
+export const MENU = {
   "/": "Hakkımda",
   "/videos": "Eğitimler",
   "/photos": "Fotoğraflar",

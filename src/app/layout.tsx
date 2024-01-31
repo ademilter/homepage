@@ -9,6 +9,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import Script from "next/script";
 import cx from "@/lib/cx";
+import BgColor from "@/components/bg";
 
 const title = "Adem ilter";
 const description = "Designer, developer, creator and photographer.";
@@ -52,13 +53,15 @@ export default async function RootLayout({ children }) {
     <html
       lang="tr"
       className={cx(
-        "scroll-smooth bg-zinc-50 text-zinc-800",
+        "scroll-smooth bg-zinc-50 text-zinc-900",
         "dark:bg-zinc-900 dark:text-zinc-200",
         displayFont.variable,
         defaultFont.variable,
       )}
     >
-      <body className="antialiased ">
+      <body className="antialiased">
+        <BgColor />
+
         <div className="flex min-h-screen flex-col pb-14 pt-10">
           <Header />
           <main className="mt-10 grow sm:mt-20">{children}</main>
