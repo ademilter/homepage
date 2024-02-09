@@ -1,7 +1,7 @@
 import React from "react";
 import type { ISVGProps } from "@/types";
 
-export default function Buymeacoffee({ size = 32, ...props }: ISVGProps) {
+export default function IconBuyMeaCoffee({ size = 24, ...props }: ISVGProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

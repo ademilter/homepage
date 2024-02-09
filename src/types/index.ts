@@ -89,3 +89,25 @@ export type ILink = {
   // user: [Object];
   // highlights: [];
 };
+
+export type ISupporter = {
+  support_id: number;
+  support_visibility: number;
+  supporter_name: string;
+  support_coffees: number;
+  support_note: string;
+  transaction_id: string;
+  support_created_on: string;
+  // support_updated_on: string;
+  // transfer_id: number;
+  // support_coffee_price: string;
+  // support_email: string;
+  // is_refunded: null;
+  // support_currency: string;
+  // support_note_pinned: string;
+  // referer: null;
+  // country: string;
+  // payer_email: string;
+  // payment_platform: string;
+  // payer_name: string;
+};

@@ -6,6 +6,8 @@ import { useSelectedLayoutSegment } from "next/navigation";
 export default function BgColor() {
   const segment = useSelectedLayoutSegment();
 
+  return null;
+
   return (
     <span
       className={cx(
@@ -17,7 +19,7 @@ export default function BgColor() {
         segment === "photos" && "bg-orange-500/5",
         segment === "post" && "bg-purple-500/5",
         segment === "tools" && "bg-lime-500/5",
-        segment === "bookmarks" && "bg-pink-500/5",
+        segment === "bookmarks" && "bg-pink-500/[0.03]",
       )}
     />
   );

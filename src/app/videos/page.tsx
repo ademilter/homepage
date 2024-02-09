@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import ThankYou from "@/components/thank-you";
 import { formatter } from "@/lib/helper";
 import { SOCIAL } from "@/lib/const";
+import { fetchSupporter } from "@/app/bookmarks/action";
 
 export const metadata: Metadata = {
   title: "Eğitimler",
@@ -19,6 +20,7 @@ export const revalidate = 86400; // 60*60*24
 
 export default async function VideosPage() {
   const stats = await youtubeStats();
+  const supporter = await fetchSupporter();
 
   return (
     <>
@@ -40,9 +42,7 @@ export default async function VideosPage() {
           </MetricCard>
         </div>
 
-        <p className="mt-10">
-          <ThankYou />
-        </p>
+        <ThankYou className="mt-6" data={supporter} />
       </Container>
 
       <Container className="mt-12 sm:mt-20">

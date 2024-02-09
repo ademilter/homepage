@@ -1,5 +1,3 @@
-import { addYears, format, startOfYear } from "date-fns";
-import Raindrop from "@/lib/raindrop";
 import { ILink } from "@/types";
 import { Metadata } from "next";
 import Container from "@/components/container";
@@ -9,6 +7,7 @@ import Link from "next/link";
 import { ReportView } from "@/components/view";
 import SubTitle from "@/components/subtitle";
 import ThankYou from "@/components/thank-you";
+import { fetchBookmark, fetchSupporter } from "@/app/bookmarks/action";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -18,27 +17,9 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600; // 60*60*2
 
-async function fetchData() {
-  const dateStartOfYear = startOfYear(new Date());
-  const dateEndOfYear = addYears(dateStartOfYear, 1);
-
-  const startDateByFormat = format(dateStartOfYear, "yyyy-MM-dd");
-  const endDateByFormat = format(dateEndOfYear, "yyyy-MM-dd");
-
-  const raindrop = new Raindrop();
-  const collections: ILink[] = await raindrop.getBookmark({
-    search: `created:>${startDateByFormat} created:<${endDateByFormat}`,
-  });
-
-  return {
-    count: collections.length,
-    data: collections.slice(0, 8),
-    year: format(new Date(), "yyyy"),
-  };
-}
-
 export default async function Bookmark() {
-  const { count, data, year } = await fetchData();
+  const { count, data, year } = await fetchBookmark(new Date());
+  const supporter = await fetchSupporter();
 
   return (
     <>
@@ -51,6 +32,8 @@ export default async function Bookmark() {
             Görüntülenme
           </MetricCard>
         </div>
+
+        <ThankYou className="mt-6" data={supporter} />
       </Container>
 
       <Container className="mt-12 sm:mt-14">
@@ -58,13 +41,9 @@ export default async function Bookmark() {
           <SubTitle>Son Eklenenler</SubTitle>
 
           <div className="mt-4">
-            {data.map((item: ILink) => {
+            {data.slice(0, 8).map((item: ILink) => {
               return <BookmarkCard week key={item._id} bookmark={item} />;
             })}
-          </div>
-
-          <div className="mt-10">
-            <ThankYou />
           </div>
         </div>
 

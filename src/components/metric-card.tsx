@@ -17,7 +17,7 @@ function MetricCard({
       href={href}
       className={cx(
         "flex flex-col gap-1 px-5 py-3 no-underline",
-        "rounded-lg shadow-sm",
+        "rounded-xl shadow-sm",
         "border border-zinc-200 hover:border-0 dark:border-zinc-700",
         "bg-white hover:bg-blue-600 dark:bg-zinc-800",
         "hover:text-white dark:hover:text-zinc-50",

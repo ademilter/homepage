@@ -1,6 +1,4 @@
-import { addYears, format, startOfYear } from "date-fns";
 import { notFound } from "next/navigation";
-import Raindrop from "@/lib/raindrop";
 import { bookmarkGroupByWeekNumber, formatter } from "@/lib/helper";
 import { ILink } from "@/types";
 import { metadata as copy } from "../page";
@@ -11,6 +9,7 @@ import MetricCard from "@/components/metric-card";
 import SubTitle from "@/components/subtitle";
 import BookmarkCard from "@/components/bookmark-card";
 import { ReportView } from "@/components/view";
+import { fetchBookmark } from "@/app/bookmarks/action";
 
 const redis = Redis.fromEnv();
 
@@ -24,26 +23,8 @@ export async function generateStaticParams() {
   }));
 }
 
-async function fetchData(params) {
-  const dateStartOfYear = startOfYear(new Date(params.year));
-  const dateEndOfYear = addYears(dateStartOfYear, 1);
-
-  const startDateByFormat = format(dateStartOfYear, "yyyy-MM-dd");
-  const endDateByFormat = format(dateEndOfYear, "yyyy-MM-dd");
-
-  const raindrop = new Raindrop();
-  const collections: ILink[] = await raindrop.getBookmark({
-    search: `created:>${startDateByFormat} created:<${endDateByFormat}`,
-  });
-
-  return {
-    data: collections,
-    year: params.year,
-  };
-}
-
 export default async function BookmarkByYear({ params }) {
-  const { data, year } = await fetchData(params);
+  const { data, year } = await fetchBookmark(new Date(params.year));
 
   if (!Object.keys(data).length) {
     notFound();
