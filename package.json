@@ -16,8 +16,6 @@
   },
   "dependencies": {
     "@sindresorhus/slugify": "^2.2.1",
-    "@splinetool/react-spline": "^2.2.6",
-    "@splinetool/runtime": "^1.0.40",
     "@tabler/icons-react": "^2.46.0",
     "@upstash/claps": "^1.0.0-beta.4",
     "@upstash/redis": "^1.28.2",
