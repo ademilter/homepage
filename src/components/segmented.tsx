@@ -44,7 +44,7 @@ export default function Segmented({
             {isActive && (
               <motion.span
                 layoutId="bg"
-                className="absolute left-0 top-0 h-full w-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"
+                className="absolute left-0 top-0 size-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"
                 initial={false}
                 transition={{
                   type: "spring",

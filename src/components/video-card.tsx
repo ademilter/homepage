@@ -16,7 +16,7 @@ export default function VideoCard({ title, url, itemsCount }) {
         check ? "opacity-50" : "",
       )}
     >
-      <label className="mt-0.5 flex h-5 w-5 shrink-0 cursor-pointer items-center justify-center rounded border border-zinc-300 text-zinc-900 shadow-sm dark:border-zinc-600 dark:text-zinc-200">
+      <label className="mt-0.5 flex size-5 shrink-0 cursor-pointer items-center justify-center rounded border border-zinc-300 text-zinc-900 shadow-sm dark:border-zinc-600 dark:text-zinc-200">
         <input
           className="pointer-events-none absolute opacity-0"
           type="checkbox"
