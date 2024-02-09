@@ -7,49 +7,57 @@ type Result = {
   items: ILink[];
 };
 
-export default class Raindrop {
-  private readonly token: string = process.env.RAINDROP_CLIENT_SECRET!;
-  private url = "https://api.raindrop.io";
+type LinkRequest = {
+  perPage?: number;
+  page?: number;
+  sort?: "-created" | "created";
+  search?: string;
+};
 
-  public async getBookmark({
+export default class Raindrop {
+  private readonly TOKEN: string = process.env.RAINDROP_CLIENT_SECRET!;
+  private URL = "https://api.raindrop.io";
+
+  public async getBookmark(linkRequest: LinkRequest): Promise<ILink[]> {
+    let url = this.buildUrlWithParams(linkRequest);
+    const response = await this.getHttpDataFromUrl(url);
+    const data: Result = await response.json();
+
+    if (data.items.length === linkRequest.perPage) {
+      linkRequest.page && linkRequest.page++;
+      return data.items.concat(await this.getBookmark(linkRequest));
+    } else {
+      return this.normalizeData(data.items);
+    }
+  }
+
+  private getHttpDataFromUrl(url: URL) {
+    return fetch(url.toString(), {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.TOKEN}`,
+      },
+      next: { revalidate: 3600 },
+    });
+  }
+
+  private buildUrlWithParams({
     perPage = 50,
     page = 0,
     sort = "-created",
     search,
-  }: {
-    perPage?: number;
-    page?: number;
-    sort?: "-created" | "created";
-    search?: string;
-  }): Promise<ILink[]> {
-    let url = new URL(`/rest/v1/raindrops/15611214`, this.url);
+  }: LinkRequest): URL {
+    let url = new URL(`/rest/v1/raindrops/15611214`, this.URL);
 
     url.searchParams.set("perpage", perPage.toString());
     url.searchParams.set("page", page.toString());
     url.searchParams.set("sort", sort);
-    search && url.searchParams.set("search", search);
 
-    const response = await fetch(url.toString(), {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${this.token}`,
-      },
-      next: { revalidate: 3600 },
-    });
-    const data: Result = await response.json();
-
-    if (data.items.length === perPage) {
-      return data.items.concat(
-        await this.getBookmark({
-          page: page + 1,
-          perPage,
-          sort,
-          search,
-        }),
-      );
-    } else {
-      return this.normalizeData(data.items);
+    if (search) {
+      url.searchParams.set("search", search);
     }
+
+    return url;
   }
 
   private normalizeData(data: ILink[]) {
