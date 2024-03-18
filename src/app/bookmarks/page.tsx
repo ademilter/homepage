@@ -50,12 +50,14 @@ export default async function Bookmark() {
         <div className="mt-10 opacity-60">
           Önceki yıllara ait listeler;{" "}
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
-            <span key={year}>
-              <Link href={`/bookmarks/${year}`} className="font-medium">
-                {year}
-              </Link>
+            <Link
+              key={year}
+              href={`/bookmarks/${year}`}
+              className="font-medium"
+            >
+              {year}
               {", "}
-            </span>
+            </Link>
           ))}
         </div>
       </Container>
