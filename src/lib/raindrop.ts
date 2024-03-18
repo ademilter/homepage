@@ -18,14 +18,26 @@ export default class Raindrop {
   private readonly TOKEN: string = process.env.RAINDROP_CLIENT_SECRET!;
   private URL = "https://api.raindrop.io";
 
-  public async getBookmark(linkRequest: LinkRequest): Promise<ILink[]> {
-    let url = this.buildUrlWithParams(linkRequest);
+  public async getBookmark({
+    perPage = 50,
+    page = 0,
+    sort = "-created",
+    search,
+  }: LinkRequest): Promise<ILink[]> {
+    const a = {
+      perPage,
+      page,
+      sort,
+      search,
+    };
+
+    let url = this.buildUrlWithParams(a);
     const response = await this.getHttpDataFromUrl(url);
     const data: Result = await response.json();
 
-    if (data.items.length === linkRequest.perPage) {
-      linkRequest.page && linkRequest.page++;
-      return data.items.concat(await this.getBookmark(linkRequest));
+    if (data.items.length === a.perPage) {
+      a.page = a.page + 1;
+      return data.items.concat(await this.getBookmark(a));
     } else {
       return this.normalizeData(data.items);
     }
