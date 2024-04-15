@@ -111,3 +111,26 @@ export type ISupporter = {
   // payment_platform: string;
   // payer_name: string;
 };
+
+export interface User extends Record<string, any> {
+  id: string;
+  email: string;
+  password: string;
+  salt: string;
+}
+
+export interface Session {
+  user: {
+    id: string;
+    email: string;
+  };
+}
+
+export enum ResultCode {
+  InvalidCredentials = "INVALID_CREDENTIALS",
+  InvalidSubmission = "INVALID_SUBMISSION",
+  UserAlreadyExists = "USER_ALREADY_EXISTS",
+  UnknownError = "UNKNOWN_ERROR",
+  UserCreated = "USER_CREATED",
+  UserLoggedIn = "USER_LOGGED_IN",
+}

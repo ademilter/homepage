@@ -6,7 +6,7 @@ public/sw*
 public/workbox*
 .DS_Store
 out/
-.env
+.env.local
 .env.local
 public/feed.xml
 .vercel

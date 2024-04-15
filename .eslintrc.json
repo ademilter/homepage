@@ -6,19 +6,29 @@
     "prettier",
     "plugin:tailwindcss/recommended"
   ],
-  "plugins": ["tailwindcss"],
+  "plugins": [
+    "tailwindcss"
+  ],
   "rules": {
-    "react-hooks/exhaustive-deps": "off",
-    "react/no-unescaped-entities": "off",
-    "tailwindcss/no-custom-classname": "off"
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "off"
   },
   "settings": {
     "tailwindcss": {
-      "callees": ["cn"],
+      "callees": [
+        "cn",
+        "cva"
+      ],
       "config": "tailwind.config.js"
-    },
-    "next": {
-      "rootDir": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parser": "@typescript-eslint/parser"
+    }
+  ]
 }
