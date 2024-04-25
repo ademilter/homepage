@@ -52,3 +52,6 @@ Bu sayfanın içerikleri Airtable hesabımdan geliyor.
 ### Yer İmi
 
 İçerikler Raindrop hesabımdan geliyor.
+
+
+Edited by gitfix
