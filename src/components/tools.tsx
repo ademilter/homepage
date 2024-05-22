@@ -12,7 +12,9 @@ export default function Tools({ data }: { data: ITool[] }) {
   const groupByCategory = groupBy(data, (item) => {
     return item.fields.category;
   });
-  const categories = Object.keys(groupByCategory);
+  const categories = Object.keys(groupByCategory).filter(
+    (category) => category !== "undefined",
+  );
 
   useEffect(() => {
     if (selectedTab) return;
@@ -34,7 +36,10 @@ export default function Tools({ data }: { data: ITool[] }) {
       <div className="mt-6 grid">
         {data
           .filter((tool: ITool) => {
-            return tool.fields.category.includes(selectedTab || "");
+            return (
+              tool.fields.category &&
+              tool.fields.category.includes(selectedTab || "")
+            );
           })
           .map((tool: ITool) => {
             return <Tool key={tool.id} tool={tool} />;
