@@ -11,7 +11,7 @@ export const MENU = {
   "/": "Hakkımda",
   "/videos": "Eğitimler",
   "/photos": "Fotoğraflar",
-  "/post": "Yazılar",
+  // "/post": "Yazılar",
   "/tools": "Ekipman",
   "/bookmarks": "Feyz",
 };
