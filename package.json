@@ -29,7 +29,7 @@
     "framer-motion": "^11.2.13",
     "googleapis": "^140.0.1",
     "lodash": "^4.17.21",
-    "next": "^14.2.4",
+    "next": "^14.2.7",
     "next-contentlayer": "^0.3.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

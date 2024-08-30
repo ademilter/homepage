@@ -41,6 +41,9 @@ export default function Tools({ data }: { data: ITool[] }) {
               tool.fields.category.includes(selectedTab || "")
             );
           })
+          .sort((a: ITool, b: ITool) => {
+            return a.fields.order - b.fields.order;
+          })
           .map((tool: ITool) => {
             return <Tool key={tool.id} tool={tool} />;
           })}

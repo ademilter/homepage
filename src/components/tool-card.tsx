@@ -1,22 +1,32 @@
 import type { ITool } from "@/types";
-import { IconHeartFilled } from "@tabler/icons-react";
-import cx from "@/lib/cx";
+import Image from "next/image";
 
 export default function ToolCard({ tool }: { tool: ITool }) {
-  const { brand, name, wtf, favorite, comment } = tool.fields;
+  const { images, brand, name, wtf, comment } = tool.fields;
 
   return (
-    <article className="grid border-b border-b-zinc-200 py-4 sm:py-8 dark:border-b-zinc-800">
-      <header>
+    <article className="flex items-start gap-6 border-b border-b-zinc-200 py-4 sm:py-8 dark:border-b-zinc-800">
+      <div className="grow">
         <h6 className="block font-mono text-sm uppercase tracking-wider opacity-50 dark:opacity-40">
           {wtf}
         </h6>
+
         <h3 className="mt-1 font-semibold">
           <span className="">{brand}</span> <span className="">{name}</span>
         </h3>
-      </header>
 
-      <p className="mt-1 opacity-70 dark:opacity-60">{comment}</p>
+        <p className="mt-1 opacity-70 dark:opacity-60">{comment}</p>
+      </div>
+
+      {images && images.length > 0 && (
+        <Image
+          width={600}
+          height={600}
+          src={images[0].url}
+          alt={name}
+          className="size-24 rounded-2xl bg-zinc-50 object-contain sm:size-32"
+        />
+      )}
 
       {/*{favorite && (*/}
       {/*  <footer className="mt-2 flex items-center">*/}

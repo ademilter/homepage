@@ -64,6 +64,7 @@ export type ITool = {
     category: string;
     brand: string;
     draft: boolean;
+    order: number;
   };
 };
 
