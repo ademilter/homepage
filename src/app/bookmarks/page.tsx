@@ -19,7 +19,7 @@ export const revalidate = 3600; // 60*60*2
 
 export default async function Bookmark() {
   const { count, data, year } = await fetchBookmark(new Date());
-  const supporter = await fetchSupporter();
+  // const supporter = await fetchSupporter();
 
   return (
     <>
@@ -33,7 +33,7 @@ export default async function Bookmark() {
           </MetricCard>
         </div>
 
-        <ThankYou className="mt-6" data={supporter} />
+        {/*<ThankYou className="mt-6" data={supporter} />*/}
       </Container>
 
       <Container className="mt-12 sm:mt-14">

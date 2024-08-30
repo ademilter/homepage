@@ -18,21 +18,21 @@ export default function ToolCard({ tool }: { tool: ITool }) {
 
       <p className="mt-1 opacity-70 dark:opacity-60">{comment}</p>
 
-      {favorite && (
-        <footer className="mt-2 flex items-center">
-          <span
-            className={cx(
-              "inline-flex select-none items-center gap-1 px-2 py-1 leading-none",
-              "rounded-lg text-xs font-medium uppercase tracking-wider",
-              "bg-pink-50 text-pink-700",
-              // "dark:bg-amber-200/10 dark:hover:bg-amber-200/20",
-            )}
-          >
-            <IconHeartFilled size={14} className="opacity-80" />
-            Favori Ürünüm
-          </span>
-        </footer>
-      )}
+      {/*{favorite && (*/}
+      {/*  <footer className="mt-2 flex items-center">*/}
+      {/*    <span*/}
+      {/*      className={cx(*/}
+      {/*        "inline-flex select-none items-center gap-1 px-2 py-1 leading-none",*/}
+      {/*        "rounded-lg text-xs font-medium uppercase tracking-wider",*/}
+      {/*        "bg-pink-50 text-pink-700",*/}
+      {/*        // "dark:bg-amber-200/10 dark:hover:bg-amber-200/20",*/}
+      {/*      )}*/}
+      {/*    >*/}
+      {/*      <IconHeartFilled size={14} className="opacity-80" />*/}
+      {/*      Favori Ürünüm*/}
+      {/*    </span>*/}
+      {/*  </footer>*/}
+      {/*)}*/}
     </article>
   );
 }

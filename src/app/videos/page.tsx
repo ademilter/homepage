@@ -20,7 +20,7 @@ export const revalidate = 86400; // 60*60*24
 
 export default async function VideosPage() {
   const stats = await youtubeStats();
-  const supporter = await fetchSupporter();
+  // const supporter = await fetchSupporter();
 
   return (
     <>
@@ -42,7 +42,7 @@ export default async function VideosPage() {
           </MetricCard>
         </div>
 
-        <ThankYou className="mt-6" data={supporter} />
+        {/*<ThankYou className="mt-6" data={supporter} />*/}
       </Container>
 
       <Container className="mt-12 sm:mt-20">

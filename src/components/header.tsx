@@ -14,6 +14,7 @@ export const MENU = {
   // "/post": "Yazılar",
   "/tools": "Ekipman",
   "/bookmarks": "Feyz",
+  // "/designer": "Tasarımcılar",
 };
 
 export default function Header() {

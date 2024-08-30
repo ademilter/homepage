@@ -58,7 +58,7 @@ function blockquote(props) {
 function Quote({ caption, cite, children, ...props }) {
   return (
     <figure
-      className="bg-zinc-100 p-6 dark:bg-zinc-800 sm:rounded-xl"
+      className="bg-zinc-100 p-6 sm:rounded-xl dark:bg-zinc-800"
       {...props}
     >
       <blockquote className="opacity-90">{children}</blockquote>
@@ -183,3 +183,5 @@ const components: MDXComponents = {
   Figure,
   Figure2,
 };
+
+export default components;
