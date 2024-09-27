@@ -17,9 +17,15 @@ importers:
       '@upstash/claps':
         specifier: ^1.0.0-beta.4
         version: 1.0.0-beta.4
+      '@upstash/qstash':
+        specifier: ^2.7.10
+        version: 2.7.10
       '@upstash/redis':
         specifier: ^1.32.0
         version: 1.32.0
+      '@upstash/vector':
+        specifier: ^1.1.6
+        version: 1.1.6
       '@vercel/analytics':
         specifier: ^1.3.1
         version: 1.3.1(next@14.2.7(@opentelemetry/api@1.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
@@ -1105,8 +1111,14 @@ packages:
   '@upstash/claps@1.0.0-beta.4':
     resolution: {integrity: sha512-H1oLfcAwtMfml1pwU6eNd/5mahjlTjTDJyIzrvSf9z9MpeLFDYkn38obhIy3u38KKLgThuXK6yQzKoAMd6E+5Q==}
 
+  '@upstash/qstash@2.7.10':
+    resolution: {integrity: sha512-LKRQ+iMyzfTCq7Cw/GPv+ncI6c/gW9ZgSx9rFra7crAEix6iSqbwPDQY3zm0GafUCAiVtt1VvHFxcrPF2R3WGA==}
+
   '@upstash/redis@1.32.0':
     resolution: {integrity: sha512-KBzCjOgF9mhNcV4HTz7U8g7QTdLVEKi1sSe/97u0E+HkzdPmDt3j9lIPIHEUJz6RrdVH6s4HW4JcPvMLC7w3ew==}
+
+  '@upstash/vector@1.1.6':
+    resolution: {integrity: sha512-ITvNfbNNXOnTcosuRMn7NjnFVWE9Cf5z+fFLkJzwxXKYvFDwRG6FHYT7ww1FmU5bFvbqdybT+eQ/yzLQzl5Bug==}
 
   '@vercel/analytics@1.3.1':
     resolution: {integrity: sha512-xhSlYgAuJ6Q4WQGkzYTLmXwhYl39sWjoMA3nHxfkvG+WdBT25c563a7QhwwKivEOZtPJXifYHR1m2ihoisbWyA==}
@@ -1763,6 +1775,9 @@ packages:
   jiti@1.21.0:
     resolution: {integrity: sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==}
     hasBin: true
+
+  jose@5.9.3:
+    resolution: {integrity: sha512-egLIoYSpcd+QUF+UHgobt5YzI2Pkw/H39ou9suW687MY6PmCwPmkNV/4TNjn1p2tX5xO3j0d0sq5hiYE24bSlg==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -3679,9 +3694,16 @@ snapshots:
       - node-sass
       - sass
 
+  '@upstash/qstash@2.7.10':
+    dependencies:
+      crypto-js: 4.2.0
+      jose: 5.9.3
+
   '@upstash/redis@1.32.0':
     dependencies:
       crypto-js: 4.2.0
+
+  '@upstash/vector@1.1.6': {}
 
   '@vercel/analytics@1.3.1(next@14.2.7(@opentelemetry/api@1.4.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -4466,6 +4488,8 @@ snapshots:
   is-stream@2.0.1: {}
 
   jiti@1.21.0: {}
+
+  jose@5.9.3: {}
 
   js-tokens@4.0.0: {}
 

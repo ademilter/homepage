@@ -65,18 +65,20 @@ function BookmarkCard({
   return (
     <article
       className={cx(
-        "flex items-center gap-6 py-4 sm:py-6 md:gap-10",
+        "flex items-center gap-6 py-4 md:gap-10",
         "border-b border-b-zinc-200/60 dark:border-b-zinc-800",
       )}
     >
-      <div className="flex grow items-center gap-4">
-        {/*{image && (
-          <img
-            src={image}
-            alt={bookmark.excerpt}
-            className="aspect-video w-20 bg-zinc-800 object-cover"
-          />
-        )}*/}
+      <div className="flex grow items-start gap-6">
+        <div className="hidden aspect-video w-36 shrink-0 overflow-hidden rounded bg-zinc-200 sm:flex">
+          {image && (
+            <img
+              src={image}
+              alt={bookmark.excerpt}
+              className="block size-full object-cover"
+            />
+          )}
+        </div>
 
         <div className="grow">
           <h3 className="font-semibold">
@@ -95,9 +97,9 @@ function BookmarkCard({
           {bookmark.note && <p className="mt-2 opacity-80">{bookmark.note}</p>}
 
           <div className="mt-2 flex items-center space-x-2 font-mono text-sm opacity-60 dark:opacity-40">
-            <LinkTypeIcon type={bookmark.type} />
-            <span>{bookmark.domain}</span>
-            <span>·</span>
+            {/*<LinkTypeIcon type={bookmark.type} />*/}
+            {/*<span>{bookmark.domain}</span>*/}
+            {/*<span>·</span>*/}
             <span>
               {formatDistanceToNowStrict(parseISO(bookmark.created), {
                 addSuffix: true,
