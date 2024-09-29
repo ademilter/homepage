@@ -22,7 +22,7 @@ export const POST = async (req: NextRequest) => {
         "?perpage=2",
         "&page=0",
         "&sort=-created",
-        `&search=created:>${format(startOfWeek(new Date()), "yyyy-MM-dd")}`,
+        `&search=created:>${format(startOfYesterday(), "yyyy-MM-dd")}`,
         // ` search=created:<${format(startOfToday(), "yyyy-MM-dd")}`,
       ].join(""),
       "GET",
