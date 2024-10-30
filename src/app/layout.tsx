@@ -57,11 +57,6 @@ export default function RootLayout({
           <main className="mt-10 grow sm:mt-20">{children}</main>
           <Footer />
         </div>
-
-        <Script
-          src="https://widgets.superpeer.com/widget.js"
-          strategy="beforeInteractive"
-        />
       </body>
     </html>
   );
