@@ -12,7 +12,7 @@ export default function BgColor() {
     <span
       className={cx(
         "block h-96 w-screen",
-        "absolute left-1/2 top-0 -z-10 -translate-x-1/2 -translate-y-1/4",
+        "absolute top-0 left-1/2 -z-10 -translate-x-1/2 -translate-y-1/4",
         "rounded-full blur-3xl",
         "bg-zinc-500/5", // home
         segment === "videos" && "bg-amber-500/5",

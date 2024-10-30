@@ -5,16 +5,18 @@ import IconGithub from "@/components/icons/github";
 import IconInstagram from "@/components/icons/instagram";
 import { SOCIAL } from "@/lib/const";
 
-function SocialButton({ href, children }) {
+function SocialButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
     <Link
       href={href}
       blank
-      className="
-      flex items-center rounded-full bg-zinc-200 p-3
-      text-zinc-600 no-underline transition-colors
-      hover:bg-blue-600 hover:text-white
-      dark:bg-zinc-800 dark:text-zinc-400"
+      className="flex items-center rounded-full bg-zinc-200 p-3 text-zinc-600 no-underline transition-colors hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400"
     >
       {children}
     </Link>

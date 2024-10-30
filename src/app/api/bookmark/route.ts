@@ -61,7 +61,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
 // https://github.com/chronark/chronark.com/blob/main/pages/api/incr.ts
 async function getIPHash(req: NextRequest): Promise<string | undefined> {
-  const ip = req.ip;
+  // TODO: IS this the correct way to get the IP address?
+  const ip = req.headers.get("x-real-ip") || req.headers.get("x-forwarded-for");
 
   if (!ip) return undefined;
 

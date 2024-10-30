@@ -1,14 +1,13 @@
 import NextImage from "next/image";
 import Social from "@/components/social";
 import Container from "@/components/container";
-import NextLink from "next/link";
 
 export default function Index() {
   return (
     <>
       <Container>
         <div className="space-y-6">
-          <h1 className="grid font-display text-xl sm:text-2xl">
+          <h1 className="font-display grid text-xl sm:text-2xl">
             <b>Adem İlter</b>
             <span className="opacity-60">Product Designer</span>
             <span className="opacity-60">Istanbul, TURKEY</span>
@@ -28,9 +27,13 @@ export default function Index() {
 
           <p className="text-xl">
             Bu konularda soruların varsa veya ürünün hakkında konuşmak istersen{" "}
-            <NextLink href={`/meet`} className="underline">
+            <a
+              href="https://superpeer.com/adem-/hey?s=d"
+              target="_blank"
+              className="underline"
+            >
               müsait günlerime bakabilirsin.
-            </NextLink>
+            </a>
           </p>
         </div>
 

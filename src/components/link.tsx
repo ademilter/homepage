@@ -1,12 +1,8 @@
-import { ReactNode } from "react";
 import cx from "@/lib/cx";
 
 export type BaseLinkProps = {
-  href: string;
-  children?: ReactNode;
   blank?: boolean;
-  className?: string;
-};
+} & React.ComponentProps<"a">;
 
 export default function BaseLink({
   children,

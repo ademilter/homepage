@@ -125,7 +125,7 @@ function BookmarkCard({
       >
         <span
           className={cx(
-            "flex select-none items-center gap-1 font-mono font-medium",
+            "flex items-center gap-1 font-mono font-medium select-none",
           )}
         >
           <IconHeartFilled size={14} className="opacity-80" />
@@ -136,7 +136,7 @@ function BookmarkCard({
   );
 }
 
-function LinkTypeIcon({ type }) {
+function LinkTypeIcon({ type }: { type: string }) {
   const icons = {
     link: (
       <>
@@ -173,7 +173,7 @@ function LinkTypeIcon({ type }) {
     ),
   };
 
-  const icon = (child) => {
+  const icon = (child: any) => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,7 @@ function LinkTypeIcon({ type }) {
     );
   };
 
-  if (type) return icon(icons[type]);
+  if (type) return icon(icons[type as keyof typeof icons]);
   return icon(icons.link);
 }
 

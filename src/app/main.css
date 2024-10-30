@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: "Inter", sans-serif;
+  --font-family-display: "Inter Tight", sans-serif;
+}
+
+a {
+  @apply underline decoration-zinc-300 decoration-2 underline-offset-2 hover:text-blue-700 hover:decoration-blue-700 dark:decoration-zinc-600 dark:hover:text-blue-500 dark:hover:decoration-blue-500;
+}
+
+label,
+strong,
+b {
+  @apply font-semibold;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply text-balance;
+}
+
+p {
+  @apply text-pretty;
+}

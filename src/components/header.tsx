@@ -9,7 +9,6 @@ import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 
 export const MENU = {
   "/": "Hakkımda",
-  "/videos": "Eğitimler",
   "/photos": "Fotoğraflar",
   // "/post": "Yazılar",
   "/tools": "Ekipman",
@@ -56,12 +55,12 @@ export default function Header() {
         {!isNavOpen && (
           <button
             type="button"
-            className="flex select-none items-center sm:hidden"
+            className="flex items-center select-none sm:hidden"
             onClick={() => {
               setIsNavOpen(true);
             }}
           >
-            <span>{MENU[path]}</span>
+            <span>{MENU[path as keyof typeof MENU]}</span>
             <IconArrowDropDown className="opacity-50" />
           </button>
         )}

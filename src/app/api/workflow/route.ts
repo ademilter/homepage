@@ -69,7 +69,7 @@ export const GET = async (req: NextRequest) => {
 };
 
 async function moveToVectorFromRaindrop() {
-  const getBookmarks = async (perPage = 50, page = 0) => {
+  const getBookmarks = async (perPage = 50, page = 0): Promise<ILink[]> => {
     let url = new URL(`/rest/v1/raindrops/15611214`, "https://api.raindrop.io");
     url.searchParams.set("perpage", perPage.toString());
     url.searchParams.set("page", page.toString());

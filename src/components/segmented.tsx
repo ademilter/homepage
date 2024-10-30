@@ -36,7 +36,7 @@ export default function Segmented({
             onClick={() => onChange(item)}
             {...buttonProps}
             className={cx(
-              "relative grow select-none rounded-full bg-transparent px-3 py-2",
+              "relative grow rounded-full bg-transparent px-3 py-2 select-none",
               "hover:bg-zinc-200 dark:hover:bg-zinc-900",
               buttonProps?.className,
             )}
@@ -44,7 +44,7 @@ export default function Segmented({
             {isActive && (
               <motion.span
                 layoutId="bg"
-                className="absolute left-0 top-0 size-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"
+                style={{ position: "absolute", inset: 0 }}
                 initial={false}
                 transition={{
                   type: "spring",
@@ -52,7 +52,9 @@ export default function Segmented({
                   damping: 50,
                   mass: 2,
                 }}
-              />
+              >
+                <span className="absolute top-0 left-0 size-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"></span>
+              </motion.span>
             )}
 
             <span

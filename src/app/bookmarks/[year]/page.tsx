@@ -23,8 +23,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BookmarkByYear({ params }) {
-  const { data, year } = await fetchBookmark(new Date(params.year));
+export default async function BookmarkByYear({
+  params,
+}: {
+  params: Promise<{ year: string }>;
+}) {
+  const _year = (await params).year;
+  const { data, year } = await fetchBookmark(new Date(_year));
 
   if (!Object.keys(data).length) {
     notFound();

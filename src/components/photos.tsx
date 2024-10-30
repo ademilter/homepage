@@ -2,7 +2,21 @@ import NextImage from "next/image";
 import Link from "@/components/link";
 import cx from "@/lib/cx";
 
-function Photo({ alt_description, links, urls, description, width, height }) {
+function Photo({
+  alt_description,
+  links,
+  urls,
+  description,
+  width,
+  height,
+}: {
+  alt_description: string;
+  links: { html: string };
+  urls: { raw: string };
+  description: string;
+  width: number;
+  height: number;
+}) {
   return (
     <figure>
       <Link
@@ -25,10 +39,10 @@ function Photo({ alt_description, links, urls, description, width, height }) {
   );
 }
 
-function Photos({ data }) {
+function Photos({ data }: { data: any[] }) {
   return (
     <div className="grid items-end gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-x-8 md:gap-y-20 lg:grid-cols-4">
-      {data.map((item) => {
+      {data.map((item: any) => {
         return <Photo key={item.id} {...item} />;
       })}
     </div>

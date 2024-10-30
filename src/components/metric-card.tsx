@@ -24,10 +24,10 @@ function MetricCard({
         href ? "" : "pointer-events-none",
       )}
     >
-      <h5 className="font-mono text-sm uppercase tracking-wider opacity-50 dark:opacity-40">
+      <h5 className="font-mono text-sm tracking-wider uppercase opacity-50 dark:opacity-40">
         {children}
       </h5>
-      <div className="text-xl font-semibold leading-none">
+      <div className="text-xl leading-none font-semibold">
         {prefix}
         {data}
       </div>

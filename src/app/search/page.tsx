@@ -14,7 +14,7 @@ export default function Bookmark() {
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<QueryResult[]>([]);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       setLoading(true);

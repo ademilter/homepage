@@ -7,7 +7,7 @@ export default function ToolCard({ tool }: { tool: ITool }) {
   return (
     <article className="flex items-start gap-6 border-b border-b-zinc-200 py-4 sm:py-8 dark:border-b-zinc-800">
       <div className="grow">
-        <h6 className="block font-mono text-sm uppercase tracking-wider opacity-50 dark:opacity-40">
+        <h6 className="block font-mono text-sm tracking-wider uppercase opacity-50 dark:opacity-40">
           {wtf}
         </h6>
 

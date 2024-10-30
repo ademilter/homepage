@@ -1,10 +1,7 @@
-const { withContentCollections } = require("@content-collections/next");
+import { withContentCollections } from "@content-collections/next";
+import type { NextConfig } from "next";
 
-/**
- * @type {import('next').NextConfig}
- */
-
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
@@ -19,4 +16,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withContentCollections(nextConfig);
+export default withContentCollections(nextConfig);

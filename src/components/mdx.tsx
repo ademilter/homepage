@@ -19,21 +19,21 @@ export function Mdx({ code }: MdxProps) {
   );
 }
 
-function a(props) {
+function ALink(props: React.ComponentProps<"a">) {
   return <StyleLink {...props} />;
 }
 
-function strong(props) {
+function Strong(props: React.ComponentProps<"strong">) {
   return <strong className="font-semibold" {...props} />;
 }
 
-function hr(props) {
+function Hr(props: React.ComponentProps<"hr">) {
   return (
     <hr className="my-14 border-0 border-b border-black opacity-10 dark:border-white" />
   );
 }
 
-function ul(props) {
+function Ul(props: React.ComponentProps<"ul">) {
   return (
     <ul
       className="list-inside list-disc space-y-2 marker:text-zinc-400 dark:marker:text-zinc-600"
@@ -42,11 +42,11 @@ function ul(props) {
   );
 }
 
-function ol(props) {
+function Ol(props: React.ComponentProps<"ol">) {
   return <ol className="list-inside list-decimal space-y-2" {...props} />;
 }
 
-function blockquote(props) {
+function Blockquote(props: React.ComponentProps<"blockquote">) {
   return (
     <blockquote
       className="border-l-4 border-l-zinc-300 bg-gradient-to-r from-zinc-100 to-transparent px-4 py-3 font-serif italic dark:border-l-zinc-600 dark:from-zinc-800"
@@ -55,7 +55,15 @@ function blockquote(props) {
   );
 }
 
-function Quote({ caption, cite, children, ...props }) {
+function Quote({
+  caption,
+  cite,
+  children,
+  ...props
+}: {
+  caption: string;
+  cite?: string;
+} & React.ComponentProps<"figure">) {
   return (
     <figure
       className="bg-zinc-100 p-6 sm:rounded-xl dark:bg-zinc-800"
@@ -74,8 +82,21 @@ function Quote({ caption, cite, children, ...props }) {
   );
 }
 
-function Figure({ src, title, full = true, width }) {
-  const imageStyle = {};
+function Figure({
+  src,
+  title,
+  full = true,
+  width,
+}: {
+  src: string;
+  title: string;
+  full?: boolean;
+  width?: string;
+} & React.ComponentProps<"figure">) {
+  const imageStyle = {
+    width: "auto",
+    maxWidth: "none",
+  };
 
   if (width) {
     imageStyle["width"] = "100%";
@@ -97,25 +118,33 @@ function Figure({ src, title, full = true, width }) {
   );
 }
 
-function h2(props) {
-  return <h2 className="text-2xl font-bold leading-tight" {...props} />;
+function Head2(props: React.ComponentProps<"h2">) {
+  return <h2 className="text-2xl leading-tight font-bold" {...props} />;
 }
 
-function h3(props) {
+function Head3(props: React.ComponentProps<"h3">) {
   return (
-    <h3 className="!mb-2 text-xl font-semibold leading-tight" {...props} />
+    <h3 className="!mb-2 text-xl leading-tight font-semibold" {...props} />
   );
 }
 
-function h4(props) {
-  return <h4 className="!mb-1 text-lg font-semibold leading-snug" {...props} />;
+function Head4(props: React.ComponentProps<"h4">) {
+  return <h4 className="!mb-1 text-lg leading-snug font-semibold" {...props} />;
 }
 
-function h5(props) {
+function Head5(props: React.ComponentProps<"h5">) {
   return <h5 className="font-semibold" {...props} />;
 }
+/*
 
-function img({ src, alt, ...props }) {
+function img({
+  src,
+  alt,
+  ...props
+}: {
+  src: string;
+  alt: string;
+} & React.ComponentProps<"img">) {
   return (
     <figure>
       <img src={src} alt={alt} {...props} />
@@ -123,8 +152,13 @@ function img({ src, alt, ...props }) {
     </figure>
   );
 }
-
-function Figure2({ children, col, ...props }) {
+function Figure2({
+  children,
+  col,
+  ...props
+}: {
+  col: string;
+} & React.ComponentProps<"img">) {
   const childs: React.ReactNode[] = React.Children.map(
     children,
     (child: React.ReactElement) => {
@@ -146,7 +180,8 @@ function Figure2({ children, col, ...props }) {
       )}
     >
       {childs.map((child: React.ReactElement) => {
-        const { src, title, width, height } = child.props;
+        const { src, title, width, height } =
+          child.props as React.ComponentProps<"img">;
         return (
           <figure key={child.key}>
             {width ? (
@@ -166,22 +201,21 @@ function Figure2({ children, col, ...props }) {
       })}
     </div>
   );
-}
+}*/
 
 const components: MDXComponents = {
-  strong,
-  a,
-  hr,
-  ul,
-  ol,
-  blockquote,
-  h2,
-  h3,
-  h4,
-  h5,
+  ALink,
+  Strong,
+  Hr,
+  Ul,
+  Ol,
+  Blockquote,
+  Head2,
+  Head3,
+  Head4,
+  Head5,
   Quote,
   Figure,
-  Figure2,
 };
 
 export default components;
