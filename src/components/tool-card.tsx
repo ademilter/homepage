@@ -1,28 +1,28 @@
-import type { ITool } from "@/types";
+import { Tool } from "@content";
 import Image from "next/image";
 
-export default function ToolCard({ tool }: { tool: ITool }) {
-  const { images, brand, name, wtf, comment } = tool.fields;
+export default function ToolCard({ tool }: { tool: Tool }) {
+  const { images, brand, name, definition, content } = tool;
 
   return (
     <article className="flex items-start gap-6 border-b border-b-zinc-200 py-4 sm:py-8 dark:border-b-zinc-800">
       <div className="grow">
         <h6 className="block font-mono text-sm tracking-wider uppercase opacity-50 dark:opacity-40">
-          {wtf}
+          {definition}
         </h6>
 
         <h3 className="mt-1 font-semibold">
           <span className="">{brand}</span> <span className="">{name}</span>
         </h3>
 
-        <p className="mt-1 opacity-70 dark:opacity-60">{comment}</p>
+        <p className="mt-1 opacity-70 dark:opacity-60">{content}</p>
       </div>
 
-      {images && images.length > 0 && (
+      {images && (
         <Image
           width={600}
           height={600}
-          src={images[0].url}
+          src={images}
           alt={name}
           className="size-24 rounded-2xl bg-zinc-50 object-contain sm:size-32"
         />

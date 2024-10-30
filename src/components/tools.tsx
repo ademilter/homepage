@@ -2,16 +2,17 @@
 
 import Segmented from "@/components/segmented";
 import { useEffect, useState } from "react";
-import { ITool } from "@/types";
-import Tool from "@/components/tool-card";
+import Tool1 from "@/components/tool-card";
 import { groupBy } from "lodash";
+import { allTools, Tool } from "@content";
 
-export default function Tools({ data }: { data: ITool[] }) {
+export default function Tools() {
   const [selectedTab, setSelectedTab] = useState<string>();
 
-  const groupByCategory = groupBy(data, (item) => {
-    return item.fields.category;
+  const groupByCategory = groupBy(allTools, (o) => {
+    return o.category;
   });
+
   const categories = Object.keys(groupByCategory).filter(
     (category) => category !== "undefined",
   );
@@ -34,18 +35,12 @@ export default function Tools({ data }: { data: ITool[] }) {
       />
 
       <div className="mt-6 grid">
-        {data
-          .filter((tool: ITool) => {
-            return (
-              tool.fields.category &&
-              tool.fields.category.includes(selectedTab || "")
-            );
+        {allTools
+          .filter((tool: Tool) => {
+            return tool.category && tool.category.includes(selectedTab || "");
           })
-          .sort((a: ITool, b: ITool) => {
-            return a.fields.order - b.fields.order;
-          })
-          .map((tool: ITool) => {
-            return <Tool key={tool.id} tool={tool} />;
+          .map((tool: Tool) => {
+            return <Tool1 key={tool._meta.fileName} tool={tool} />;
           })}
       </div>
     </>

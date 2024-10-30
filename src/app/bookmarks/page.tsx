@@ -6,8 +6,7 @@ import BookmarkCard from "@/components/bookmark-card";
 import Link from "next/link";
 import { ReportView } from "@/components/view";
 import SubTitle from "@/components/subtitle";
-import ThankYou from "@/components/thank-you";
-import { fetchBookmark, fetchSupporter } from "@/app/bookmarks/action";
+import { fetchBookmark } from "@/app/bookmarks/action";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -32,8 +31,6 @@ export default async function Bookmark() {
             Görüntülenme
           </MetricCard>
         </div>
-
-        {/*<ThankYou className="mt-6" data={supporter} />*/}
       </Container>
 
       <Container className="mt-12 sm:mt-14">

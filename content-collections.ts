@@ -3,7 +3,7 @@ import { compileMDX } from "@content-collections/mdx";
 
 const posts = defineCollection({
   name: "posts",
-  directory: "./post",
+  directory: "./data/post",
   include: "*.mdx",
   schema: (z) => ({
     date: z.string(),
@@ -21,6 +21,29 @@ const posts = defineCollection({
   },
 });
 
+const tools = defineCollection({
+  name: "tools",
+  directory: "./data/tool",
+  include: "*.mdx",
+  schema: (z) => ({
+    brand: z.string(),
+    name: z.string(),
+    definition: z.string(),
+    favorite: z.boolean(),
+    category: z.string(),
+    images: z.string().optional(),
+    order: z.number().optional(),
+    draft: z.boolean().optional(),
+  }),
+  transform: async (document, context) => {
+    const mdx = await compileMDX(context, document);
+    return {
+      ...document,
+      mdx,
+    };
+  },
+});
+
 export default defineConfig({
-  collections: [posts],
+  collections: [posts, tools],
 });

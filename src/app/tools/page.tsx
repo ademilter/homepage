@@ -1,7 +1,7 @@
-import type { ITool } from "@/types";
+import { allTools, Tool } from "@content";
 import Container from "@/components/container";
-import Tools from "@/components/tools";
 import { Metadata } from "next";
+import Tools from "@/components/tools";
 
 export const metadata: Metadata = {
   title: "Araçlar",
@@ -9,21 +9,8 @@ export const metadata: Metadata = {
     Bazı cihazlara yorum ekledim.`,
 };
 
-async function fetchData() {
-  const response = await fetch(
-    `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}/Tools`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.AIRTABLE_API_TOKEN}`,
-      },
-    },
-  );
-  const data = await response.json();
-  return data.records.filter((r: ITool) => !r.fields.draft);
-}
-
 export default async function ToolsPage() {
-  const data: ITool[] = await fetchData();
+  const data: Tool[] = allTools.filter((o) => !Boolean(o.draft));
 
   return (
     <>
@@ -32,7 +19,7 @@ export default async function ToolsPage() {
       </Container>
 
       <Container className="mt-16">
-        <Tools data={data} />
+        <Tools />
       </Container>
     </>
   );

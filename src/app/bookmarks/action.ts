@@ -2,8 +2,7 @@
 
 import { addYears, format, startOfYear } from "date-fns";
 import Raindrop from "@/lib/raindrop";
-import { ILink, ISupporter } from "@/types";
-import BuyMeCoffee from "@/lib/buymecoffee";
+import { ILink } from "@/types";
 
 export async function fetchBookmark(year: Date): Promise<{
   count: number;
@@ -26,10 +25,4 @@ export async function fetchBookmark(year: Date): Promise<{
     count: data.length,
     year: format(new Date(), "yyyy"),
   };
-}
-
-export async function fetchSupporter(): Promise<ISupporter[]> {
-  const buyMeCoffee = new BuyMeCoffee();
-  const coffees = await buyMeCoffee.getSupporters();
-  return coffees.filter((o) => o.support_visibility);
 }
