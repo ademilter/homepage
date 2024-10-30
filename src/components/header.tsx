@@ -9,7 +9,7 @@ import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 
 export const MENU = {
   "/": "Hakkımda",
-  "/photos": "Fotoğraflar",
+  // "/photos": "Fotoğraflar",
   // "/post": "Yazılar",
   "/tools": "Ekipman",
   "/bookmarks": "Feyz",
@@ -27,14 +27,9 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className="">
+    <header>
       <Container>
-        <nav
-          className={cx(
-            isNavOpen ? "flex" : "hidden",
-            "flex-col gap-4 sm:!flex sm:flex-row",
-          )}
-        >
+        <nav className={cx(isNavOpen ? "flex" : "hidden", "flex-col gap-4")}>
           {Object.entries(MENU).map(([key, value]) => {
             const isActive = key === path;
             return (
@@ -55,13 +50,13 @@ export default function Header() {
         {!isNavOpen && (
           <button
             type="button"
-            className="flex items-center select-none sm:hidden"
+            className="flex items-center opacity-60 select-none"
             onClick={() => {
               setIsNavOpen(true);
             }}
           >
             <span>{MENU[path as keyof typeof MENU]}</span>
-            <IconArrowDropDown className="opacity-50" />
+            <IconArrowDropDown />
           </button>
         )}
       </Container>
