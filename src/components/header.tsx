@@ -37,8 +37,8 @@ export default function Header() {
                 key={key}
                 href={key}
                 className={cx(
-                  "grow no-underline hover:opacity-100",
-                  isActive ? "" : "opacity-60",
+                  "grow hover:opacity-100",
+                  isActive ? "text-mute !no-underline" : "",
                 )}
               >
                 {value}

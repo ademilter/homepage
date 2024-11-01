@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={cx("scroll-smooth", fontDefault.variable)}>
-      <body className="text-default min-h-screen bg-zinc-50 pb-24 antialiased">
+      <body className="text-default min-h-screen bg-zinc-50 pb-24 text-sm antialiased sm:text-base">
         <Header />
         <main className="mt-10 sm:mt-16">{children}</main>
       </body>

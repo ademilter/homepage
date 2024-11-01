@@ -3,7 +3,7 @@ import cx from "@/lib/cx";
 
 export interface IContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: string;
-  size?: "default" | "large";
+  size?: "default" | "large" | "medium";
   children: React.ReactNode;
 }
 
@@ -15,13 +15,17 @@ const Container: React.FC<IContainerProps> = ({
   ...props
 }: IContainerProps) => {
   const sizes = {
-    default: "max-w-[65ch] mx-auto px-6",
-    large: "max-w-[120ch] mx-auto px-6",
+    default: "",
+    medium: "sm:max-w-[80ch]",
+    large: "sm:max-w-[100ch]",
   };
 
   return React.createElement(
     as,
-    { className: cx(sizes[size], className), ...props },
+    {
+      className: cx("sm:max-w-[65ch] mx-auto px-6", sizes[size], className),
+      ...props,
+    },
     children,
   );
 };

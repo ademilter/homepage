@@ -4,7 +4,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
   const { images, brand, name, definition, content } = tool;
 
   return (
-    <article className="border-b-default/10 flex items-start gap-6 border-b py-4 sm:gap-10 sm:py-8">
+    <article className="mb-4 flex items-start gap-6 rounded-xl bg-zinc-100 px-4 py-3 sm:px-6 sm:py-5">
       <div className="grow">
         <h6 className="text-mute block">{definition}</h6>
         <h3 className="mt-1 font-semibold">

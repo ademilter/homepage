@@ -25,7 +25,7 @@ export default function Tools() {
 
   return (
     <>
-      <Container className="mt-10">
+      <Container className="mt-8 sm:mt-10">
         <Segmented
           fullWidth
           data={categories}
@@ -37,7 +37,7 @@ export default function Tools() {
         />
       </Container>
 
-      <Container className="mt-4">
+      <Container size="medium" className="mt-8 space-y-10 sm:mt-10">
         <div className="grid">
           {allTools
             .filter((tool: Tool) => {

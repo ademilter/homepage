@@ -44,11 +44,11 @@ export default function Index() {
         </div>
       </Container>
 
-      <Container size="large" className="mt-24">
+      <Container size="large" className="mt-10 sm:mt-24">
         <img
           src="/photos/we.jpg"
           alt="Adem ilter, çocukları ile beraber bir ormanda oturmuş göle doğru bakıyorlar"
-          className="rounded-4xl"
+          className="rounded-xl sm:rounded-4xl"
         />
       </Container>
     </>

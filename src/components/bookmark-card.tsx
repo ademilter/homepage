@@ -5,19 +5,14 @@ import { tr } from "date-fns/locale";
 import { ILink } from "@/types";
 import cx from "@/lib/cx";
 
-function BookmarkCard({
-  bookmark,
-  week = false,
-}: {
-  bookmark: ILink;
-  score?: number;
-  week?: boolean;
-}) {
+function BookmarkCard({ bookmark }: { bookmark: ILink; score?: number }) {
   const image = bookmark.media[0]?.link;
 
   return (
-    <article className={cx("border-b-default/10 border-b py-6")}>
-      <h3 className="font-semibold">
+    <article className="mb-4 rounded-xl bg-zinc-100 px-4 py-3 sm:px-6 sm:py-5">
+      {/*{image && <img className="w-44" src={image} alt={bookmark.title} />}*/}
+
+      <h3 className="line-clamp-1 font-semibold">
         <a href={bookmark.link} className={cx("visited:text-mute")}>
           {bookmark.title}
         </a>
@@ -29,10 +24,12 @@ function BookmarkCard({
         <LinkTypeIcon type={bookmark.type} />
         <span>{bookmark.domain}</span>
         <span>·</span>
-        {formatDistanceToNowStrict(parseISO(bookmark.created), {
-          addSuffix: true,
-          locale: tr,
-        })}
+        <span>
+          {formatDistanceToNowStrict(parseISO(bookmark.created), {
+            addSuffix: true,
+            locale: tr,
+          })}
+        </span>
       </div>
     </article>
   );
@@ -42,13 +39,11 @@ function LinkTypeIcon({ type }: { type: string }) {
   const icons = {
     link: (
       <>
-        <>
-          <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-          <path d="M3.6 9h16.8" />
-          <path d="M3.6 15h16.8" />
-          <path d="M11.5 3a17 17 0 0 0 0 18" />
-          <path d="M12.5 3a17 17 0 0 1 0 18" />
-        </>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+        <path d="M3.6 9h16.8" />
+        <path d="M3.6 15h16.8" />
+        <path d="M11.5 3a17 17 0 0 0 0 18" />
+        <path d="M12.5 3a17 17 0 0 1 0 18" />
       </>
     ),
     article: (

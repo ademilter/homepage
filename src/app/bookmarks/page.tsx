@@ -22,7 +22,7 @@ export default async function Bookmark() {
       <Container>
         <h1 className="font-semibold">{metadata.description}</h1>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:gap-6">
           <MetricCard data={count}>Link</MetricCard>
           <MetricCard data={<ReportView incr slug={`/bookmarks/${year}`} />}>
             Görüntülenme
@@ -30,14 +30,14 @@ export default async function Bookmark() {
         </div>
       </Container>
 
-      <Container className="mt-8 sm:mt-10">
-        <div className="mt-4">
-          {data.slice(0, 8).map((item: ILink) => {
-            return <BookmarkCard week key={item._id} bookmark={item} />;
-          })}
-        </div>
+      <Container size="medium" className="mt-8 sm:mt-10">
+        {data.slice(0, 8).map((item: ILink) => {
+          return <BookmarkCard key={item._id} bookmark={item} />;
+        })}
+      </Container>
 
-        <div className="mt-10">
+      <Container className="mt-8 sm:mt-10">
+        <p className="border-t border-dashed border-zinc-200 pt-4">
           Önceki yıllara ait listeler; <br />
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
             <>
@@ -51,7 +51,7 @@ export default async function Bookmark() {
               {", "}
             </>
           ))}
-        </div>
+        </p>
       </Container>
     </>
   );

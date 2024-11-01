@@ -21,8 +21,8 @@ export default function Segmented({
   return (
     <div
       className={cx(
-        "grid grid-cols-3 items-center gap-1 p-1",
-        "bg-default/10 rounded-2xl",
+        "grid grid-cols-3 items-center gap-1 p-px",
+        "bg-default/10 rounded-xl",
         fullWidth ? "sm:flex" : "sm:inline-flex",
         className,
       )}
@@ -37,7 +37,7 @@ export default function Segmented({
             {...buttonProps}
             className={cx(
               "text-mute relative h-9 grow rounded-xl bg-transparent px-3 select-none",
-              "hover:bg-zinc-300",
+              "cursor-pointer hover:bg-zinc-300",
               isActive ? "!bg-default font-medium text-white" : "",
               buttonProps?.className,
             )}

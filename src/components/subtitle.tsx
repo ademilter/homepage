@@ -9,7 +9,7 @@ const SubTitle: React.FC<ISubTitleProps> = ({
   className,
   ...props
 }: ISubTitleProps) => {
-  return <h3 className={cx("text-mute", className)} {...props} />;
+  return <h3 className={cx("text-mute text-right", className)} {...props} />;
 };
 
 export default SubTitle;

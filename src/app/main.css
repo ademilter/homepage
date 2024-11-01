@@ -2,13 +2,13 @@
 
 @theme {
   --font-family-sans: var(--font-default);
-
+  --color-primary: var(--color-sky-500);
   --color-default: var(--color-zinc-800);
   --color-mute: var(--color-zinc-500);
 }
 
 a {
-  @apply underline hover:decoration-2 transition;
+  @apply hover:text-primary underline transition hover:decoration-2;
 }
 
 .shadow {
