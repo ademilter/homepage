@@ -1,5 +1,4 @@
 import NextImage from "next/image";
-import Link from "@/components/link";
 import cx from "@/lib/cx";
 
 function Photo({
@@ -19,7 +18,7 @@ function Photo({
 }) {
   return (
     <figure>
-      <Link
+      <a
         href={links.html}
         className={cx(
           "block overflow-hidden rounded-lg",
@@ -34,7 +33,7 @@ function Photo({
           height={height}
           quality={100}
         />
-      </Link>
+      </a>
     </figure>
   );
 }

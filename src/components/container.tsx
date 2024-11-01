@@ -15,8 +15,8 @@ const Container: React.FC<IContainerProps> = ({
   ...props
 }: IContainerProps) => {
   const sizes = {
-    default: "max-w-2xl mx-auto px-6",
-    large: "max-w-7xl mx-auto px-6",
+    default: "max-w-[65ch] mx-auto px-6",
+    large: "max-w-[120ch] mx-auto px-6",
   };
 
   return React.createElement(

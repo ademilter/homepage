@@ -1,6 +1,5 @@
 import * as React from "react";
 import cx from "@/lib/cx";
-import { StyleLink } from "@/components/link";
 import type { MDXComponents } from "mdx/types";
 import { getMDXComponent } from "next-contentlayer/hooks";
 
@@ -12,31 +11,25 @@ export function Mdx({ code }: MdxProps) {
   const Content = getMDXComponent(code);
 
   return (
-    <div className="post-body mt-10 leading-relaxed text-zinc-800 dark:text-zinc-200">
+    <div className="post-body mt-10 text-zinc-800">
       {/* @ts-ignore */}
       <Content components={components} />
     </div>
   );
 }
 
-function ALink(props: React.ComponentProps<"a">) {
-  return <StyleLink {...props} />;
-}
-
 function Strong(props: React.ComponentProps<"strong">) {
-  return <strong className="font-semibold" {...props} />;
+  return <strong className="" {...props} />;
 }
 
 function Hr(props: React.ComponentProps<"hr">) {
-  return (
-    <hr className="my-14 border-0 border-b border-black opacity-10 dark:border-white" />
-  );
+  return <hr className="my-14 border-0 border-b border-black opacity-10" />;
 }
 
 function Ul(props: React.ComponentProps<"ul">) {
   return (
     <ul
-      className="list-inside list-disc space-y-2 marker:text-zinc-400 dark:marker:text-zinc-600"
+      className="list-inside list-disc space-y-2 marker:text-zinc-400"
       {...props}
     />
   );
@@ -49,7 +42,7 @@ function Ol(props: React.ComponentProps<"ol">) {
 function Blockquote(props: React.ComponentProps<"blockquote">) {
   return (
     <blockquote
-      className="border-l-4 border-l-zinc-300 bg-gradient-to-r from-zinc-100 to-transparent px-4 py-3 font-serif italic dark:border-l-zinc-600 dark:from-zinc-800"
+      className="border-l-4 border-l-zinc-300 bg-gradient-to-r from-zinc-100 to-transparent px-4 py-3 font-serif italic"
       {...props}
     />
   );
@@ -65,10 +58,7 @@ function Quote({
   cite?: string;
 } & React.ComponentProps<"figure">) {
   return (
-    <figure
-      className="bg-zinc-100 p-6 sm:rounded-xl dark:bg-zinc-800"
-      {...props}
-    >
+    <figure className="bg-zinc-100 p-6 sm:rounded-xl" {...props}>
       <blockquote className="opacity-90">{children}</blockquote>
       <figcaption className="mt-2 font-serif opacity-70">
         {`— ${caption}`}
@@ -113,28 +103,27 @@ function Figure({
         className="inline-flex rounded-lg"
         style={imageStyle}
       />
-      <figcaption className="mx-16 mt-4 text-sm opacity-50">{title}</figcaption>
+      <figcaption className="mx-16 mt-4 opacity-50">{title}</figcaption>
     </figure>
   );
 }
 
 function Head2(props: React.ComponentProps<"h2">) {
-  return <h2 className="text-2xl leading-tight font-bold" {...props} />;
+  return <h2 className="" {...props} />;
 }
 
 function Head3(props: React.ComponentProps<"h3">) {
-  return (
-    <h3 className="!mb-2 text-xl leading-tight font-semibold" {...props} />
-  );
+  return <h3 className="!mb-2" {...props} />;
 }
 
 function Head4(props: React.ComponentProps<"h4">) {
-  return <h4 className="!mb-1 text-lg leading-snug font-semibold" {...props} />;
+  return <h4 className="!mb-1" {...props} />;
 }
 
 function Head5(props: React.ComponentProps<"h5">) {
-  return <h5 className="font-semibold" {...props} />;
+  return <h5 className="" {...props} />;
 }
+
 /*
 
 function img({
@@ -204,7 +193,6 @@ function Figure2({
 }*/
 
 const components: MDXComponents = {
-  ALink,
   Strong,
   Hr,
   Ul,

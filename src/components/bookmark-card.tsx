@@ -1,137 +1,39 @@
 "use client";
 
-import Link from "@/components/link";
 import { formatDistanceToNowStrict, parseISO } from "date-fns";
 import { tr } from "date-fns/locale";
 import { ILink } from "@/types";
 import cx from "@/lib/cx";
-import { useEffect, useState } from "react";
-import { IconHeartFilled } from "@tabler/icons-react";
 
 function BookmarkCard({
   bookmark,
-  score = 0,
   week = false,
 }: {
   bookmark: ILink;
   score?: number;
   week?: boolean;
 }) {
-  const [data, setData] = useState({ score, voted: false });
-  const [loading, setLoading] = useState(week);
   const image = bookmark.media[0]?.link;
 
-  async function onUp() {
-    if (!week) return;
-
-    try {
-      setLoading(true);
-      const response = await fetch("/api/bookmark", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          url: bookmark.link,
-        }),
-      });
-      const data = await response.json();
-      setData(data);
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function getData() {
-    try {
-      setLoading(true);
-      const response = await fetch(`/api/bookmark?url=${bookmark.link}`);
-      const data = await response.json();
-      setData({ ...data, score: data.score });
-    } catch (e) {
-      console.log(e);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    if (!week) return;
-    getData();
-  }, [week]);
-
   return (
-    <article
-      className={cx(
-        "flex items-center gap-6 py-4 md:gap-10",
-        "border-b border-b-zinc-200/60 dark:border-b-zinc-800",
-      )}
-    >
-      <div className="flex grow items-start gap-6">
-        <div className="hidden aspect-video w-36 shrink-0 overflow-hidden rounded bg-zinc-200 sm:flex">
-          {image && (
-            <img
-              src={image}
-              alt={bookmark.excerpt}
-              className="block size-full object-cover"
-            />
-          )}
-        </div>
+    <article className={cx("border-b-default/10 border-b py-6")}>
+      <h3 className="font-semibold">
+        <a href={bookmark.link} className={cx("visited:text-mute")}>
+          {bookmark.title}
+        </a>
+      </h3>
 
-        <div className="grow">
-          <h3 className="font-semibold">
-            <Link
-              href={bookmark.link}
-              className={cx(
-                "decoration-zinc-600",
-                "visited:decoration-zinc-200",
-                "dark:visited:decoration-zinc-800",
-              )}
-            >
-              {bookmark.title}
-            </Link>
-          </h3>
+      {bookmark.note && <p className="text-mute">{bookmark.note}</p>}
 
-          {bookmark.note && <p className="mt-2 opacity-80">{bookmark.note}</p>}
-
-          <div className="mt-2 flex items-center space-x-2 font-mono text-sm opacity-60 dark:opacity-40">
-            {/*<LinkTypeIcon type={bookmark.type} />*/}
-            {/*<span>{bookmark.domain}</span>*/}
-            {/*<span>·</span>*/}
-            <span>
-              {formatDistanceToNowStrict(parseISO(bookmark.created), {
-                addSuffix: true,
-                locale: tr,
-              })}
-            </span>
-          </div>
-        </div>
+      <div className="text-mute flex items-center gap-1">
+        <LinkTypeIcon type={bookmark.type} />
+        <span>{bookmark.domain}</span>
+        <span>·</span>
+        {formatDistanceToNowStrict(parseISO(bookmark.created), {
+          addSuffix: true,
+          locale: tr,
+        })}
       </div>
-
-      <button
-        type="button"
-        onClick={onUp}
-        disabled={!week || loading}
-        className={cx(
-          "flex h-8 shrink-0 cursor-n-resize items-center justify-center px-3",
-          "rounded-lg bg-zinc-100 text-sm text-zinc-500 dark:bg-zinc-800",
-          week && "hover:bg-zinc-200 dark:hover:bg-zinc-700",
-          data.voted &&
-            "bg-pink-50 text-pink-600 hover:bg-pink-100 dark:bg-pink-200/10 dark:hover:bg-pink-200/20",
-          loading && "cursor-progress opacity-60",
-        )}
-      >
-        <span
-          className={cx(
-            "flex items-center gap-1 font-mono font-medium select-none",
-          )}
-        >
-          <IconHeartFilled size={14} className="opacity-80" />
-          {Number(data.score)}
-        </span>
-      </button>
     </article>
   );
 }

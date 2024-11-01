@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import cx from "@/lib/cx";
 import React from "react";
 
@@ -22,7 +21,8 @@ export default function Segmented({
   return (
     <div
       className={cx(
-        "grid grid-cols-3 items-center rounded-3xl bg-zinc-100 p-1 sm:rounded-full dark:bg-zinc-800",
+        "grid grid-cols-3 items-center gap-1 p-1",
+        "bg-default/10 rounded-2xl",
         fullWidth ? "sm:flex" : "sm:inline-flex",
         className,
       )}
@@ -36,35 +36,13 @@ export default function Segmented({
             onClick={() => onChange(item)}
             {...buttonProps}
             className={cx(
-              "relative grow rounded-full bg-transparent px-3 py-2 select-none",
-              "hover:bg-zinc-200 dark:hover:bg-zinc-900",
+              "text-mute relative h-9 grow rounded-xl bg-transparent px-3 select-none",
+              "hover:bg-zinc-300",
+              isActive ? "!bg-default font-medium text-white" : "",
               buttonProps?.className,
             )}
           >
-            {isActive && (
-              <motion.span
-                layoutId="bg"
-                style={{ position: "absolute", inset: 0 }}
-                initial={false}
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 50,
-                  mass: 2,
-                }}
-              >
-                <span className="absolute top-0 left-0 size-full rounded-full bg-white dark:bg-zinc-900 dark:text-zinc-100"></span>
-              </motion.span>
-            )}
-
-            <span
-              className={cx(
-                "relative z-10 font-medium",
-                isActive ? "" : "opacity-60",
-              )}
-            >
-              {item}
-            </span>
+            {item}
           </button>
         );
       })}

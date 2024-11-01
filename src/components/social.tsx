@@ -1,49 +1,49 @@
-import Link from "@/components/link";
-import IconTwitter from "@/components/icons/twitter";
-import IconYoutube from "@/components/icons/youtube";
-import IconGithub from "@/components/icons/github";
-import IconInstagram from "@/components/icons/instagram";
+import { IconBrandInstagram, IconBrandX } from "@tabler/icons-react";
 import { SOCIAL } from "@/lib/const";
+import React from "react";
+import cx from "@/lib/cx";
 
 function SocialButton({
   href,
   children,
+  className,
 }: {
   href: string;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <Link
+    <a
       href={href}
-      blank
-      className="flex items-center rounded-full bg-zinc-200 p-3 text-zinc-600 no-underline transition-colors hover:bg-blue-600 hover:text-white dark:bg-zinc-800 dark:text-zinc-400"
+      target={href.startsWith("mailto") ? "_self" : "_blank"}
+      className={cx(
+        "flex size-9 items-center justify-center px-2",
+        "bg-default/20 rounded-xl !no-underline",
+        "hover:!bg-default hover:!text-white",
+        className,
+      )}
     >
       {children}
-    </Link>
+    </a>
   );
 }
 
 export default function Social() {
   return (
-    <div className="flex items-center space-x-3">
-      <SocialButton href={`mailto:${SOCIAL.email}`}>
-        <span className="mx-2 font-medium">Email</span>
+    <div className="inline-flex items-center gap-2">
+      <SocialButton
+        href={`mailto:${SOCIAL.email}`}
+        className="bg-default w-auto px-4 text-white"
+      >
+        Email
       </SocialButton>
 
       <SocialButton href={SOCIAL.instagram}>
-        <IconInstagram />
+        <IconBrandInstagram stroke={1.5} size={21} />
       </SocialButton>
 
       <SocialButton href={SOCIAL.twitter}>
-        <IconTwitter />
-      </SocialButton>
-
-      <SocialButton href={SOCIAL.youtube}>
-        <IconYoutube />
-      </SocialButton>
-
-      <SocialButton href={SOCIAL.github}>
-        <IconGithub />
+        <IconBrandX stroke={1.5} size={20} />
       </SocialButton>
     </div>
   );

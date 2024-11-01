@@ -1,31 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-sans: "Inter", sans-serif;
-  --font-family-display: "Inter Tight", sans-serif;
-}
+  --font-family-sans: var(--font-default);
 
-.no-underline {
-  text-decoration: none;
+  --color-default: var(--color-zinc-800);
+  --color-mute: var(--color-zinc-500);
 }
 
 a {
-  @apply underline decoration-zinc-300 decoration-2 underline-offset-2 hover:text-blue-700 hover:decoration-blue-700 dark:decoration-zinc-600 dark:hover:text-blue-500 dark:hover:decoration-blue-500;
+  @apply underline hover:decoration-2 transition;
 }
 
-label,
-strong,
-b {
-  @apply font-semibold;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  @apply text-balance;
-}
-
-p {
-  @apply text-pretty;
+.shadow {
+  @apply shadow-[4px_4px_0_#00000010];
 }

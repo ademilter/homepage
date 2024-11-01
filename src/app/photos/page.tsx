@@ -16,7 +16,7 @@ export default async function PhotosPage() {
   return (
     <>
       <Container>
-        <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
+        <h1>{metadata.description}</h1>
       </Container>
 
       <Container size="large" className="mt-14 sm:mt-20">

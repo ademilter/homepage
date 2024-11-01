@@ -2,10 +2,10 @@
 
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
-import IconArrowDropDown from "./icons/arrow-drop-down";
 import cx from "@/lib/cx";
 import Container from "./container";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { IconSelector } from "@tabler/icons-react";
 
 export const MENU = {
   "/": "Hakkımda",
@@ -27,7 +27,7 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header>
+    <header className="pt-6">
       <Container>
         <nav className={cx(isNavOpen ? "flex" : "hidden", "flex-col gap-4")}>
           {Object.entries(MENU).map(([key, value]) => {
@@ -38,7 +38,7 @@ export default function Header() {
                 href={key}
                 className={cx(
                   "grow no-underline hover:opacity-100",
-                  isActive ? "font-semibold" : "opacity-60",
+                  isActive ? "" : "opacity-60",
                 )}
               >
                 {value}
@@ -50,15 +50,17 @@ export default function Header() {
         {!isNavOpen && (
           <button
             type="button"
-            className="flex items-center opacity-60 select-none"
+            className="flex items-center gap-1 opacity-60 select-none"
             onClick={() => {
               setIsNavOpen(true);
             }}
           >
-            <span>{MENU[path as keyof typeof MENU]}</span>
-            <IconArrowDropDown />
+            {MENU[path as keyof typeof MENU]}
+            <IconSelector stroke={2} size={16} className="opacity-60" />
           </button>
         )}
+
+        <hr className="mt-4 border-0 border-b border-dashed border-zinc-300" />
       </Container>
     </header>
   );

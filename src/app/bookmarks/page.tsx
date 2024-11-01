@@ -3,9 +3,7 @@ import { Metadata } from "next";
 import Container from "@/components/container";
 import MetricCard from "@/components/metric-card";
 import BookmarkCard from "@/components/bookmark-card";
-import Link from "next/link";
 import { ReportView } from "@/components/view";
-import SubTitle from "@/components/subtitle";
 import { fetchBookmark } from "@/app/bookmarks/action";
 
 export const metadata: Metadata = {
@@ -18,43 +16,40 @@ export const revalidate = 3600; // 60*60*2
 
 export default async function Bookmark() {
   const { count, data, year } = await fetchBookmark(new Date());
-  // const supporter = await fetchSupporter();
 
   return (
     <>
       <Container>
-        <h1 className="text-xl sm:text-2xl">{metadata.description}</h1>
+        <h1 className="font-semibold">{metadata.description}</h1>
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
-          <MetricCard data={count}>Link ({year})</MetricCard>
+          <MetricCard data={count}>Link</MetricCard>
           <MetricCard data={<ReportView incr slug={`/bookmarks/${year}`} />}>
             Görüntülenme
           </MetricCard>
         </div>
       </Container>
 
-      <Container className="mt-12 sm:mt-14">
-        <div>
-          <SubTitle>Son Eklenenler</SubTitle>
-
-          <div className="mt-4">
-            {data.slice(0, 8).map((item: ILink) => {
-              return <BookmarkCard week key={item._id} bookmark={item} />;
-            })}
-          </div>
+      <Container className="mt-8 sm:mt-10">
+        <div className="mt-4">
+          {data.slice(0, 8).map((item: ILink) => {
+            return <BookmarkCard week key={item._id} bookmark={item} />;
+          })}
         </div>
 
-        <div className="mt-10 opacity-60">
-          Önceki yıllara ait listeler;{" "}
+        <div className="mt-10">
+          Önceki yıllara ait listeler; <br />
           {["2021", "2022", "2023", "2024"].reverse().map((year) => (
-            <Link
-              key={year}
-              href={`/bookmarks/${year}`}
-              className="font-medium"
-            >
-              {year}
+            <>
+              <a
+                key={year}
+                href={`/bookmarks/${year}`}
+                className="font-semibold"
+              >
+                {year}
+              </a>
               {", "}
-            </Link>
+            </>
           ))}
         </div>
       </Container>
