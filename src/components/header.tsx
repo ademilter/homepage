@@ -9,11 +9,10 @@ import { IconSelector } from "@tabler/icons-react";
 
 export const MENU = {
   "/": "Hakkımda",
-  // "/photos": "Fotoğraflar",
+  "/photos": "Fotoğraflar",
   // "/post": "Yazılar",
   "/tools": "Ekipman",
   "/bookmarks": "Feyz",
-  // "/designer": "Tasarımcılar",
 };
 
 export default function Header() {
