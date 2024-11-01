@@ -10,6 +10,7 @@ import SubTitle from "@/components/subtitle";
 import BookmarkCard from "@/components/bookmark-card";
 import { ReportView } from "@/components/view";
 import { fetchBookmark } from "@/app/bookmarks/action";
+import BookmarkFooter from "@/components/bookmark-footer";
 
 const redis = Redis.fromEnv();
 
@@ -69,7 +70,7 @@ export default async function BookmarkByYear({
         </div>
       </Container>
 
-      <Container className="mt-8 space-y-10 sm:mt-10">
+      <Container size="medium" className="mt-8 sm:mt-10">
         {weekNumbers.map((week) => (
           <div key={week}>
             <SubTitle>
@@ -89,6 +90,10 @@ export default async function BookmarkByYear({
             </div>
           </div>
         ))}
+      </Container>
+
+      <Container className="mt-8 sm:mt-10">
+        <BookmarkFooter />
       </Container>
     </>
   );

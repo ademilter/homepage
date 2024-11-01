@@ -5,11 +5,10 @@ import Container from "@/components/container";
 import BookmarkCard from "@/components/bookmark-card";
 import SubTitle from "@/components/subtitle";
 import { fetchBookmark } from "./action";
-import { useState } from "react";
+import React, { useState } from "react";
 import { QueryResult } from "@upstash/vector";
 
 export default function Bookmark() {
-  // const { count, data, year } = await fetchBookmark(new Date());
   const [query, setQuery] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<QueryResult[]>([]);

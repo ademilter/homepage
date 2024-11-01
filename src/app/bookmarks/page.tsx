@@ -5,6 +5,7 @@ import MetricCard from "@/components/metric-card";
 import BookmarkCard from "@/components/bookmark-card";
 import { ReportView } from "@/components/view";
 import { fetchBookmark } from "@/app/bookmarks/action";
+import BookmarkFooter from "@/components/bookmark-footer";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -37,21 +38,7 @@ export default async function Bookmark() {
       </Container>
 
       <Container className="mt-8 sm:mt-10">
-        <p className="border-t border-dashed border-zinc-200 pt-4">
-          Önceki yıllara ait listeler; <br />
-          {["2021", "2022", "2023", "2024"].reverse().map((year) => (
-            <>
-              <a
-                key={year}
-                href={`/bookmarks/${year}`}
-                className="font-semibold"
-              >
-                {year}
-              </a>
-              {", "}
-            </>
-          ))}
-        </p>
+        <BookmarkFooter />
       </Container>
     </>
   );
