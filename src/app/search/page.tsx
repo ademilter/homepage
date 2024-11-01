@@ -51,11 +51,7 @@ export default function Bookmark() {
           <div className="mt-4">
             {data.map((item) => {
               return (
-                <BookmarkCard
-                  week={false}
-                  key={item.id}
-                  bookmark={item.metadata as ILink}
-                />
+                <BookmarkCard key={item.id} bookmark={item.metadata as ILink} />
               );
             })}
           </div>
