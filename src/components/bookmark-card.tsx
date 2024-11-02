@@ -9,27 +9,35 @@ function BookmarkCard({ bookmark }: { bookmark: ILink; score?: number }) {
   const image = bookmark.media[0]?.link;
 
   return (
-    <article className="mb-4 rounded-xl bg-zinc-100 px-4 py-3 sm:px-6 sm:py-5">
-      {/*{image && <img className="w-44" src={image} alt={bookmark.title} />}*/}
+    <article className="mb-4 flex items-center rounded-xl bg-zinc-100 px-4 py-3 sm:px-6 sm:py-5">
+      {image && (
+        <img
+          className="shring-0 order-1 hidden aspect-[960/576] w-32 rounded-xl object-cover sm:block"
+          src={image}
+          alt={bookmark.title}
+        />
+      )}
 
-      <h3 className="line-clamp-1 font-semibold">
-        <a href={bookmark.link} className={cx("visited:text-mute")}>
-          {bookmark.title}
-        </a>
-      </h3>
+      <div className="grow">
+        <h3 className="line-clamp-1 font-semibold">
+          <a href={bookmark.link} className={cx("visited:text-mute")}>
+            {bookmark.title}
+          </a>
+        </h3>
 
-      {bookmark.note && <p className="text-mute">{bookmark.note}</p>}
+        {bookmark.note && <p className="text-mute">{bookmark.note}</p>}
 
-      <div className="text-mute flex items-center gap-1">
-        <LinkTypeIcon type={bookmark.type} />
-        <span>{bookmark.domain}</span>
-        <span>·</span>
-        <span>
-          {formatDistanceToNowStrict(parseISO(bookmark.created), {
-            addSuffix: true,
-            locale: tr,
-          })}
-        </span>
+        <div className="text-mute flex items-center gap-1">
+          <LinkTypeIcon type={bookmark.type} />
+          <span>{bookmark.domain}</span>
+          <span>·</span>
+          <span>
+            {formatDistanceToNowStrict(parseISO(bookmark.created), {
+              addSuffix: true,
+              locale: tr,
+            })}
+          </span>
+        </div>
       </div>
     </article>
   );

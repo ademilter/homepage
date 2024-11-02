@@ -1,5 +1,9 @@
 "use server";
 
+// This function fetches the last photos from the VSCO account
+// from: img.vsco.co\\u002Faws-us-west-2\\u002F7c1f18\\u002F112676\\u002F670581a76eac2e1889316041\\u002Fvsco_100824.jpg\
+// to: img.vsco.co/7c1f18/112676/670581a76eac2e1889316041/vsco_100824.jpg
+
 export async function lastPhotos(): Promise<string[]> {
   const url = `https://vsco.co/adem/gallery`;
 

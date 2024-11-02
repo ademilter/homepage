@@ -21,7 +21,7 @@ export default function Segmented({
   return (
     <div
       className={cx(
-        "grid grid-cols-3 items-center gap-1 p-px",
+        "grid grid-cols-3 items-center gap-1 p-1",
         "bg-default/10 rounded-xl",
         fullWidth ? "sm:flex" : "sm:inline-flex",
         className,
