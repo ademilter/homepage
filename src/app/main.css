@@ -8,9 +8,13 @@
 }
 
 a {
-  @apply hover:text-primary underline transition hover:decoration-2;
+  @apply hover:text-primary underline decoration-wavy underline-offset-2 transition;
 }
 
 .shadow {
   @apply shadow-[4px_4px_0_#00000010];
+}
+
+::selection {
+  @apply bg-primary text-white shadow;
 }
