@@ -1,47 +1,62 @@
-import Social from "@/components/social";
+import { Social, SocialButton } from "@/components/social";
 import Container from "@/components/container";
+import { SOCIAL } from "@/lib/const";
+import { IconBrandInstagram, IconBrandX } from "@tabler/icons-react";
 
 export default function Index() {
   return (
     <>
-      <Container>
-        <div className="space-y-8">
-          <header>
-            <h1 className="font-semibold">Adem İlter</h1>
-            <h2 className="font-semibold">
-              Product Designer at <a href="https://upstash.com">Upstash</a>
-              <br />
-              Istanbul, TURKEY
-            </h2>
-          </header>
+      <Container className="space-y-8">
+        <header>
+          <h1 className="font-semibold">Adem İlter</h1>
+          <h2 className="font-semibold">
+            Product Designer at <a href="https://upstash.com">Upstash</a>
+            <br />
+            Istanbul, TURKEY
+          </h2>
+        </header>
 
-          <p>
-            Bence en büyük özelliğim;
-            <br /> Üzerinde çalıştığım işlerin her noktasında <b>neden</b>{" "}
-            sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp,
-            kullanışlı ve sade ürünler tasarlayabilmek.
-          </p>
+        <p>
+          Bence en büyük özelliğim;
+          <br /> Üzerinde çalıştığım işlerin her noktasında <b>neden</b>{" "}
+          sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp,
+          kullanışlı ve sade ürünler tasarlayabilmek.
+        </p>
 
-          <p>
-            İşim dışındaki zamanlarda; yeni yerler keşfetmeyi, kamp yapmayı ve
-            fotoğraf çekmeyi çok seviyorum.
-          </p>
+        <p>
+          İşim dışındaki zamanlarda; yeni yerler keşfetmeyi, kamp yapmayı ve
+          fotoğraf çekmeyi çok seviyorum.
+        </p>
 
-          <p>
-            Bu konularda soruların varsa veya kendi ürünün hakkında konuşmak
-            istersen{" "}
-            <a
-              href="https://superpeer.com/adem/-/hey?s=d"
-              target="_blank"
-              className="underline"
-            >
-              müsait günlerime
-            </a>{" "}
-            bakabilirsin.
-          </p>
+        <p>
+          Bu konularda soruların varsa veya kendi ürünün hakkında konuşmak
+          istersen{" "}
+          <a
+            href="https://superpeer.com/adem/-/hey?s=d"
+            target="_blank"
+            className="underline"
+          >
+            müsait günlerime
+          </a>{" "}
+          bakabilirsin.
+        </p>
 
-          <Social />
-        </div>
+        <Social>
+          <SocialButton
+            href={`mailto:${SOCIAL.email}`}
+            className="bg-default w-auto px-4 text-white"
+          >
+            Email
+          </SocialButton>
+
+          <SocialButton href={SOCIAL.instagram}>
+            <IconBrandInstagram stroke={1.5} size={21} />
+          </SocialButton>
+
+          <SocialButton href={SOCIAL.twitter}>
+            <IconBrandX stroke={1.5} size={20} />
+          </SocialButton>
+        </Social>
       </Container>
 
       <Container size="large" className="mt-10 sm:mt-24">
