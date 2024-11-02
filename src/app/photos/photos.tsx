@@ -1,12 +1,6 @@
-function Photo({ url }: { url: string }) {
+export default function Photos({ data }: { data: string[] }) {
   return (
-    <img src={`https://${url}`} alt="" className="rounded-xl sm:rounded-2xl" />
-  );
-}
-
-function Photos({ data }: { data: string[] }) {
-  return (
-    <div className="grid gap-8 sm:grid-cols-2 md:gap-16">
+    <div className="grid items-end gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {data.map((url: any, index) => {
         return <Photo key={index} url={url} />;
       })}
@@ -14,4 +8,10 @@ function Photos({ data }: { data: string[] }) {
   );
 }
 
-export default Photos;
+function Photo({ url }: { url: string }) {
+  return (
+    // <figure className="flex h-full items-center rounded-md bg-white p-4">
+    <img src={`https://${url}`} alt="" className="w-full rounded-2xl" />
+    // </figure>
+  );
+}

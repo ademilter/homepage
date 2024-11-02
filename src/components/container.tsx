@@ -17,7 +17,7 @@ const Container: React.FC<IContainerProps> = ({
   const sizes = {
     default: "",
     medium: "sm:max-w-[80ch]",
-    large: "sm:max-w-[100ch]",
+    large: "sm:max-w-[120ch]",
   };
 
   return React.createElement(

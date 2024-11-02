@@ -11,12 +11,7 @@ function MetricCard({
   prefix?: string;
 }) {
   return (
-    <div
-      className={cx(
-        "px-4 py-3 !no-underline",
-        "border-default/20 rounded-xl border bg-white shadow",
-      )}
-    >
+    <div className={cx("px-4 py-3 !no-underline", "rounded-xl bg-zinc-200")}>
       <h5 className="text-mute">{children}</h5>
       <div className="font-semibold">
         {prefix}

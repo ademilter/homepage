@@ -9,7 +9,7 @@ function BookmarkCard({ bookmark }: { bookmark: ILink; score?: number }) {
   const image = bookmark.media[0]?.link;
 
   return (
-    <article className="mb-4 flex items-center rounded-xl bg-zinc-100 px-4 py-3 sm:px-6 sm:py-5">
+    <article className="mb-4 flex items-center rounded-xl bg-white px-4 py-3 sm:px-6 sm:py-5">
       {image && (
         <img
           className="shring-0 order-1 hidden aspect-[960/576] w-32 rounded-xl object-cover sm:block"
