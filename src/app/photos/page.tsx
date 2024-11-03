@@ -26,7 +26,7 @@ export default async function PhotosPage() {
             <IconBrandInstagram stroke={1.5} size={21} /> Instagram
           </SocialButton>
 
-          <SocialButton href={SOCIAL.twitter} className="w-auto px-4">
+          <SocialButton href={SOCIAL.vsco} className="w-auto px-4">
             <IconBrandVsco stroke={1.5} size={20} /> VSCO
           </SocialButton>
         </Social>
