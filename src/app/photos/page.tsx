@@ -20,14 +20,15 @@ export default async function PhotosPage() {
   return (
     <>
       <Container className="space-y-8">
-        <h1 className="font-semibold">{metadata.description}</h1>
+        <h1 className="font-display text-2xl">{metadata.description}</h1>
+
         <Social>
           <SocialButton href={SOCIAL.instagram} className="w-auto px-4">
-            <IconBrandInstagram stroke={1.5} size={21} /> Instagram
+            <IconBrandInstagram stroke={1.5} size={24} /> Instagram
           </SocialButton>
 
           <SocialButton href={SOCIAL.vsco} className="w-auto px-4">
-            <IconBrandVsco stroke={1.5} size={20} /> VSCO
+            <IconBrandVsco stroke={1.5} size={24} /> VSCO
           </SocialButton>
         </Social>
       </Container>

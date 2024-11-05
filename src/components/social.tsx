@@ -15,7 +15,7 @@ export function SocialButton({
       href={href}
       target={href.startsWith("mailto") ? "_self" : "_blank"}
       className={cx(
-        "inline-flex size-9 items-center justify-center gap-1 px-2",
+        "inline-flex size-10 items-center justify-center gap-1 px-2",
         "bg-default/10 rounded-xl !no-underline",
         "hover:!bg-default hover:!text-white",
         className,

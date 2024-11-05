@@ -27,7 +27,6 @@ export default function Tools() {
     <>
       <Container className="mt-8 sm:mt-10">
         <Segmented
-          fullWidth
           data={categories}
           onChange={setSelectedTab}
           selected={selectedTab}
@@ -37,7 +36,7 @@ export default function Tools() {
         />
       </Container>
 
-      <Container size="medium" className="mt-8 space-y-10 sm:mt-10">
+      <Container className="mt-8 space-y-10 sm:mt-10">
         <div className="grid gap-6">
           {allTools
             .filter((tool: Tool) => {

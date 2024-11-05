@@ -8,8 +8,8 @@ export default function Index() {
     <>
       <Container className="space-y-8">
         <header>
-          <h1 className="font-semibold">Adem İlter</h1>
-          <h2 className="font-semibold">
+          <h1 className="font-display text-2xl font-semibold">Adem İlter</h1>
+          <h2 className="font-display text-mute text-2xl">
             Product Designer at <a href="https://upstash.com">Upstash</a>
             <br />
             Istanbul, TURKEY
@@ -50,11 +50,11 @@ export default function Index() {
           </SocialButton>
 
           <SocialButton href={SOCIAL.instagram}>
-            <IconBrandInstagram stroke={1.5} size={21} />
+            <IconBrandInstagram stroke={1.5} size={24} />
           </SocialButton>
 
           <SocialButton href={SOCIAL.twitter}>
-            <IconBrandX stroke={1.5} size={20} />
+            <IconBrandX stroke={1.5} size={24} />
           </SocialButton>
         </Social>
       </Container>

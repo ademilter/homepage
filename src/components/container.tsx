@@ -3,7 +3,7 @@ import cx from "@/lib/cx";
 
 export interface IContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   as?: string;
-  size?: "default" | "large" | "medium";
+  size?: "default" | "large";
   children: React.ReactNode;
 }
 
@@ -16,7 +16,6 @@ const Container: React.FC<IContainerProps> = ({
 }: IContainerProps) => {
   const sizes = {
     default: "",
-    medium: "sm:max-w-[80ch]",
     large: "sm:max-w-[120ch]",
   };
 

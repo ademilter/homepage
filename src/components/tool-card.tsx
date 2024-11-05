@@ -12,7 +12,7 @@ export default function ToolCard({ tool }: { tool: Tool }) {
 
         <h6 className="text-primary">{definition}</h6>
 
-        <p className="text-mute mt-4 text-sm">{content}</p>
+        <p className="text-mute mt-4">{content}</p>
       </div>
 
       {images && (

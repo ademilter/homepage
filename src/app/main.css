@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-sans: var(--font-default);
+  --font-family-sans: var(--font-sans);
+  --font-family-display: var(--font-display);
   --color-primary: var(--color-sky-500);
   --color-default: var(--color-zinc-800);
   --color-mute: var(--color-zinc-500);
 }
 
 a {
-  @apply hover:text-primary underline decoration-wavy underline-offset-2 transition;
+  @apply hover:text-primary underline decoration-mute hover:decoration-primary decoration-wavy underline-offset-2 transition;
 }
 
 .shadow {

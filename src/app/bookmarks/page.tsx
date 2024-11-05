@@ -21,7 +21,7 @@ export default async function Bookmark() {
   return (
     <>
       <Container>
-        <h1 className="font-semibold">{metadata.description}</h1>
+        <h1 className="font-display text-2xl">{metadata.description}</h1>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:gap-6">
           <MetricCard data={count}>Link</MetricCard>
@@ -31,10 +31,12 @@ export default async function Bookmark() {
         </div>
       </Container>
 
-      <Container size="medium" className="mt-8 sm:mt-10">
-        {data.slice(0, 8).map((item: ILink) => {
-          return <BookmarkCard key={item._id} bookmark={item} />;
-        })}
+      <Container className="mt-8 sm:mt-10">
+        <div className="grid gap-6">
+          {data.slice(0, 8).map((item: ILink) => {
+            return <BookmarkCard key={item._id} bookmark={item} />;
+          })}
+        </div>
       </Container>
 
       <Container className="mt-8 sm:mt-10">

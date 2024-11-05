@@ -58,7 +58,7 @@ export default async function BookmarkByYear({
   return (
     <>
       <Container>
-        <h1>{metadata.description}</h1>
+        <h1 className="font-display text-2xl">{metadata.description}</h1>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 sm:gap-6">
           <MetricCard data={formatter.format(data.length)}>
@@ -70,7 +70,7 @@ export default async function BookmarkByYear({
         </div>
       </Container>
 
-      <Container size="medium" className="mt-8 sm:mt-10">
+      <Container className="mt-8 sm:mt-10">
         {weekNumbers.map((week) => (
           <div key={week}>
             <SubTitle>
