@@ -59,7 +59,7 @@ export default function Header() {
           </button>
         )}
 
-        <hr className="mt-4 border-0 border-b border-dashed border-zinc-300" />
+        <hr className="mt-4 border-0 border-b border-zinc-200" />
       </Container>
     </header>
   );

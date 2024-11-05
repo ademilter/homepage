@@ -38,7 +38,7 @@ export default function Tools() {
       </Container>
 
       <Container size="medium" className="mt-8 space-y-10 sm:mt-10">
-        <div className="grid">
+        <div className="grid gap-6">
           {allTools
             .filter((tool: Tool) => {
               return tool.category && tool.category.includes(selectedTab || "");

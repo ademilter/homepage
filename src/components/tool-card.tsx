@@ -4,14 +4,15 @@ export default function ToolCard({ tool }: { tool: Tool }) {
   const { images, brand, name, definition, content } = tool;
 
   return (
-    <article className="mb-4 flex items-start gap-6 rounded-xl bg-white px-4 py-3 sm:px-6 sm:py-5">
+    <article className="flex items-center gap-6 rounded-xl bg-white px-4 py-3 shadow-sm sm:px-8 sm:py-6">
       <div className="grow">
-        <h6 className="text-mute block">{definition}</h6>
-        <h3 className="mt-1 font-semibold">
+        <h3 className="font-semibold">
           {brand} {name}
         </h3>
 
-        <p className="text-mute">{content}</p>
+        <h6 className="text-primary">{definition}</h6>
+
+        <p className="text-mute mt-4 text-sm">{content}</p>
       </div>
 
       {images && (
