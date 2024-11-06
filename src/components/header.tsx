@@ -58,8 +58,6 @@ export default function Header() {
             <IconSelector stroke={2} size={16} className="opacity-60" />
           </button>
         )}
-
-        <hr className="mt-4 border-0 border-b border-zinc-200" />
       </Container>
     </header>
   );

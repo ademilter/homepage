@@ -25,7 +25,7 @@ export default function Index() {
 
         <p>
           İşim dışındaki zamanlarda; yeni yerler keşfetmeyi, kamp yapmayı ve
-          fotoğraf çekmeyi çok seviyorum.
+          fotoğraf çekmeyi seviyorum.
         </p>
 
         <p>
