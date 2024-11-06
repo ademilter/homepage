@@ -70,14 +70,14 @@ export default async function BookmarkByYear({
         </div>
       </Container>
 
-      <Container className="mt-8 sm:mt-10">
+      <Container className="mt-8 space-y-8 sm:mt-10">
         {weekNumbers.map((week) => (
           <div key={week}>
             <SubTitle>
               {week}. Hafta, {year}
             </SubTitle>
 
-            <div className="mt-4">
+            <div className="mt-4 grid gap-6">
               {dataGroupByWeekNumber[week].map((item: ILink) => {
                 return (
                   <BookmarkCard
