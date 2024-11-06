@@ -1,9 +1,1 @@
-Bu web sitesi Nextjs üzerine inşa edilmiştir.
-
-```bash
-npm i
-```
-
-```bash
-npm dev
-```
+Bu web sitesi Next.js Ã¼zerine inÅa edilmiÅtir.
