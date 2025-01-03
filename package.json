@@ -24,7 +24,7 @@
     "date-fns": "^2.30.0",
     "framer-motion": "^11.11.10",
     "lodash": "^4.17.21",
-    "next": "^15.0.2",
+    "next": "^15.1.2",
     "next-contentlayer": "^0.3.4",
     "react": "19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
