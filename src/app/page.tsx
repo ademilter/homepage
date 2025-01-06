@@ -8,8 +8,10 @@ export default function Index() {
     <>
       <Container className="space-y-8">
         <header>
-          <h1 className="font-display text-2xl font-semibold">Adem İlter</h1>
-          <h2 className="font-display text-mute text-2xl">
+          <h1 className="font-display text-2xl font-semibold md:text-3xl">
+            Adem İlter
+          </h1>
+          <h2 className="font-display text-mute text-2xl md:text-3xl">
             Product Designer at <a href="https://upstash.com">Upstash</a>
             <br />
             Istanbul, TURKEY
@@ -18,9 +20,9 @@ export default function Index() {
 
         <p>
           Bence en büyük özelliğim;
-          <br /> Üzerinde çalıştığım işlerin her noktasında <b>neden</b>{" "}
-          sorusunu onlarca kez sorup, gereksiz kalabalıktan soyutlayıp,
-          kullanışlı ve sade ürünler tasarlayabilmek.
+          <br /> Üzerinde çalıştığım işlerin her noktasında neden sorusunu
+          onlarca kez sorup, gereksiz kalabalıktan soyutlayıp, kullanışlı ve
+          sade ürünler tasarlayabilmek.
         </p>
 
         <p>
@@ -28,34 +30,10 @@ export default function Index() {
           fotoğraf çekmeyi seviyorum.
         </p>
 
-        <p>
-          Bu konularda soruların varsa veya kendi ürünün hakkında konuşmak
-          istersen{" "}
-          <a
-            href="https://superpeer.com/adem/-/hey?s=d"
-            target="_blank"
-            className="underline"
-          >
-            müsait günlerime
-          </a>{" "}
-          bakabilirsin.
-        </p>
-
         <Social>
-          <SocialButton
-            href={`mailto:${SOCIAL.email}`}
-            className="bg-default w-auto px-4 text-white"
-          >
-            Email
-          </SocialButton>
-
-          <SocialButton href={SOCIAL.instagram}>
-            <IconBrandInstagram stroke={1.5} size={24} />
-          </SocialButton>
-
-          <SocialButton href={SOCIAL.twitter}>
-            <IconBrandX stroke={1.5} size={24} />
-          </SocialButton>
+          <SocialButton href={`mailto:${SOCIAL.email}`}>Email</SocialButton>,{" "}
+          <SocialButton href={SOCIAL.instagram}>Instagram</SocialButton>,{" "}
+          <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>
         </Social>
       </Container>
 

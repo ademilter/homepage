@@ -4,19 +4,21 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 
-  --color-primary: var(--color-sky-500);
+  --color-primary: var(--color-blue-600);
   --color-default: var(--color-zinc-800);
-  --color-mute: var(--color-zinc-500);
+  --color-mute: var(--color-zinc-400);
 }
 
 a {
-  @apply hover:text-primary underline decoration-mute hover:decoration-primary decoration-wavy underline-offset-2 transition;
+  @apply hover:text-primary underline transition underline-offset-2;
 }
 
+/*
 .shadow {
   @apply shadow-[4px_4px_0_#00000010];
-}
+}*/
 
+/*
 ::selection {
   @apply bg-primary text-white shadow;
-}
+}*/

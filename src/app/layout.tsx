@@ -25,11 +25,7 @@ export const metadata: Metadata = {
     default: "Adem ilter",
     template: `%s | Adem ilter`,
   },
-  description: "Product designer, developer and photographer.",
-  icons: {
-    icon: "/icons/icon-android-chrome-192x192.png",
-    apple: "/icons/icon-apple-touch-icon.png",
-  },
+  description: "Product Designer",
 };
 
 export default function RootLayout({
@@ -42,8 +38,8 @@ export default function RootLayout({
       lang="tr"
       className={cx("scroll-smooth", fontText.variable, fontDisplay.variable)}
     >
-      <body className="text-default min-h-screen bg-zinc-100 pb-24 text-sm antialiased sm:text-base">
-        <Header />
+      <body className="text-default min-h-screen bg-zinc-100 pb-24 antialiased">
+        {/*<Header />*/}
         <main className="mt-10 sm:mt-16">{children}</main>
       </body>
     </html>
