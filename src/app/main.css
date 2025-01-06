@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-sans: var(--font-sans);
-  --font-family-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
   --color-primary: var(--color-sky-500);
   --color-default: var(--color-zinc-800);
   --color-mute: var(--color-zinc-500);
