@@ -32,8 +32,13 @@ export default class Raindrop {
     };
 
     let url = this.buildUrlWithParams(a);
+
+    console.log(url)
     const response = await this.getHttpDataFromUrl(url);
     const data: Result = await response.json();
+
+
+    console.log(data)
 
     if (data.items.length === a.perPage) {
       a.page = a.page + 1;
@@ -44,12 +49,12 @@ export default class Raindrop {
   }
 
   private getHttpDataFromUrl(url: URL) {
+    console.log(`Bearer ${this.TOKEN}`)
     return fetch(url.toString(), {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${this.TOKEN}`,
-      },
-      next: { revalidate: 3600 },
+      }
     });
   }
 
