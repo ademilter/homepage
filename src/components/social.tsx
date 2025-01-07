@@ -14,12 +14,7 @@ export function SocialButton({
     <a
       href={href}
       target={href.startsWith("mailto") ? "_self" : "_blank"}
-      className={cx(
-        // "inline-flex size-10 items-center justify-center gap-1 px-2",
-        // "bg-default/10 rounded-full !no-underline",
-        // "hover:!bg-default hover:!text-white",
-        className,
-      )}
+      className={cx(className)}
     >
       {children}
     </a>
@@ -27,5 +22,5 @@ export function SocialButton({
 }
 
 export function Social({ children }: { children?: React.ReactNode }) {
-  return <div className="">{children}</div>;
+  return <div className="flex flex-wrap gap-2">{children}</div>;
 }

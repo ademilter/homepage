@@ -36,8 +36,8 @@ export default function RootLayout({
       lang="tr"
       className={cx("scroll-smooth", fontText.variable, fontDisplay.variable)}
     >
-      <body className="text-default min-h-screen bg-zinc-100 pb-24 antialiased">
-        <main className="mt-10 sm:mt-16">{children}</main>
+      <body className="bg-zinc-100 py-24 antialiased">
+        <main>{children}</main>
       </body>
     </html>
   );

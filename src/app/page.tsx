@@ -7,32 +7,27 @@ export default function Index() {
     <>
       <Container className="space-y-8">
         <header>
-          <h1 className="font-display text-2xl font-semibold md:text-3xl">
-            Adem İlter
-          </h1>
-          <h2 className="font-display text-mute text-2xl md:text-3xl">
+          <h1 className="font-display text-2xl font-semibold">Adem İlter</h1>
+          <h2 className="font-display text-mute text-2xl">
             Product Designer at <a href="https://upstash.com">Upstash</a>
-            <br />
-            Istanbul, TURKEY
           </h2>
         </header>
 
         <p>
-          Bence en büyük özelliğim;
-          <br /> Üzerinde çalıştığım işlerin her noktasında neden sorusunu
-          onlarca kez sorup, gereksiz kalabalıktan soyutlayıp, kullanışlı ve
-          sade ürünler tasarlayabilmek.
+          Bence en iyi özelliğim; üzerinde çalıştığım işlerin her noktasında
+          "neden?" sorusunu defalarca kez sorup, gereksiz kalabalıktan
+          soyutlayıp, kullanışlı ve sade ürünler tasarlayabilmem.
         </p>
 
         <p>
-          İşim dışındaki zamanlarda; yeni yerler keşfetmeyi, kamp yapmayı ve
-          fotoğraf çekmeyi seviyorum.
+          İş dışında; kamp yapmayı, fotoğraf çekmeyi ve 3D baskı ile bir şeyler
+          icat etmeyi seviyorum.
         </p>
 
         <Social>
-          <SocialButton href={`mailto:${SOCIAL.email}`}>Email</SocialButton>,{" "}
-          <SocialButton href={SOCIAL.instagram}>Instagram</SocialButton>,{" "}
-          <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>,{" "}
+          <SocialButton href={`mailto:${SOCIAL.email}`}>Email</SocialButton>
+          <SocialButton href={SOCIAL.instagram}>Instagram</SocialButton>
+          <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>
           <SocialButton href={SOCIAL.raindrop}>Bookmarks</SocialButton>
         </Social>
       </Container>

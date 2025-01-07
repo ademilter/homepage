@@ -10,7 +10,7 @@
 }
 
 a {
-  @apply hover:text-primary underline underline-offset-2 transition;
+  @apply hover:text-primary underline decoration-2 decoration-zinc-300 underline-offset-2 transition;
 }
 
 /*
