@@ -5,5 +5,5 @@ export const SOCIAL = {
   twitter: "https://twitter.com/ademilter",
   github: "https://github.com/ademilter",
   youtube: "https://youtube.com/ademilter",
-  raindrop: "https://raindrop.io/ademilter",
+  raindrop: "https://raindrop.io/adem",
 };
