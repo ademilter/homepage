@@ -1,9 +1,7 @@
 import "./main.css";
-import "@upstash/claps/style.css";
 
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
-import Header from "@/components/header";
 import cx from "@/lib/cx";
 
 const fontText = Inter({
@@ -39,7 +37,6 @@ export default function RootLayout({
       className={cx("scroll-smooth", fontText.variable, fontDisplay.variable)}
     >
       <body className="text-default min-h-screen bg-zinc-100 pb-24 antialiased">
-        {/*<Header />*/}
         <main className="mt-10 sm:mt-16">{children}</main>
       </body>
     </html>

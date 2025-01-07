@@ -10,7 +10,7 @@
 }
 
 a {
-  @apply hover:text-primary underline transition underline-offset-2;
+  @apply hover:text-primary underline underline-offset-2 transition;
 }
 
 /*

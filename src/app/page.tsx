@@ -1,7 +1,6 @@
 import { Social, SocialButton } from "@/components/social";
 import Container from "@/components/container";
 import { SOCIAL } from "@/lib/const";
-import { IconBrandInstagram, IconBrandX } from "@tabler/icons-react";
 
 export default function Index() {
   return (
@@ -33,7 +32,8 @@ export default function Index() {
         <Social>
           <SocialButton href={`mailto:${SOCIAL.email}`}>Email</SocialButton>,{" "}
           <SocialButton href={SOCIAL.instagram}>Instagram</SocialButton>,{" "}
-          <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>
+          <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>,{" "}
+          <SocialButton href={SOCIAL.raindrop}>Bookmarks</SocialButton>
         </Social>
       </Container>
 

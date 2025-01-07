@@ -8,7 +8,11 @@
     },
     {
       "source": "/feyz",
-      "destination": "/bookmarks"
+      "destination": "https://raindrop.io/ademilter"
+    },
+    {
+      "source": "/bookmark",
+      "destination": "https://raindrop.io/ademilter"
     }
   ]
 }
