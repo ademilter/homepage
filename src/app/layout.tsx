@@ -32,11 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="tr"
-      className={cx("scroll-smooth", fontText.variable, fontDisplay.variable)}
-    >
-      <body className="bg-zinc-100 py-24 antialiased">
+    <html lang="tr" className={cx(fontText.variable, fontDisplay.variable)}>
+      <body className="bg-zinc-50 py-24 text-zinc-700">
         <main>{children}</main>
       </body>
     </html>

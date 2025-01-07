@@ -3,22 +3,22 @@
 @theme {
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
-
-  --color-primary: var(--color-blue-600);
-  --color-default: var(--color-zinc-800);
+  --color-primary: var(--color-orange-500);
   --color-mute: var(--color-zinc-400);
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply antialiased;
 }
 
 a {
   @apply hover:text-primary underline decoration-2 decoration-zinc-300 underline-offset-2 transition;
 }
 
-/*
-.shadow {
-  @apply shadow-[4px_4px_0_#00000010];
-}*/
-
-/*
-::selection {
-  @apply bg-primary text-white shadow;
-}*/
+h1, h2, p {
+  @apply text-balance;
+}

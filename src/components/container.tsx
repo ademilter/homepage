@@ -15,14 +15,14 @@ const Container: React.FC<IContainerProps> = ({
   ...props
 }: IContainerProps) => {
   const sizes = {
-    default: "",
+    default: "sm:max-w-[60ch]",
     large: "sm:max-w-[120ch]",
   };
 
   return React.createElement(
     as,
     {
-      className: cx("sm:max-w-[65ch] mx-auto px-6", sizes[size], className),
+      className: cx("mx-auto px-6", sizes[size], className),
       ...props,
     },
     children,
