@@ -14,18 +14,18 @@ export default function Index() {
         </header>
 
         <p>
-          Bence en iyi özelliğim; üzerinde çalıştığım işlerin her noktasında
-          "neden?" sorusunu defalarca kez sorup, gereksiz kalabalıktan
-          soyutlayıp, kullanışlı ve sade ürünler tasarlayabilmem.
+          I believe my greatest strength is my ability to repeatedly ask “why?”
+          at every stage of the projects I work on, stripping away unnecessary
+          clutter and designing functional and simple products.
         </p>
 
         <p>
-          İş dışında; kamp yapmayı, fotoğraf çekmeyi ve 3D baskı ile bir şeyler
-          icat etmeyi seviyorum.
+          Outside of work, I enjoy camping, photography, and inventing things
+          using 3D printing.
         </p>
 
         <Social>
-          <SocialButton href={`mailto:${SOCIAL.email}`}>Email</SocialButton>
+          <SocialButton href={`mailto:${SOCIAL.email}`}>Mail</SocialButton>
           <SocialButton href={SOCIAL.instagram}>Instagram</SocialButton>
           <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>
           <SocialButton href={SOCIAL.raindrop}>Bookmarks</SocialButton>
