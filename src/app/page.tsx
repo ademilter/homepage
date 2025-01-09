@@ -7,8 +7,8 @@ export default function Index() {
     <>
       <Container className="space-y-8">
         <header>
-          <h1 className="font-display text-2xl font-semibold">Adem İlter</h1>
-          <h2 className="font-display text-mute text-2xl">
+          <h1 className="font-display text-4xl font-semibold">Adem ilter</h1>
+          <h2 className="font-display text-mute text-4xl">
             Product Designer at <a href="https://upstash.com">Upstash</a>
           </h2>
         </header>

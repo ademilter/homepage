@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={cx(fontText.variable, fontDisplay.variable)}>
-      <body className="bg-zinc-50 py-24 text-zinc-700">
+      <body className="bg-zinc-50 py-24 text-xl text-zinc-700">
         <main>{children}</main>
       </body>
     </html>
