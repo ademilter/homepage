@@ -9,7 +9,7 @@ export default function Index() {
         <header>
           <h1 className="font-display text-4xl font-semibold">Adem ilter</h1>
           <h2 className="font-display text-mute text-4xl">
-            Dijital Ürün Tasarımcı @<a href="https://upstash.com">Upstash</a>
+            Dijital Ürün Tasarımcı <a href="https://upstash.com">Upstash</a>
           </h2>
         </header>
 
