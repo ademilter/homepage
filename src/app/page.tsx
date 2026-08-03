@@ -27,8 +27,6 @@ export default function Index() {
         <Social>
           <SocialButton href={`mailto:${SOCIAL.email}`}>Mail</SocialButton>
           <SocialButton href={SOCIAL.instagram}>Instagram</SocialButton>
-          <SocialButton href={SOCIAL.twitter}>Twitter</SocialButton>
-          <SocialButton href={SOCIAL.raindrop}>Bookmarks</SocialButton>
         </Social>
       </Container>
 
