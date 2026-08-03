@@ -9,19 +9,19 @@ export default function Index() {
         <header>
           <h1 className="font-display text-4xl font-semibold">Adem ilter</h1>
           <h2 className="font-display text-mute text-4xl">
-            Product Designer at <a href="https://upstash.com">Upstash</a>
+            Dijital Ürün Tasarımcı @<a href="https://upstash.com">Upstash</a>
           </h2>
         </header>
 
         <p>
-          I believe my greatest strength is my ability to repeatedly ask “why?”
-          at every stage of the projects I work on, stripping away unnecessary
-          clutter and designing functional and simple products.
+          Bana göre en büyük gücüm, çalıştığım projelerin her aşamasında bıkmadan 'neden?' diye sorabilmek; 
+          böylece karmaşadan arındırıp geriye sade, işlevsel çözümler bırakmak olduğuna inanıyorum.
         </p>
 
         <p>
-          Outside of work, I enjoy camping, photography, and inventing things
-          using 3D printing.
+          Zihnimi ve işlerimi sadeleştiren bu yaklaşımı günlük hayatımda da sürdürüyorum:
+          Son zamanlarda tüm merakımı marangozluğa ve ahşabın dünyasını keşfetmeye verdim.
+          Doğada vakit geçirmeyi, dağları izlemeyi ve en çok da ailemle birlikte an biriktirmeyi seviyorum.
         </p>
 
         <Social>
