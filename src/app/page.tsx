@@ -14,13 +14,12 @@ export default function Index() {
         </header>
 
         <p>
-          Bana göre en büyük gücüm, çalıştığım projelerin her aşamasında bıkmadan 'neden?' diye sorabilmek; 
-          böylece karmaşadan arındırıp geriye sade, işlevsel çözümler bırakmak olduğuna inanıyorum.
+          Bana göre en büyük gücüm, çalıştığım projelerin her aşamasında bıkmadan "neden?" 
+          diye sorabilmek; böylece karmaşadan arındırıp geriye sade ve işlevsel çözümler bırakabilmek.
         </p>
 
         <p>
-          Zihnimi ve işlerimi sadeleştiren bu yaklaşımı günlük hayatımda da sürdürüyorum:
-          Son zamanlarda tüm merakımı marangozluğa ve ahşabın dünyasını keşfetmeye verdim.
+          Son zamanlarda tüm merakımı marangozluğa ve ahşabın dünyasını keşfetmeye verdim. 
           Doğada vakit geçirmeyi, dağları izlemeyi ve en çok da ailemle birlikte an biriktirmeyi seviyorum.
         </p>
 
