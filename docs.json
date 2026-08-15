@@ -10,9 +10,9 @@
   "navigation": {
     "groups": [
       {
-        "group": "Title",
+        "group": "Overview",
         "pages": [
-          "test"
+          "overview"
         ]
       }
     ]
