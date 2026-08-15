@@ -1,0 +1,31 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Adem ilter",
+  "description": "test",
+  "colors": {
+    "primary": "#f50",
+    "light": "#3ad",
+    "dark": "#ade"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Title",
+        "pages": [
+          "test"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "href": "https://ademilter.com"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/ademilter"
+      }
+    ]
+  }
+}
