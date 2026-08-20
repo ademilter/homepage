@@ -1,6 +1,7 @@
 import "./main.css";
 
 import type { Metadata } from "next";
+import Script from 'next/script'
 import { Inter, Inter_Tight } from "next/font/google";
 import cx from "@/lib/cx";
 
