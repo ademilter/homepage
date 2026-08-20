@@ -33,6 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className={cx(fontText.variable, fontDisplay.variable)}>
+      <head>
+        <Script
+          src="https://context7app-git-ctx7-2014-context7-ask-lets-a-si-a830a8-upstash.vercel.app/api/v2/ask/script?siteKey=ask_30b86d085fcdb9c239386615"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="bg-zinc-50 py-24 text-xl text-zinc-700">
         <main>{children}</main>
       </body>
